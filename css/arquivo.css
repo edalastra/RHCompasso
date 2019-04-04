@@ -1,0 +1,90 @@
+/* Latest compiled and minified CSS included as External Resource*/
+
+/* Optional theme */
+
+/*@import url('//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css');*/
+.stepwizard-row {
+    display: table-row;
+}
+
+.stepwizard-row1 {
+    display: table-row;
+}
+
+.stepwizard {
+    display: table;
+    width: 100%;
+    position: relative;
+}
+.stepwizard-step button[disabled] {
+    opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
+}
+.stepwizard .btn.disabled, .stepwizard .btn[disabled], .stepwizard fieldset[disabled] .btn {
+    opacity:1 !important;
+    color:rgba(97, 141, 211, 0.801);
+}
+.stepwizard-row:before {
+    top: 2.4em;
+    bottom: 0;
+    position: absolute;
+    content:"  ";
+    width: 1870px;
+    height: 2px;
+    background-color: rgb(69, 131, 231);
+    z-index: 0;
+}
+
+.stepwizard-row1:before {
+    top: 2.4em;
+    bottom: 0;
+    position: absolute;
+    content:"  ";
+    width: 1250px;
+    height: 2px;
+    background-color: rgb(69, 131, 231);
+    z-index: 0;
+}
+
+.stepwizard-step {
+    display: table-cell;
+    text-align: center;
+    position: relative;
+}
+.btn-circle {
+    width: 5em;
+    height: 5em;
+    text-align: center;
+    padding: 1.7em;
+    font-size: 1em;
+    line-height: 1.428571429;
+    border-radius: 100%;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: rgb(39, 99, 196);
+    border-color: rgb(39, 99, 196);
+}
+.btn-circle:focus,
+btn-circle.focus{
+    color: white;
+    background-color: #06457c;
+    border-color: rgb(39, 99, 196);
+}
+
+.btn-success:hover {
+    color: #fff;
+    background-color: rgb(16, 75, 172);
+    border-color: rgb(39, 99, 196);
+}
+.btn-success.active.focus, .btn-success.active:focus, .btn-success.active:hover, .btn-success:active.focus, .btn-success:active:focus, .btn-success:active:hover, .open>.dropdown-toggle.btn-success.focus, .open>.dropdown-toggle.btn-success:focus, .open>.dropdown-toggle.btn-success:hover {
+    color: #fff;
+    background-color: #075597;
+    border-color: rgb(39, 99, 196);
+}
+.btn-success.active, .btn-success:active, .open>.dropdown-toggle.btn-success {
+    color: #fff;
+    background-color: #075597;
+    border-color: rgb(39, 99, 196);
+}
