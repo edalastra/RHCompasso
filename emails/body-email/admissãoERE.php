@@ -214,7 +214,7 @@
   <p id='tamanho2'><a id='cor'>@férias:</a> agendamento e cancelamento de férias.</p>
   <p id='tamanho2'><a id='cor'>@folha:</a> Assuntos sobre folha de pagamento, comprovante auxílio creche, horas extras, contracheque, dissídio, licenças, ajustes/reajustes/transferências</p>
   <p id='tamanho2'><a id='cor'>@jornadas:</a> Análise de jornadas, ponto eletrônico, registro de atividades, atestados/ausências/folgas, sobreaviso.</p>
-  <p id='tamanho'><a href=”http://www.compasso.com.br/interno/backoffice.jpg”>http://www.compasso.com.br/interno/backoffice.jpg</a></p>
+  <p id='tamanho'><a href='http://www.compasso.com.br/interno/backoffice.jpg'>http://www.compasso.com.br/interno/backoffice.jpg</a></p>
 
 </footer>
 ";

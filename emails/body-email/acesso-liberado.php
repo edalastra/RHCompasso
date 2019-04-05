@@ -6,7 +6,7 @@ $nome = buscaFuncionarios($conn, $id);
 $funcionario = buscaFuncionarios($conn, $id);
 $dados = buscainterno($conn, $id);
 $email = buscasuporte($conn, $id);
-
+// $email2 = $nome['EMAIL'];
 ?>
 <!DOCTYPE html>
 
@@ -151,9 +151,9 @@ document.getElementById("foo").addEventListener("click", function () {
 <p><?php echo $body;?></p>
 
 <form action="../enviaEmails.php" method="post">
-  <input type="hidden" name="id" value="<?php $id ?>">
-  <input type="hidden" name="nome" value="<?php $nome ?>">
-  <input type="hidden" name="email" value="<?php $email ?>">
+  <input type="hidden" name="id" value="<?=$id; ?>">
+  <input type="hidden" name="nome" value="<?=$nome['NOME']; ?>">
+  <input type="hidden" name="email" value="<?=$email; ?>">
   <input type="hidden" name="assunto" value="Acesso Liberado - Compasso">
 
   <button type="submit">Enviar</button>
