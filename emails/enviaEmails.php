@@ -33,14 +33,15 @@ function enviaEmail($email_destinatario, $nome_destinatario, $assunto){
   // $mail->AltBody = 'This is a plain-text message body';
   if (!$mail->send()) {
       echo "Erro ao Enviar: " . $mail->ErrorInfo;
-      header('location:../telas/funcionario.php');
+
   } else {
       echo "Mensagem Enviada!";
-
+      header('location:../telas/funcionario.php');
   }
+
 
 }
 
-
+enviaEmail($email_destinatario, $nome_destinatario, $assunto);
 
  ?>
