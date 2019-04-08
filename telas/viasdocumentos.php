@@ -275,11 +275,11 @@ $docreceb = buscavias($conn, $id);
                     </tr>
                     <tr>
                         <td class='tb2'>CLT</td>
-                        <td class='tb2'></td>
+                        <td class='tb2'>Colaborador CLT</td>
                     </tr>
                     <tr>
                         <td class='tb2'>CC</td>
-                        <td class='tb2'></td>
+                        <td class='tb2'>Cargo de Confiança</td>
                     </tr>
                     <tr>
                         <td class='tb2'>HO</td>

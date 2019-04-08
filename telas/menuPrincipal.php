@@ -410,7 +410,7 @@ if (isset($_POST['botaoVolta'])) {
                     </tr>
                     <tr>
                         <td class='tb2'>CLT</td>
-                        <td class='tb2'>Celetista</td>
+                        <td class='tb2'>Colaborador CLT</td>
                     </tr>
                     <tr>
                         <td class='tb2'>CC</td>
