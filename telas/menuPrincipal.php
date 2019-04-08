@@ -2,6 +2,7 @@
 session_start();
 
 include("../db/conexao.php");
+include("../update.php");
 
 //if ($_GET['botaoLimpar']=='Limpar') {
 if (isset($_POST['botaoVolta'])) {
@@ -78,6 +79,7 @@ if (isset($_POST['botaoVolta'])) {
 
 //$resultado = mysqli_query($conn, "SELECT * FROM teste");
 // $usuarios = mysql_fetch_assoc($resultado);
+$listar = listar($conn);
 ?>
 <!DOCTYPE html>
 <html lang="pt">
@@ -132,13 +134,11 @@ if (isset($_POST['botaoVolta'])) {
                             <label for="sede">Sede</label>
                             <select id="sede" name="sede" class="form-control campo-filter">
                                 <option value="" selected="selected"></option>
-                                <option value="1">CWB</option>
-                                <option value="2">ERE</option>
-                                <option value="3">PF</option>
-                                <option value="4">POA</option>
-                                <option value="5">RG</option>
-                                <option value="6">SP</option>
-                                <option value="7">FLN</option>
+                                <?php foreach ($listar as $linha):?>
+    
+                        <option value="<?= $linha['SEDE_ID']?>"><?php echo $linha['NOME_SEDE']?></option>
+
+                        <?php endforeach ?>
                             </select>
                         </div>
                         <div>
@@ -305,7 +305,18 @@ if (isset($_POST['botaoVolta'])) {
                 <tr>
                         <form id='form-add' method="POST" action="../salva.php">
                             <td>Nova Admissão</td>
-                            <td><select id="add-sede" name='sede' class="selectadd intable" required><option value="" selected="selected"></option><option value="1">CWB</option><option value="2">ERE</option><option value="3">PF</option><option value="4">POA</option><option value="5">RG</option><option value="6">SP</option><option value="7">FLN</option></select></td>
+                            <td>
+                            <select id="add-sede" name='sede' class="selectadd intable" required>
+                            <option value="" selected="selected"></option>
+                            
+                            <?php foreach ($listar as $linha):?>
+    
+                            <option value="<?= $linha['SEDE_ID']?>"><?php echo $linha['NOME_SEDE']?></option>
+
+                            <?php endforeach ?>
+
+                            </select>
+                            </td>
                             <td><select id="add-tipo" name='tipo' class="selectadd intable" required><option value="" selected="selected"></option><option value="1">CLT</option><option value="2">CC</option><option value="3">HO</option><option value="4">TEMP</option><option value="5">APDZ</option></select></td>
                             <td><select id="add-captacao" name='captacao' class="selectadd intable" required><option value="" selected="selected"></option><option value="1">Ex-Funcionario</option><option value="2">Ex-Bolsista</option><option value="3">Ex-Estagiario</option><option value="4">Novo</option></select></td>
                             <td id='add-carga_horaria'><input class='intable' type="text" name="carga_horaria" required></td>
@@ -395,13 +406,12 @@ if (isset($_POST['botaoVolta'])) {
                     <tr>
                         <th class='tb2'>SEDE</th>
                     </tr>
-                    <tr><td class='tb2'>CWB</td></tr>
-                    <tr><td class='tb2'>ERE</td></tr>
-                    <tr><td class='tb2'>PF</td></tr>
-                    <tr><td class='tb2'>POA</td></tr>
-                    <tr><td class='tb2'>RG</td></tr>
-                    <tr><td class='tb2'>SP</td></tr>
-                    <tr><td class='tb2'>FLN</td></tr>
+  
+                    <?php foreach ($listar as $linha):?>
+                
+                    <tr><td class="tb2"><?php echo $linha['NOME_SEDE']?></td></tr>
+
+                    <?php endforeach ?>
                 </table>
                 <table class='legendas-tipos'>
                     <tr>

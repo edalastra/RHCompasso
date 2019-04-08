@@ -32,6 +32,7 @@ $agend = buscaexame($conn, $id);
 $envio = buscaexame($conn, $id); 
 $email = buscaexame($conn, $id); 
 $anexar = buscaexame($conn, $id); 
+$listar = listar($conn);
 
 ?>
 
@@ -244,13 +245,12 @@ $anexar = buscaexame($conn, $id);
                     <tr>
                         <th class='tb2'>SEDE</th>
                     </tr>
-                    <tr><td class='tb2'>CWB</td></tr>
-                    <tr><td class='tb2'>ERE</td></tr>
-                    <tr><td class='tb2'>PF</td></tr>
-                    <tr><td class='tb2'>POA</td></tr>
-                    <tr><td class='tb2'>RG</td></tr>
-                    <tr><td class='tb2'>SP</td></tr>
-                    <tr><td class='tb2'>FLN</td></tr>
+  
+                    <?php foreach ($listar as $linha):?>
+                
+                    <tr><td class="tb2"><?php echo $linha['NOME_SEDE']?></td></tr>
+
+                    <?php endforeach ?>
                 </table>
                 <table class='legendas-tipos'>
                     <tr>

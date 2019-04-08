@@ -3,7 +3,7 @@
 ?>
 <?php
 		//listar sedes 
-		function listar($conn, $id){
+		function listar($conn){
 			$query = "SELECT * from sede";
 			$resultado = mysqli_query($conn, $query);
 			return $resultado;
