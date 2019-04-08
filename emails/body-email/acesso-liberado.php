@@ -26,26 +26,26 @@ $email = buscasuporte($conn, $id);
 <body >
 
     <div id="selecionaPagina">
-    <?php 
+    <?php
     $body = "
     <main>
         <h1 class='h1-principal'>Boa tarde, <strong class='sublinhe'>".$funcionario['SOLICITANTE']."</strong></h1>
-		<p>Já estão disponíveis os acessos do novo(a) colaborador(a) <strong class ='sublinhe'>".$nome['NOME']."</strong> que iniciará as suas atividades, na Compasso, em <strong class='sublinhe'><?= $funcionario['DATA_ADMISSAO']?>.</strong>
+		<p>Já estão disponíveis os acessos do novo(a) colaborador(a) <strong class ='sublinhe'>".$nome['NOME']."</strong> que iniciará as suas atividades, na Compasso, em <strong class='sublinhe'>". $funcionario['DATA_ADMISSAO'].".</strong>
         </p>
         <div>
             <h2>KAIROS</h2>
-            <p>Login: <strong class='sublinhe'><".$dados['KAIROS_CADASTRO_USUARIO']."</strong></p>
-            <p>Senha: <strong class='sublinhe'><".$dados['KAIROS_CADASTRO_SENHA']."</strong></p>
+            <p>Login: <strong class='sublinhe'>".$dados['KAIROS_CADASTRO_USUARIO']."</strong></p>
+            <p>Senha: <strong class='sublinhe'>".$dados['KAIROS_CADASTRO_SENHA']."</strong></p>
         </div>
         <div>
             <h2>INTRANET</h2>
-            <p>Login: <strong class='sublinhe'><".$dados['INTRANET_CADASTRO_USUARIO']."</strong></p>
-            <p>Senha: <strong class='sublinhe'><".$dados['INTRANET_CADASTRO_SENHA']."</strong></p>
+            <p>Login: <strong class='sublinhe'>".$dados['INTRANET_CADASTRO_USUARIO']."</strong></p>
+            <p>Senha: <strong class='sublinhe'>".$dados['INTRANET_CADASTRO_SENHA']."</strong></p>
         </div>
         <div>
             <h2>E-MAIL</h2>
-            <p>Login: <strong class='sublinhe'><".$email['EMAIL_SUP']."</strong></p>
-            <p>Senha: <strong class='sublinhe'><".$email['SENHA']."</strong></p>
+            <p>Login: <strong class='sublinhe'>".$email['EMAIL_SUP']."</strong></p>
+            <p>Senha: <strong class='sublinhe'>".$email['SENHA']."</strong></p>
         </div>
         <div class='container'>
             <p>Recomendamos, que no primeiro acesso, sejam realizadas as trocas das senhas</p>
@@ -100,7 +100,7 @@ $email = buscasuporte($conn, $id);
       <div></div>
 
 </footer>
-"
+";
 echo $body;
 ?>
 <script>

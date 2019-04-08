@@ -22,25 +22,28 @@ include('../../db/conexao.php');
 </head>
 <body>
 <div id="selecionaPagina">
+<?php
+
+$body = "
     <main>
-        <h1 class="h1-principal">Suporte</h1>
-		<p id="seg">Seguem as informações para criação de usuário:
+        <h1 class='h1-principal'>Suporte</h1>
+		<p id='seg'>Seguem as informações para criação de usuário:
 		</p>
-        <div class="container" >
-            <table border="1" >
-                <tr id="table">
-                    <th id="camp" >Nome</th>
-                    <th id="camp">Login</th>
-                    <th id="camp">Grupos</th>
-                    <th id="camp">Data de início</th>
-                    <th id="camp">E-mail</th>
+        <div class='container' >
+            <table border='1' >
+                <tr id='table'>
+                    <th id='camp' >Nome</th>
+                    <th id='camp'>Login</th>
+                    <th id='camp'>Grupos</th>
+                    <th id='camp'>Data de início</th>
+                    <th id='camp'>E-mail</th>
                 </tr>
-                <tr id="table01">
-                    <td><Strong class="sublinhe"><?= $nome['NOME']?></Strong></td>
-                    <td><strong class="sublinhe"><?= $dados['INTRANET_CADASTRO_USUARIO']?></strong></td>
+                <tr id='table01'>
+                    <td><Strong class='sublinhe'>".$nome['NOME']."</Strong></td>
+                    <td><strong class='sublinhe'>".$dados['INTRANET_CADASTRO_USUARIO']."</strong></td>
                     <td>Desenvolvimento, Equipe CLT, Interno, Equipe SP<strong>(RH ajusta manual)</strong></td>
-                    <td><strong class="sublinhe"><?= $funcionario['DATA_ADMISSAO']?></strong></td>
-                    <td><strong class="sublinhe"><?= $email['EMAIL_SUP']?></strong></td>
+                    <td><strong class='sublinhe'>". $funcionario['DATA_ADMISSAO']."</strong></td>
+                    <td><strong class='sublinhe'>". $email['EMAIL_SUP']."</strong></td>
                 </tr>
 
             </table>
@@ -50,35 +53,47 @@ include('../../db/conexao.php');
     <footer>
       <table>
     <tr>
-<th>  <img id="img1"src="../img/compasso.jpg" alt="some text" align="left"> </th>
-<th id="info" align="left">
-<div class="txt1"id="align_info">
-<p><a id="cor"> Equipe Contratações</a> </p>
+<th>  <img id='img1'src='../img/compasso.jpg' alt='some text' align='left'> </th>
+<th id='info' align='left'>
+<div class='txt1'id='align_info'>
+<p><a id='cor'> Equipe Contratações</a> </p>
 <p>  Compasso | Navigating Oracle Technologies </p>
 <p> +55 51 21086689 | Porto Alegre (RS) – Brasil </p>
-<p> <a href=”www.compasso.com.br” id="cores">www.compasso.com.br</a> | <a href=”viviane.azevedo@compasso.com.br” id="cores">viviane.azevedo@compasso.com.br</a> </p>
+<p> <a href=”www.compasso.com.br” id='cores'>www.compasso.com.br</a> | <a href=”viviane.azevedo@compasso.com.br” id='cores'>viviane.azevedo@compasso.com.br</a> </p>
 </div>
 </th>
 </tr>
 <tr>
   <td>
-  <div id="align_img">
-  <img id="img2"src="../img/compasso2.jpg" alt="some text">
+  <div id='align_img'>
+  <img id='img2'src='../img/compasso2.jpg' alt='some text'>
   </div>
 </td>
 </tr>
 </table>
-    <div class="txt2">
-      <p id="tamanho">FACILITE A COMUNICAÇÃO ENVIE SEU EMAIL PARA O ALIAS CORRETO </p>
-      <p id="tamanho2"><a id="cor"> @rh:</a> email geral do departamento, referência para o time e rescisões.</p>
-      <p id="tamanho2"><a id="cor">@contratações:</a> concentra as contratações CLT, Estagiários/Bolsistas desde a proposta até a conclusão do processo de admissão/contrato e rescisões.</p>
-      <p id="tamanho2"><a id="cor">@benefícios:</a> Vale transporte, vale refeição e vale alimentação, planos de saúde e planos odontológicos.</p>
-      <p id="tamanho2"><a id="cor">@férias:</a> agendamento e cancelamento de férias.</p>
-      <p id="tamanho2"><a id="cor">@folha:</a> Assuntos sobre folha de pagamento, comprovante auxílio creche, horas extras, contracheque, dissídio, licenças, ajustes/reajustes/transferências</p>
-      <p id="tamanho2"><a id="cor">@jornadas:</a> Análise de jornadas, ponto eletrônico, registro de atividades, atestados/ausências/folgas, sobreaviso.</p>
-      <p id="tamanho"><a href=”http://www.compasso.com.br/interno/backoffice.jpg”>http://www.compasso.com.br/interno/backoffice.jpg</a></p>
+    <div class='txt2'>
+      <p id='tamanho'>FACILITE A COMUNICAÇÃO ENVIE SEU EMAIL PARA O ALIAS CORRETO </p>
+      <p id='tamanho2'><a id='cor'> @rh:</a> email geral do departamento, referência para o time e rescisões.</p>
+      <p id='tamanho2'><a id='cor'>@contratações:</a> concentra as contratações CLT, Estagiários/Bolsistas desde a proposta até a conclusão do processo de admissão/contrato e rescisões.</p>
+      <p id='tamanho2'><a id='cor'>@benefícios:</a> Vale transporte, vale refeição e vale alimentação, planos de saúde e planos odontológicos.</p>
+      <p id='tamanho2'><a id='cor'>@férias:</a> agendamento e cancelamento de férias.</p>
+      <p id='tamanho2'><a id='cor'>@folha:</a> Assuntos sobre folha de pagamento, comprovante auxílio creche, horas extras, contracheque, dissídio, licenças, ajustes/reajustes/transferências</p>
+      <p id='tamanho2'><a id='cor'>@jornadas:</a> Análise de jornadas, ponto eletrônico, registro de atividades, atestados/ausências/folgas, sobreaviso.</p>
+      <p id='tamanho'><a href='http://www.compasso.com.br/interno/backoffice.jpg'>http://www.compasso.com.br/interno/backoffice.jpg</a></p>
 
 </footer>
+";
+echo $body;
+?>
 </div>
+<form action="../enviaEmails.php" method="post">
+  <input type="hidden" name="id" value="<?=$id; ?>">
+  <input type="hidden" name="nome" value="<?=$nome['NOME']; ?>">
+  <input type="hidden" name="email" value="<?=$email['EMAIL_SUP']; ?>">
+  <input type="hidden" name="body" value="<?=$body;?>">
+  <input type="hidden" name="assunto" value="Acesso Liberado - Compasso">
+
+  <button type="submit">Enviar</button>
+</form>
 </body>
 </html>
