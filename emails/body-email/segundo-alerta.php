@@ -5,6 +5,7 @@
     $nome = buscaFuncionarios($conn, $id);
     $data = buscaFuncionarios($conn, $id);
     $funcionario = buscaFuncionarios($conn, $id);
+    $sede = buscaSedeFuncionario($conn, $funcionario["ID_SEDE"]);
 
     $dataN = $data['DATA_ADMISSAO'];
     $dataF = date_create($dataN);
@@ -30,31 +31,33 @@
 </head>
 <body>
 <div id="selecionaPagina">
+<?php
+  $body = "
     <main>
-        <p>Bom dia, <strong class = "sublinhe"><?= $funcionario['SOLICITANTE']?></strong></p>
-		<p>O funcionário(a) abaixo terá sua <strong>2ª fase</strong> do contrato de experiência expirada em <strong class="sublinhe"><?= $NewDate ?>,</strong> conforme tabela abaixo:
+        <p>Bom dia, <strong class = 'sublinhe'>".$funcionario['SOLICITANTE']."</strong></p>
+		<p>O funcionário(a) abaixo terá sua <strong>2ª fase</strong> do contrato de experiência expirada em <strong class='sublinhe'>". $NewDate .",</strong> conforme tabela abaixo:
 		</p>
-        <div class="container">
-            <table border="1">
+        <div class='container'>
+            <table border='1'>
 
-                <tr id="table">
-                    <th id="res">Nome Coloaborador(a)</th>
-                    <th id="res">Empresa/Filial</th>
-                    <th id="res">Cargo</th>
-                    <th id="res">Data Admissão</th>
-                    <th id="res">Vcto.contrato 90dd</th>
+                <tr id='table'>
+                    <th id='res'>Nome Coloaborador(a)</th>
+                    <th id='res'>Empresa/Filial</th>
+                    <th id='res'>Cargo</th>
+                    <th id='res'>Data Admissão</th>
+                    <th id='res'>Vcto.contrato 90dd</th>
                 </tr>
 
-                <tr id="table01">
-                    <td><strong class="sublinhe"><?=$funcionario['NOME']?></strong></td>
-                    <td><strong class="sublinhe"><?=$funcionario['SEDE']?></strong></td>
-                    <td><strong class="sublinhe"><?=$funcionario['CARGO']?></strong></td>
-                    <td><strong class="sublinhe"><?=$funcionario['DATA_ADMISSAO']?></strong></td>
-                    <td><strong class="sublinhe"><?= $NewDate ?></strong></td>
+                <tr id='table01'>
+                    <td><strong class='sublinhe'>".$funcionario['NOME']."</strong></td>
+                    <td><strong class='sublinhe'>".$sede['nome_sede']."</strong></td>
+                    <td><strong class='sublinhe'>".$funcionario['CARGO']."</strong></td>
+                    <td><strong class='sublinhe'>".$funcionario['DATA_ADMISSAO']."</strong></td>
+                    <td><strong class='sublinhe'>". $NewDate ."</strong></td>
                 </tr>
 
             </table>
-                <p>Por gentileza, caso deseje encerrar o contrato de trabalho, dentro do prazo, informar ao RH impreterivelmente até o dia <strong class = "sublinhe"><font color="red"><?= $DataFim ?></font></strong>  para que os documentos de rescisão e pagamento sejam providenciados.</p>
+                <p>Por gentileza, caso deseje encerrar o contrato de trabalho, dentro do prazo, informar ao RH impreterivelmente até o dia <strong class = 'sublinhe'><font color='red'>".$DataFim ."</font></strong>  para que os documentos de rescisão e pagamento sejam providenciados.</p>
                 <p>Caso não sejamos informados, o contrato será renovado por tempo indeterminado e a rescisão por parte da empresa terá a incidência de encargos e indenizações cabíveis.</p>
                 <p>Desde já agradecemos a colaboração.</p>
         </div>
@@ -62,35 +65,47 @@
     <footer>
       <table>
     <tr>
-<th>  <img id="img1"src="../img/compasso.jpg" alt="some text" align="left"> </th>
-<th id="info" align="left">
-<div class="txt1"id="align_info">
-<p><a id="cor0"> Equipe Contratações</a> </p>
+<th>  <img id='img1'src='../img/compasso.jpg' alt='some text' align='left'> </th>
+<th id='info' align='left'>
+<div class='txt1'id='align_info'>
+<p><a id='cor0'> Equipe Contratações</a> </p>
 <p>  Compasso | Navigating Oracle Technologies </p>
 <p> +55 51 21086689 | Porto Alegre (RS) – Brasil </p>
-<p> <a href=”www.compasso.com.br” id="cores">www.compasso.com.br</a> | <a href=”viviane.azevedo@compasso.com.br” id="cores">viviane.azevedo@compasso.com.br</a> </p>
+<p> <a href=”www.compasso.com.br” id='cores'>www.compasso.com.br</a> | <a href=”viviane.azevedo@compasso.com.br” id='cores'>viviane.azevedo@compasso.com.br</a> </p>
 </div>
 </th>
 </tr>
 <tr>
   <td>
-  <div id="align_img">
-  <img id="img2"src="../img/compasso2.jpg" alt="some text">
+  <div id='align_img'>
+  <img id='img2'src='../img/compasso2.jpg' alt='some text'>
   </div>
 </td>
 </tr>
 </table>
-    <div class="txt2">
-      <p id="tamanho">FACILITE A COMUNICAÇÃO ENVIE SEU EMAIL PARA O ALIAS CORRETO </p>
-      <p id="tamanho2"><a id="cor"> @rh:</a> email geral do departamento, referência para o time e rescisões.</p>
-      <p id="tamanho2"><a id="cor">@contratações:</a> concentra as contratações CLT, Estagiários/Bolsistas desde a proposta até a conclusão do processo de admissão/contrato e rescisões.</p>
-      <p id="tamanho2"><a id="cor">@benefícios:</a> Vale transporte, vale refeição e vale alimentação, planos de saúde e planos odontológicos.</p>
-      <p id="tamanho2"><a id="cor">@férias:</a> agendamento e cancelamento de férias.</p>
-      <p id="tamanho2"><a id="cor">@folha:</a> Assuntos sobre folha de pagamento, comprovante auxílio creche, horas extras, contracheque, dissídio, licenças, ajustes/reajustes/transferências</p>
-      <p id="tamanho2"><a id="cor">@jornadas:</a> Análise de jornadas, ponto eletrônico, registro de atividades, atestados/ausências/folgas, sobreaviso.</p>
-      <p id="tamanho"><a href=”http://www.compasso.com.br/interno/backoffice.jpg”>http://www.compasso.com.br/interno/backoffice.jpg</a></p>
+    <div class='txt2'>
+      <p id='tamanho'>FACILITE A COMUNICAÇÃO ENVIE SEU EMAIL PARA O ALIAS CORRETO </p>
+      <p id='tamanho2'><a id='cor'> @rh:</a> email geral do departamento, referência para o time e rescisões.</p>
+      <p id='tamanho2'><a id='cor'>@contratações:</a> concentra as contratações CLT, Estagiários/Bolsistas desde a proposta até a conclusão do processo de admissão/contrato e rescisões.</p>
+      <p id='tamanho2'><a id='cor'>@benefícios:</a> Vale transporte, vale refeição e vale alimentação, planos de saúde e planos odontológicos.</p>
+      <p id='tamanho2'><a id='cor'>@férias:</a> agendamento e cancelamento de férias.</p>
+      <p id='tamanho2'><a id='cor'>@folha:</a> Assuntos sobre folha de pagamento, comprovante auxílio creche, horas extras, contracheque, dissídio, licenças, ajustes/reajustes/transferências</p>
+      <p id='tamanho2'><a id='cor'>@jornadas:</a> Análise de jornadas, ponto eletrônico, registro de atividades, atestados/ausências/folgas, sobreaviso.</p>
+      <p id='tamanho'><a href='http://www.compasso.com.br/interno/backoffice.jpg'>http://www.compasso.com.br/interno/backoffice.jpg</a></p>
 
 </footer>
+";
+echo $body;
+?>
 </div>
+<form action="../enviaEmails.php" method="post">
+  <input type="hidden" name="id" value="<?=$id; ?>">
+  <input type="hidden" name="nome" value="<?=$nome['NOME']; ?>">
+  <input type="hidden" name="email" value="<?=$nome['EMAIL'];; ?>">
+  <input type="hidden" name="body" value="<?=$body;?>">
+  <input type="hidden" name="assunto" value="Acesso Liberado - Compasso">
+
+  <button type="submit">Enviar</button>
+</form>
 </body>
 </html>
