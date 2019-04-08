@@ -2,8 +2,22 @@
 	include("db/conexao.php")
 ?>
 <?php
-		// ################# BUSCA PELA TABELA INICIAL ADMISSAO_DOMINIO ###########################
-	function projeto($conn, $USUARIO_ID, $PROJETO){
+		//listar sedes 
+		function listar($conn, $id){
+			$query = "SELECT * from sede";
+			$resultado = mysqli_query($conn, $query);
+			return $resultado;
+		}
+		//função joao
+		function buscaSedeFuncionario($conn, $id){
+			$query = "SELECT nome_sede from sede where sede_id = '{$id}'";
+			$sede = mysqli_query($conn, $query);
+			return mysqli_fetch_assoc($sede);
+		}
+	
+				// ################# BUSCA PELA TABELA INICIAL ADMISSAO_DOMINIO ###########################
+
+		function projeto($conn, $USUARIO_ID, $PROJETO){
 		$query = "UPDATE admissao_dominio set PROJETO = '{$PROJETO}' where USUARIO_ID = '$USUARIO_ID'";
 		return mysqli_query($conn, $query);
 	}
