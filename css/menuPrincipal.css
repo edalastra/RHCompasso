@@ -287,12 +287,10 @@ h3{
     height: 0em;
 }
 td, th {
-    height: 40px;
 	border: 1.2px solid rgb(39, 99, 196);
     text-align: center;
     white-space: pre-wrap;
     vertical-align: middle;
-
 }
 
 tr:nth-child(even) {background: #FFF}
