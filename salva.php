@@ -36,8 +36,8 @@ require_once("db/conexao.php");
 		if($execQuery == ""){
 			echo("Ocorreu um erro durante a inserção na tabela!!");
 		}else{
-			echo("Dados inseridos com sucesso");
-			header("Location: http://localhost/projeto/projeto/telas/menuPrincipal.php");
+			//echo("Dados inseridos com sucesso");
+			header("Location: http://localhost/RHCompasso/telas/menuPrincipal.php");
 		}
 
 

@@ -34,8 +34,6 @@ $renovacao = buscavencimentos($conn, $id);
 $envio_seg = buscavencimentos($conn, $id);
 $data_venc_seg = buscavencimentos($conn, $id);
 $efetivacao = buscavencimentos($conn, $id);
-$listar = listar($conn);
-
 
 
 
@@ -263,12 +261,13 @@ $listar = listar($conn);
                     <tr>
                         <th class='tb2'>SEDE</th>
                     </tr>
-  
-                    <?php foreach ($listar as $linha):?>
-                
-                    <tr><td class="tb2"><?php echo $linha['NOME_SEDE']?></td></tr>
-
-                    <?php endforeach ?>
+                    <tr><td class='tb2'>CWB</td></tr>
+                    <tr><td class='tb2'>ERE</td></tr>
+                    <tr><td class='tb2'>PF</td></tr>
+                    <tr><td class='tb2'>POA</td></tr>
+                    <tr><td class='tb2'>RG</td></tr>
+                    <tr><td class='tb2'>SP</td></tr>
+                    <tr><td class='tb2'>FLN</td></tr>
                 </table>
                 <table class='legendas-tipos'>
                     <tr>

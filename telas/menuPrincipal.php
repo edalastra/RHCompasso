@@ -4,6 +4,7 @@ session_start();
 include("../db/conexao.php");
 include("../update.php");
 
+$listar = listar($conn);
 //if ($_GET['botaoLimpar']=='Limpar') {
 if (isset($_POST['botaoVolta'])) {
   header('Location: menuprincipal.php');
@@ -14,13 +15,13 @@ if (isset($_POST['botaoVolta'])) {
     if (isset($_POST['botaoVolta'])) {
         header('Location: menuprincipal.php');
       }
-      
-      
+
+
       //if ($_GET['botao']=='Filtrar') {
       if (isset($_POST['botao'])) {
-      
+
               $where = Array();
-      
+
               $status = $_POST['STATUS'];
               $sede = $_POST['sede'];
               $tipo = $_POST['tipo'];
@@ -31,10 +32,10 @@ if (isset($_POST['botaoVolta'])) {
               $data_admissao = $_POST['data_admissao'];
               $vencimento = $_POST['vencimento'];
               $vencimentos = $_POST['vencimentos'];
-      
-      
-      
-      
+
+
+
+
               if( $status ){ $where[] = " `STATUS` = '{$status}'"; }
               if( $sede ){ $where[] = " `ID_SEDE` = '{$sede}'"; }
               if( $tipo ){ $where[] = " `ID_TIPO` = '{$tipo}'"; }
@@ -45,11 +46,11 @@ if (isset($_POST['botaoVolta'])) {
               if( $data_admissao ){ $where[] = " `DATA_ADMISSAO` = '{$data_admissao}'"; }
               if( $vencimento ){ $where[] = " `DATA_VENCIMENTO_PRI` = '{$vencimento}'"; }
               if( $vencimentos ){ $where[] = " `DATA_VENCIMENTO_SEG` = '{$vencimentos}'"; }
-      
-      
+
+
               $sql = "SELECT * ,DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO, DATE_FORMAT(POSICAO_DATA, '%d/%m/%Y') as POSICAO_DATA
-              FROM admissao_dominio as a 
-              LEFT JOIN parametros_captacao as p 
+              FROM admissao_dominio as a
+              LEFT JOIN parametros_captacao as p
               on a.ID_CAPTACAO = p.CAPTACAO_ID
               LEFT JOIN vencimentos as v
               on a.USUARIO_ID = v.ID_USUARIO
@@ -57,16 +58,16 @@ if (isset($_POST['botaoVolta'])) {
               on a.ID_SEDE = s.SEDE_ID
               JOIN tipo as t
               on a.ID_TIPO = t.TIPO_ID";
-              
-      
+
+
               if( sizeof( $where ) )
                   $sql .= ' WHERE '.implode( ' AND ',$where );
                   $resultado = mysqli_query($conn, $sql);
-      
+
       }  else {
       $resultado = mysqli_query($conn, "SELECT * ,DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO, DATE_FORMAT(POSICAO_DATA, '%d/%m/%Y') as POSICAO_DATA
-                                        FROM admissao_dominio as a 
-                                        LEFT JOIN parametros_captacao as p 
+                                        FROM admissao_dominio as a
+                                        LEFT JOIN parametros_captacao as p
                                         on a.ID_CAPTACAO = p.CAPTACAO_ID
                                         JOIN sede as s
                                         on a.ID_SEDE = s.SEDE_ID
@@ -74,12 +75,11 @@ if (isset($_POST['botaoVolta'])) {
                                         on a.ID_TIPO = t.TIPO_ID
                                         where  STATUS <> 'FINALIZADO' && STATUS <> 'RECUSADO' && STATUS <> 'DESISTENCIA'
                                         order by YEAR(DATA_ADMISSAO) ASC, MONTH(DATA_ADMISSAO) ASC, DAY(DATA_ADMISSAO) ASC" );
-      
+
       }
 
 //$resultado = mysqli_query($conn, "SELECT * FROM teste");
 // $usuarios = mysql_fetch_assoc($resultado);
-$listar = listar($conn);
 ?>
 <!DOCTYPE html>
 <html lang="pt">
@@ -133,12 +133,14 @@ $listar = listar($conn);
                         <div>
                             <label for="sede">Sede</label>
                             <select id="sede" name="sede" class="form-control campo-filter">
-                            <option value="" selected="selected"></option>
-                            
-                            <?php foreach ($listar as $linha):?>
-                            <option value="<?= $linha['SEDE_ID']?>"><?php echo $linha['NOME_SEDE']?></option>
-                            <?php endforeach ?>
-                            
+                                <option value="" selected="selected"></option>
+                                <option value="1">CWB</option>
+                                <option value="2">ERE</option>
+                                <option value="3">PF</option>
+                                <option value="4">POA</option>
+                                <option value="5">RG</option>
+                                <option value="6">SP</option>
+                                <option value="7">FLN</option>
                             </select>
                         </div>
                         <div>
@@ -248,8 +250,8 @@ $listar = listar($conn);
                         <th width='60px'>Sede</th>
                         <th width='60px'>Tipo</th>
                         <th width='100px'>Captação</th>
-                        <th width='100px'>Carga Horária</th> 
-                        <th width='150px'>Horário</th> 
+                        <th width='100px'>Carga Horária</th>
+                        <th width='150px'>Horário</th>
                         <th width='200px'>Nome</th>
                         <th width='150px'>Fone</th>
                         <th width='200px'>Cargo</th>
@@ -281,7 +283,7 @@ $listar = listar($conn);
                             <td><?php echo $rows_dados['NOME_PARAMETRO']; ?></td>
                             <td><?php echo $rows_dados['CARGA_HORARIA']; ?></td>
                             <td><?php echo $rows_dados['HORARIO']; ?></td>
-                            <td><?php echo $rows_dados['NOME']; ?></td> 
+                            <td><?php echo $rows_dados['NOME']; ?></td>
                             <td><?php echo $rows_dados['FONE_CONTATO']; ?></td>
 							<td><?php echo $rows_dados['CARGO']; ?></td>
                             <td><?php echo $rows_dados['CONTROLE_DATA_ADMISSAO'];?></td>
@@ -299,19 +301,18 @@ $listar = listar($conn);
                             <td><a title="Proposta de Contratação" href='funcionario.php?id=<?php echo $rows_dados['USUARIO_ID']; ?>'> Ver Detalhes  </td>
                             <td><a title="Editar" href="../alteraTelas/altera-form.php?id=<?=$rows_dados['USUARIO_ID']?>" type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil"aria-hidden="true"></span></a></td>
                         </tr>
-                    <?php 
+                    <?php
                 }} ?>
-                
+
                 <tr>
                         <form id='form-add' method="POST" action="../salva.php">
                             <td>Nova Admissão</td>
-                            <td><select id="add-sede" name='tipo' class="selectadd intable" required>
-                            <option value="" selected="selected"></option>
-                            <?php foreach ($listar as $linha):?>
-                            <option value="<?= $linha['SEDE_ID']?>"><?php echo $linha['NOME_SEDE']?></option>
-                            <?php endforeach ?>
-                            </select></td>
-
+                            <td><select id="add-sede" name='sede' class="selectadd intable" required>
+                                <option value="" selected="selected"></option>
+                                <?php foreach ($listar as $linha):?>
+                                    <option value="<?= $linha['SEDE_ID']?>"><?php echo $linha['NOME_SEDE']?></option>
+                                <?php endforeach ?>
+                              </select></td>
                             <td><select id="add-tipo" name='tipo' class="selectadd intable" required><option value="" selected="selected"></option><option value="1">CLT</option><option value="2">CC</option><option value="3">HO</option><option value="4">TEMP</option><option value="5">APDZ</option></select></td>
                             <td><select id="add-captacao" name='captacao' class="selectadd intable" required><option value="" selected="selected"></option><option value="1">Ex-Funcionario</option><option value="2">Ex-Bolsista</option><option value="3">Ex-Estagiario</option><option value="4">Novo</option></select></td>
                             <td id='add-carga_horaria'><input class='intable' type="text" name="carga_horaria" required></td>
@@ -401,12 +402,13 @@ $listar = listar($conn);
                     <tr>
                         <th class='tb2'>SEDE</th>
                     </tr>
-  
-                    <?php foreach ($listar as $linha):?>
-                
-                    <tr><td class="tb2"><?php echo $linha['NOME_SEDE']?></td></tr>
-
-                    <?php endforeach ?>
+                    <tr><td class='tb2'>CWB</td></tr>
+                    <tr><td class='tb2'>ERE</td></tr>
+                    <tr><td class='tb2'>PF</td></tr>
+                    <tr><td class='tb2'>POA</td></tr>
+                    <tr><td class='tb2'>RG</td></tr>
+                    <tr><td class='tb2'>SP</td></tr>
+                    <tr><td class='tb2'>FLN</td></tr>
                 </table>
                 <table class='legendas-tipos'>
                     <tr>
@@ -440,15 +442,15 @@ $listar = listar($conn);
                     </tr>
                     <tr>
                         <td class='tb2'>Novo</td>
-        
+
                     </tr>
                     <tr>
                         <td class='tb2'>Ex-Estagiário</td>
-             
+
                     </tr>
                     <tr>
                         <td class='tb2'>Ex-Funcionário</td>
-                       
+
                     </tr>
                     <tr>
                         <td class='tb2'>Ex-Bolsista</td>

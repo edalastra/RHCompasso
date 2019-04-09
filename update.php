@@ -2,7 +2,7 @@
 	include("db/conexao.php")
 ?>
 <?php
-		//listar sedes 
+		//listar sedes
 		function listar($conn){
 			$query = "SELECT * from sede";
 			$resultado = mysqli_query($conn, $query);
@@ -14,7 +14,7 @@
 			$sede = mysqli_query($conn, $query);
 			return mysqli_fetch_assoc($sede);
 		}
-	
+
 				// ################# BUSCA PELA TABELA INICIAL ADMISSAO_DOMINIO ###########################
 
 		function projeto($conn, $USUARIO_ID, $PROJETO){
@@ -30,10 +30,10 @@
 		$buscafuncionarios = mysqli_query($conn, $query);
 		return mysqli_fetch_assoc($buscafuncionarios);
 	}
-	
+
 	function funcionario($conn, $USUARIO_ID, $ID_SEDE, $ID_TIPO, $ID_CAPTACAO, $CARGA_HORARIA, $HORARIO, $NOME, $FONE_CONTATO, $DATA_ADMISSAO, $CARGO, $SOLICITANTE, $CONTROLE_DATA_ADMISSAO, $REMUNERACAO_BASE, $GRATIFICACAO, $CLIENTE, $PROJETO, $EMAIL, $ADMINISTRATIVO, $POSICAO_DATA, $POSICAO_COMENTARIO) {
 		$query = "UPDATE admissao_dominio set ID_SEDE = '{$ID_SEDE}', ID_TIPO = '{$ID_TIPO}', ID_CAPTACAO = '{$ID_CAPTACAO}', CARGA_HORARIA = '{$CARGA_HORARIA}', HORARIO = '{$HORARIO}', NOME = '{$NOME}', FONE_CONTATO = '{$FONE_CONTATO}', DATA_ADMISSAO = '{$DATA_ADMISSAO}', CARGO = '{$CARGO}', SOLICITANTE = '{$SOLICITANTE}', CONTROLE_DATA_ADMISSAO = '{$CONTROLE_DATA_ADMISSAO}', REMUNERACAO_BASE = '{$REMUNERACAO_BASE}', GRATIFICACAO = '{$GRATIFICACAO}', CLIENTE = '{$CLIENTE}', PROJETO = '{$PROJETO}', EMAIL='{$EMAIL}', ADMINISTRATIVO = '{$ADMINISTRATIVO}', POSICAO_DATA = '{$POSICAO_DATA}', POSICAO_COMENTARIO = '{$POSICAO_COMENTARIO}'  where USUARIO_ID = '{$USUARIO_ID}'";
-		return mysqli_query($conn, $query);	
+		return mysqli_query($conn, $query);
 	}
 
 		// ################# BUSCA PELA PAGINA BANCARIO ###########################
@@ -42,7 +42,7 @@
 		$bancarios = mysqli_query($conn, $query);
 		return mysqli_fetch_assoc($bancarios);
 	}
-		
+
 	function bancario($conn, $ID_USUARIO, $ENVIO, $RECEBIDO, $ANEXAR_COMPR_DOMIN, $PLANILHA_CONTAS, $FORM_COMPR_BANCARIO){
 		$query = "UPDATE bancarios set ENVIO = '{$ENVIO}', RECEBIDO ='{$RECEBIDO}', ANEXAR_COMPR_DOMIN  = '{$ANEXAR_COMPR_DOMIN}', PLANILHA_CONTAS ='{$PLANILHA_CONTAS}', FORM_COMPR_BANCARIO = '{$FORM_COMPR_BANCARIO}'  where ID_USUARIO = '{$ID_USUARIO}'";
 		return mysqli_query($conn, $query);
@@ -50,17 +50,17 @@
 
 
 		// ################# BUSCA PELA PAGINA FUNCIONARIO ###########################
-	function Proposta($conn, $ID_USUARIO, $PROPOSTA_RECEBIDA, $DE_ACORDO_DIRECAO, $ENQUADRAMENTO, $ENVIO_PROPOSTA, $COMUNICAR_PROPOSTA_ENVIADA,$ACEITA_RECUSA_CANDIDATO, $COMENTARIO, $COMUNICAR_STATUS){ 
+	function Proposta($conn, $ID_USUARIO, $PROPOSTA_RECEBIDA, $DE_ACORDO_DIRECAO, $ENQUADRAMENTO, $ENVIO_PROPOSTA, $COMUNICAR_PROPOSTA_ENVIADA,$ACEITA_RECUSA_CANDIDATO, $COMENTARIO, $COMUNICAR_STATUS){
 		$query = "UPDATE propostas_contratacoes set PROPOSTA_RECEBIDA = '{$PROPOSTA_RECEBIDA}', DE_ACORDO_DIRECAO = '{$DE_ACORDO_DIRECAO}', ENQUADRAMENTO = '{$ENQUADRAMENTO}', ENVIO_PROPOSTA = '{$ENVIO_PROPOSTA}', COMUNICAR_PROPOSTA_ENVIADA = '{$COMUNICAR_PROPOSTA_ENVIADA}', ACEITE_RECUSA_CANDIDATO = '{$ACEITA_RECUSA_CANDIDATO}', COMENTARIO = '{$COMENTARIO}', COMUNICAR_STATUS = '{$COMUNICAR_STATUS}' where ID_USUARIO = '{$ID_USUARIO}'";
-		return mysqli_query($conn, $query);	
+		return mysqli_query($conn, $query);
 	}
-	
+
 	function buscaProposta($conn, $id) {
 		$query = "SELECT * from propostas_contratacoes where ID_USUARIO = '{$id}'";
 		$funcionarios = mysqli_query($conn, $query);
 		return mysqli_fetch_assoc($funcionarios);
 	}
-	
+
 
 		// ################# BUSCA PELA PAGINA DOCUMENTOS ###########################
 	function buscadocs($conn, $id) {
@@ -71,10 +71,10 @@
 
 	function Documentacao($conn, $ID_USUARIO, $FORMULARIOS_ENVIADOS, $FORMULARIOS_RECEBIDOS, $DOCUMENTOS_FISICOS, $CTPS_RECEBIDA){
 		$query = "UPDATE documentacao set FORMULARIOS_ENVIADOS = '{$FORMULARIOS_ENVIADOS}', FORMULARIOS_RECEBIDOS = '{$FORMULARIOS_RECEBIDOS}', DOCUMENTOS_FISICOS = '{$DOCUMENTOS_FISICOS}', CTPS_RECEBIDA = '{$CTPS_RECEBIDA}' where ID_USUARIO = '{$ID_USUARIO}'";
-		return mysqli_query($conn, $query);	
+		return mysqli_query($conn, $query);
 	}
-	
-	
+
+
 		// ################# BUSCA PELA PAGINA ADMISSAO ###########################
 	function buscaadmissao($conn, $id) {
 		$query = "SELECT * from admissao where ID_USUARIO = '{$id}'";
@@ -84,9 +84,9 @@
 
 	function admissao($conn, $ID_USUARIO, $QUALIFIC_CADASTRAL_CEP, $CAD_ADM_PLATAFORMA_ADM_DIMIN, $DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO, $TERMO_PSI, $INCLUI_ADM_PROV){
 		$query = "UPDATE admissao set QUALIFIC_CADASTRAL_CEP = '{$QUALIFIC_CADASTRAL_CEP}', CAD_ADM_PLATAFORMA_ADM_DIMIN = '{$CAD_ADM_PLATAFORMA_ADM_DIMIN}', DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO = '{$DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO}', TERMO_PSI = '{$TERMO_PSI}', INCLUI_ADM_PROV = '{$INCLUI_ADM_PROV}' where ID_USUARIO = '{$ID_USUARIO}'";
-		return mysqli_query($conn, $query);	
+		return mysqli_query($conn, $query);
 	}
-	
+
 
 		// ################# BUSCA PELA PAGINA EXAME ###########################
 	function buscaexame ($conn, $id) {
@@ -100,7 +100,7 @@
 		return mysqli_query($conn, $query);
 	}
 
-	
+
 		// ################# BUSCA PELA PAGINA SUPORTE INTERNO ###########################
 	function buscasuporte ($conn, $id) {
 		$query = "SELECT * FROM suporte_interno WHERE ID_USUARIO = '{$id}'";
@@ -164,7 +164,7 @@
 		$query = "UPDATE `gestao` SET `GESTOR` = '{$GESTOR}', `GESTOR_SABE` = '{$GESTOR_SABE}', `GESTOR_LOCAL` = '{$GESTOR_LOCAL}', `GESTOR_LOCAL_sABE` = '{$GESTOR_LOCAL_sABE}', `RECEPTOR_PESSOA`= '{$RECEPTOR_PESSOA}' where `ID_USUARIO`= {$ID_USUARIO}";
 		return mysqli_query($conn, $query);
 	}
-	
+
 	// ######################### BUSCA PELA TELA VENCIMENTOS CONTRATOS ########### //
 
 	function buscavencimentos ($conn, $id){
