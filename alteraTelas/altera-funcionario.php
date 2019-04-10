@@ -33,7 +33,8 @@ $GRATIFICACAO = str_replace(',','.',preg_replace('#[^\d\,]#is','',$GRATIFICACAO)
 
 
 if(funcionario($conn, $USUARIO_ID, $ID_SEDE, $ID_TIPO, $ID_CAPTACAO, $CARGA_HORARIA, $HORARIO, $NOME, $FONE_CONTATO, $DATA_ADMISSAO, $CARGO, $SOLICITANTE, $CONTROLE_DATA_ADMISSAO, $REMUNERACAO_BASE, $GRATIFICACAO, $CLIENTE, $PROJETO, $EMAIL, $ADMINISTRATIVO, $POSICAO_DATA, $POSICAO_COMENTARIO)) { ?>
-    <p class='text-success' class="text-success">Alterado com sucesso!</p>
+     <h1 class="text-success">Alterado com sucesso!</h1>
+
 
 
 <?php
@@ -51,6 +52,6 @@ if(funcionario($conn, $USUARIO_ID, $ID_SEDE, $ID_TIPO, $ID_CAPTACAO, $CARGA_HORA
     <p class="text-danger">Não foi alterado: <?= $msg ?></p>
 <?php
 }
-    header("Refresh: 1; url=/projeto/telas/menuPrincipal.php");
+    header("Refresh: 1; ../telas/menuPrincipal.php");
 ?>
 

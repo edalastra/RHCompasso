@@ -23,7 +23,7 @@ if(Documentacao($conn, $ID_USUARIO, $FORMULARIOS_ENVIADOS, $FORMULARIOS_RECEBIDO
     //}
     
 ?>
-    <p class="text-success">Alterado com sucesso!</p>
+    <h1 class="text-success">Alterado com sucesso!</h1>
 <?php } else {
     $msg = mysqli_error($conn);
     ?>

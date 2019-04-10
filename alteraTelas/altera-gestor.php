@@ -22,7 +22,7 @@ if(gestao($conn, $ID_USUARIO, $GESTOR, $GESTOR_SABE, $GESTOR_LOCAL, $GESTOR_LOCA
   //  status($conn, $ID_USUARIO, $STATUS);
 //}
 ?>
-    <p class="text-success">Alterado com sucesso!</p>
+    <h1 class="text-success">Alterado com sucesso!</h1>
 <?php
  } else {
     $msg = mysqli_error($conn);

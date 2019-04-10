@@ -25,7 +25,7 @@ if(admissao($conn, $ID_USUARIO, $QUALIFIC_CADASTRAL_CEP, $CAD_ADM_PLATAFORMA_ADM
 //}
 
     ?>
-    <p class="text-success">Alterado com sucesso!</p>
+    <h1 class="text-success">Alterado com sucesso!</h1>
 <?php
 } else {
     $msg = mysqli_error($conn);

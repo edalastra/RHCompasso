@@ -23,7 +23,7 @@ if(vencimentos($conn, $ID_USUARIO, $ENVIO_SOLICITANTE_PRI, $DATA_VENCIMENTO_PRI,
   //  status($conn, $ID_USUARIO, $STATUS);
 //}
 ?>
-    <p class="text-success">Alterado com sucesso!</p>
+    <h1 class="text-success">Alterado com sucesso!</h1>
 <?php
  } else {
     $msg = mysqli_error($conn);
