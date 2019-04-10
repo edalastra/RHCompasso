@@ -15,11 +15,11 @@
 			return mysqli_fetch_assoc($sede);
 		}
 
-				// ################# BUSCA PELA TABELA INICIAL ADMISSAO_DOMINIO ###########################
+	// ################# BUSCA PELA TABELA INICIAL ADMISSAO_DOMINIO ###########################
 
-		function projeto($conn, $USUARIO_ID, $PROJETO){
-		$query = "UPDATE admissao_dominio set PROJETO = '{$PROJETO}' where USUARIO_ID = '$USUARIO_ID'";
-		return mysqli_query($conn, $query);
+	function projeto($conn, $USUARIO_ID, $PROJETO){
+	$query = "UPDATE admissao_dominio set PROJETO = '{$PROJETO}' where USUARIO_ID = '$USUARIO_ID'";
+	return mysqli_query($conn, $query);
 	}
 	function status($conn, $USUARIO_ID, $STATUS){
 		$query = "UPDATE admissao_dominio set STATUS = '{$STATUS}' where USUARIO_ID = '$USUARIO_ID'";

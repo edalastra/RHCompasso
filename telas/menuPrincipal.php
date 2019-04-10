@@ -348,7 +348,7 @@ if (isset($_POST['botaoVolta'])) {
 
         </section>
             <section class="legendas estruct">
-                <h2>Legendas</h2>
+                <h2 class="titulo">Legendas</h2>
                 <table id='table-legendas'>
                     <tr class='tb2'>
                         <th class='tb2'>STATUS</th>

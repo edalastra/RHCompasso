@@ -51,6 +51,11 @@
     text-align: center;
     position: relative;
 }
+
+.text-sucess { 
+    color: green;
+}
+
 .btn-circle {
     width: 5em;
     height: 5em;
