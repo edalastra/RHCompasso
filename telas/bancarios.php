@@ -157,6 +157,9 @@ $form = buscaBancario($conn, $id);
                         <th>Anexar comprovante na Domínio</th>
                         <th>Planilha de Contas</th>
                         <th>Formulário + Comprovante Bancário</th>
+                        <th>Agência (Bancária)</th>
+                        <th>Número da Conta</th>
+                        <th>Tipo de Conta</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -170,9 +173,11 @@ $form = buscaBancario($conn, $id);
                             <td><?php echo $rows_dados['ANEXAR_COMPR_DOMIN']; ?></td> 
                             <td><?php echo $rows_dados['PLANILHA_CONTAS']; ?></td>
                             <td><?php echo $rows_dados['FORM_COMPR_BANCARIO']; ?></td>
+                            <td><?php ?></td>
+                            <td><?php ?></td>
+                            <td><?php ?></td>
                             <td><a title="Suporte Interno" href='suporteinterno.php?id=<?php echo $id3 = $rows_dados['ID_USUARIO'] ?>' class='intable'>Proximo</td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
-
                         </tr>
                     <?php } ?>
                     <tr class='funcionario atualiza'>
