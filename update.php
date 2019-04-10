@@ -14,6 +14,11 @@
 			$sede = mysqli_query($conn, $query);
 			return mysqli_fetch_assoc($sede);
 		}
+		function buscaCargoFuncionario($conn, $id){
+			$query = "SELECT CARGO FROM admissao_dominio WHERE USUARIO_ID = '{$id}'";
+			$cargo = mysqli_query($conn, $query);
+			return mysqli_fetch_assoc($cargo);
+		}
 
 	// ################# BUSCA PELA TABELA INICIAL ADMISSAO_DOMINIO ###########################
 

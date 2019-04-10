@@ -3,38 +3,53 @@
 session_start();
 include("../db/conexao.php");
 include("../update.php");
+include("../emails/defineNomeDoGrupoDeEmail.php");
 
 $listar = listar($conn);
 
     if (!isset ($id)){
      $id = $_SESSION['id'];
     }
-
+$suporte = buscasuporte($conn, $id);
+$testeGrupoEmail = $suporte['GRUPOS_DE_EMAIL'];
 $resultado1 = mysqli_query($conn,"SELECT ID_USUARIO, NOME, DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM propostas_contratacoes as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 $conn1 = mysqli_num_rows($resultado1);
 
 
 $resultado = mysqli_query($conn, "SELECT  `ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `GRUPOS_DE_EMAIL` FROM `suporte_interno` as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
-$count = mysqli_num_rows($resultado); 
-
+$count = mysqli_num_rows($resultado);
+$status = buscaFuncionarios($conn, $id);
 if($count == 1){
-    $resultado = mysqli_query($conn, "SELECT `ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `GRUPOS_DE_EMAIL` FROM `suporte_interno` as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
+  if($testeGrupoEmail == ""){
+    $sede = buscaSedeFuncionario($conn, $status['ID_SEDE']);
+    $cargo = buscaCargoFuncionario($conn, $id);
+    $grupDeEmail = grupoEmail($cargo['CARGO'], $sede['nome_sede']);
+    $insercao = mysqli_query($conn, "UPDATE suporte_interno SET `GRUPOS_DE_EMAIL` = '$grupDeEmail' WHERE ID_USUARIO = '$id'");
+
+  }
+  $resultado = mysqli_query($conn, "SELECT `ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `GRUPOS_DE_EMAIL` FROM `suporte_interno` as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }else{
-    mysqli_query($conn,"INSERT INTO `suporte_interno`( `ID_SUPORTE_INTERNO`,`ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `GRUPOS_DE_EMAIL`) VALUES (NULL,$id,NULL,NULL,NULL,NULL,NULL,NULL)");
-    
+    $sede = buscaSedeFuncionario($conn, $status['ID_SEDE']);
+    $cargo = buscaCargoFuncionario($conn, $id);
+    $grupDeEmail = grupoEmail($cargo['CARGO'], $sede['nome_sede']);
+    mysqli_query($conn,"INSERT INTO `suporte_interno`( `ID_SUPORTE_INTERNO`,`ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `GRUPOS_DE_EMAIL`) VALUES (NULL,$id,NULL,NULL,NULL,NULL,NULL,'$grupDeEmail')");
+
     $resultado = mysqli_query($conn, "SELECT  `ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `GRUPOS_DE_EMAIL` FROM `suporte_interno` as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 
 }
 
 
-$status = buscaFuncionarios($conn, $id);
+
 $funcionario = buscaProposta($conn, $id);
 $mail = buscasuporte($conn, $id);
-$usuario= buscasuporte($conn, $id); 
-$senha = buscasuporte($conn, $id); 
+$usuario= buscasuporte($conn, $id);
+$senha = buscasuporte($conn, $id);
 $equipamento = buscasuporte($conn, $id);
 $translado = buscasuporte($conn, $id);
 /* $usuarios = mysql_fetch_assoc($resultado); */
+
+
+
 ?>
 
 
@@ -77,15 +92,17 @@ $translado = buscasuporte($conn, $id);
                 </div>
             </div>
         </nav>
-        
+
     </header>
     <main>
         <section class='menu-inicial'>
             <h2 id='nome'>Suporte Interno</h2>
+
         </section>
         <section class='container estruct'>
         <div class='menu-inicial1'>
                 <table>
+
                     <thead>
                         <tr id='titulo-table1' margin-top='0' >
                             <th width='170px'>Status</th>
@@ -103,8 +120,8 @@ $translado = buscasuporte($conn, $id);
                     </tr>
                 </tbody>
                 </table>
-        </div>         
-        <div style="height: 25px;"></div>        
+        </div>
+        <div style="height: 25px;"></div>
             <div class="passos">
                 <div class="stepwizard">
                     <div class="passos stepwizard-row1 setup-panel">
@@ -168,7 +185,7 @@ $translado = buscasuporte($conn, $id);
                             <td><?=$status['STATUS']?></td>
                             <td><?php echo $rows_dados['EMAIL_SUP']; ?></td>
                             <td><?php echo $rows_dados['USUARIO']; ?></td>
-                            <td><?php echo $rows_dados['SENHA']; ?></td> 
+                            <td><?php echo $rows_dados['SENHA']; ?></td>
                             <td><?php echo $rows_dados['EQUIPAMENTO']; ?></td>
                             <td><?php echo $rows_dados['TRANSLADO']; ?></td>
                             <td><?php echo $rows_dados['GRUPOS_DE_EMAIL']; ?></td>
@@ -177,10 +194,10 @@ $translado = buscasuporte($conn, $id);
 
                         </tr>
                     <?php } ?>
-                
+
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-suporte.php">
-                            <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>"> 
+                            <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
                             <td><input type='email' class='intable' name="EMAIL_SUP" value="<?=$mail['EMAIL_SUP']?>"></td>
                             <td><input type="text" class='intable' name ="USUARIO" value="<?=$usuario['USUARIO']?>"></td>
@@ -205,7 +222,7 @@ $translado = buscasuporte($conn, $id);
                         <td class='tb2'>AGUARDAR ACEITE</td>
                         <td class='tb2'>Aguardando o Aceite após o envio da proposta</td>
                     </tr>
-                    <tr class='tb2'> 
+                    <tr class='tb2'>
                         <td class='tb2'>FINALIZADO</td>
                         <td class='tb2'>Admissao concluída</td>
                     </tr>

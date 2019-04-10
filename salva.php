@@ -1,5 +1,7 @@
 <?php
 require_once("db/conexao.php");
+include("update.php");
+include("emails/defineNomeDoGrupoDeEmail.php");
 
 
 		$id_sede = $_POST["sede"];
