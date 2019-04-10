@@ -134,13 +134,9 @@ if (isset($_POST['botaoVolta'])) {
                             <label for="sede">Sede</label>
                             <select id="sede" name="sede" class="form-control campo-filter">
                                 <option value="" selected="selected"></option>
-                                <option value="1">CWB</option>
-                                <option value="2">ERE</option>
-                                <option value="3">PF</option>
-                                <option value="4">POA</option>
-                                <option value="5">RG</option>
-                                <option value="6">SP</option>
-                                <option value="7">FLN</option>
+                                <?php foreach ($listar as $linha):?>
+                                    <option value="<?= $linha['SEDE_ID']?>"><?php echo $linha['NOME_SEDE']?></option>
+                                <?php endforeach ?>
                             </select>
                         </div>
                         <div>
