@@ -188,6 +188,7 @@ $translado = buscasuporte($conn, $id);
                             <td><input type="text" class='intable' name="EQUIPAMENTO" value="<?=$equipamento['EQUIPAMENTO']?>"></td>
                             <td><input type="text" class='intable' name="TRANSLADO" value="<?=$translado['TRANSLADO']?>"></td>
                             <td><input type="text" class='intable' name="GRUPOS_DE_EMAIL" value="<?=$translado['GRUPOS_DE_EMAIL']?>"></td>
+                            <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                     </form>
                 </tbody>

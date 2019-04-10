@@ -222,7 +222,8 @@ $comunicar = buscaProposta($conn, $id);
                             <td><input type="text" class='intable' name="COMENTARIO" value="<?=$comentario['COMENTARIO']?>"></td>
                             <td><input type="date" class='intable' name="COMUNICAR_STATUS" value="<?=$comunicar['COMUNICAR_STATUS']?>"></td>
                             <td><input type="text" class='intable' name="PROJETO" value="<?=$funcionarios['PROJETO']?>"></td>
-                            <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default"><span class="glyphicon glyphicon-floppy-disk"aria-hidden="true"></td>
+                            <td></td>
+                            <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
                     </tr>
                 </tbody>

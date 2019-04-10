@@ -179,6 +179,7 @@ $anexar = buscaexame($conn, $id);
                             <td><input type="date" class='intable' name ="ENVIO_FUNC_EXAME" value="<?=$envio['ENVIO_FUNC_EXAME']?>"></td>
                             <td><input type="date" class='intable' name="EMAIL_RECEBIDO_EXAM" value="<?=$email['EMAIL_RECEBIDO_EXAM']?>"></td>
                             <td><input type="date" class='intable' name="ANEXAR_ASO" value="<?=$anexar['ANEXAR_ASO']?>"></td>
+                            <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
                     </tr>

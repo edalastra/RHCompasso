@@ -194,6 +194,7 @@ $efetivacao = buscavencimentos($conn, $id);
                             <td><input type='date' class='intable' name="ENVIO_SOLICITANTE_SEG" value="<?=$envio_seg['ENVIO_SOLICITANTE_SEG']?>"></td>
                             <td><input type='date' class='intable' name="DATA_VENCIMENTO_SEG" value="<?=$data_venc_seg['DATA_VENCIMENTO_SEG']?>"></td>
                             <td><input type='text' class='intable' name="EFETIVACAO" value="<?=$efetivacao['EFETIVACAO']?>"></td>
+                            <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
 
 

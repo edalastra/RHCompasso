@@ -203,6 +203,7 @@ $acessos = buscainterno($conn, $id);
                             <td><input type='date' class='intable' name="EMAIL_INICIO_ATIVIDADES" value="<?=$emailinic['EMAIL_INICIO_ATIVIDADES']?>"></td>
                             <td><input class='intable' type="date" name="EMAIL_BOAS_VINDAS" value='<?=$emailboas['EMAIL_BOAS_VINDAS']?>'></td>
                             <td><input type='date' class='intable' name="ACESSOS" value="<?=$acessos['ACESSOS']?>"></td>
+                            <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
                     </tr>

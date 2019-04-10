@@ -180,6 +180,7 @@ $funcionario = buscagestao($conn, $id);
                             <td><input type="text" class='intable' name="GESTOR_LOCAL" value="<?=$gestor_local['GESTOR_LOCAL']?>"></td>
                             <td><input type="text" class='intable' name="GESTOR_LOCAL_sABE" value="<?=$gestorL_sabe['GESTOR_LOCAL_sABE']?>"></td>
                             <td><input type="text" class='intable' name="RECEPTOR_PESSOA" value="<?=$receptor['RECEPTOR_PESSOA']?>"></td>
+                            <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
                     </tr>

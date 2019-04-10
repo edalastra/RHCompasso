@@ -194,7 +194,7 @@ if (isset($_POST['botaoVolta'])) {
                                 data-filters="#dev-table" placeholder="Data Vencimentos" />
                         </div>
                         <div>
-                            <label for="recebimento">Data de Recebimento</label>
+                            <label for="recebimento">Proposta Recebida</label>
                             <input type="date" id='recebimento' name="recebimento" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Data de Recebimento"/>
                         </div>
@@ -336,6 +336,7 @@ if (isset($_POST['botaoVolta'])) {
                             <td id='add-posicao_data'><input class='intable' type="date" name="posicao_data" required></td>
                             <td id='add-posicao_comentario'><input class='intable' type="text" name="posicao_comentario" required></td>
                             <td id='add-administrativo'><input class='intable' type="text" name="administrativo" required></td>
+                            <td id='add-administrativo'></td>
                             <td><button title= "Salvar" type="submit" value="salva" class="botao-salvar btn btn-default" action="#">Salvar</button></td>
                         </form>
                     </tr>

@@ -188,6 +188,7 @@ $ctps = buscadocs($conn, $id);
                             <td><input type="date" class='intable' name ="FORMULARIOS_RECEBIDOS" value="<?=$formRec['FORMULARIOS_RECEBIDOS']?>"></td>
                             <td><input type="date" class='intable' name="DOCUMENTOS_FISICOS" value="<?=$docfis['DOCUMENTOS_FISICOS']?>"></td>
                             <td><input type="date" class='intable' name="CTPS_RECEBIDA" value="<?=$ctps['CTPS_RECEBIDA']?>"></td>
+                            <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
                     </tr>

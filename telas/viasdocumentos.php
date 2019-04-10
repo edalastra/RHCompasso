@@ -196,6 +196,7 @@ $docreceb = buscavias($conn, $id);
                             <td><input type="date" class='intable' name ="EMAIL_CADERNO_COMPASSO_RECEBIDO" value="<?=$emailreceb['EMAIL_CADERNO_COMPASSO_RECEBIDO']?>"></td>
                             <td><input type="date" class='intable' name="MALOTE_CADERNO_COMPASSO_CTPS" value="<?=$malote['MALOTE_CADERNO_COMPASSO_CTPS']?>"></td>
                             <td><input type="date" class='intable' name="DOCUMENTOS_RECEBIDOS_ASSINADOS" value="<?=$docreceb['DOCUMENTOS_RECEBIDOS_ASSINADOS']?>"></td>
+                            <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                     </form>
                 </tbody>

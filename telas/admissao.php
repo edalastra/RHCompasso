@@ -186,6 +186,7 @@ $inclui = buscaadmissao($conn, $id);
                             <td><input type="date" class='intable' name="DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO" value="<?=$doc['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO']?>"></td>
                             <td><input type="date" class='intable' name="TERMO_PSI" value="<?=$termo['TERMO_PSI']?>"></td>
                             <td><input type="date" class='intable' name="INCLUI_ADM_PROV" value="<?=$inclui['INCLUI_ADM_PROV']?>"></td>
+                            <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
                     </tr>

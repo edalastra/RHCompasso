@@ -184,6 +184,7 @@ $form = buscaBancario($conn, $id);
                             <td><input type="date" class='intable' name="ANEXAR_COMPR_DOMIN" value="<?=$anexar['ANEXAR_COMPR_DOMIN']?>"></td>
                             <td><input type="date" class='intable' name="PLANILHA_CONTAS" value="<?=$planilha['PLANILHA_CONTAS']?>"></td>
                             <td><input type="date" class='intable' name="FORM_COMPR_BANCARIO" value="<?=$form['FORM_COMPR_BANCARIO']?>"></td>
+                            <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
                     </tr>

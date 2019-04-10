@@ -193,6 +193,7 @@ $finalizado = buscaFuncionarios($conn, $id);
                             <td><input class='intable' type='text' name='BOAS_VINDAS_SALA' value="<?=$boasVindasSala['BOAS_VINDAS_SALA']?>"></td>
                             <td><input class='intable' type='date' name='BOAS_VINDA_ACOMPANHAMENTO_MENSAL' value="<?=$boasVindasAcomp['BOAS_VINDA_ACOMPANHAMENTO_MENSAL']?>"></td>
                             <td><input class='intable' type='date' name='LAYOUT_BOAS_VINDAS_MENSAL' value="<?=$layoutBoasVindas['LAYOUT_BOAS_VINDAS_MENSAL']?>"></td>
+                            <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
                     </tr>
