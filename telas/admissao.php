@@ -173,7 +173,7 @@ $inclui = buscaadmissao($conn, $id);
                             <td><?php echo $rows_dados['TERMO_PSI']; ?></td>
                             <td><?php echo $rows_dados['INCLUI_ADM_PROV']; ?></td>
                             <td><a title="Exame Admissional" href='exame.php' class='intable'>Proximo</td>
-                            <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs"><span class="glyphicon glyphicon-pencil"aria-hidden="true"></span></button></span></button></td>
+                            <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
 
                         </tr>
                     <?php } ?>
@@ -186,7 +186,7 @@ $inclui = buscaadmissao($conn, $id);
                             <td><input type="date" class='intable' name="DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO" value="<?=$doc['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO']?>"></td>
                             <td><input type="date" class='intable' name="TERMO_PSI" value="<?=$termo['TERMO_PSI']?>"></td>
                             <td><input type="date" class='intable' name="INCLUI_ADM_PROV" value="<?=$inclui['INCLUI_ADM_PROV']?>"></td>
-                            <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default"><span class="glyphicon glyphicon-floppy-disk"aria-hidden="true"></td>
+                            <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
                     </tr>
                     

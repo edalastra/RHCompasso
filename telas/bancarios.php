@@ -171,7 +171,7 @@ $form = buscaBancario($conn, $id);
                             <td><?php echo $rows_dados['PLANILHA_CONTAS']; ?></td>
                             <td><?php echo $rows_dados['FORM_COMPR_BANCARIO']; ?></td>
                             <td><a title="Suporte Interno" href='suporteinterno.php?id=<?php echo $id3 = $rows_dados['ID_USUARIO'] ?>' class='intable'>Proximo</td>
-                            <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs"><span class="glyphicon glyphicon-pencil"aria-hidden="true"></span></button></span></button></td>
+                            <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
 
                         </tr>
                     <?php } ?>
@@ -184,7 +184,7 @@ $form = buscaBancario($conn, $id);
                             <td><input type="date" class='intable' name="ANEXAR_COMPR_DOMIN" value="<?=$anexar['ANEXAR_COMPR_DOMIN']?>"></td>
                             <td><input type="date" class='intable' name="PLANILHA_CONTAS" value="<?=$planilha['PLANILHA_CONTAS']?>"></td>
                             <td><input type="date" class='intable' name="FORM_COMPR_BANCARIO" value="<?=$form['FORM_COMPR_BANCARIO']?>"></td>
-                            <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default"><span class="glyphicon glyphicon-floppy-disk"aria-hidden="true"></td>
+                            <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
                     </tr>
                 </tbody>

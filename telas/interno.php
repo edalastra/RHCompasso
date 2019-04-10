@@ -188,7 +188,7 @@ $acessos = buscainterno($conn, $id);
                         <td><?php echo $rows_dados['EMAIL_BOAS_VINDAS']; ?></td>
                         <td><?php echo $rows_dados['ACESSOS']; ?></td>
                         <td><a title="Vias Documentos Funcionários" href='viasdocumentos.php'>Proximo</td>
-                        <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs"><span class="glyphicon glyphicon-pencil"aria-hidden="true"></span></button></span></button></td>
+                        <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                     </tr>
                     <?php } ?>
                     <tr class='funcionario atualiza'>
@@ -203,7 +203,7 @@ $acessos = buscainterno($conn, $id);
                             <td><input type='date' class='intable' name="EMAIL_INICIO_ATIVIDADES" value="<?=$emailinic['EMAIL_INICIO_ATIVIDADES']?>"></td>
                             <td><input class='intable' type="date" name="EMAIL_BOAS_VINDAS" value='<?=$emailboas['EMAIL_BOAS_VINDAS']?>'></td>
                             <td><input type='date' class='intable' name="ACESSOS" value="<?=$acessos['ACESSOS']?>"></td>
-                            <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default"><span class="glyphicon glyphicon-floppy-disk"aria-hidden="true"></td>
+                            <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
                     </tr>
                 </tbody>

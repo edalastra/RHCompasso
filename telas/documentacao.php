@@ -177,7 +177,7 @@ $ctps = buscadocs($conn, $id);
                         <td><?php echo $rows_dados['DOCUMENTOS_FISICOS']; ?></td> 
                         <td><?php echo $rows_dados['CTPS_RECEBIDA']; ?></td>
                         <td><a title="Plataforma Admissão Domínio Dados + Fichas de Cadastro" href='admissao.php'>Proximo</td>
-                        <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs"><span class="glyphicon glyphicon-pencil"aria-hidden="true"></span></button></span></button></td>
+                        <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                     </tr>
                     <?php } ?>
                     <tr class='funcionario atualiza'>
@@ -188,7 +188,7 @@ $ctps = buscadocs($conn, $id);
                             <td><input type="date" class='intable' name ="FORMULARIOS_RECEBIDOS" value="<?=$formRec['FORMULARIOS_RECEBIDOS']?>"></td>
                             <td><input type="date" class='intable' name="DOCUMENTOS_FISICOS" value="<?=$docfis['DOCUMENTOS_FISICOS']?>"></td>
                             <td><input type="date" class='intable' name="CTPS_RECEBIDA" value="<?=$ctps['CTPS_RECEBIDA']?>"></td>
-                            <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default"><span class="glyphicon glyphicon-floppy-disk"aria-hidden="true"></td>
+                            <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
                     </tr>
                 </tbody>

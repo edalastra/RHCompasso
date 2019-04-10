@@ -299,7 +299,7 @@ if (isset($_POST['botaoVolta'])) {
                             <td><?php echo $rows_dados['POSICAO_COMENTARIO']; ?></td>
                             <td><?php echo $rows_dados['ADMINISTRATIVO']; ?></td>
                             <td><a title="Proposta de Contratação" href='funcionario.php?id=<?php echo $rows_dados['USUARIO_ID']; ?>'> Ver Detalhes  </td>
-                            <td><a title="Editar" href="../alteraTelas/altera-form.php?id=<?=$rows_dados['USUARIO_ID']?>" type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil"aria-hidden="true"></span></a></td>
+                            <td><a title="Editar" href="../alteraTelas/altera-form.php?id=<?=$rows_dados['USUARIO_ID']?>" type="button" class="btn btn-default">Editar</span></a></td>
                         </tr>
                     <?php
                 }} ?>
@@ -332,7 +332,7 @@ if (isset($_POST['botaoVolta'])) {
                             <td id='add-posicao_data'><input class='intable' type="date" name="posicao_data" required></td>
                             <td id='add-posicao_comentario'><input class='intable' type="text" name="posicao_comentario" required></td>
                             <td id='add-administrativo'><input class='intable' type="text" name="administrativo" required></td>
-                            <td><button title= "Salvar" type="submit" value="salva" class="botao-salvar btn btn-default" action="#"><span class="glyphicon glyphicon-floppy-disk"aria-hidden="true"></span></button></td>
+                            <td><button title= "Salvar" type="submit" value="salva" class="botao-salvar btn btn-default" action="#">Salvar</button></td>
                         </form>
                     </tr>
                 </tbody>

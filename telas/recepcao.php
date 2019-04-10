@@ -179,8 +179,8 @@ $finalizado = buscaFuncionarios($conn, $id);
                             <td><?php echo $rows_dados['BOAS_VINDAS_SALA']; ?></td>
                             <td><?php echo $rows_dados['BOAS_VINDA_ACOMPANHAMENTO_MENSAL']; ?></td>
                             <td><?php echo $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL']; ?></td>
-                            <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs"><span class="glyphicon glyphicon-pencil"aria-hidden="true"></span></button></span></button></td>
-                            <td><form method="post" action="../alteraTelas/altera-finalizado.php"><input title="Altera STATUS p/ Finalizado" type="submit" value="FINALIZADO" class=" btn btn-default"></form></td>
+                            <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
+                            <td><form method="post" action="../alteraTelas/altera-finalizado.php"><input title="Altera STATUS p/ Finalizado" type="submit" value="Finalizar" class=" btn btn-default"></form></td>
                         </tr>
                     <?php } ?>
                    
@@ -193,7 +193,7 @@ $finalizado = buscaFuncionarios($conn, $id);
                             <td><input class='intable' type='text' name='BOAS_VINDAS_SALA' value="<?=$boasVindasSala['BOAS_VINDAS_SALA']?>"></td>
                             <td><input class='intable' type='date' name='BOAS_VINDA_ACOMPANHAMENTO_MENSAL' value="<?=$boasVindasAcomp['BOAS_VINDA_ACOMPANHAMENTO_MENSAL']?>"></td>
                             <td><input class='intable' type='date' name='LAYOUT_BOAS_VINDAS_MENSAL' value="<?=$layoutBoasVindas['LAYOUT_BOAS_VINDAS_MENSAL']?>"></td>
-                            <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default"><span class="glyphicon glyphicon-floppy-disk"aria-hidden="true"></td>
+                            <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
                     </tr>
                 </tbody>

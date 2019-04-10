@@ -178,7 +178,7 @@ $efetivacao = buscavencimentos($conn, $id);
                             <td><?php echo $rows_dados['DATA_VENCIMENTO_SEG']; ?></td>
                             <td><?php echo $rows_dados['EFETIVACAO']; ?></td>
                             <td><a title="Documentação" href='documentacao.php' class='intable'>Proximo</td>
-                            <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs" >Editar<span class="glyphicon glyphicon-pencil"aria-hidden="true"></span></button></span></button></td>
+                            <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
 
 
                         </tr>
@@ -194,7 +194,7 @@ $efetivacao = buscavencimentos($conn, $id);
                             <td><input type='date' class='intable' name="ENVIO_SOLICITANTE_SEG" value="<?=$envio_seg['ENVIO_SOLICITANTE_SEG']?>"></td>
                             <td><input type='date' class='intable' name="DATA_VENCIMENTO_SEG" value="<?=$data_venc_seg['DATA_VENCIMENTO_SEG']?>"></td>
                             <td><input type='text' class='intable' name="EFETIVACAO" value="<?=$efetivacao['EFETIVACAO']?>"></td>
-                            <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default"><span class="glyphicon glyphicon-floppy-disk"aria-hidden="true"></td>
+                            <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
 
 
                     </form>

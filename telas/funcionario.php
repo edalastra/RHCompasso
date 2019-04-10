@@ -192,7 +192,7 @@ $comunicar = buscaProposta($conn, $id);
                             <td><?php echo $rows_dados['PROJETO']; ?></td>
                             <?php unset($_GET['id']); ?>
                             <td><a title="Gestão" href='gestao.php'> Próximo </td>
-                            <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs"><span class="glyphicon glyphicon-pencil"aria-hidden="true"></span></button></span></button></td>
+                            <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
                     <?php  } ?>
                     <tr class='funcionario atualiza'>
@@ -222,7 +222,7 @@ $comunicar = buscaProposta($conn, $id);
                             <td><input type="text" class='intable' name="COMENTARIO" value="<?=$comentario['COMENTARIO']?>"></td>
                             <td><input type="date" class='intable' name="COMUNICAR_STATUS" value="<?=$comunicar['COMUNICAR_STATUS']?>"></td>
                             <td><input type="text" class='intable' name="PROJETO" value="<?=$funcionarios['PROJETO']?>"></td>
-                            <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default"><span class="glyphicon glyphicon-floppy-disk"aria-hidden="true"></td>
+                            <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
                     </tr>
                 </tbody>

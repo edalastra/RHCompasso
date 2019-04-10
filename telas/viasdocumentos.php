@@ -181,7 +181,7 @@ $docreceb = buscavias($conn, $id);
                             <td><?php echo $rows_dados['MALOTE_CADERNO_COMPASSO_CTPS']; ?></td> 
                             <td><?php echo $rows_dados['DOCUMENTOS_RECEBIDOS_ASSINADOS']; ?></td>
                             <td><a title="Boas Vindas" href='recepcao.php' class='intable'>Proximo</td>
-                            <td><button ttile="Editar" type="button" class="bto-update btn btn-default curInputs"><span class="glyphicon glyphicon-pencil"aria-hidden="true"></span></button></span></button></td>
+                            <td><button ttile="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
                     <?php } ?>
                 
@@ -196,7 +196,7 @@ $docreceb = buscavias($conn, $id);
                             <td><input type="date" class='intable' name ="EMAIL_CADERNO_COMPASSO_RECEBIDO" value="<?=$emailreceb['EMAIL_CADERNO_COMPASSO_RECEBIDO']?>"></td>
                             <td><input type="date" class='intable' name="MALOTE_CADERNO_COMPASSO_CTPS" value="<?=$malote['MALOTE_CADERNO_COMPASSO_CTPS']?>"></td>
                             <td><input type="date" class='intable' name="DOCUMENTOS_RECEBIDOS_ASSINADOS" value="<?=$docreceb['DOCUMENTOS_RECEBIDOS_ASSINADOS']?>"></td>
-                            <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default"><span class="glyphicon glyphicon-floppy-disk"aria-hidden="true"></td>
+                            <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                     </form>
                 </tbody>
             </table>

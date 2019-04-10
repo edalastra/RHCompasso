@@ -168,7 +168,7 @@ $anexar = buscaexame($conn, $id);
                             <td><?php echo $rows_dados['EMAIL_RECEBIDO_EXAM']; ?></td> 
                             <td><?php echo $rows_dados['ANEXAR_ASO']; ?></td>
                             <td><a title= "Dados Bancáriso" href='bancarios.php' class='intable'>Proximo</td>
-                            <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs"><span class="glyphicon glyphicon-pencil"aria-hidden="true"></span></button></span></button></td>
+                            <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
                     <?php } ?>
                     <tr class='funcionario atualiza'>
@@ -179,7 +179,7 @@ $anexar = buscaexame($conn, $id);
                             <td><input type="date" class='intable' name ="ENVIO_FUNC_EXAME" value="<?=$envio['ENVIO_FUNC_EXAME']?>"></td>
                             <td><input type="date" class='intable' name="EMAIL_RECEBIDO_EXAM" value="<?=$email['EMAIL_RECEBIDO_EXAM']?>"></td>
                             <td><input type="date" class='intable' name="ANEXAR_ASO" value="<?=$anexar['ANEXAR_ASO']?>"></td>
-                            <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default"><span class="glyphicon glyphicon-floppy-disk"aria-hidden="true"></td>
+                            <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
                     </tr>
                 </tbody>
