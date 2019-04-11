@@ -4,7 +4,7 @@
     if($cargo == "GESTOR" || $cargo == "GESTORES"){
       $grupo = "GESTORES + DESENVOLVIMENTO Interno - Equipe ". $sede;
     }elseif($cargo == "BACK OFFICE" || $cargo == "BACKOFFICE"){
-      $grupo = "ADMINISTRATIVO Interno - Equipe ". $sede;
+      $grupo = "";
     }elseif($cargo == "SUPORTE"){
       $grupo = "SUPORTE Interno - Equipe ". $sede;
     }else {
@@ -14,7 +14,7 @@
     return $grupo;
   }
 
-  
+
 
 
 ?>
