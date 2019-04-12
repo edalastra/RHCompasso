@@ -30,7 +30,7 @@ $NewDate = date_format($dataF, 'd-m-y');
     $body = "
     <header>
         <p id='title'>Boa tarde, <strong class='sublinhe'>".$nome['NOME']."</strong></p>
-        <p><strong class="cor">Seja bem vindo ao time!!</strong></p>
+        <p><strong class='cor'>Seja bem vindo ao time!!</strong></p>
         <p id='title'>Por gentileza, preencha e nos devolva através deste e-mail os formulários, em anexo <strong class='sublinhe'><font color='red'>".$NewDate.", às 12h</font></strong> , conforme especificações abaixo:</p>
     </header>
 

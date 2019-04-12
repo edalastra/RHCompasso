@@ -12,18 +12,18 @@ $listar = listar($conn);
 
 $resultado1 = mysqli_query($conn, "SELECT ID_USUARIO, NOME, DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM propostas_contratacoes as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 $conn1 = mysqli_num_rows($resultado1);
-    
+
 
 $resultado = mysqli_query($conn, "SELECT `ID_PLATAFORMA_ADM_DOMIN`, `ID_USUARIO`, DATE_FORMAT(QUALIFIC_CADASTRAL_CEP,'%d/%m/%Y') as QUALIFIC_CADASTRAL_CEP, DATE_FORMAT(CAD_ADM_PLATAFORMA_ADM_DIMIN,'%d/%m/%Y') as CAD_ADM_PLATAFORMA_ADM_DIMIN,  DATE_FORMAT(DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO,'%d/%m/%Y') as DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO,
  DATE_FORMAT(TERMO_PSI,'%d/%m/%Y') as TERMO_PSI,DATE_FORMAT(INCLUI_ADM_PROV,'%d/%m/%Y') as INCLUI_ADM_PROV FROM `admissao` as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
-$count = mysqli_num_rows($resultado); 
+$count = mysqli_num_rows($resultado);
 
 if($count == 1){
     $resultado = mysqli_query($conn, "SELECT `ID_PLATAFORMA_ADM_DOMIN`, `ID_USUARIO`, DATE_FORMAT(QUALIFIC_CADASTRAL_CEP,'%d/%m/%Y') as QUALIFIC_CADASTRAL_CEP, DATE_FORMAT(CAD_ADM_PLATAFORMA_ADM_DIMIN,'%d/%m/%Y') as CAD_ADM_PLATAFORMA_ADM_DIMIN,  DATE_FORMAT(DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO,'%d/%m/%Y') as DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO,
     DATE_FORMAT(TERMO_PSI,'%d/%m/%Y') as TERMO_PSI,DATE_FORMAT(INCLUI_ADM_PROV,'%d/%m/%Y') as INCLUI_ADM_PROV FROM `admissao` as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }else{
     mysqli_query($conn,"INSERT INTO `admissao`(`ID_PLATAFORMA_ADM_DOMIN`, `ID_USUARIO`, `QUALIFIC_CADASTRAL_CEP`, `CAD_ADM_PLATAFORMA_ADM_DIMIN`, `DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO`, `TERMO_PSI`, `INCLUI_ADM_PROV`) VALUES (NULL,$id,NULL,NULL,NULL,NULL,NULL)");
-    
+
     $resultado = mysqli_query($conn, "SELECT `ID_PLATAFORMA_ADM_DOMIN`, `ID_USUARIO`, DATE_FORMAT(QUALIFIC_CADASTRAL_CEP,'%d/%m/%Y') as QUALIFIC_CADASTRAL_CEP, DATE_FORMAT(CAD_ADM_PLATAFORMA_ADM_DIMIN,'%d/%m/%Y') as CAD_ADM_PLATAFORMA_ADM_DIMIN,  DATE_FORMAT(DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO,'%d/%m/%Y') as DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO,
     DATE_FORMAT(TERMO_PSI,'%d/%m/%Y') as TERMO_PSI,DATE_FORMAT(INCLUI_ADM_PROV,'%d/%m/%Y') as INCLUI_ADM_PROV FROM `admissao` as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }
@@ -31,14 +31,14 @@ if($count == 1){
 $status = buscaFuncionarios($conn, $id);
 $funcionario = buscaProposta($conn, $id);
 $quali = buscaadmissao($conn, $id);
-$cad= buscaadmissao($conn, $id); 
-$doc = buscaadmissao($conn, $id); 
+$cad= buscaadmissao($conn, $id);
+$doc = buscaadmissao($conn, $id);
 $termo = buscaadmissao($conn, $id);
 $inclui = buscaadmissao($conn, $id);
 /* $usuarios = mysql_fetch_assoc($resultado); */
 ?>
 
-      
+
 
 
 <!DOCTYPE html>
@@ -65,21 +65,21 @@ $inclui = buscaadmissao($conn, $id);
             <div class="dropdown">
             <a class="dropbtn nav">Emails <span class='caret'></span></a>
             <div class="dropdown-content">
-                  <a href='../emails/admissaoPOA.php?id=<?php echo $id?>'>5. Documentos Admissão POA</a>
-                  <a href='../emails/admissãoRG.php?id=<?php echo $id?>'>5.1 Documentos Admissão RG</a>
-                  <a href='../emails/admissãoPF.php?id=<<?php echo $id?>'>5.2 Documentos de Admissão PF</a>
-                  <a href='../emails/admissãoERE.php?id=<?php echo $id?>'>5.3 Documentos de Admissão ERE</a>
-                  <a href='../emails/admissãoCWB.php?id=<?php echo $id?>'>5.4 Documentos de Admissão CWB</a>
-                  <a href='../emails/admissãoSP.php?id=<?php echo $id?>'>5.5 Documentos de Admissão SP</a>
-                  <a href='../emails/admissãoFNL.php?id=<?php echo $id?>'>5.6 Documentos Admissão FNL</a>
-                  <a href='../emails/primeiro-alerta.php?id=<?php echo $id?>'>7. ALERTA - 1ª Experiência expira em 20 dias</a>
-                  <a href='../emails/segundo-alerta.php?id=<?php echo $id?>'>7.1 ALERTA - 2ª Experiência expira em 20 dias</a>
-                  <a href='../emails/novo-acesso.php?id=<?php echo $id?>'>8. Novo Acesso</a>
-                  <a href='../emails/acesso-liberado.php?id=<?php echo $id?>>'>9. Acessos Liberado</a>
+                <a href='../emails/body-email/admissaoPOA.php?id=<?php echo $id?>'>5. Documentos Admissão POA</a>
+                <a href='../emails/body-email/admissãoRG.php?id=<?php echo $id?>'>5.1 Documentos Admissão RG</a>
+                <a href='../emails/body-email/admissãoPF.php?id=<<?php echo $id?>'>5.2 Documentos de Admissão PF</a>
+                <a href='../emails/body-email/admissãoERE.php?id=<?php echo $id?>'>5.3 Documentos de Admissão ERE</a>
+                <a href='../emails/body-email/admissãoCWB.php?id=<?php echo $id?>'>5.4 Documentos de Admissão CWB</a>
+                <a href='../emails/body-email/admissãoSP.php?id=<?php echo $id?>'>5.5 Documentos de Admissão SP</a>
+                <a href='../emails/body-email/admissãoFNL.php?id=<?php echo $id?>'>5.6 Documentos Admissão FNL</a>
+                <a href='../emails/body-email/primeiro-alerta.php?id=<?php echo $id?>'>7. ALERTA - 1ª Experiência expira em 20 dias</a>
+                <a href='../emails/body-email/segundo-alerta.php?id=<?php echo $id?>'>7.1 ALERTA - 2ª Experiência expira em 20 dias</a>
+                <a href='../emails/body-email/novo-acesso.php?id=<?php echo $id?>'>8. Novo Acesso</a>
+                <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id?>>'>9. Acessos Liberado</a>
                 </div>
             </div>
         </nav>
-        
+
     </header>
     <main>
         <section class='menu-inicial'>
@@ -105,8 +105,8 @@ $inclui = buscaadmissao($conn, $id);
                     </tr>
                 </tbody>
                 </table>
-        </div>         
-        <div style="height: 25px;"></div>            
+        </div>
+        <div style="height: 25px;"></div>
         <div class="passos">
                 <div class="stepwizard">
                     <div class="passos stepwizard-row1 setup-panel">
@@ -169,7 +169,7 @@ $inclui = buscaadmissao($conn, $id);
                             <td><?=$status['STATUS']?></td>
                             <td><?php echo $rows_dados['QUALIFIC_CADASTRAL_CEP']; ?></td>
                             <td><?php echo $rows_dados['CAD_ADM_PLATAFORMA_ADM_DIMIN']; ?></td>
-                            <td><?php echo $rows_dados['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO']; ?></td> 
+                            <td><?php echo $rows_dados['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO']; ?></td>
                             <td><?php echo $rows_dados['TERMO_PSI']; ?></td>
                             <td><?php echo $rows_dados['INCLUI_ADM_PROV']; ?></td>
                             <td><a title="Exame Admissional" href='exame.php' class='intable'>Proximo</td>
@@ -179,7 +179,7 @@ $inclui = buscaadmissao($conn, $id);
                     <?php } ?>
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-admissao.php">
-                            <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>"> 
+                            <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
                             <td><input type='date' class='intable' name="QUALIFIC_CADASTRAL_CEP" value="<?=$quali['QUALIFIC_CADASTRAL_CEP']?>"></td>
                             <td><input type="date" class='intable' name ="CAD_ADM_PLATAFORMA_ADM_DIMIN" value="<?=$cad['CAD_ADM_PLATAFORMA_ADM_DIMIN']?>"></td>
@@ -190,7 +190,7 @@ $inclui = buscaadmissao($conn, $id);
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
                     </tr>
-                    
+
                 </tbody>
             </table>
         </section>
@@ -205,7 +205,7 @@ $inclui = buscaadmissao($conn, $id);
                         <td class='tb2'>AGUARDAR ACEITE</td>
                         <td class='tb2'>Aguardando o Aceite após o envio da proposta</td>
                     </tr>
-                    <tr class='tb2'> 
+                    <tr class='tb2'>
                         <td class='tb2'>FINALIZADO</td>
                         <td class='tb2'>Admissao concluída</td>
                     </tr>

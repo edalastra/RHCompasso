@@ -13,26 +13,26 @@ $resultado1 = mysqli_query($conn,"SELECT ID_USUARIO, NOME,DATE_FORMAT(DATA_ADMIS
 $conn1 = mysqli_num_rows($resultado1);
 
 
-$resultado = mysqli_query($conn, "SELECT `ID_EXAME_ADMISSIONAL`, `ID_USUARIO`, DATE_FORMAT(AGENDAMENTO_EXAM_ADM,'%d/%m/%Y') as AGENDAMENTO_EXAM_ADM,DATE_FORMAT(ENVIO_FUNC_EXAME,'%d/%m/%Y') as ENVIO_FUNC_EXAME, DATE_FORMAT(EMAIL_RECEBIDO_EXAM,'%d/%m/%Y') as EMAIL_RECEBIDO_EXAM, DATE_FORMAT(ANEXAR_ASO,'%d/%m/%Y') as ANEXAR_ASO 
+$resultado = mysqli_query($conn, "SELECT `ID_EXAME_ADMISSIONAL`, `ID_USUARIO`, DATE_FORMAT(AGENDAMENTO_EXAM_ADM,'%d/%m/%Y') as AGENDAMENTO_EXAM_ADM,DATE_FORMAT(ENVIO_FUNC_EXAME,'%d/%m/%Y') as ENVIO_FUNC_EXAME, DATE_FORMAT(EMAIL_RECEBIDO_EXAM,'%d/%m/%Y') as EMAIL_RECEBIDO_EXAM, DATE_FORMAT(ANEXAR_ASO,'%d/%m/%Y') as ANEXAR_ASO
 FROM `exame_admissional` as e LEFT JOIN admissao_dominio as a on e.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
-$count = mysqli_num_rows($resultado); 
+$count = mysqli_num_rows($resultado);
 
 if($count == 1){
-    $resultado = mysqli_query($conn, "SELECT `ID_EXAME_ADMISSIONAL`, `ID_USUARIO`, DATE_FORMAT(AGENDAMENTO_EXAM_ADM,'%d/%m/%Y') as AGENDAMENTO_EXAM_ADM,DATE_FORMAT(ENVIO_FUNC_EXAME,'%d/%m/%Y') as ENVIO_FUNC_EXAME, DATE_FORMAT(EMAIL_RECEBIDO_EXAM,'%d/%m/%Y') as EMAIL_RECEBIDO_EXAM, DATE_FORMAT(ANEXAR_ASO,'%d/%m/%Y') as ANEXAR_ASO 
+    $resultado = mysqli_query($conn, "SELECT `ID_EXAME_ADMISSIONAL`, `ID_USUARIO`, DATE_FORMAT(AGENDAMENTO_EXAM_ADM,'%d/%m/%Y') as AGENDAMENTO_EXAM_ADM,DATE_FORMAT(ENVIO_FUNC_EXAME,'%d/%m/%Y') as ENVIO_FUNC_EXAME, DATE_FORMAT(EMAIL_RECEBIDO_EXAM,'%d/%m/%Y') as EMAIL_RECEBIDO_EXAM, DATE_FORMAT(ANEXAR_ASO,'%d/%m/%Y') as ANEXAR_ASO
     FROM `exame_admissional` as e LEFT JOIN admissao_dominio as a on e.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }else{
     mysqli_query($conn, "INSERT INTO `exame_admissional`(`ID_EXAME_ADMISSIONAL`, `ID_USUARIO`, `AGENDAMENTO_EXAM_ADM`, `ENVIO_FUNC_EXAME`, `EMAIL_RECEBIDO_EXAM`, `ANEXAR_ASO`) VALUES (NULL, $id,NULL,NULL,NULL,NULL)");
-    
-    $resultado = mysqli_query($conn, "SELECT `ID_EXAME_ADMISSIONAL`, `ID_USUARIO`, DATE_FORMAT(AGENDAMENTO_EXAM_ADM,'%d/%m/%Y') as AGENDAMENTO_EXAM_ADM,DATE_FORMAT(ENVIO_FUNC_EXAME,'%d/%m/%Y') as ENVIO_FUNC_EXAME, DATE_FORMAT(EMAIL_RECEBIDO_EXAM,'%d/%m/%Y') as EMAIL_RECEBIDO_EXAM, DATE_FORMAT(ANEXAR_ASO,'%d/%m/%Y') as ANEXAR_ASO 
+
+    $resultado = mysqli_query($conn, "SELECT `ID_EXAME_ADMISSIONAL`, `ID_USUARIO`, DATE_FORMAT(AGENDAMENTO_EXAM_ADM,'%d/%m/%Y') as AGENDAMENTO_EXAM_ADM,DATE_FORMAT(ENVIO_FUNC_EXAME,'%d/%m/%Y') as ENVIO_FUNC_EXAME, DATE_FORMAT(EMAIL_RECEBIDO_EXAM,'%d/%m/%Y') as EMAIL_RECEBIDO_EXAM, DATE_FORMAT(ANEXAR_ASO,'%d/%m/%Y') as ANEXAR_ASO
     FROM `exame_admissional` as e LEFT JOIN admissao_dominio as a on e.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }
 
 $status = buscaFuncionarios($conn, $id);
 $funcionario = buscaProposta($conn, $id);
 $agend = buscaexame($conn, $id);
-$envio = buscaexame($conn, $id); 
-$email = buscaexame($conn, $id); 
-$anexar = buscaexame($conn, $id); 
+$envio = buscaexame($conn, $id);
+$email = buscaexame($conn, $id);
+$anexar = buscaexame($conn, $id);
 
 ?>
 
@@ -62,21 +62,21 @@ $anexar = buscaexame($conn, $id);
             <div class="dropdown">
             <a class="dropbtn nav">Emails <span class='caret'></span></a>
             <div class="dropdown-content">
-                  <a href='../emails/admissaoPOA.php?id=<?php echo $id?>'>5. Documentos Admissão POA</a>
-                  <a href='../emails/admissãoRG.php?id=<?php echo $id?>'>5.1 Documentos Admissão RG</a>
-                  <a href='../emails/admissãoPF.php?id=<<?php echo $id?>'>5.2 Documentos de Admissão PF</a>
-                  <a href='../emails/admissãoERE.php?id=<?php echo $id?>'>5.3 Documentos de Admissão ERE</a>
-                  <a href='../emails/admissãoCWB.php?id=<?php echo $id?>'>5.4 Documentos de Admissão CWB</a>
-                  <a href='../emails/admissãoSP.php?id=<?php echo $id?>'>5.5 Documentos de Admissão SP</a>
-                  <a href='../emails/admissãoFNL.php?id=<?php echo $id?>'>5.6 Documentos Admissão FNL</a>
-                  <a href='../emails/primeiro-alerta.php?id=<?php echo $id?>'>7. ALERTA - 1ª Experiência expira em 20 dias</a>
-                  <a href='../emails/segundo-alerta.php?id=<?php echo $id?>'>7.1 ALERTA - 2ª Experiência expira em 20 dias</a>
-                  <a href='../emails/novo-acesso.php?id=<?php echo $id?>'>8. Novo Acesso</a>
-                  <a href='../emails/acesso-liberado.php?id=<?php echo $id?>>'>9. Acessos Liberado</a>
+                  <a href='../emails/body-email/admissaoPOA.php?id=<?php echo $id?>'>5. Documentos Admissão POA</a>
+                  <a href='../emails/body-email/admissãoRG.php?id=<?php echo $id?>'>5.1 Documentos Admissão RG</a>
+                  <a href='../emails/body-email/admissãoPF.php?id=<<?php echo $id?>'>5.2 Documentos de Admissão PF</a>
+                  <a href='../emails/body-email/admissãoERE.php?id=<?php echo $id?>'>5.3 Documentos de Admissão ERE</a>
+                  <a href='../emails/body-email/admissãoCWB.php?id=<?php echo $id?>'>5.4 Documentos de Admissão CWB</a>
+                  <a href='../emails/body-email/admissãoSP.php?id=<?php echo $id?>'>5.5 Documentos de Admissão SP</a>
+                  <a href='../emails/body-email/admissãoFNL.php?id=<?php echo $id?>'>5.6 Documentos Admissão FNL</a>
+                  <a href='../emails/body-email/primeiro-alerta.php?id=<?php echo $id?>'>7. ALERTA - 1ª Experiência expira em 20 dias</a>
+                  <a href='../emails/body-email/segundo-alerta.php?id=<?php echo $id?>'>7.1 ALERTA - 2ª Experiência expira em 20 dias</a>
+                  <a href='../emails/body-email/novo-acesso.php?id=<?php echo $id?>'>8. Novo Acesso</a>
+                  <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id?>>'>9. Acessos Liberado</a>
                 </div>
             </div>
         </nav>
-        
+
     </header>
     <main>
         <section class='menu-inicial'>
@@ -102,8 +102,8 @@ $anexar = buscaexame($conn, $id);
                     </tr>
                 </tbody>
                 </table>
-        </div>         
-        <div style="height: 25px;"></div>        
+        </div>
+        <div style="height: 25px;"></div>
             <div class="passos">
                     <div class="stepwizard">
                         <div class="passos stepwizard-row1 setup-panel">
@@ -165,7 +165,7 @@ $anexar = buscaexame($conn, $id);
                             <td><?=$status['STATUS']?></td>
                             <td><?php echo $rows_dados['AGENDAMENTO_EXAM_ADM']; ?></td>
                             <td><?php echo $rows_dados['ENVIO_FUNC_EXAME']; ?></td>
-                            <td><?php echo $rows_dados['EMAIL_RECEBIDO_EXAM']; ?></td> 
+                            <td><?php echo $rows_dados['EMAIL_RECEBIDO_EXAM']; ?></td>
                             <td><?php echo $rows_dados['ANEXAR_ASO']; ?></td>
                             <td><a title= "Dados Bancáriso" href='bancarios.php' class='intable'>Proximo</td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
@@ -173,7 +173,7 @@ $anexar = buscaexame($conn, $id);
                     <?php } ?>
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-exame.php">
-                            <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>"> 
+                            <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
                             <td><input type='date' class='intable' name="AGENDAMENTO_EXAM_ADM" value="<?=$agend['AGENDAMENTO_EXAM_ADM']?>"></td>
                             <td><input type="date" class='intable' name ="ENVIO_FUNC_EXAME" value="<?=$envio['ENVIO_FUNC_EXAME']?>"></td>
@@ -197,7 +197,7 @@ $anexar = buscaexame($conn, $id);
                         <td class='tb2'>AGUARDAR ACEITE</td>
                         <td class='tb2'>Aguardando o Aceite após o envio da proposta</td>
                     </tr>
-                    <tr class='tb2'> 
+                    <tr class='tb2'>
                         <td class='tb2'>FINALIZADO</td>
                         <td class='tb2'>Admissao concluída</td>
                     </tr>
