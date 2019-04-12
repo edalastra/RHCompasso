@@ -60,7 +60,9 @@ if (isset($_POST['botaoVolta'])) {
               JOIN sede as s
               on a.ID_SEDE = s.SEDE_ID
               JOIN tipo as t
-              on a.ID_TIPO = t.TIPO_ID";
+              on a.ID_TIPO = t.TIPO_ID
+              LEFT JOIN documentacao as d
+              on d.ID_USUARIO = a.USUARIO_ID";
 
 
               if( sizeof( $where ) )
@@ -76,6 +78,8 @@ if (isset($_POST['botaoVolta'])) {
                                         on a.ID_SEDE = s.SEDE_ID
                                         JOIN tipo as t
                                         on a.ID_TIPO = t.TIPO_ID
+                                        LEFT JOIN documentacao as d
+                                        on d.ID_USUARIO = a.USUARIO_ID
                                         where  STATUS <> 'FINALIZADO' && STATUS <> 'RECUSADO' && STATUS <> 'DESISTENCIA'
                                         order by YEAR(DATA_ADMISSAO) ASC, MONTH(DATA_ADMISSAO) ASC, DAY(DATA_ADMISSAO) ASC" );
 
@@ -109,6 +113,7 @@ if (isset($_POST['botaoVolta'])) {
     <main>
         <section class='menu-inicial'>
             <h2 id='nome'>Plataforma Admissão</h2>
+            
         </section>
         <section class='inputs panel-body display campo-filtro estruct'>
             <h2 id='Filtro'>Filtro</h2>
