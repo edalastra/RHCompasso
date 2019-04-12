@@ -194,8 +194,12 @@ $tipo_conta = buscaBancario($conn, $id);
                             <td><input type="date" class='intable' name="FORM_COMPR_BANCARIO" value="<?=$form['FORM_COMPR_BANCARIO']?>"></td>
                             <td><input type="text" class='intable' name="AGENCIA" value="<?=$agencia['AGENCIA']?>"></td>
                             <td><input type="text" class='intable' name="NUMERO_CONTA" value="<?=$numero_conta['NUMERO_CONTA']?>"></td>
-                            <td><input type="text" class='intable' name="TIPO_CONTA" value="<?=$tipo_conta['TIPO_CONTA']?>"></td>
-
+                            <td><select name="TIPO_CONTA" class="intable" value="<?=$tipo_conta['TIPO_CONTA']?>">
+                                <option value="" selected="selected"></option>
+                                <option>Corrente</option>
+                                <option>Poupança</option>
+                                <option>Salario</option>
+                            </select></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
