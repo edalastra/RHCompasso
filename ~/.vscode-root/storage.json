@@ -1,0 +1,32 @@
+{
+    "telemetry.machineId": "bf7c82827efe07fe12b09f5f724476de1d8cad574d424882ebb1ad7955e53d09",
+    "theme": "vs-dark",
+    "themeBackground": "#1e1e1e",
+    "pickerWorkingDir": "/opt/lampp/htdocs",
+    "openedPathsList": {
+        "workspaces2": [
+            "file:///opt/lampp/htdocs/RHCompasso"
+        ],
+        "files2": []
+    },
+    "windowsState": {
+        "openedWindows": [],
+        "lastActiveWindow": {
+            "folderUri": {
+                "$mid": 1,
+                "fsPath": "/opt/lampp/htdocs/RHCompasso",
+                "external": "file:///opt/lampp/htdocs/RHCompasso",
+                "path": "/opt/lampp/htdocs/RHCompasso",
+                "scheme": "file"
+            },
+            "backupPath": "/opt/lampp/htdocs/RHCompasso/~/.vscode-root/Backups/daa73609c169b16655d8af12e5437009",
+            "uiState": {
+                "mode": 0,
+                "x": 0,
+                "y": 0,
+                "width": 1366,
+                "height": 723
+            }
+        }
+    }
+}

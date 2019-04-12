@@ -32,7 +32,7 @@ if (isset($_POST['botaoVolta'])) {
               $data_admissao = $_POST['data_admissao'];
               $vencimento = $_POST['vencimento'];
               $vencimentos = $_POST['vencimentos'];
-              $recebimento = $_POST['recebimento'];
+              $formularios_enviados = $_POST['formularios_enviados'];
 
 
 
@@ -47,7 +47,7 @@ if (isset($_POST['botaoVolta'])) {
               if( $data_admissao ){ $where[] = " `DATA_ADMISSAO` = '{$data_admissao}'"; }
               if( $vencimento ){ $where[] = " `DATA_VENCIMENTO_PRI` = '{$vencimento}'"; }
               if( $vencimentos ){ $where[] = " `DATA_VENCIMENTO_SEG` = '{$vencimentos}'"; }
-              if( $recebimento ){ $where[] = " `PROPOSTA_RECEBIDA` = '{$recebimento}'"; }
+              if( $formularios_enviados){ $where[] = " `formularios_enviados` = '{$formularios_enviados}'"; }
 
 
 
@@ -194,9 +194,9 @@ if (isset($_POST['botaoVolta'])) {
                                 data-filters="#dev-table" placeholder="Data Vencimentos" />
                         </div>
                         <div>
-                            <label for="recebimento">Proposta Recebida</label>
-                            <input type="date" id='recebimento' name="recebimento" class="form-control campo-filter" data-action="filter"
-                                data-filters="#dev-table" placeholder="Data de Recebimento"/>
+                            <label for="recebimento">Formulários Enviados</label>
+                            <input type="date" id='recebimento' name="formularios_enviados" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="Formulários Enviados"/>
                         </div>
                         <input type="submit" name="botao" class="botao btn btn-default btn-xs btn-filter campo-filter" value="Filtrar" >
                     </div>
