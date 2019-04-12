@@ -1,42 +1,32 @@
 <?php
+
 $connect = mysqli_connect("localhost", "root", "", "bancorh");
 $output = '';
 if(isset($_POST["export"]))
 {
     $connect = mysqli_connect("localhost", "root", "", "bancorh");
-    $sql = "SELECT STATUS,ID_CAPTACAO, ID_SEDE, ID_TIPO, CARGA_HORARIA, HORARIO, NOME, FONE_CONTATO,CARGO, CONTROLE_DATA_ADMISSAO, REMUNERACAO_BASE, GRATIFICACAO,SOLICITANTE, PROJETO, CLIENTE, EMAIL, DATA_ADMISSAO, POSICAO_DATA ,POSICAO_COMENTARIO,ADMINISTRATIVO,
-    PROPOSTA_RECEBIDA, DE_ACORDO_DIRECAO, ENQUADRAMENTO, ENVIO_PROPOSTA, COMUNICAR_PROPOSTA_ENVIADA, ACEITE_RECUSA_CANDIDATO, COMENTARIO, COMUNICAR_STATUS,
-    GESTOR, GESTOR_SABE, GESTOR_LOCAL, GESTOR_LOCAL_sABE, RECEPTOR_PESSOA, 
-    ENVIO_SOLICITANTE_PRI, DATA_VENCIMENTO_PRI, RENOVACAO, ENVIO_SOLICITANTE_SEG, DATA_VENCIMENTO_SEG, EFETIVACAO, 
-    FORMULARIOS_ENVIADOS, FORMULARIOS_RECEBIDOS, DOCUMENTOS_FISICOS, CTPS_RECEBIDA, 
-    QUALIFIC_CADASTRAL_CEP, CAD_ADM_PLATAFORMA_ADM_DIMIN, DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO, TERMO_PSI, INCLUI_ADM_PROV, 
-    AGENDAMENTO_EXAM_ADM, ENVIO_FUNC_EXAME, EMAIL_RECEBIDO_EXAM, ANEXAR_ASO, 
-    ENVIO, RECEBIDO, ANEXAR_COMPR_DOMIN, PLANILHA_CONTAS, FORM_COMPR_BANCARIO,
-    EMAIL_SUP, USUARIO, SENHA, EQUIPAMENTO, TRANSLADO,GRUPOS_DE_EMAIL,
-    INTRANET_CADASTRO_USUARIO, INTRANET_CADASTRO_SENHA, KAIROS_CADASTRO_USUARIO, KAIROS_CADASTRO_SENHA, EMAIL_GESTOR_APOIO_SEDE, EMAIL_BOAS_VINDAS, EMAIL_INICIO_ATIVIDADES, ACESSOS,
-    EMAIL_CADERNO_COMPASSO_SOLICITADO, EMAIL_CADERNO_COMPASSO_RECEBIDO, MALOTE_CADERNO_COMPASSO_CTPS, DOCUMENTOS_RECEBIDOS_ASSINADOS, CRACHA_DATA_PEDIDO, CRACHA_CONTROLE, CRACHA_PROTOCOLO,
-    BOAS_VINDAS_INGR_AGENDADA, BOAS_VINDAS_INGR_REALIZADA, BOAS_VINDAS_SALA, BOAS_VINDA_ACOMPANHAMENTO_MENSAL, LAYOUT_BOAS_VINDAS_MENSAL
-    FROM admissao_dominio AS a 
+    $sql = "SELECT *
+    FROM admissao_dominio AS a
     LEFT JOIN propostas_contratacoes AS p
     ON p.ID_USUARIO = a.USUARIO_ID
     LEFT JOIN gestao AS g
-    ON g.ID_USUARIO = a.USUARIO_ID 
+    ON g.ID_USUARIO = a.USUARIO_ID
     LEFT JOIN vencimentos AS v
-    ON v.ID_USUARIO = a.USUARIO_ID 
+    ON v.ID_USUARIO = a.USUARIO_ID
     LEFT JOIN documentacao AS d
     ON d.ID_USUARIO = a.USUARIO_ID
     LEFT JOIN admissao AS ad
-    ON ad.ID_USUARIO = a.USUARIO_ID 
+    ON ad.ID_USUARIO = a.USUARIO_ID
     LEFT JOIN exame_admissional AS e
     ON e.ID_USUARIO = a.USUARIO_ID
     LEFT JOIN bancarios AS b
-    ON b.ID_USUARIO = a.USUARIO_ID 
+    ON b.ID_USUARIO = a.USUARIO_ID
     LEFT JOIN suporte_interno AS s
-    ON s.ID_USUARIO = a.USUARIO_ID 
+    ON s.ID_USUARIO = a.USUARIO_ID
     LEFT JOIN interno AS i
     ON i.ID_USUARIO = a.USUARIO_ID
     LEFT JOIN vias_documentos_funcionarios AS vd
-    ON vd.ID_USUARIO = a.USUARIO_ID 
+    ON vd.ID_USUARIO = a.USUARIO_ID
     LEFT JOIN boas_vindas AS bv
     ON bv.ID_USUARIO = a.USUARIO_ID
     LEFT JOIN parametros_captacao AS c
@@ -48,7 +38,7 @@ if(isset($_POST["export"]))
 
     $result = mysqli_query($connect, $sql);
 
-    
+
     if(mysqli_num_rows($result) > 0)
     {
      $output .= '
@@ -127,8 +117,8 @@ if(isset($_POST["export"]))
                             <th width="60px">Sede</th>
                             <th width="60px">Tipo</th>
                             <th width="100px">Captação</th>
-                            <th width="100px">Carga Horária</th> 
-                            <th width="100px">Horário</th> 
+                            <th width="100px">Carga Horária</th>
+                            <th width="100px">Horário</th>
                             <th width="200px">Nome</th>
                             <th width="85px">Fone</th>
                             <th width="100px">Cargo</th>
@@ -178,6 +168,9 @@ if(isset($_POST["export"]))
                             <th>Anexar comprovante na Domínio</th>
                             <th>Planilha de Contas</th>
                             <th>Formuário + comprovante bancário</th>
+                            <th>Agência</th>
+                            <th>Conta</th>
+                            <th>Tipo da Conta</th>
                             <th>Email</th>
                             <th>Usuário</th>
                             <th>Senha de acesso</th>
@@ -209,15 +202,15 @@ if(isset($_POST["export"]))
         ';
 
 
-     while($row = mysqli_fetch_array($result))  
-     {  
-        $output .= '   
-       <tr>  
-         <td>'.$row["STATUS"].'</td>  
-         <td>'.$row["NOME_SEDE"].'</td>  
-         <td>'.$row["NOME_TIPO"].'</td>  
+     while($row = mysqli_fetch_array($result))
+     {
+        $output .= '
+       <tr>
+         <td>'.$row["STATUS"].'</td>
+         <td>'.$row["NOME_SEDE"].'</td>
+         <td>'.$row["NOME_TIPO"].'</td>
          <td>'.$row['NOME_PARAMETRO'].'</td>
-         <td>'.$row["CARGA_HORARIA"].'</td>  
+         <td>'.$row["CARGA_HORARIA"].'</td>
          <td>'.$row['HORARIO'].'</td>
          <td>'.$row["NOME"].'</td>
          <td>'.$row["FONE_CONTATO"].'</td>
@@ -230,51 +223,54 @@ if(isset($_POST["export"]))
          <td>'.$row["CLIENTE"].'</td>
          <td>'.$row["EMAIL"].'</td>
          <td>'.$row["DATA_ADMISSAO"].'</td>
-         <td>'.$row["PROPOSTA_RECEBIDA"].'</td>  
-         <td>'.$row["DE_ACORDO_DIRECAO"].'</td>  
+         <td>'.$row["PROPOSTA_RECEBIDA"].'</td>
+         <td>'.$row["DE_ACORDO_DIRECAO"].'</td>
          <td>'.$row['ENQUADRAMENTO'].'</td>
-         <td>'.$row["ENVIO_PROPOSTA"].'</td>  
+         <td>'.$row["ENVIO_PROPOSTA"].'</td>
          <td>'.$row['COMUNICAR_PROPOSTA_ENVIADA'].'</td>
          <td>'.$row["ACEITE_RECUSA_CANDIDATO"].'</td>
          <td>'.$row["COMENTARIO"].'</td>
          <td>'.$row["COMUNICAR_STATUS"].'</td>
          <td>'.$row['GESTOR'].'</td>
-         <td>'.$row["GESTOR_SABE"].'</td>  
+         <td>'.$row["GESTOR_SABE"].'</td>
          <td>'.$row['GESTOR_LOCAL'].'</td>
          <td>'.$row["GESTOR_LOCAL_sABE"].'</td>
          <td>'.$row["RECEPTOR_PESSOA"].'</td>
          <td>'.$row['ENVIO_SOLICITANTE_PRI'].'</td>
-         <td>'.$row["DATA_VENCIMENTO_PRI"].'</td>  
+         <td>'.$row["DATA_VENCIMENTO_PRI"].'</td>
          <td>'.$row['RENOVACAO'].'</td>
          <td>'.$row["ENVIO_SOLICITANTE_SEG"].'</td>
          <td>'.$row["DATA_VENCIMENTO_SEG"].'</td>
          <td>'.$row["EFETIVACAO"].'</td>
          <td>'.$row['FORMULARIOS_ENVIADOS'].'</td>
-         <td>'.$row["FORMULARIOS_RECEBIDOS"].'</td>  
+         <td>'.$row["FORMULARIOS_RECEBIDOS"].'</td>
          <td>'.$row['DOCUMENTOS_FISICOS'].'</td>
          <td>'.$row["CTPS_RECEBIDA"].'</td>
-         <td>'.$row["QUALIFIC_CADASTRAL_CEP"].'</td>  
+         <td>'.$row["QUALIFIC_CADASTRAL_CEP"].'</td>
          <td>'.$row['CAD_ADM_PLATAFORMA_ADM_DIMIN'].'</td>
-         <td>'.$row["DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO"].'</td>  
+         <td>'.$row["DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO"].'</td>
          <td>'.$row['TERMO_PSI'].'</td>
          <td>'.$row["INCLUI_ADM_PROV"].'</td>
          <td>'.$row["ADMINISTRATIVO"].'</td>
-         <td>'.$row["AGENDAMENTO_EXAM_ADM"].'</td>  
+         <td>'.$row["AGENDAMENTO_EXAM_ADM"].'</td>
          <td>'.$row['ENVIO_FUNC_EXAME'].'</td>
-         <td>'.$row["EMAIL_RECEBIDO_EXAM"].'</td>  
+         <td>'.$row["EMAIL_RECEBIDO_EXAM"].'</td>
          <td>'.$row['ANEXAR_ASO'].'</td>
-         <td>'.$row["ENVIO"].'</td>  
+         <td>'.$row["ENVIO"].'</td>
          <td>'.$row['RECEBIDO'].'</td>
-         <td>'.$row["ANEXAR_COMPR_DOMIN"].'</td>  
+         <td>'.$row["ANEXAR_COMPR_DOMIN"].'</td>
          <td>'.$row['PLANILHA_CONTAS'].'</td>
          <td>'.$row['FORM_COMPR_BANCARIO'].'</td>
-         <td>'.$row["EMAIL_SUP"].'</td>  
+         <td>'.$row['AGENCIA'].'</td>
+         <td>'.$row['NUMERO_CONTA'].'</td>
+         <td>'.$row['TIPO_CONTA'].'</td>
+         <td>'.$row["EMAIL_SUP"].'</td>
          <td>'.$row['USUARIO'].'</td>
-         <td>'.$row["SENHA"].'</td>  
+         <td>'.$row["SENHA"].'</td>
          <td>'.$row['EQUIPAMENTO'].'</td>
          <td>'.$row['TRANSLADO'].'</td>
          <td>'.$row['INTRANET_CADASTRO_USUARIO'].'</td>
-         <td>'.$row["INTRANET_CADASTRO_SENHA"].'</td>  
+         <td>'.$row["INTRANET_CADASTRO_SENHA"].'</td>
          <td>'.$row['KAIROS_CADASTRO_USUARIO'].'</td>
          <td>'.$row["KAIROS_CADASTRO_SENHA"].'</td>
          <td>'.$row["EMAIL_GESTOR_APOIO_SEDE"].'</td>
@@ -284,20 +280,20 @@ if(isset($_POST["export"]))
          <td>'.$row["POSICAO_DATA"].'</td>
          <td>'.$row["POSICAO_COMENTARIO"].'</td>
          <td>'.$row['EMAIL_CADERNO_COMPASSO_SOLICITADO'].'</td>
-         <td>'.$row["EMAIL_CADERNO_COMPASSO_RECEBIDO"].'</td>  
+         <td>'.$row["EMAIL_CADERNO_COMPASSO_RECEBIDO"].'</td>
          <td>'.$row['MALOTE_CADERNO_COMPASSO_CTPS'].'</td>
          <td>'.$row["DOCUMENTOS_RECEBIDOS_ASSINADOS"].'</td>
          <td>'.$row['CRACHA_DATA_PEDIDO'].'</td>
-         <td>'.$row["CRACHA_CONTROLE"].'</td>  
+         <td>'.$row["CRACHA_CONTROLE"].'</td>
          <td>'.$row['CRACHA_PROTOCOLO'].'</td>
          <td>'.$row["BOAS_VINDAS_INGR_AGENDADA"].'</td>
          <td>'.$row["BOAS_VINDAS_INGR_REALIZADA"].'</td>
          <td>'.$row["BOAS_VINDAS_SALA"].'</td>
          <td>'.$row["BOAS_VINDA_ACOMPANHAMENTO_MENSAL"].'</td>
          <td>'.$row["LAYOUT_BOAS_VINDAS_MENSAL"].'</td>
-       </tr>  
-        ';  
-  
+       </tr>
+        ';
+
     }
     $output .= '</table>';
     header('Content-Type: application/xls');
@@ -306,4 +302,3 @@ if(isset($_POST["export"]))
    }
   }
   ?>
-     

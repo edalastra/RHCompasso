@@ -1,5 +1,5 @@
-<?php  
-//export.php  
+<?php
+//export.php
 $connect = mysqli_connect("localhost", "root", "", "bancorh");
 $output = '';
 if(isset($_POST["export"]))
@@ -7,17 +7,17 @@ if(isset($_POST["export"]))
  $query = "SELECT ID_USUARIO, EMAIL_CADERNO_COMPASSO_SOLICITADO,
             EMAIL_CADERNO_COMPASSO_RECEBIDO, MALOTE_CADERNO_COMPASSO_CTPS,
             DOCUMENTOS_RECEBIDOS_ASSINADOS,CRACHA_DATA_PEDIDO, CRACHA_CONTROLE, CRACHA_PROTOCOLO
-            STATUS, PROJETO, NOME 
-            from vias_documentos_funcionarios  as p 
-            LEFT JOIN admissao_dominio as a 
-            on p.ID_USUARIO = a.USUARIO_ID 
-            where ID_USUARIO = USUARIO_ID"; 
+            STATUS, PROJETO, NOME
+            from vias_documentos_funcionarios  as p
+            LEFT JOIN admissao_dominio as a
+            on p.ID_USUARIO = a.USUARIO_ID
+            where ID_USUARIO = USUARIO_ID";
 
 $result = mysqli_query($connect, $query);
  if(mysqli_num_rows($result) > 0)
  {
   $output .= '
-   <table class="table" bordered="1">  
+   <table class="table" bordered="1">
             <tr>
                 <th></th>
                 <th></th>
@@ -43,19 +43,19 @@ $result = mysqli_query($connect, $query);
   while($row = mysqli_fetch_array($result))
   {
    $output .= '
-            <tr>  
-            <td>'.$row["STATUS"].'</td>  
+            <tr>
+            <td>'.$row["STATUS"].'</td>
             <td>'.$row["NOME"].'</td>
             <td>'.$row["CRACHA_DATA_PEDIDO"].'</td>
             <td>'.$row["CRACHA_CONTROLE"].'</td>
             <td>'.$row["CRACHA_PROTOCOLO"].'</td>
             <td>'.$row['EMAIL_CADERNO_COMPASSO_SOLICITADO'].'</td>
-            <td>'.$row["EMAIL_CADERNO_COMPASSO_RECEBIDO"].'</td>  
+            <td>'.$row["EMAIL_CADERNO_COMPASSO_RECEBIDO"].'</td>
             <td>'.$row['MALOTE_CADERNO_COMPASSO_CTPS'].'</td>
             <td>'.$row["DOCUMENTOS_RECEBIDOS_ASSINADOS"].'</td>
             <td>'.$row["PROJETO"].'</td>
-            </tr>  
-            ';  
+            </tr>
+            ';
   }
   $output .= '</table>';
   header('Content-Type: application/xls');
