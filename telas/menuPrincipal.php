@@ -33,9 +33,37 @@ if (isset($_POST['botaoVolta'])) {
               $vencimento = $_POST['vencimento'];
               $vencimentos = $_POST['vencimentos'];
               $formularios_enviados = $_POST['formularios_enviados'];
+              $formularios_recebidos = $_POST['formularios_recebidos'];
+              $documentos_fisicos = $_POST['documentos_fisicos'];
+              $ctps = $_POST['ctps'];
+              $qualific = $_POST['qualific'];
+              $cad_adm = $_POST['cad_adm'];
+              $doc_rec = $_POST['doc_rec'];
+              $termo_psi = $_POST['termo_psi'];
+              $inclui_adm = $_POST['inclui_adm'];
+              $agendamento_exam = $_POST['agendamento_exam'];
+              $envio_func = $_POST['envio_func'];
+              $email_exame = $_POST['email_exame'];
+              $anexar_aso = $_POST['anexar_aso'];
+              $envio = $_POST['envio'];
+              $recebido = $_POST['recebido'];
+              $anexar_recebido = $_POST['anexar_recebido'];
+              $planilha_contas = $_POST['planilha_contas'];
+              $form_compro = $_POST['form_compro'];
+              $intra_data = $_POST['intra_data'];
+              $kairos_data = $_POST['kairos_data'];
+              $email_gestor = $_POST['email_gestor'];
+              $email_inicio = $_POST['email_inicio'];
+              $email_boas = $_POST['email_boas'];
+              $acessos = $_POST['acessos'];
 
-
-
+              $cracha_pedido = $_POST['cracha_pedido'];
+              $cracha_controle = $_POST['cracha_controle'];
+              $cracha_protocolo = $_POST['cracha_protocolo'];
+              $email_caderno = $_POST['email_caderno'];
+              $email_caderno_r = $_POST['email_caderno_r'];
+              $malote = $_POST['malote'];
+              $assinados = $_POST['assinados'];
 
               if( $status ){ $where[] = " `STATUS` = '{$status}'"; }
               if( $sede ){ $where[] = " `ID_SEDE` = '{$sede}'"; }
@@ -47,7 +75,39 @@ if (isset($_POST['botaoVolta'])) {
               if( $data_admissao ){ $where[] = " `DATA_ADMISSAO` = '{$data_admissao}'"; }
               if( $vencimento ){ $where[] = " `DATA_VENCIMENTO_PRI` = '{$vencimento}'"; }
               if( $vencimentos ){ $where[] = " `DATA_VENCIMENTO_SEG` = '{$vencimentos}'"; }
-              if( $formularios_enviados){ $where[] = " `formularios_enviados` = '{$formularios_enviados}'"; }
+              if( $formularios_enviados ){ $where[] = " `formularios_enviados` = '{$formularios_enviados}'"; }
+              if( $formularios_recebidos ){ $where[] = " `formularios_recebidos` = '{$formularios_recebidos}'"; }
+              if( $documentos_fisicos ){ $where[] = " `documentos_fisicos` = '{$documentos_fisicos}'"; }
+              if( $ctps ){ $where[] = " `ctps_recebida` = '{$ctps}'"; }
+              if( $qualific ){ $where[] = " `QUALIFIC_CADASTRAL_CEP` = '{$qualific}'"; }
+              if( $cad_adm ){ $where[] = " `CAD_ADM_PLATAFORMA_ADM_DIMIN` = '{$cad_adm}'"; }
+              if( $doc_rec ){ $where[] = " `DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO` = '{$doc_rec}'"; }
+              if( $termo_psi ){ $where[] = " `TERMO_PSI` = '{$termo_psi}'"; }
+              if( $inclui_adm ){ $where[] = " `INCLUI_ADM_PROV` = '{$inclui_adm}'"; }
+              if( $agendamento_exam ){ $where[] = " `AGENDAMENTO_EXAM_ADM` = '{$agendamento_exam}'"; }
+              if( $envio_func ){ $where[] = " `EMAIL_RECEBIDO_EXAM` = '{$envio_func}'"; }
+              if( $email_exame ){ $where[] = " `ENVIO_FUNC_EXAME` = '{$email_exame}'"; }
+              if( $anexar_aso ){ $where[] = " `ANEXAR_ASO` = '{$anexar_aso}'"; }
+              if( $envio ){ $where[] = " `ENVIO` = '{$envio}'"; }
+              if( $recebido ){ $where[] = " `RECEBIDO` = '{$recebido}'"; }
+              if( $anexar_recebido ){ $where[] = " `ANEXAR_COMPR_DOMIN` = '{$anexar_recebido}'"; }
+              if( $planilha_contas ){ $where[] = " `PLANILHA_CONTAS` = '{$planilha_contas}'"; }
+              if( $form_compro ){ $where[] = " `FORM_COMPR_BANCARIO` = '{$form_compro}'"; }
+              if( $intra_data ){ $where[] = " `INTRANET_CADASTRO_USUARIO` = '{$intra_data}'"; }
+              if( $kairos_data ){ $where[] = " `KAIROS_CADASTRO_USUARIO` = '{$kairos_data}'"; }
+              if( $email_gestor ){ $where[] = " `EMAIL_GESTOR_APOIO_SEDE` = '{$email_gestor}'"; }
+              if( $email_inicio ){ $where[] = " `EMAIL_INICIO_ATIVIDADES` = '{$email_inicio}'"; }
+              if( $email_boas ){ $where[] = " `EMAIL_BOAS_VINDAS` = '{$email_boas}'"; }
+              if( $acessos ){ $where[] = " `ACESSOS` = '{$acessos}'"; }
+              if( $cracha_pedido ){ $where[] = " `CRACHA_DATA_PEDIDO` = '{$cracha_pedido}'"; }
+              if( $cracha_controle ){ $where[] = " `CRACHA_CONTROLE` = '{$cracha_controle}'"; }
+              if( $cracha_protocolo ){ $where[] = " `CRACHA_PROTOCOLO` = '{$cracha_protocolo}'"; }
+              if( $email_caderno ){ $where[] = " `EMAIL_CADERNO_COMPASSO_SOLICITADO` = '{$email_caderno}'"; }
+              if( $email_cemail_caderno_r ){ $where[] = " `EMAIL_CADERNO_COMPASSO_RECEBIDO` = '{$email_cemail_caderno_r}'"; }
+              if( $malote ){ $where[] = " `MALOTE_CADERNO_COMPASSO_CTPS` = '{$malote}'"; }
+              if( $assinados ){ $where[] = " `DOCUMENTOS_RECEBIDOS_ASSINADOS` = '{$assinados}'"; }
+
+
 
 
 
@@ -62,7 +122,17 @@ if (isset($_POST['botaoVolta'])) {
               JOIN tipo as t
               on a.ID_TIPO = t.TIPO_ID
               LEFT JOIN documentacao as d
-              on d.ID_USUARIO = a.USUARIO_ID";
+              on d.ID_USUARIO = a.USUARIO_ID
+              LEFT JOIN admissao as adm
+              on adm.ID_USUARIO = a.USUARIO_ID
+              LEFT JOIN exame_admissional as exe
+              on exe.ID_USUARIO = a.USUARIO_ID
+              LEFT JOIN bancarios as banc
+              on banc.ID_USUARIO = a.USUARIO_ID
+              LEFT JOIN interno as i
+              on i.ID_USUARIO = a.USUARIO_ID
+              LEFT JOIN vias_documentos_funcionarios as via
+              ON via.ID_USUARIO = a.USUARIO_ID";
 
 
               if( sizeof( $where ) )
@@ -80,6 +150,16 @@ if (isset($_POST['botaoVolta'])) {
                                         on a.ID_TIPO = t.TIPO_ID
                                         LEFT JOIN documentacao as d
                                         on d.ID_USUARIO = a.USUARIO_ID
+                                        LEFT JOIN admissao as adm
+                                        on adm.ID_USUARIO = a.USUARIO_ID
+                                        LEFT JOIN exame_admissional as exe
+                                        on exe.ID_USUARIO = a.USUARIO_ID
+                                        LEFT JOIN bancarios as banc
+                                        on banc.ID_USUARIO = a.USUARIO_ID
+                                        LEFT JOIN interno as i
+                                        on i.ID_USUARIO = a.USUARIO_ID
+                                        LEFT JOIN vias_documentos_funcionarios as via
+                                        ON via.ID_USUARIO = a.USUARIO_ID
                                         where  STATUS <> 'FINALIZADO' && STATUS <> 'RECUSADO' && STATUS <> 'DESISTENCIA'
                                         order by YEAR(DATA_ADMISSAO) ASC, MONTH(DATA_ADMISSAO) ASC, DAY(DATA_ADMISSAO) ASC" );
 
@@ -113,7 +193,7 @@ if (isset($_POST['botaoVolta'])) {
     <main>
         <section class='menu-inicial'>
             <h2 id='nome'>Plataforma Admissão</h2>
-            
+
         </section>
         <section class='inputs panel-body display campo-filtro estruct'>
             <h2 id='Filtro'>Filtro</h2>
@@ -198,10 +278,166 @@ if (isset($_POST['botaoVolta'])) {
                             <input type="date" id='vencimentos' name="vencimentos" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Data Vencimentos" />
                         </div>
+                        <h2>Tela 5 - Documentação</h2>
                         <div>
                             <label for="recebimento">Formulários Enviados</label>
-                            <input type="date" id='recebimento' name="formularios_enviados" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='formularios_enviados' name="formularios_enviados" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Formulários Enviados"/>
+                        </div>
+                        <div>
+                            <label for="recebimento">Formulários Recebidos</label>
+                            <input type="date" id='formularios_recebidos' name="formularios_recebidos" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="Formulários Recebidos"/>
+                        </div>
+                        <div>
+                            <label for="recebimento">Documentos Físicos</label>
+                            <input type="date" id='documentos_fisicos' name="documentos_fisicos" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="Documentos Físicos"/>
+                        </div>
+                        <div>
+                            <label for="recebimento">CTPS</label>
+                            <input type="date" id='r' name="ctps" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="CTPS"/>
+                        </div>
+                        <h2>Tela 6 - Admissão</h2>
+                        <div>
+                            <label for="recebimento">Qualificação Cadastral e CEP</label>
+                            <input type="date" id='qualific' name="qualific" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="Qualificação Cadastral e CEP"/>
+                        </div>
+                        <div>
+                            <label for="recebimento">Cadastrada Admissão Plataforma Domínio</label>
+                            <input type="date" id='cad_adm' name="cad_adm" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="Cadastrada Admissão Plataforma Domínio"/>
+                        </div>
+                        <div>
+                            <label for="recebimento">Documentos Recebidos Plataforma Domínio + Validação  CBO</label>
+                            <input type="date" id='doc_rec' name="doc_rec" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="Documentos Recebidos Plataforma Domínio + Validação  CBO"/>
+                        </div>
+                        <div>
+                            <label for="recebimento">Termo PSI</label>
+                            <input type="date" id='termo_psi' name="termo_psi" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="Termo PSI"/>
+                        </div>
+                        <div>
+                            <label for="recebimento">Incluir Admissão na Provisória</label>
+                            <input type="date" id='inclui_adm' name="inclui_adm" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="Incluir Admissão na Provisória"/>
+                        </div>
+                        <h2>Tela 7 - Exame</h2>
+                        <div>
+                            <label for="recebimento">Agendamento</label>
+                            <input type="date" id='agendamento_exam' name="agendamento_exam" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="Agendamento"/>
+                        </div>
+                        <div>
+                            <label for="recebimento">Envio para funcionário</label>
+                            <input type="date" id='envio_func' name="envio_func" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="Envio para funcionário"/>
+                        </div>
+                        <div>
+                            <label for="recebimento">Recebido por e-mail ASO assinado</label>
+                            <input type="date" id='email_exame' name="email_exame" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="Recebido por e-mail ASO assinado"/>
+                        </div>
+                        <div>
+                            <label for="recebimento">Anexar ASO assinado na Domínio	</label>
+                            <input type="date" id='anexar_aso' name="anexar_aso" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="Anexar ASO assinado na Domínio"/>
+                        </div>
+                        <h2>Tela 8 - Dados Bancários</h2>
+                        <div>
+                            <label for="recebimento">Envio</label>
+                            <input type="date" id='envio' name="envio" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="Envio"/>
+                        </div>
+                        <div>
+                            <label for="recebimento">Recebido</label>
+                            <input type="date" id='recebido' name="recebido" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="Recebido"/>
+                        </div>
+                        <div>
+                            <label for="recebimento">Anexar comprovante na Domínio</label>
+                            <input type="date" id='anexar_recebido' name="anexar_recebido" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="Anexar comprovante na Domínio"/>
+                        </div>
+                        <div>
+                            <label for="recebimento">Planilha de Contas</label>
+                            <input type="date" id='planilha_contas' name="planilha_contas" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="Planilha de Contas"/>
+                        </div>
+                        <div>
+                            <label for="recebimento">Formulário + Comprovante Bancário</label>
+                            <input type="date" id='form_compro' name="form_compro" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="Formulário + Comprovante Bancário"/>
+                        </div>
+                        <h2>Tela 10 - Interno</h2>
+                        <div>
+                            <label for="recebimento">Intranet - Cadastro Usuário</label>
+                            <input type="date" id='intra_data' name="intra_data" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="Intranet - Cadastro Usuário"/>
+                        </div>
+                        <div>
+                            <label for="recebimento">Kairos - Cadastro Usuário</label>
+                            <input type="date" id='kairos_data' name="kairos_data" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="Kairos - Cadastro Usuário"/>
+                        </div>
+                        <div>
+                            <label for="recebimento">E-mail Gestor + Apoio Sede</label>
+                            <input type="date" id='email_gestor' name="email_gestor" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="E-mail Gestor + Apoio Sede"/>
+                        </div>
+                        <div>
+                            <label for="recebimento">E-mail Início das Atividades</label>
+                            <input type="date" id='email_inicio' name="email_inicio" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="E-mail Início das Atividades"/>
+                        </div>
+                        <div>
+                            <label for="recebimento">E-mail Boas Vindas	</label>
+                            <input type="date" id='email_boas' name="email_boas" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="E-mail Boas Vindas	"/>
+                        </div>
+                        <div>
+                            <label for="recebimento">Acessos</label>
+                            <input type="date" id='acessos' name="email_bacessosoas" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="Acessos"/>
+                        </div>
+                        <h2>Tela 11 - Vias documentos</h2>
+                        <div>
+                            <label for="recebimento">Data do pedido do crachá</label>
+                            <input type="date" id='cracha_pedido' name="cracha_pedido" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="Data do pedido do crachá"/>
+                        </div>
+                        <div>
+                            <label for="recebimento">Controle crachá</label>
+                            <input type="date" id='cracha_controle' name="cracha_controle" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="Controle crachá"/>
+                        </div>
+                        <div>
+                            <label for="recebimento">Protocolo crachá</label>
+                            <input type="date" id='cracha_protocolo' name="cracha_protocolo" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="Protocolo crachá"/>
+                        </div>
+                        <div>
+                            <label for="recebimento">Data E-mail solicitado</label>
+                            <input type="date" id='email_caderno' name="email_caderno" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="Data E-mail solicitado"/>
+                        </div>
+                        <div>
+                            <label for="recebimento">Data E-mail recebido</label>
+                            <input type="date" id='email_cemail_caderno_raderno' name="email_cemail_caderno_raderno" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="Data E-mail recebido"/>
+                        </div>
+                        <div>
+                            <label for="recebimento">Malote (Caderno) + CTPS (Controle RH)</label>
+                            <input type="date" id='malote' name="malote" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="Malote (Caderno) + CTPS (Controle RH)"/>
+                        </div>
+                        <div>
+                            <label for="recebimento">Recebido após assinatura Escanear Docs e Salvar na Pasta</label>
+                            <input type="date" id='assinados' name="assinados" class="form-control campo-filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="Recebido após assinatura Escanear Docs e Salvar na Pasta"/>
                         </div>
                         <input type="submit" name="botao" class="botao btn btn-default btn-xs btn-filter campo-filter" value="Filtrar" >
                     </div>
