@@ -13,7 +13,7 @@
 
 .stepwizard {
     display: table;
-    width: 100%;
+    width: 1565px;
     position: relative;
 }
 .stepwizard-step button[disabled] {
@@ -29,7 +29,7 @@
     bottom: 0;
     position: absolute;
     content:"  ";
-    width: 1870px;
+    width: 1565px;
     height: 2px;
     background-color: rgb(69, 131, 231);
     z-index: 0;
@@ -40,7 +40,7 @@
     bottom: 0;
     position: absolute;
     content:"  ";
-    width: 1250px;
+    width: 1565px;
     height: 2px;
     background-color: rgb(69, 131, 231);
     z-index: 0;
