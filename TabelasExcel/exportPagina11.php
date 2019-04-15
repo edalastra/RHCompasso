@@ -6,7 +6,7 @@ if(isset($_POST["export"]))
 {
  $query = "SELECT ID_USUARIO, EMAIL_CADERNO_COMPASSO_SOLICITADO,
             EMAIL_CADERNO_COMPASSO_RECEBIDO, MALOTE_CADERNO_COMPASSO_CTPS,
-            DOCUMENTOS_RECEBIDOS_ASSINADOS,CRACHA_DATA_PEDIDO, CRACHA_CONTROLE, CRACHA_PROTOCOLO
+            DOCUMENTOS_RECEBIDOS_ASSINADOS,CRACHA_DATA_PEDIDO, CRACHA_CONTROLE, CRACHA_PROTOCOLO,
             STATUS, PROJETO, NOME
             from vias_documentos_funcionarios  as p
             LEFT JOIN admissao_dominio as a
@@ -56,6 +56,7 @@ $result = mysqli_query($connect, $query);
             <td>'.$row["PROJETO"].'</td>
             </tr>
             ';
+  
   }
   $output .= '</table>';
   header('Content-Type: application/xls');
