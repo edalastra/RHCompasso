@@ -25,8 +25,9 @@ if($count == 1){
   if($testeGrupoEmail == ""){
     $sede = buscaSedeFuncionario($conn, $status['ID_SEDE']);
     $cargo = buscaCargoFuncionario($conn, $id);
+    $nome = defineUser($status['NOME']);
     $grupDeEmail = grupoEmail($cargo['CARGO'], $sede['nome_sede']);
-    $insercao = mysqli_query($conn, "UPDATE suporte_interno SET `GRUPOS_DE_EMAIL` = '$grupDeEmail' WHERE ID_USUARIO = '$id'");
+    $insercao = mysqli_query($conn, "UPDATE suporte_interno SET `GRUPOS_DE_EMAIL` = '$grupDeEmail', `NOME` = '$nome', `EMAIL_SUP` = '$nome@compasso.com.br' WHERE ID_USUARIO = '$id'");
 
   }
   $resultado = mysqli_query($conn, "SELECT `ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `GRUPOS_DE_EMAIL` FROM `suporte_interno` as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
@@ -34,23 +35,10 @@ if($count == 1){
     $sede = buscaSedeFuncionario($conn, $status['ID_SEDE']);
     $cargo = buscaCargoFuncionario($conn, $id);
     $grupDeEmail = grupoEmail($cargo['CARGO'], $sede['nome_sede']);
-    mysqli_query($conn,"INSERT INTO `suporte_interno`( `ID_SUPORTE_INTERNO`,`ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `GRUPOS_DE_EMAIL`) VALUES (NULL,$id,NULL,NULL,NULL,NULL,NULL,'$grupDeEmail')");
-
+    $nome = defineUser($status['NOME']);
+    mysqli_query($conn,"INSERT INTO `suporte_interno`( `ID_SUPORTE_INTERNO`,`ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `GRUPOS_DE_EMAIL`) VALUES (NULL,$id,'$nome@compasso.com.br','$nome',NULL,NULL,NULL,'$grupDeEmail')");
     $resultado = mysqli_query($conn, "SELECT  `ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `GRUPOS_DE_EMAIL` FROM `suporte_interno` as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }
-
-if($count == 1){
-    if($status['NOME'] != ""){
-      $nome = defineUser($status['NOME']);
-      $insercao = mysqli_query($conn, "UPDATE suporte_interno SET `NOME` = '$nome', `EMAIL_SUP` = '$nome@compasso.com.br' WHERE ID_USUARIO = '$id'");
-    }
-    $resultado = mysqli_query($conn, "SELECT `ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `GRUPOS_DE_EMAIL` FROM `suporte_interno` as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
-  }else{
-      $nome = defineUser($status['NOME']);
-      mysqli_query($conn,"INSERT INTO `suporte_interno`( `ID_SUPORTE_INTERNO`,`ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `GRUPOS_DE_EMAIL`) VALUES (NULL,$id,'$nome@compasso.com.br','$nome',NULL,NULL,NULL,NULL)");
-      $resultado = mysqli_query($conn, "SELECT  `ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `GRUPOS_DE_EMAIL` FROM `suporte_interno` as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
-  }
-
 
 
 $funcionario = buscaProposta($conn, $id);
