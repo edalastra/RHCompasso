@@ -231,7 +231,7 @@ body{
     background-image: linear-gradient(to bottom, rgb(72, 139, 244) 50% , white 100% );
     background-size: 100% 120%;
     background-repeat: no-repeat;
-    border: solid 1px  rgb(18,71,123);
+    border: solid 1px  red(18,71,123);
     margin-top: 2em;
     align-content: center;
     width: 12em;
@@ -305,6 +305,16 @@ th{
 }
 .intable{
     white-space: nowrap;
+    height: 100%;
+    margin:0 auto;
+    vertical-align: middle;
+    text-align: center;
+    border: transparent;
+    width: 99%;
+}
+
+.intasble{
+    white-space: nowrap;
     width: 100%;
     height: 100%;
     margin:0 auto;
@@ -312,6 +322,9 @@ th{
     text-align: center;
     border: transparent;
 }
+
+
+
 .titulo-table{
     color:white;
 }

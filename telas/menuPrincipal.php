@@ -399,7 +399,7 @@ if (isset($_POST['botaoVolta'])) {
                         </div>
                         <div>
                             <label for="recebimento">Acessos</label>
-                            <input type="date" id='acessos' name="acessos" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='acessos' name="acessosoas" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Acessos"/>
                         </div>
                         <h2>Tela 11 - Vias documentos</h2>
