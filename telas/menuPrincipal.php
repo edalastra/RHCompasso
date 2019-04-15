@@ -56,12 +56,11 @@ if (isset($_POST['botaoVolta'])) {
               $email_inicio = $_POST['email_inicio'];
               $email_boas = $_POST['email_boas'];
               $acessos = $_POST['acessos'];
-
               $cracha_pedido = $_POST['cracha_pedido'];
               $cracha_controle = $_POST['cracha_controle'];
               $cracha_protocolo = $_POST['cracha_protocolo'];
               $email_caderno = $_POST['email_caderno'];
-              $email_caderno_r = $_POST['email_caderno_r'];
+              $email_r = $_POST['email_r'];
               $malote = $_POST['malote'];
               $assinados = $_POST['assinados'];
 
@@ -103,7 +102,7 @@ if (isset($_POST['botaoVolta'])) {
               if( $cracha_controle ){ $where[] = " `CRACHA_CONTROLE` = '{$cracha_controle}'"; }
               if( $cracha_protocolo ){ $where[] = " `CRACHA_PROTOCOLO` = '{$cracha_protocolo}'"; }
               if( $email_caderno ){ $where[] = " `EMAIL_CADERNO_COMPASSO_SOLICITADO` = '{$email_caderno}'"; }
-              if( $email_cemail_caderno_r ){ $where[] = " `EMAIL_CADERNO_COMPASSO_RECEBIDO` = '{$email_cemail_caderno_r}'"; }
+              if( $email_r ){ $where[] = " `EMAIL_CADERNO_COMPASSO_RECEBIDO` = '{$email_r}'"; }
               if( $malote ){ $where[] = " `MALOTE_CADERNO_COMPASSO_CTPS` = '{$malote}'"; }
               if( $assinados ){ $where[] = " `DOCUMENTOS_RECEBIDOS_ASSINADOS` = '{$assinados}'"; }
 
@@ -400,7 +399,7 @@ if (isset($_POST['botaoVolta'])) {
                         </div>
                         <div>
                             <label for="recebimento">Acessos</label>
-                            <input type="date" id='acessos' name="email_bacessosoas" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='acessos' name="acessos" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Acessos"/>
                         </div>
                         <h2>Tela 11 - Vias documentos</h2>
@@ -426,7 +425,7 @@ if (isset($_POST['botaoVolta'])) {
                         </div>
                         <div>
                             <label for="recebimento">Data E-mail recebido</label>
-                            <input type="date" id='email_cemail_caderno_raderno' name="email_cemail_caderno_raderno" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='email_r' name="email_r" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Data E-mail recebido"/>
                         </div>
                         <div>
