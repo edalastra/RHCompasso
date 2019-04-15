@@ -25,12 +25,28 @@ if(bancario($conn, $ID_USUARIO, $ENVIO, $RECEBIDO, $ANEXAR_COMPR_DOMIN, $PLANILH
   //  status($conn, $ID_USUARIO, $STATUS);
 //}
 ?>
-    <h1 class="text-success">Alterado com sucesso!</h1>
+        <head>
+    <meta charset="UTF-8">
+    <title>RH Contratações</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/arquivo.css">
+    </head>
+    <h1 class="text-success margem">Alterado com sucesso!</h1>
 <?php
  } else {
     $msg = mysqli_error($conn);
     ?>
-    <p class="text-danger">Não foi alterado: <?= $msg ?></p>
+        <head>
+    <meta charset="UTF-8">
+    <title>RH Contratações</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/arquivo.css">
+    </head>
+    <p class="text-danger margem">Não foi alterado: <?= $msg ?></p>
         <?php
     }
 ?>
