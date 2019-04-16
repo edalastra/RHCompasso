@@ -23,7 +23,7 @@ function enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body){
   $mail->Host = HOST;
   $mail->Port = PORT;
   $mail->SMTPSecure = SMTP_SECURE;
-  $mail->SMTPAuth = true;
+  $mail->SMTPAuth = SMTP_AUTH;
   $mail->Username = USERNAME;
   $mail->Password = PASSWORD;
   $mail->setFrom(SET_FROM_EMAIL, SET_FROM_NAME);
