@@ -8,6 +8,7 @@
 			$resultado = mysqli_query($conn, $query);
 			return $resultado;
 		}
+
 		//função joao
 		function buscaSedeFuncionario($conn, $id){
 			$query = "SELECT nome_sede from sede where sede_id = '{$id}'";
@@ -18,6 +19,50 @@
 			$query = "SELECT CARGO FROM admissao_dominio WHERE USUARIO_ID = '{$id}'";
 			$cargo = mysqli_query($conn, $query);
 			return mysqli_fetch_assoc($cargo);
+		}
+
+		function buscaUsuario($conn, $email){
+			$query = "SELECT * FROM suporte_interno WHERE USUARIO = '$email'";
+			$resposta = mysqli_query($conn, $query);
+			$resposta = mysqli_num_rows($resposta);
+			return $resposta;
+		}
+		
+		function defineUser($conn, $meuNome, $id){
+			//array para comparar depois se o nome da pessoa tem agnome, se tiver, tem que ser ignorado 
+			$agnomes = ["junior", "jr.", "segundo", "filho", "neto", "sobrinho", "jr", "bisneto", "filha", "juniar", "jra.", "segunda", "neta", "sobrinha", "bisneta"];
+			//remove acento
+			$meuNome = preg_replace(array("/(á|à|ã|â|ä)/","/(Á|À|Ã|Â|Ä)/","/(é|è|ê|ë)/","/(É|È|Ê|Ë)/","/(í|ì|î|ï)/","/(Í|Ì|Î|Ï)/","/(ó|ò|õ|ô|ö)/","/(Ó|Ò|Õ|Ô|Ö)/","/(ú|ù|û|ü)/","/(Ú|Ù|Û|Ü)/","/(ñ)/","/(Ñ)/"),explode(" ","a A e E i I o O u U n N"),$meuNome);
+			$meuNome = strtolower($meuNome);
+			//separa
+			$meuNome = explode(' ', $meuNome);
+			$nome = $meuNome[0];
+			$conta = count($meuNome);
+			$sobrenome = $meuNome[$conta-1];
+			//conta
+			$max = count($agnomes);
+			for($i = 0; $i < $max; $i++) {
+			  if(strcmp($sobrenome, $agnomes[$i]) == 0) {
+				$sobrenome = $meuNome[$conta-2];
+				$email = $nome.".". $sobrenome;
+				$conta = $conta - 1;
+			  } else {
+				$email = $nome.".". $sobrenome;
+			}
+		  }
+		  
+		  $verifica = buscaUsuario($conn, $email);
+		  if($verifica > 0 AND $conta == 2){    
+			$email = $nome.".".$sobrenome.$id;
+			}
+		  //se tem no banco
+		  $verifica2 = buscaUsuario($conn, $email);
+		  if($verifica2 > 0){    
+			$sobrenome = $meuNome[$conta-2];
+			$email = $nome.".". $sobrenome;
+			}
+
+		return $email;
 		}
 
 	// ################# BUSCA PELA TABELA INICIAL ADMISSAO_DOMINIO ###########################
