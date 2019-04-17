@@ -8,6 +8,7 @@
 			$resultado = mysqli_query($conn, $query);
 			return $resultado;
 		}
+
 		//função joao
 		function buscaSedeFuncionario($conn, $id){
 			$query = "SELECT nome_sede from sede where sede_id = '{$id}'";
@@ -18,6 +19,12 @@
 			$query = "SELECT CARGO FROM admissao_dominio WHERE USUARIO_ID = '{$id}'";
 			$cargo = mysqli_query($conn, $query);
 			return mysqli_fetch_assoc($cargo);
+		}
+
+		function buscaUsuario($conn, $email){
+			$query = "SELECT * FROM suporte_interno WHERE USUARIO = '$email'";
+			$resposta = mysqli_query($conn, $query);
+			return mysql_num_rows($resposta);
 		}
 
 	// ################# BUSCA PELA TABELA INICIAL ADMISSAO_DOMINIO ###########################
