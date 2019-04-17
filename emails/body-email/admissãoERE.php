@@ -34,7 +34,7 @@
     <input type="email" name="email" value="<?=$nome['EMAIL']; ?>"><br>
     <label for="assunto">Assunto:</label>
     <input type="text" name="assunto" value="Acesso Liberado - Compasso">
-    <button type="submit">Enviar</button>
+    <button type="submit" id="enviar">Enviar</button>
     <div contenteditable="true" id="bodyEmail" style="border: solid 0.5px black; padding:1%; margin-top: 20px">
 
       <header>
@@ -190,59 +190,58 @@
           <P>Caso <u>NÃO</u> possua conta no Banco Itaú iremos encaminhar a Carta para Abertura da Conta.</p>
           </td>
       </tr>
-  </table>
-  <p id='title'>Entregar as vias impressas da documentação acima destacada <strong class='sublinhe'><font color='red'> até xxxxxxx às 12h</font></strong>, aos cuidados de Ana Bossert – Rua Pedro Álvares Cabral, 574 – 6° andar - Erechim/RS. </p>
-  <P class = 'sublinhe' id='title'>Caso a documentação e a Carteira de Trabalho não sejam entregues na data acima destacada, será necessário a alteração da data de admissão.</p>
-  <p id='title'>	Assim que tivermos a data para seu exame admissional lhe informaremos.</p>
-  <p id='title'>Por gentileza confirmar o recebimento deste e-mail</p>
-  <footer>
-    <table>
-  <tr>
-  <th>  <img id='img1'src='../img/compasso.jpg' alt='some text' align='left'> </th>
-  <th id='info' align='left'>
-  <div class='txt1'id='align_info'>
-  <p><a id='cor0'> Equipe Contratações</a> </p>
-  <p>  Compasso | Navigating Oracle Technologies </p>
-  <p> +55 51 21086689 | Porto Alegre (RS) – Brasil </p>
-  <p> <a href=”www.compasso.com.br” id='cores'>www.compasso.com.br</a> | <a href=”viviane.azevedo@compasso.com.br” id='cores'>viviane.azevedo@compasso.com.br</a> </p>
+    </table>
+    <p id='title'>Entregar as vias impressas da documentação acima destacada <strong class='sublinhe'><font color='red'> até xxxxxxx às 12h</font></strong>, aos cuidados de Ana Bossert – Rua Pedro Álvares Cabral, 574 – 6° andar - Erechim/RS. </p>
+    <P class = 'sublinhe' id='title'>Caso a documentação e a Carteira de Trabalho não sejam entregues na data acima destacada, será necessário a alteração da data de admissão.</p>
+    <p id='title'>	Assim que tivermos a data para seu exame admissional lhe informaremos.</p>
+    <p id='title'>Por gentileza confirmar o recebimento deste e-mail</p>
+    <footer>
+      <table>
+    <tr>
+    <th>  <img id='img1'src='../img/compasso.jpg' alt='some text' align='left'> </th>
+    <th id='info' align='left'>
+    <div class='txt1'id='align_info'>
+    <p><a id='cor0'> Equipe Contratações</a> </p>
+    <p>  Compasso | Navigating Oracle Technologies </p>
+    <p> +55 51 21086689 | Porto Alegre (RS) – Brasil </p>
+    <p> <a href=”www.compasso.com.br” id='cores'>www.compasso.com.br</a> | <a href=”viviane.azevedo@compasso.com.br” id='cores'>viviane.azevedo@compasso.com.br</a> </p>
+    </div>
+    </th>
+    </tr>
+    <tr>
+    <td>
+    <div id='align_img'>
+    <img id='img2'src='../img/compasso2.jpg' alt='Compasso'>
+    </div>
+    </td>
+    </tr>
+    </table>
+    <div class='txt2'>
+      <p id='tamanho'>FACILITE A COMUNICAÇÃO ENVIE SEU EMAIL PARA O ALIAS CORRETO </p>
+      <p id='tamanho2'><a id='cor'> @rh:</a> email geral do departamento, referência para o time e rescisões.</p>
+      <p id='tamanho2'><a id='cor'>@contratações:</a> concentra as contratações CLT, Estagiários/Bolsistas desde a proposta até a conclusão do processo de admissão/contrato e rescisões.</p>
+      <p id='tamanho2'><a id='cor'>@benefícios:</a> Vale transporte, vale refeição e vale alimentação, planos de saúde e planos odontológicos.</p>
+      <p id='tamanho2'><a id='cor'>@férias:</a> agendamento e cancelamento de férias.</p>
+      <p id='tamanho2'><a id='cor'>@folha:</a> Assuntos sobre folha de pagamento, comprovante auxílio creche, horas extras, contracheque, dissídio, licenças, ajustes/reajustes/transferências</p>
+      <p id='tamanho2'><a id='cor'>@jornadas:</a> Análise de jornadas, ponto eletrônico, registro de atividades, atestados/ausências/folgas, sobreaviso.</p>
+      <p id='tamanho'><a href='http://www.compasso.com.br/interno/backoffice.jpg'>http://www.compasso.com.br/interno/backoffice.jpg</a></p>
+    </div>
+    </footer>
   </div>
-  </th>
-  </tr>
-  <tr>
-  <td>
-  <div id='align_img'>
-  <img id='img2'src='../img/compasso2.jpg' alt='Compasso'>
-  </div>
-  </td>
-  </tr>
-  </table>
-  <div class='txt2'>
-    <p id='tamanho'>FACILITE A COMUNICAÇÃO ENVIE SEU EMAIL PARA O ALIAS CORRETO </p>
-    <p id='tamanho2'><a id='cor'> @rh:</a> email geral do departamento, referência para o time e rescisões.</p>
-    <p id='tamanho2'><a id='cor'>@contratações:</a> concentra as contratações CLT, Estagiários/Bolsistas desde a proposta até a conclusão do processo de admissão/contrato e rescisões.</p>
-    <p id='tamanho2'><a id='cor'>@benefícios:</a> Vale transporte, vale refeição e vale alimentação, planos de saúde e planos odontológicos.</p>
-    <p id='tamanho2'><a id='cor'>@férias:</a> agendamento e cancelamento de férias.</p>
-    <p id='tamanho2'><a id='cor'>@folha:</a> Assuntos sobre folha de pagamento, comprovante auxílio creche, horas extras, contracheque, dissídio, licenças, ajustes/reajustes/transferências</p>
-    <p id='tamanho2'><a id='cor'>@jornadas:</a> Análise de jornadas, ponto eletrônico, registro de atividades, atestados/ausências/folgas, sobreaviso.</p>
-    <p id='tamanho'><a href='http://www.compasso.com.br/interno/backoffice.jpg'>http://www.compasso.com.br/interno/backoffice.jpg</a></p>
+  <input type="hidden" name="body" id="inputBody" value="">
 
-  </footer>
-</div>
-    <input type="hidden" name="body" id="inputBody" value="">
-    <script type="text/javascript">
-      let div = $('#bodyEmail');
-      let divInput = $('#inputBody');
-      pegaBody(div, divInput);
-    </script>
 
   </form>
-
-
-
 </div>
-
 </body>
-<script type="text/javascript" src="../js/enviarEmail.js">
+<script type="text/javascript" src="../js/enviarEmail.js"></script>
+<script type="text/javascript">
+  $("#enviar").on("click", function() {
+    let divBody = document.getElementById("bodyEmail");
+    let divInput = $("#inputBody");
+    divInput.val(divBody.innerHTML);
 
+
+  });
 </script>
 </html>
