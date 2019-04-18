@@ -26,17 +26,20 @@
 </head>
 <body>
 
-<div id="selecionaPagina" >
+
   <form action="../enviaEmails.php" method="post">
     <input type="hidden" name="id" value="<?=$id; ?>">
     <input type="hidden" name="nome" value="<?=$nome['NOME']; ?>">
     <label for="email">Para:</label>
     <input type="email" name="email" value="<?=$nome['EMAIL']; ?>"><br>
     <label for="assunto">Assunto:</label>
-    <input type="text" name="assunto" value="Acesso Liberado - Compasso">
+    <input type="text" name="assunto" value="Acesso Liberado - Compasso"><br>
+    <label for="">Anexos:</label>
+    <input type="file" name="arquivo[]" multiple="multiple"/>
+
     <button type="submit" id="enviar">Enviar</button>
     <div contenteditable="true" id="bodyEmail" style="border: solid 0.5px black; padding:1%; margin-top: 20px">
-
+    <div id="selecionaPagina" >
       <header>
           <p id='title'>Boa tarde, <strong class='sublinhe'><?=$nome['NOME']?></strong></p>
           <p><strong class='cor'>Seja bem vindo ao time!!</strong></p>
@@ -232,7 +235,7 @@
 
 
   </form>
-</div>
+  </div>
 </body>
 <script type="text/javascript" src="../js/enviarEmail.js"></script>
 <script type="text/javascript">
