@@ -27,7 +27,7 @@
 <body>
 
 
-  <form action="../enviaEmails.php" method="post">
+  <form action="../enviaEmails.php" method="post" enctype="multipart/form-data">
     <input type="hidden" name="id" value="<?=$id; ?>">
     <input type="hidden" name="nome" value="<?=$nome['NOME']; ?>">
     <label for="email">Para:</label>
@@ -35,7 +35,7 @@
     <label for="assunto">Assunto:</label>
     <input type="text" name="assunto" value="Acesso Liberado - Compasso"><br>
     <label for="">Anexos:</label>
-    <input type="file" name="arquivo[]" multiple="multiple"/>
+    <input type="file" name="arquivo" multiple="multiple"/>
 
     <button type="submit" id="enviar">Enviar</button>
     <div contenteditable="true" id="bodyEmail" style="border: solid 0.5px black; padding:1%; margin-top: 20px">
@@ -243,8 +243,6 @@
     let divBody = document.getElementById("bodyEmail");
     let divInput = $("#inputBody");
     divInput.val(divBody.innerHTML);
-
-
   });
 </script>
 </html>

@@ -30,6 +30,11 @@ function enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body){
   $mail->addAddress($email_destinatario, $nome_destinatario);
   $mail->Subject = $assunto;
   $mail->msgHTML($body);
+  $mail->AddAttachment($_FILES['arquivo']['tmp_name'],
+  $_FILES['arquivo']['name']);
+
+  //JOÃO, TESTAR ASSIM TAMBÉM  $mail->AddAttachment($_FILES['VARIÁVEL POST']['tmp_name'], $_FILES['VARIÁVEL POST']['name']);
+
   // $mail->AltBody = 'This is a plain-text message body';
   if (!$mail->send()) {
       echo "Erro ao Enviar: " . $mail->ErrorInfo;
