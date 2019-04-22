@@ -30,8 +30,9 @@ function enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body){
   $mail->addAddress($email_destinatario, $nome_destinatario);
   $mail->Subject = $assunto;
   $mail->msgHTML($body);
-  $mail->AddAttachment($_FILES['arquivo']['tmp_name'],
-  $_FILES['arquivo']['name']);
+  for($ct=0;$ct<count($_FILES['arquivo']['tmp_name']);$ct++){
+    $mail->AddAttachment($_FILES['arquivo']['tmp_name'][$ct],$_FILES['arquivo']['name'][$ct]);
+}
 
   //JOÃO, TESTAR ASSIM TAMBÉM  $mail->AddAttachment($_FILES['VARIÁVEL POST']['tmp_name'], $_FILES['VARIÁVEL POST']['name']);
 

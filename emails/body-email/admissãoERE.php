@@ -35,7 +35,7 @@
     <label for="assunto">Assunto:</label>
     <input type="text" name="assunto" value="Acesso Liberado - Compasso"><br>
     <label for="">Anexos:</label>
-    <input type="file" name="arquivo" multiple="multiple"/>
+    <input type="file" multiple="multiple" name="arquivo[]"/>
 
     <button type="submit" id="enviar">Enviar</button>
     <div contenteditable="true" id="bodyEmail" style="border: solid 0.5px black; padding:1%; margin-top: 20px">
