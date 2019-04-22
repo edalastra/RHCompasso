@@ -30,36 +30,29 @@ function enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body){
   $mail->addAddress($email_destinatario, $nome_destinatario);
   $mail->Subject = $assunto;
   $mail->msgHTML($body);
-  for($ct=0;$ct<count($_FILES['arquivo']['tmp_name']);$ct++){
-    $mail->AddAttachment($_FILES['arquivo']['tmp_name'][$ct],$_FILES['arquivo']['name'][$ct]);
-}
-/* 
-<?php
-          //Include the PHPMailer class
-          include = 'class.phpmailer.php';
+  for ($ct = 0; $ct < count($_FILES['arquivo']['tmp_name']); $ct++) {
+        $uploadfile = tempnam(sys_get_temp_dir(), hash('sha256', $_FILES['arquivo']['name'][$ct]));
+        $filename = $_FILES['arquivo']['name'][$ct];
+        if (move_uploaded_file($_FILES['arquivo']['tmp_name'][$ct], $uploadfile)) {
+            $mail->addAttachment($uploadfile, $filename);
+        } else {
+            $msg .= 'Falha ao mover no' . $uploadfile;
+        }
+    }
+   $mail->AddEmbeddedImage('../img/compasso.jpg','compasso');
+   $mail->AddEmbeddedImage('../img/compasso2.jpg','compasso2');
 
-         $mailer=new phpmailer();
-         $mailer->From =’sender@techportal.co.za’;
-         $mailer->FromName=’TechPortal';
-         $mailer->Subject =’TechPortal Example’;
-         $mailer->AddAddress(’recipient@techportal.co.za’);
-
-         $mailer->IsHTML(true);
-         $mailer->AddEmbeddedImage(’test.gif’,'testImage’,'test.gif’);
-         $mailer->Body =’<img src=”cid:testImage”>’;
-
-         $mailer->Send();
-?>  */
 
   //JOÃO, TESTAR ASSIM TAMBÉM  $mail->AddAttachment($_FILES['VARIÁVEL POST']['tmp_name'], $_FILES['VARIÁVEL POST']['name']);
 
   // $mail->AltBody = 'This is a plain-text message body';
   if (!$mail->send()) {
       echo "Erro ao Enviar: " . $mail->ErrorInfo;
-      echo $nome_destinatario;
-      echo $email_destinatario;
-      echo $assunto;
-      echo $body;
+      // echo $nome_destinatario;
+      // echo $email_destinatario;
+      // echo $assunto;
+      // echo $body;
+      echo $msg;
   } else {
       echo "Mensagem Enviada!";
       header('location:../telas/funcionario.php');

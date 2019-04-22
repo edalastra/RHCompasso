@@ -201,7 +201,7 @@
     <footer>
       <table>
     <tr>
-    <th>  <img id='img1'src='../img/compasso.jpg' alt='some text' align='left'> </th>
+    <th>  <img id='img1'src='cid:compasso' alt='some text' align='left'> </th>
     <th id='info' align='left'>
     <div class='txt1'id='align_info'>
     <p><a id='cor0'> Equipe Contratações</a> </p>
@@ -214,7 +214,7 @@
     <tr>
     <td>
     <div id='align_img'>
-    <img id='img2'src='../img/compasso2.jpg' alt='Compasso'>
+    <img id='img2'src='cid:compasso2' alt='Compasso'>
     </div>
     </td>
     </tr>
