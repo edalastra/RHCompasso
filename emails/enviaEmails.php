@@ -33,6 +33,23 @@ function enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body){
   for($ct=0;$ct<count($_FILES['arquivo']['tmp_name']);$ct++){
     $mail->AddAttachment($_FILES['arquivo']['tmp_name'][$ct],$_FILES['arquivo']['name'][$ct]);
 }
+/* 
+<?php
+          //Include the PHPMailer class
+          include = 'class.phpmailer.php';
+
+         $mailer=new phpmailer();
+         $mailer->From =’sender@techportal.co.za’;
+         $mailer->FromName=’TechPortal';
+         $mailer->Subject =’TechPortal Example’;
+         $mailer->AddAddress(’recipient@techportal.co.za’);
+
+         $mailer->IsHTML(true);
+         $mailer->AddEmbeddedImage(’test.gif’,'testImage’,'test.gif’);
+         $mailer->Body =’<img src=”cid:testImage”>’;
+
+         $mailer->Send();
+?>  */
 
   //JOÃO, TESTAR ASSIM TAMBÉM  $mail->AddAttachment($_FILES['VARIÁVEL POST']['tmp_name'], $_FILES['VARIÁVEL POST']['name']);
 
