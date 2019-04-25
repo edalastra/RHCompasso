@@ -18,19 +18,34 @@
     <meta charset="utf-8">
     <script src="../../js/jquery.js"></script>
     <script src="../../js/seleciona.js"></script>
+    <script src="../../js/pegaBody.js"></script>
     <link rel = "stylesheet" href = "../css/site.css">
     <link rel="stylesheet" href="../css/admissao.css">
     <link rel="stylesheet" href="../css/rodape.css">
-    <title>Admissão POA</title>
+    <title>Admissão PF</title>
 </head>
 <body>
-<div id="selecionaPagina">
-    <?php
-    $body = "
+
+
+  <form action="../enviaEmails.php" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="<?=$id; ?>">
+    <input type="hidden" name="nome" value="<?=$nome['NOME']; ?>">
+    <label for="email">Para:</label>
+    <input type="email" name="email" value="<?=$nome['EMAIL']; ?>"><br>
+    <label for="assunto">Assunto:</label>
+    <input type="text" name="assunto" value="Acesso Liberado - Compasso"><br>
+    <label for="">Anexos:</label>
+    <input type="file" multiple="multiple" name="arquivo[]"/>
+
+    <button type="submit" id="enviar">Enviar</button>
+
+    <div contenteditable="true" id="bodyEmail" style="border: solid 0.5px black; padding:1%; margin-top: 20px">
+      <div id="selecionaPagina">
+
     <header>
-    <p id='title'>Boa tarde, <strong class='sublinhe'>".$nome['NOME']."</strong></p>
+        <p id='title'>Boa tarde, <strong class='sublinhe'><?=$nome['NOME']?></strong></p>
         <p><strong class='cor'>Seja bem vindo ao time!!</strong></p>
-        <p id='title'>Por gentileza, preencha e nos devolva através deste e-mail os formulários, em anexo <strong class='sublinhe'><font color='red'><".$NewDate.", às 12h</font></strong> , conforme especificações abaixo:</p>
+        <p id='title'>Por gentileza, preencha e nos devolva através deste e-mail os formulários, em anexo <strong class='sublinhe'><font color='red'><?=$NewDate ?>, às 12h</font></strong> , conforme especificações abaixo:</p>
     </header>
 
     <table id='tabela01' border='2'>
@@ -172,7 +187,7 @@
         <td id='ContaITAU'>Conta no Banco ITAU</td>
         <td>.pdf</td>
         <td>NÃO</td>
-        <td><p><strong> Os pagamentos relacionados à folha de Pagamento e Benefícios são realizados pelo Banco Itaú.</p></strong>
+        <td><p><strong> Os pagamentos relacionados à folha de Pagamento e Benefícios são realizados pelo Banco Itaú.</strong></p>
 
         <p>Por favor informar os dados bancários caso possua conta no Banco Itaú.</p>
         <p>- Enviar o comprovante dos dados bancários (pode ser um print da tela do banco no qual conste a Agência e Conta ou foto do cartão)</p>
@@ -181,7 +196,7 @@
         </td>
     </tr>
 </table>
-<p id='title'>Entregar as vias impressas da documentação acima destacada <strong class='sublinhe'><font color='red'> até xxxxxxx às 12h</font></strong>, aos cuidados de Viviane Azevedo – Av. Júlio de Castilhos, 132 Sala 704 – Bairro: Centro Histórico – CEP: 90030-130 - Porto Alegre/RS.</p>
+<p id='title'>Entregar as vias impressas da documentação acima destacada <strong class='sublinhe'><font color='red'> até xxxxxxx às 12h</font></strong>, aos cuidados de Inês Meira na Compasso Passo Fundo - Rua Coronel Chicuta, 575 – Sala 705 – Centro – Passo Fundo/RS.</p>
 <P class = 'sublinhe' id='title'>Caso a documentação e a Carteira de Trabalho não sejam entregues na data acima destacada, será necessário a alteração da data de admissão.</p>
 <p id='title'>	Assim que tivermos a data para seu exame admissional lhe informaremos.</p>
 <p id='title'>Por gentileza confirmar o recebimento deste e-mail</p>
@@ -194,7 +209,7 @@
 <p><a id='cor0'> Equipe Contratações</a> </p>
 <p>  Compasso | Navigating Oracle Technologies </p>
 <p> +55 51 21086689 | Porto Alegre (RS) – Brasil </p>
-<p> <a href='www.compasso.com.br' id='cores'>www.compasso.com.br</a> | <a href='viviane.azevedo@compasso.com.br' id='cores'>viviane.azevedo@compasso.com.br</a> </p>
+<p> <a href=”www.compasso.com.br” id='cores'>www.compasso.com.br</a> | <a href=”viviane.azevedo@compasso.com.br” id='cores'>viviane.azevedo@compasso.com.br</a> </p>
 </div>
 </th>
 </tr>
@@ -215,24 +230,22 @@
   <p id='tamanho2'><a id='cor'>@folha:</a> Assuntos sobre folha de pagamento, comprovante auxílio creche, horas extras, contracheque, dissídio, licenças, ajustes/reajustes/transferências</p>
   <p id='tamanho2'><a id='cor'>@jornadas:</a> Análise de jornadas, ponto eletrônico, registro de atividades, atestados/ausências/folgas, sobreaviso.</p>
   <p id='tamanho'><a href='http://www.compasso.com.br/interno/backoffice.jpg'>http://www.compasso.com.br/interno/backoffice.jpg</a></p>
+</div>
 
 </footer>
-";
-echo $body;
-?>
 </div>
-<form action="../enviaEmails.php" method="post">
-  <input type="hidden" name="id" value="<?=$id; ?>">
-  <input type="hidden" name="nome" value="<?=$nome['NOME']; ?>">
-  <input type="hidden" name="email" value="<?=$nome['EMAIL']; ?>">
-  <input type="hidden" name="body" value="<?=$body;?>">
-  <input type="hidden" name="assunto" value="Acesso Liberado - Compasso">
+<input type="hidden" name="body" id="inputBody" value="">
 
-  <button type="submit">Enviar</button>
 </form>
-</body>
-<script type="text/javascript" src="../js/enviarEmail.js">
+</div>
 
+</body>
+<script type="text/javascript" src="../js/enviarEmail.js"></script>
+<script type="text/javascript">
+  $("#enviar").on("click", function() {
+    let divBody = document.getElementById("bodyEmail");
+    let divInput = $("#inputBody");
+    divInput.val(divBody.innerHTML);
+  });
 </script>
 </html>
-
