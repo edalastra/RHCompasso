@@ -28,8 +28,9 @@ function enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body){
   $mail->Password = PASSWORD;
   $mail->setFrom(SET_FROM_EMAIL, SET_FROM_NAME);
   $mail->addAddress($email_destinatario, $nome_destinatario);
+  $mail->CharSet = CHARSET;
   $mail->Subject = $assunto;
-  $body = preg_replace('/<img id="img1" src=(.*)alt="compasso">/', '<img id="img1" src="cid:compasso" alt="compasso">', $body);
+  $body = preg_replace('/<img id="img1" src=(.*)alt="compasso" align="left">/', '<img id="img1" src="cid:compasso" alt="compasso" align="left">', $body);
   $body = preg_replace('/<img id="img2" src=(.*)alt="compasso2">/', '<img id="img2" src="cid:compasso2" alt="compasso2">', $body);
   $mail->msgHTML($body);
   print_r($body);
@@ -40,12 +41,12 @@ function enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body){
         if (move_uploaded_file($_FILES['arquivo']['tmp_name'][$ct], $uploadfile)) {
             $mail->addAttachment($uploadfile, $filename);
         } else {
-            $msg .= 'Falha ao mover no' . $uploadfile;
+            $msg = 'Falha ao mover no' . $uploadfile;
         }
   }
 
-  $mail->AddEmbeddedImage('../img/compasso.jpg','compasso');
-  $mail->AddEmbeddedImage('../img/compasso2.jpg','compasso2');
+  $mail->AddEmbeddedImage('img/compasso.jpg','compasso');
+  $mail->AddEmbeddedImage('img/compasso2.jpg','compasso2');
 
 
   //JOÃO, TESTAR ASSIM TAMBÉM  $mail->AddAttachment($_FILES['VARIÁVEL POST']['tmp_name'], $_FILES['VARIÁVEL POST']['name']);
