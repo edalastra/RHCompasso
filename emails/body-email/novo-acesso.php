@@ -21,10 +21,20 @@ include('../../db/conexao.php');
     <link rel="stylesheet" href="../css/novo_acesso.css">
 </head>
 <body>
-<div id="selecionaPagina">
-<?php
+  <form action="../enviaEmails.php" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="<?=$id; ?>">
+    <input type="hidden" name="nome" value="<?=$nome['NOME']; ?>">
+    <label for="email">Para:</label>
+    <input type="email" name="email" value="<?=$nome['EMAIL']; ?>"><br>
+    <label for="assunto">Assunto:</label>
+    <input type="text" name="assunto" value="Acesso Liberado - Compasso"><br>
+    <label for="">Anexos:</label>
+    <input type="file" multiple="multiple" name="arquivo[]"/>
 
-$body = "
+    <button type="submit" id="enviar">Enviar</button>
+    <div contenteditable="true" id="bodyEmail" style="border: solid 0.5px black; padding:1%; margin-top: 20px">
+    <div id="selecionaPagina" >
+
     <main>
         <h1 class='h1-principal'>Suporte</h1>
 		<p id='seg'>Seguem as informações para criação de usuário:
@@ -39,11 +49,11 @@ $body = "
                     <th id='camp'>E-mail</th>
                 </tr>
                 <tr id='table01'>
-                    <td><Strong class='sublinhe'>".$nome['NOME']."</Strong></td>
-                    <td><strong class='sublinhe'>".$dados['INTRANET_CADASTRO_USUARIO']."</strong></td>
+                    <td><Strong class='sublinhe'><?=$nome['NOME']?></Strong></td>
+                    <td><strong class='sublinhe'><?=$dados['INTRANET_CADASTRO_USUARIO']?></strong></td>
                     <td>Desenvolvimento, Equipe CLT, Interno, Equipe SP<strong>(RH ajusta manual)</strong></td>
-                    <td><strong class='sublinhe'>". $funcionario['DATA_ADMISSAO']."</strong></td>
-                    <td><strong class='sublinhe'>". $email['EMAIL_SUP']."</strong></td>
+                    <td><strong class='sublinhe'><?=$funcionario['DATA_ADMISSAO']?></strong></td>
+                    <td><strong class='sublinhe'><?=$email['EMAIL_SUP']?></strong></td>
                 </tr>
 
             </table>
@@ -53,7 +63,7 @@ $body = "
     <footer>
       <table>
     <tr>
-<th>  <img id='img1'src='../img/compasso.jpg' alt='some text' align='left'> </th>
+<th>  <img id='img1'src='../img/compasso.jpg' alt='compasso' align='left'> </th>
 <th id='info' align='left'>
 <div class='txt1'id='align_info'>
 <p><a id='cor'> Equipe Contratações</a> </p>
@@ -66,7 +76,7 @@ $body = "
 <tr>
   <td>
   <div id='align_img'>
-  <img id='img2'src='../img/compasso2.jpg' alt='some text'>
+  <img id='img2'src='../img/compasso2.jpg' alt='compasso2'>
   </div>
 </td>
 </tr>
@@ -80,20 +90,21 @@ $body = "
       <p id='tamanho2'><a id='cor'>@folha:</a> Assuntos sobre folha de pagamento, comprovante auxílio creche, horas extras, contracheque, dissídio, licenças, ajustes/reajustes/transferências</p>
       <p id='tamanho2'><a id='cor'>@jornadas:</a> Análise de jornadas, ponto eletrônico, registro de atividades, atestados/ausências/folgas, sobreaviso.</p>
       <p id='tamanho'><a href='http://www.compasso.com.br/interno/backoffice.jpg'>http://www.compasso.com.br/interno/backoffice.jpg</a></p>
-
+    </div>
 </footer>
-";
-echo $body;
-?>
 </div>
-<form action="../enviaEmails.php" method="post">
-  <input type="hidden" name="id" value="<?=$id; ?>">
-  <input type="hidden" name="nome" value="<?=$nome['NOME']; ?>">
-  <input type="hidden" name="email" value="<?=$email['EMAIL_SUP']; ?>">
-  <input type="hidden" name="body" value="<?=$body;?>">
-  <input type="hidden" name="assunto" value="Acesso Liberado - Compasso">
+</div>
+<input type="hidden" name="body" id="inputBody" value="">
 
-  <button type="submit">Enviar</button>
+
 </form>
 </body>
+<script type="text/javascript" src="../js/enviarEmail.js"></script>
+<script type="text/javascript">
+  $("#enviar").on("click", function() {
+    let divBody = document.getElementById("bodyEmail");
+    let divInput = $("#inputBody");
+    divInput.val(divBody.innerHTML);
+  });
+</script>
 </html>

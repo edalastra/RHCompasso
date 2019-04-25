@@ -48,7 +48,7 @@
 
       <table id='tabela01' border='2'>
       <tr>
-          <th class='info' id='info1'>DOCUMENTOS</th>
+          <th class='info' id='info1' style="background-color:blue; color:white">DOCUMENTOS</th>
           <th class='info' id='info2'>ENVIAR POR E-MAIL Documentos obrigatórios</th>
           <th class='info' id='info3'>ENVIAR VIAS IMPRESSAS</th>
           <th class='info' id='info4'>ORIENTAÇÕES ADICIONAIS</th>
@@ -199,9 +199,9 @@
     <p id='title'>	Assim que tivermos a data para seu exame admissional lhe informaremos.</p>
     <p id='title'>Por gentileza confirmar o recebimento deste e-mail</p>
     <footer>
-      <table>
+    <table>
     <tr>
-    <th>  <img id='img1'src='../img/compasso.jpg' alt='compasso' align='left'> </th>
+    <th style>  <img id='img1'src='../img/compasso.jpg' alt='compasso' align='left'> </th>
     <th id='info' align='left'>
     <div class='txt1'id='align_info'>
     <p><a id='cor0'> Equipe Contratações</a> </p>

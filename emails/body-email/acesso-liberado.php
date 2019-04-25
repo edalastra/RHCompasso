@@ -24,28 +24,37 @@ $email = buscasuporte($conn, $id);
 </head>
 
 <body >
+  <form action="../enviaEmails.php" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="<?=$id; ?>">
+    <input type="hidden" name="nome" value="<?=$nome['NOME']; ?>">
+    <label for="email">Para:</label>
+    <input type="email" name="email" value="<?=$nome['EMAIL']; ?>"><br>
+    <label for="assunto">Assunto:</label>
+    <input type="text" name="assunto" value="Acesso Liberado - Compasso"><br>
+    <label for="">Anexos:</label>
+    <input type="file" multiple="multiple" name="arquivo[]"/>
 
-    <div id="selecionaPagina">
-    <?php
-    $body = "
+    <button type="submit" id="enviar">Enviar</button>
+    <div contenteditable="true" id="bodyEmail" style="border: solid 0.5px black; padding:1%; margin-top: 20px">
+    <div id="selecionaPagina" >
     <main>
-        <h1 class='h1-principal'>Boa tarde, <strong class='sublinhe'>".$funcionario['SOLICITANTE']."</strong></h1>
-		<p>Já estão disponíveis os acessos do novo(a) colaborador(a) <strong class ='sublinhe'>".$nome['NOME']."</strong> que iniciará as suas atividades, na Compasso, em <strong class='sublinhe'>". $funcionario['DATA_ADMISSAO'].".</strong>
+        <h1 class='h1-principal'>Boa tarde, <strong class='sublinhe'><?=$funcionario['SOLICITANTE']?></strong></h1>
+		<p>Já estão disponíveis os acessos do novo(a) colaborador(a) <strong class ='sublinhe'><?=$nome['NOME']?></strong> que iniciará as suas atividades, na Compasso, em <strong class='sublinhe'><?= $funcionario['DATA_ADMISSAO']?></strong>
         </p>
         <div>
             <h2>KAIROS</h2>
-            <p>Login: <strong class='sublinhe'>".$dados['KAIROS_CADASTRO_USUARIO']."</strong></p>
-            <p>Senha: <strong class='sublinhe'>".$dados['KAIROS_CADASTRO_SENHA']."</strong></p>
+            <p>Login: <strong class='sublinhe'><?=$dados['KAIROS_CADASTRO_USUARIO']?></strong></p>
+            <p>Senha: <strong class='sublinhe'><?=$dados['KAIROS_CADASTRO_SENHA']?></strong></p>
         </div>
         <div>
             <h2>INTRANET</h2>
-            <p>Login: <strong class='sublinhe'>".$dados['INTRANET_CADASTRO_USUARIO']."</strong></p>
-            <p>Senha: <strong class='sublinhe'>".$dados['INTRANET_CADASTRO_SENHA']."</strong></p>
+            <p>Login: <strong class='sublinhe'><?=$dados['INTRANET_CADASTRO_USUARIO']?></strong></p>
+            <p>Senha: <strong class='sublinhe'><?=$dados['INTRANET_CADASTRO_SENHA']?></strong></p>
         </div>
         <div>
             <h2>E-MAIL</h2>
-            <p>Login: <strong class='sublinhe'>".$email['EMAIL_SUP']."</strong></p>
-            <p>Senha: <strong class='sublinhe'>".$email['SENHA']."</strong></p>
+            <p>Login: <strong class='sublinhe'><?=$email['EMAIL_SUP']?></strong></p>
+            <p>Senha: <strong class='sublinhe'><?=$email['SENHA']?></strong></p>
         </div>
         <div class='container'>
             <p>Recomendamos, que no primeiro acesso, sejam realizadas as trocas das senhas</p>
@@ -54,7 +63,7 @@ $email = buscasuporte($conn, $id);
     <footer>
       <table>
     <tr>
-<th>  <img id='img1'src='../img/compasso.jpg' alt='some text' align='left'> </th>
+<th>  <img id='img1'src='../img/compasso.jpg' alt='compasso' align='left'> </th>
 <th id='info' align='left'>
 <div class='txt1'id='align_info'>
 <p><a id='cor0'> Equipe Contratações</a> </p>
@@ -67,7 +76,7 @@ $email = buscasuporte($conn, $id);
 <tr>
   <td>
   <div id='align_img'>
-  <img id='img2'src='../img/compasso2.jpg' alt='some text'>
+  <img id='img2'src='../img/compasso2.jpg' alt='compasso2'>
   </div>
 </td>
 </tr>
@@ -98,11 +107,14 @@ $email = buscasuporte($conn, $id);
       </div>
       <p id='tamanho'><a href='http://www.compasso.com.br/interno/backoffice.jpg'>http://www.compasso.com.br/interno/backoffice.jpg</a></p>
       <div></div>
-
+    </div>
 </footer>
-";
-echo $body;
-?>
+</div>
+</div>
+<input type="hidden" name="body" id="inputBody" value="">
+
+
+</form>
 <script>
 /*
  function html2clipboard(html, el) {
@@ -144,17 +156,13 @@ document.getElementById("foo").addEventListener("click", function () {
 });"
 */
 </script>
-
-</div>
-
-
-<form action="../enviaEmails.php" method="post">
-  <input type="hidden" name="id" value="<?php $id ?>">
-  <input type="hidden" name="nome" value="<?php $nome ?>">
-  <input type="hidden" name="email" value="<?php $email ?>">
-  <input type="hidden" name="assunto" value="Acesso Liberado - Compasso">
-
-  <button type="submit">Enviar</button>
-</form>
 </body>
+<script type="text/javascript" src="../js/enviarEmail.js"></script>
+<script type="text/javascript">
+  $("#enviar").on("click", function() {
+    let divBody = document.getElementById("bodyEmail");
+    let divInput = $("#inputBody");
+    divInput.val(divBody.innerHTML);
+  });
+</script>
 </html>

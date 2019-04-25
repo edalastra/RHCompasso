@@ -49,7 +49,7 @@
     </header>
 
     <table id='tabela01' border='2'>
-    <tr>
+    <tr >
         <th class='info' id='info1'>DOCUMENTOS</th>
         <th class='info' id='info2'>ENVIAR POR E-MAIL Documentos obrigatórios</th>
         <th class='info' id='info3'>ENVIAR VIAS IMPRESSAS</th>
@@ -203,7 +203,7 @@
 <footer>
   <table>
 <tr>
-<th>  <img id='img1'src='../img/compasso.jpg' alt='some text' align='left'> </th>
+<th>  <img id='img1'src='../img/compasso.jpg' alt='compasso' align='left'> </th>
 <th id='info' align='left'>
 <div class='txt1'id='align_info'>
 <p><a id='cor0'> Equipe Contratações</a> </p>
@@ -216,7 +216,7 @@
 <tr>
 <td>
 <div id='align_img'>
-<img id='img2'src='../img/compasso2.jpg' alt='some text'>
+<img id='img2'src='../img/compasso2.jpg' alt='compasso2'>
 </div>
 </td>
 </tr>
