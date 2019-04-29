@@ -21,7 +21,7 @@ $('#foo', 'html')
         });
 */
 
-document.querySelector("button").onclick = function() {
+document.querySelector("#foo").onclick = function() {
     var divACopiar = document.querySelector("#selecionaPagina");
 
     var range = document.createRange();

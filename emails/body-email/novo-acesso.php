@@ -27,7 +27,7 @@ include('../../db/conexao.php');
     <label for="email">Para:</label>
     <input type="email" name="email" value="<?=$nome['EMAIL']; ?>"><br>
     <label for="assunto">Assunto:</label>
-    <input type="text" name="assunto" value="Acesso Liberado - Compasso"><br>
+    <input type="text" name="assunto" value=""><br>
     <label for="">Anexos:</label>
     <input type="file" multiple="multiple" name="arquivo[]"/>
 
