@@ -33,8 +33,7 @@ function enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body){
   $body = preg_replace('/<img id="img1" src=(.*)alt="compasso" align="left">/', '<img id="img1" src="cid:compasso" alt="compasso" align="left">', $body);
   $body = preg_replace('/<img id="img2" src=(.*)alt="compasso2">/', '<img id="img2" src="cid:compasso2" alt="compasso2">', $body);
   $mail->msgHTML($body);
-  print_r($body);
-  // die();
+  
   for ($ct = 0; $ct < count($_FILES['arquivo']['tmp_name']); $ct++) {
         $uploadfile = tempnam(sys_get_temp_dir(), hash('sha256', $_FILES['arquivo']['name'][$ct]));
         $filename = $_FILES['arquivo']['name'][$ct];
@@ -52,16 +51,16 @@ function enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body){
   //JOÃO, TESTAR ASSIM TAMBÉM  $mail->AddAttachment($_FILES['VARIÁVEL POST']['tmp_name'], $_FILES['VARIÁVEL POST']['name']);
 
   // $mail->AltBody = 'This is a plain-text message body';
+ 
   if (!$mail->send()) {
-      echo "Erro ao Enviar: " . $mail->ErrorInfo;
+      /* echo "Erro ao Enviar: " . $mail->ErrorInfo;
       // echo $nome_destinatario;
       // echo $email_destinatario;
       // echo $assunto;
       // echo $body;
-      echo $msg;
+      echo $msg; */
   } else {
-      echo "Mensagem Enviada!";
-      header('location:../telas/funcionario.php');
+      header('Location: ../telas/funcionario.php');
   }
 
 
@@ -69,4 +68,4 @@ function enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body){
 
 enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body);
 
- ?>
+?>
