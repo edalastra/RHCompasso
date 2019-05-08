@@ -25,6 +25,7 @@ if (isset($_POST['botaoVolta'])) {
               $status = $_POST['STATUS'];
               $sede = $_POST['sede'];
               $tipo = $_POST['tipo'];
+              $sexo = $_POST['sexo'];
               $solicitante = $_POST['solicitante'];
               $cliente = $_POST['cliente'];
               $projeto = $_POST['projeto'];
@@ -497,6 +498,7 @@ if (isset($_POST['botaoVolta'])) {
                         <th width='100px'>Carga Horária</th>
                         <th width='150px'>Horário</th>
                         <th width='200px'>Nome</th>
+                        <th width='200px'>Sexo</th>
                         <th width='150px'>Fone</th>
                         <th width='200px'>Cargo</th>
                         <th width='110px'>Controle Data Admissão</th>
@@ -528,6 +530,7 @@ if (isset($_POST['botaoVolta'])) {
                             <td><?php echo $rows_dados['CARGA_HORARIA']; ?></td>
                             <td><?php echo $rows_dados['HORARIO']; ?></td>
                             <td><?php echo $rows_dados['NOME']; ?></td>
+                            <td><?php echo $rows_dados['SEXO']; ?></td>
                             <td><?php echo $rows_dados['FONE_CONTATO']; ?></td>
 							<td><?php echo $rows_dados['CARGO']; ?></td>
                             <td><?php echo $rows_dados['CONTROLE_DATA_ADMISSAO'];?></td>
