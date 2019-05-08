@@ -565,7 +565,13 @@ if (isset($_POST['botaoVolta'])) {
                             <td id='add-carga_horaria'><input class='intable' type="text" name="carga_horaria" required></td>
                             <td id='add-horario'><input class='intable' type="text" name="horario" required></td>
                             <td id='add-nome'><input class='intable' type="text" name="nome" required></td>
-                            <td><select id="add-sexo" name='sexo' class="selectadd intable" required></option><option value="1">Não informou</option><option value="2">Masculino</option><option value="3">Feminino</option><option value="4">Não definido</option></select></td>
+                            <td><select name="sexo" class="intable" value="<?=$rows_dados['SEXO']?>">
+                                <option value="" selected="selected"></option>
+                                <option>Não informou</option>
+                                <option>Masculino</option>
+                                <option>Feminino</option>
+                                <option>Não definido</option>
+                            </select></td>
                             <td id='add-fone'><input class='intable' type="tel" name="fone_contato" required></td>
                             <td id='add-cargo'><input class='intable' type="text" name="cargo" required></td>
                             <td id='add-contole-data'><input class='intable' type="text" name="controle_data_admissao" required></td>

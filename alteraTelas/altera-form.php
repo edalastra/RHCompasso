@@ -59,6 +59,7 @@
                     <th width='100px'>Carga Horária</th> 
                     <th width='150px'>Horário</th> 
                     <th width='200px'>Nome</th>
+                    <th width='200px'>Sexo</th>
                     <th width='150px'>Fone</th>
                     <th width='200px'>Cargo</th>
                     <th width='110px'>Controle Data Admissão</th>
@@ -109,6 +110,13 @@
                             <td id='add-carga_horaria'><input class='intable' type="text" name="CARGA_HORARIA" value = "<?=$funcionarios['CARGA_HORARIA']; ?>"></td>
                             <td id='add-horario'><input class='intable' type="text" name="HORARIO" value = "<?=$funcionarios['HORARIO']; ?>"></td>
                             <td id='add-nome'><input class='intable' type="text" name="NOME" value = "<?=$funcionarios['NOME']; ?>"></td>
+                            <td><select name="sexo" class="intable" value="<?=$rows_dados['SEXO']?>">
+                                <option value="" selected="selected"></option>
+                                <option>Não informou</option>
+                                <option>Masculino</option>
+                                <option>Feminino</option>
+                                <option>Não definido</option>
+                            </select></td>
                             <td id='add-fone'><input class='intable' type="tel" name="FONE_CONTATO" value = "<?=$funcionarios['FONE_CONTATO']; ?>"></td>
                             <td id='add-cargo'><input class='intable' type="text" name="CARGO" value = "<?=$funcionarios['CARGO']; ?>"></td>
                             <td id='add-contole-data'><input class='intable' type="text" name="CONTROLE_DATA_ADMISSAO" value = "<?=$funcionarios['CONTROLE_DATA_ADMISSAO']; ?>"></td>
