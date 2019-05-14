@@ -15,8 +15,9 @@ $nome_destinatario = $_POST['nome'];
 $email_destinatario = $_POST['email'];
 $assunto = $_POST['assunto'];
 $body = $_POST['body'];
+$de = $_POST['de'];
 
-function enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body){
+function enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body, $de){
   $mail = new PHPMailer;
   $mail->isSMTP();
   $mail->SMTPDebug = 4;
@@ -24,9 +25,9 @@ function enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body){
   $mail->Port = PORT;
   $mail->SMTPSecure = SMTP_SECURE;
   $mail->SMTPAuth = SMTP_AUTH;
-  $mail->Username = USERNAME;
+  $mail->Username = $de;
   $mail->Password = PASSWORD;
-  $mail->setFrom(SET_FROM_EMAIL, SET_FROM_NAME);
+  $mail->setFrom($de, SET_FROM_NAME);
   $mail->addAddress($email_destinatario, $nome_destinatario);
   $mail->CharSet = CHARSET;
   $mail->Subject = $assunto;
@@ -58,7 +59,7 @@ function enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body){
       // echo $email_destinatario;
       // echo $assunto;
       // echo $body;
-      //echo $msg;
+
   } else {
       echo "<script>document.location='http://localhost/RHCompasso/telas/menuPrincipal.php'</script>";
   }
@@ -66,6 +67,6 @@ function enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body){
 
 }
 
-enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body);
+enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body, $de);
 
 ?>
