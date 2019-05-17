@@ -1,9 +1,9 @@
 <?php
 
-  define('HOST', 'smtps.bol.com.br');
-  define('PORT', 587);
+  define('HOST', '192.168.0.89');
+  define('PORT', 25);
   define('SMTP_SECURE', '');
-  define('SMTP_AUTH', true);
+  define('SMTP_AUTH', FALSE);
   define('PASSWORD', 'Chibarro19');
   define('SET_FROM_EMAIL', 'tecnouri@bol.com.br');
   define('SET_FROM_NAME', 'Compasso - RH Contratações');
