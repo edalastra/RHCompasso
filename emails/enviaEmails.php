@@ -16,14 +16,9 @@ $email_destinatario = $_POST['email'];
 $assunto = $_POST['assunto'];
 $body = $_POST['body'];
 $de = $_POST['de'];
-$alias = $_POST['como'];
 $senha = $_POST['senha'];
 
-if($alias == null){
-    $alias = $de;
-}
-
-function enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body, $de, $senha, $alias){
+function enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body, $de, $senha){
   $mail = new PHPMailer;
   $mail->isSMTP();
   $mail->SMTPDebug = 4;
@@ -33,7 +28,7 @@ function enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body, $d
   $mail->SMTPAuth = SMTP_AUTH;
   $mail->Username = $de;
   $mail->Password = $senha;
-  $mail->setFrom($alias, SET_FROM_NAME);
+  $mail->setFrom($de, SET_FROM_NAME);
   $mail->addAddress($email_destinatario, $nome_destinatario);
   $mail->CharSet = CHARSET;
   $mail->Subject = $assunto;
@@ -54,25 +49,13 @@ function enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body, $d
   $mail->AddEmbeddedImage('img/compasso.jpg','compasso');
   $mail->AddEmbeddedImage('img/compasso2.jpg','compasso2');
 
-
-  //JOÃO, TESTAR ASSIM TAMBÉM  $mail->AddAttachment($_FILES['VARIÁVEL POST']['tmp_name'], $_FILES['VARIÁVEL POST']['name']);
-
-  // $mail->AltBody = 'This is a plain-text message body';
-
   if (!$mail->send()) {
       echo "Erro ao Enviar: " . $mail->ErrorInfo;
-      // echo $nome_destinatario;
-      // echo $email_destinatario;
-      // echo $assunto;
-      // echo $body;
 
   } else {
       echo "<script>document.location='http://localhost/RHCompasso/telas/menuPrincipal.php'</script>";
   }
-
-
 }
-
-enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body, $de, $senha, $alias);
+enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body, $de, $senha);
 
 ?>
