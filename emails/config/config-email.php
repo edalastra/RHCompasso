@@ -4,8 +4,6 @@
   define('PORT', 587);
   define('SMTP_SECURE', 'tls');
   define('SMTP_AUTH', true);
-  define('PASSWORD', 'Compasso@20');
-  define('SET_FROM_EMAIL', 'gustavo.tartas@compasso.com.br');
   define('SET_FROM_NAME', 'Compasso - RH Contratações');
   define('CHARSET', 'UTF-8');
 

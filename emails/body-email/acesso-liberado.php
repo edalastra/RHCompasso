@@ -29,12 +29,13 @@ $email = buscasuporte($conn, $id);
    <ul>
     <input type="hidden" name="id" value="<?=$id; ?>">
     <input type="hidden" name="nome" class="campos01" value="<?=$nome['NOME']; ?>">
-    <li class="radio">
-      <label for="de">De:</label>
-      <div class="ajudaDeus">
-      <input type="radio" name="de"value="rh@compasso.com.br" checked>rh@compasso.com.br
-      <input type="radio" name="de" value="contratacoes@compasso.com.br">contratacoes@compasso.com.br</br>
-    </div>
+    <li>
+    <label for="de">De:</label>
+    <input type="text" name="de" class="campos01" value=""><br>
+    </li>
+    <li>
+    <label for="de">Senha:</label>
+    <input type="password" name="senha" class="campos01" value=""><br>
     </li>
       <li>
     <label for="email">Para:</label>

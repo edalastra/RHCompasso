@@ -71,21 +71,18 @@ h3{
     background-color:#FFD;
     }
 
-    .radio{
-        font-family: Verdana, Arial, Tahoma;
-  }
-    
-  .radio{
-    font-family: Verdana, Arial, Tahoma;
-}
-
-    .ajudaDeus{
-        top: 15px;
-        position: relative;
-    }
     .campos02:focus { 
     background-color:#FFD;
     }
+
+    #input {
+        height: 1.3em;
+        float: left;
+      }
+      
+    .imagem {
+        cursor: pointer;
+      }
     
     #formulario input#enviar {     
     width:100px;     
@@ -100,7 +97,7 @@ h3{
     }   
 
     .button3 {
-        background-color: #1F3864; /* Green */
+        background-color: #1F3864;
         border: none;
         color: white;
         padding: 15px 32px;
@@ -108,7 +105,10 @@ h3{
         text-decoration: none;
         display: inline-block;
         font-size: 16px;
-        border-radius: 8px;}
+        border-radius: 8px;
+        left: 1200px;
+        position: relative;
+    }
     
     #formulario input#enviar:hover {     
     color:#000;     

@@ -15,9 +15,10 @@ $nome_destinatario = $_POST['nome'];
 $email_destinatario = $_POST['email'];
 $assunto = $_POST['assunto'];
 $body = $_POST['body'];
-$de = 'gustavo.tartas@compasso.com.br';
+$de = $_POST['de'];
+$senha = $_POST['senha'];
 
-function enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body, $de){
+function enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body, $de, $senha){
   $mail = new PHPMailer;
   $mail->isSMTP();
   $mail->SMTPDebug = 4;
@@ -26,7 +27,7 @@ function enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body, $d
   $mail->SMTPSecure = SMTP_SECURE;
   $mail->SMTPAuth = SMTP_AUTH;
   $mail->Username = $de;
-  $mail->Password = PASSWORD;
+  $mail->Password = $senha;
   $mail->setFrom($de, SET_FROM_NAME);
   $mail->addAddress($email_destinatario, $nome_destinatario);
   $mail->CharSet = CHARSET;
@@ -67,6 +68,6 @@ function enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body, $d
 
 }
 
-enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body, $de);
+enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body, $de, $senha);
 
 ?>
