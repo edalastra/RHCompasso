@@ -15,7 +15,7 @@ $nome_destinatario = $_POST['nome'];
 $email_destinatario = $_POST['email'];
 $assunto = $_POST['assunto'];
 $body = $_POST['body'];
-$de = $_POST['de'];
+$de = 'gustavo.tartas@compasso.com.br';
 
 function enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body, $de){
   $mail = new PHPMailer;
