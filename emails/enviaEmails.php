@@ -19,6 +19,10 @@ $de = $_POST['de'];
 $alias = $_POST['como'];
 $senha = $_POST['senha'];
 
+if($alias == null){
+    $alias = $de;
+}
+
 function enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body, $de, $senha, $alias){
   $mail = new PHPMailer;
   $mail->isSMTP();
@@ -69,6 +73,6 @@ function enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body, $d
 
 }
 
-enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body, $de, $senha, $alias=$de);
+enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body, $de, $senha, $alias);
 
 ?>
