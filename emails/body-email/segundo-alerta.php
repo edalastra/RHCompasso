@@ -39,6 +39,10 @@
     <input type="hidden" name="id" value="<?=$id; ?>">
     <input type="hidden" name="nome" class="campos01" value="<?=$nome['NOME']; ?>">
     <li>
+    <li>
+    <label for="como">Como:</label>
+    <input type="text" name="como" class="campos01" value=""><br>
+    </li>
     <label for="de">De:</label>
     <input type="text" name="de" class="campos01" value=""><br>
     </li>
