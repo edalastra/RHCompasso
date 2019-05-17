@@ -15,8 +15,8 @@ h2{
 }
 h3{
     text-align: center;
-
 }
+
 
 #table{
     color:  #fff;
@@ -27,8 +27,8 @@ h3{
 	text-align: center;
 }
 #table01{
-  padding: .5em;
-  height: 30px;
+    padding: .5em;
+    height: 30px;
 	margin: 1;
 	border: 1px solid #ccc;
 	text-align: justify;
@@ -70,7 +70,19 @@ h3{
     .campos01:focus { 
     background-color:#FFD;
     }
+
+    .radio{
+        font-family: Verdana, Arial, Tahoma;
+  }
     
+  .radio{
+    font-family: Verdana, Arial, Tahoma;
+}
+
+    .ajudaDeus{
+        top: 15px;
+        position: relative;
+    }
     .campos02:focus { 
     background-color:#FFD;
     }

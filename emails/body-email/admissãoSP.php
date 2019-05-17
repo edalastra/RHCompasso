@@ -30,11 +30,12 @@
    <ul>
     <input type="hidden" name="id" value="<?=$id; ?>">
     <input type="hidden" name="nome" class="campos01" value="<?=$nome['NOME']; ?>">
-    <li>
+    <li class="radio">
       <label for="de">De:</label>
-      <input type="radio" name="de" value="rh@compasso.com.br" checked>rh@compasso.com.br
-      <input type="radio" name="de" value="rh@compasso.com.br">contratacoes@compasso.com.br</br>
-    </li>
+      <div class="ajudaDeus">
+      <input type="radio" name="de"value="rh@compasso.com.br" checked>rh@compasso.com.br
+      <input type="radio" name="de" value="contratacoes@compasso.com.br">contratacoes@compasso.com.br</br>
+    </div>
     	<li>
     <label for="email">Para:</label>
     <input type="email" name="email" class="campos01" value="<?=$nome['EMAIL']; ?>"><br>

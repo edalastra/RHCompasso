@@ -14,6 +14,7 @@ if(isset($_POST["export"]))
                         <th width="150px">Status</th>
                         <th width="60px">Sede</th>
                         <th width="60px">Tipo</th>
+                        <th width="100px">Sexo</th>
                         <th width="100px">Captação</th>
                         <th width="100px">Carga Horária</th> 
                         <th width="100px">Horário</th> 
@@ -39,7 +40,8 @@ if(isset($_POST["export"]))
         <tr>  
             <td>'.$row["STATUS"].'</td>  
             <td>'.$row["NOME_SEDE"].'</td>  
-            <td>'.$row["NOME_TIPO"].'</td>  
+            <td>'.$row["NOME_TIPO"].'</td>
+            <td>'.$row["SEXO"].'</td>  
             <td>'.$row['NOME_PARAMETRO'].'</td>
             <td>'.$row["CARGA_HORARIA"].'</td>  
             <td>'.$row['HORARIO'].'</td>
