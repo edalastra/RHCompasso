@@ -39,13 +39,14 @@
     <input type="hidden" name="id" value="<?=$id; ?>">
     <input type="hidden" name="nome" class="campos01" value="<?=$nome['NOME']; ?>">
     <li>
-    <li>
-    <label for="como">Como:</label>
-    <input type="text" name="como" class="campos01" value=""><br>
-    </li>
     <label for="de">De:</label>
     <input type="text" name="de" class="campos01" value=""><br>
     </li>
+    <li class="alias">
+    <label for="como">Como:</label>
+    <input type="text" name="como" class="campos01" value="" placeholder="rh@compasso.com.br"><br>
+    <span style="color:red"><b>Preencha caso queira enviar como Alias</b></span><br>
+    </li>    
     <li>
     <label for="de">Senha:</label>
     <input type="password" name="senha" class="campos01" value=""><br>
@@ -69,7 +70,7 @@
     </ul>
     </div>
     <div contenteditable="true" id="bodyEmail" style="border: solid 0.5px black; padding:1%; margin-top: 20px">
-    <div id="selecionaPagina" >
+<div id="selecionaPagina">
 
     <main>
         <p>Bom dia, <strong class = 'sublinhe'><?=$funcionario['SOLICITANTE']?></strong></p>

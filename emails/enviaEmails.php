@@ -26,7 +26,7 @@ if(!$como){
 function enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body, $de, $senha, $como){
   $mail = new PHPMailer;
   $mail->isSMTP();
-  $mail->SMTPDebug = 4;
+  //$mail->SMTPDebug = 4;
   $mail->Host = HOST;
   $mail->Port = PORT;
   $mail->SMTPSecure = SMTP_SECURE;
@@ -55,9 +55,10 @@ function enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body, $d
   $mail->AddEmbeddedImage('img/compasso2.jpg','compasso2');
 
   if (!$mail->send()) {
-      echo "Erro ao Enviar: " . $mail->ErrorInfo;
-
+    echo  "<script>alert('Email não enviado, verifique seus dados.');</script>";
+    echo  "<script>javascript:history.back(-2)</script>";
   } else {
+      echo  "<script>alert('Email enviado com sucesso!');</script>";
       echo "<script>document.location='http://localhost/RHCompasso/telas/menuPrincipal.php'</script>";
   }
 }
