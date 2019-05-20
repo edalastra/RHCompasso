@@ -37,14 +37,15 @@
     <label for="de">De:</label>
     <input type="text" name="de" class="campos01" value=""><br>
     </li>
-    <li class="alias">
+    <li>
     <label for="como">Como:</label>
     <input type="text" name="como" class="campos01" value="" placeholder="rh@compasso.com.br"><br>
     <span style="color:red"><b>Preencha caso queira enviar como Alias</b></span><br>
     </li>    
-    <li>
+    <li class="senha">
     <label for="de">Senha:</label>
-    <input type="password" name="senha" class="campos01" value=""><br>
+    <p><input type="password" id="senha" name="senha" class="campos01" value="">
+    <span id="olho"/><img src='../img/olho.png' class="show"></p>
     </li>
       <li>
     <label for="email">Para:</label>
@@ -513,4 +514,18 @@ informar o banco e os dados onde possui sua conta corrente, ok?</span></p>
     divInput.val(divBody.innerHTML);
   });
 </script>
+<script>
+var senha = $('#senha');
+var olho= $("#olho");
+
+olho.mousedown(function() {
+  senha.attr("type", "text");
+});
+
+olho.mouseup(function() {
+  senha.attr("type", "password");
+});
+$( "#olho" ).mouseout(function() { 
+  $("#senha").attr("type", "password");
+});</script>
 </html>
