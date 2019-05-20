@@ -9,6 +9,7 @@
     width: 97%;
     height: 10%;
     box-shadow: 0 0 .2em black;
+    padding: 5px;
 }
 #nome{
     color:white;
@@ -16,7 +17,7 @@
     margin-left: 0.4em;
     margin-bottom: -0.01em;
     font-size: 25px;
-
+    margin: 0px;
 }
 #titulo-table{
     font-size: 3em;
@@ -37,7 +38,6 @@
 }
 .panel-body{
     background-color: white;
-    background-image: linear-gradient(to bottom, rgb(72, 139, 244) 50% , white 100% );
     background-size: 100% 15%;
     background-repeat: no-repeat;
     text-align: center;
@@ -60,13 +60,7 @@ margin-top: 1em;
 width: 50%;
 margin-left: auto;
 }
-.menu-inicial{
-    background-color: white;
-    background-image: linear-gradient(to bottom, rgb(72, 139, 244) 50% , white 100% );
-    background-size: 100% 120%;
-    background-repeat: no-repeat;
-    
-}
+
 
 .has-error{
     border: solid red 3px;
@@ -219,21 +213,17 @@ body{
     text-decoration: none;
     transition: .5s;
 }
-.botao:focus,
-.botao:hover {
-    color: white;
-    box-shadow: 0 0 1em rgb(1, 36, 53);
-}
+
 .botao{
-    background-image: linear-gradient(to bottom, rgb(72, 139, 244) 50% , white 100% );
+
+    background-color: rgb(72, 139, 244);
     background-size: 100% 120%;
     background-repeat: no-repeat;
     border: solid 1px  red(18,71,123);
     margin-top: 2em;
     align-content: center;
     width: 12em;
-    height: 2em;
-    padding: 0.2%;
+    padding: 10px;
 
 }
 h3{
