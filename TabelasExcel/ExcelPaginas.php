@@ -60,6 +60,7 @@ $result = mysqli_query($connect, $sql);
                         <th width='100px'>Carga Horária</th> 
                         <th width='100px'>Horário</th> 
                         <th width='200px'>Nome</th>
+                        <th width='200px'>Sexo</th>
                         <th width='85px'>Fone</th>
                         <th width='100px'>Cargo</th>
                         <th width='110px'>Controle Data Admissão</th>
@@ -86,6 +87,7 @@ $result = mysqli_query($connect, $sql);
          <td>'.$row["CARGA_HORARIA"].'</td>  
          <td>'.$row['HORARIO'].'</td>
          <td>'.$row["NOME"].'</td>
+         <td>'.$row["SEXO"].'</td>
          <td>'.$row["FONE_CONTATO"].'</td>
          <td>'.$row["CARGO"].'</td>
          <td>'.$row["CONTROLE_DATA_ADMISSAO"].'</td>
