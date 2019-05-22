@@ -1,4 +1,5 @@
-<?php  
+<?php 
+include("../update.php"); 
 //export.php  
 $connect = mysqli_connect("localhost", "root", "", "bancorh");
 $output = '';
@@ -36,13 +37,18 @@ if(isset($_POST["export"]))
   ';
   while($row = mysqli_fetch_array($result))
   {
-   $output .= '
+    $sede = buscaSedeFuncionario($connect, $row["ID_SEDE"]);
+    $tipo = buscaTipoFuncionario($connect, $row["ID_TIPO"]);
+    $captacao = buscaCaptacaoFuncionario($connect, $row["ID_CAPTACAO"]);
+    
+
+    $output .= '
         <tr>  
             <td>'.$row["STATUS"].'</td>  
-            <td>'.$row["NOME_SEDE"].'</td>  
-            <td>'.$row["NOME_TIPO"].'</td>
+            <td>'.$sede["nome_sede"].'</td>  
+            <td>'.$tipo["NOME_TIPO"].'</td>
             <td>'.$row["SEXO"].'</td>  
-            <td>'.$row['NOME_PARAMETRO'].'</td>
+            <td>'.$captacao['NOME_PARAMETRO'].'</td>
             <td>'.$row["CARGA_HORARIA"].'</td>  
             <td>'.$row['HORARIO'].'</td>
             <td>'.$row["NOME"].'</td>
