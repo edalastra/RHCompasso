@@ -25,6 +25,7 @@ if(isset($_POST["export"]))
                         <th width="110px">Controle Data Admissão</th>
                         <th width="100px">Remuneração Base</th>
                         <th width="100px">Gratificação</th>
+                        <th width="100px">Remuneração Total</th>
                         <th width="200px">Solicitante</th>
                         <th width= "150px">Cliente</th>
                         <th width="150px">Projeto</th>
@@ -55,8 +56,9 @@ if(isset($_POST["export"]))
             <td>'.$row["FONE_CONTATO"].'</td>
             <td>'.$row["CARGO"].'</td>
             <td>'.$row["CONTROLE_DATA_ADMISSAO"].'</td>
-            <td>'.$row["REMUNERACAO_BASE"].'</td>
-            <td>'.$row["GRATIFICACAO"].'</td>
+            <td>'.number_format($row["REMUNERACAO_BASE"], 2, ',','.').'</td>
+            <td>'.number_format($row["GRATIFICACAO"], 2, ',','.').'</td>
+            <td>'.number_format(($row["GRATIFICACAO"]+$row["REMUNERACAO_BASE"]), 2, ',', '.').'</td>
             <td>'.$row["SOLICITANTE"].'</td>
             <td>'.$row["PROJETO"].'</td>
             <td>'.$row["CLIENTE"].'</td>
