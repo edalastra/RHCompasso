@@ -280,162 +280,162 @@ if (isset($_POST['botaoVolta'])) {
                         </div>
                         <h2>Tela 5 - Documentação</h2>
                         <div>
-                            <label for="recebimento">Formulários Enviados</label>
+                            <label for="formularios_enviados">Formulários Enviados</label>
                             <input type="date" id='formularios_enviados' name="formularios_enviados" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Formulários Enviados"/>
                         </div>
                         <div>
-                            <label for="recebimento">Formulários Recebidos</label>
+                            <label for="formularios_recebidos">Formulários Recebidos</label>
                             <input type="date" id='formularios_recebidos' name="formularios_recebidos" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Formulários Recebidos"/>
                         </div>
                         <div>
-                            <label for="recebimento">Documentos Físicos</label>
+                            <label for="documentos_fisicos">Documentos Físicos</label>
                             <input type="date" id='documentos_fisicos' name="documentos_fisicos" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Documentos Físicos"/>
                         </div>
                         <div>
-                            <label for="recebimento">CTPS</label>
+                            <label for="ctps">CTPS</label>
                             <input type="date" id='r' name="ctps" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="CTPS"/>
                         </div>
                         <h2>Tela 6 - Admissão</h2>
                         <div>
-                            <label for="recebimento">Qualificação Cadastral e CEP</label>
+                            <label for="qualific">Qualificação Cadastral e CEP</label>
                             <input type="date" id='qualific' name="qualific" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Qualificação Cadastral e CEP"/>
                         </div>
                         <div>
-                            <label for="recebimento">Cadastrada Admissão Plataforma Domínio</label>
+                            <label for="cad_adm">Cadastrada Admissão Plataforma Domínio</label>
                             <input type="date" id='cad_adm' name="cad_adm" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Cadastrada Admissão Plataforma Domínio"/>
                         </div>
                         <div>
-                            <label for="recebimento">Documentos Recebidos Plataforma Domínio + Validação  CBO</label>
+                            <label for="doc_rec">Documentos Recebidos Plataforma Domínio + Validação  CBO</label>
                             <input type="date" id='doc_rec' name="doc_rec" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Documentos Recebidos Plataforma Domínio + Validação  CBO"/>
                         </div>
                         <div>
-                            <label for="recebimento">Termo PSI</label>
+                            <label for="termo_psi">Termo PSI</label>
                             <input type="date" id='termo_psi' name="termo_psi" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Termo PSI"/>
                         </div>
                         <div>
-                            <label for="recebimento">Incluir Admissão na Provisória</label>
+                            <label for="inclui_adm">Incluir Admissão na Provisória</label>
                             <input type="date" id='inclui_adm' name="inclui_adm" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Incluir Admissão na Provisória"/>
                         </div>
                         <h2>Tela 7 - Exame</h2>
                         <div>
-                            <label for="recebimento">Agendamento</label>
+                            <label for="agendamento_exam">Agendamento</label>
                             <input type="date" id='agendamento_exam' name="agendamento_exam" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Agendamento"/>
                         </div>
                         <div>
-                            <label for="recebimento">Envio para funcionário</label>
+                            <label for="envio_func">Envio para funcionário</label>
                             <input type="date" id='envio_func' name="envio_func" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Envio para funcionário"/>
                         </div>
                         <div>
-                            <label for="recebimento">Recebido por e-mail ASO assinado</label>
+                            <label for="email_exame">Recebido por e-mail ASO assinado</label>
                             <input type="date" id='email_exame' name="email_exame" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Recebido por e-mail ASO assinado"/>
                         </div>
                         <div>
-                            <label for="recebimento">Anexar ASO assinado na Domínio	</label>
+                            <label for="anexar_aso">Anexar ASO assinado na Domínio	</label>
                             <input type="date" id='anexar_aso' name="anexar_aso" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Anexar ASO assinado na Domínio"/>
                         </div>
                         <h2>Tela 8 - Dados Bancários</h2>
                         <div>
-                            <label for="recebimento">Envio</label>
+                            <label for="envio">Envio</label>
                             <input type="date" id='envio' name="envio" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Envio"/>
                         </div>
                         <div>
-                            <label for="recebimento">Recebido</label>
+                            <label for="recebido">Recebido</label>
                             <input type="date" id='recebido' name="recebido" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Recebido"/>
                         </div>
                         <div>
-                            <label for="recebimento">Anexar comprovante na Domínio</label>
+                            <label for="anexar_recebido">Anexar comprovante na Domínio</label>
                             <input type="date" id='anexar_recebido' name="anexar_recebido" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Anexar comprovante na Domínio"/>
                         </div>
                         <div>
-                            <label for="recebimento">Planilha de Contas</label>
+                            <label for="planilha_contas">Planilha de Contas</label>
                             <input type="date" id='planilha_contas' name="planilha_contas" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Planilha de Contas"/>
                         </div>
                         <div>
-                            <label for="recebimento">Formulário + Comprovante Bancário</label>
+                            <label for="form_compro">Formulário + Comprovante Bancário</label>
                             <input type="date" id='form_compro' name="form_compro" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Formulário + Comprovante Bancário"/>
                         </div>
                         <h2>Tela 10 - Interno</h2>
                         <div>
-                            <label for="recebimento">Intranet - Cadastro Usuário</label>
+                            <label for="intra_data">Intranet - Cadastro Usuário</label>
                             <input type="date" id='intra_data' name="intra_data" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Intranet - Cadastro Usuário"/>
                         </div>
                         <div>
-                            <label for="recebimento">Kairos - Cadastro Usuário</label>
+                            <label for="kairos_data">Kairos - Cadastro Usuário</label>
                             <input type="date" id='kairos_data' name="kairos_data" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Kairos - Cadastro Usuário"/>
                         </div>
                         <div>
-                            <label for="recebimento">E-mail Gestor + Apoio Sede</label>
+                            <label for="email_gestor">E-mail Gestor + Apoio Sede</label>
                             <input type="date" id='email_gestor' name="email_gestor" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="E-mail Gestor + Apoio Sede"/>
                         </div>
                         <div>
-                            <label for="recebimento">E-mail Início das Atividades</label>
+                            <label for="email_inicio">E-mail Início das Atividades</label>
                             <input type="date" id='email_inicio' name="email_inicio" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="E-mail Início das Atividades"/>
                         </div>
                         <div>
-                            <label for="recebimento">E-mail Boas Vindas	</label>
+                            <label for="email_boas">E-mail Boas Vindas	</label>
                             <input type="date" id='email_boas' name="email_boas" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="E-mail Boas Vindas	"/>
                         </div>
                         <div>
-                            <label for="recebimento">Acessos</label>
-                            <input type="date" id='acessos' name="acessosoas" class="form-control campo-filter" data-action="filter"
+                            <label for="acessos">Acessos</label>
+                            <input type="date" id='acessos' name="acessos" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Acessos"/>
                         </div>
                         <h2>Tela 11 - Vias documentos</h2>
                         <div>
-                            <label for="recebimento">Data do pedido do crachá</label>
+                            <label for="cracha_pedido">Data do pedido do crachá</label>
                             <input type="date" id='cracha_pedido' name="cracha_pedido" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Data do pedido do crachá"/>
                         </div>
                         <div>
-                            <label for="recebimento">Controle crachá</label>
+                            <label for="cracha_controle">Controle crachá</label>
                             <input type="date" id='cracha_controle' name="cracha_controle" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Controle crachá"/>
                         </div>
                         <div>
-                            <label for="recebimento">Protocolo crachá</label>
+                            <label for="cracha_protocolo">Protocolo crachá</label>
                             <input type="date" id='cracha_protocolo' name="cracha_protocolo" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Protocolo crachá"/>
                         </div>
                         <div>
-                            <label for="recebimento">Data E-mail solicitado</label>
+                            <label for="email_caderno">Data E-mail solicitado</label>
                             <input type="date" id='email_caderno' name="email_caderno" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Data E-mail solicitado"/>
                         </div>
                         <div>
-                            <label for="recebimento">Data E-mail recebido</label>
+                            <label for="email_r">Data E-mail recebido</label>
                             <input type="date" id='email_r' name="email_r" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Data E-mail recebido"/>
                         </div>
                         <div>
-                            <label for="recebimento">Malote (Caderno) + CTPS (Controle RH)</label>
+                            <label for="malote">Malote (Caderno) + CTPS (Controle RH)</label>
                             <input type="date" id='malote' name="malote" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Malote (Caderno) + CTPS (Controle RH)"/>
                         </div>
                         <div>
-                            <label for="recebimento">Recebido após assinatura Escanear Docs e Salvar na Pasta</label>
+                            <label for="assinados">Recebido após assinatura Escanear Docs e Salvar na Pasta</label>
                             <input type="date" id='assinados' name="assinados" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Recebido após assinatura Escanear Docs e Salvar na Pasta"/>
                         </div>
