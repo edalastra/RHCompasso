@@ -2,23 +2,36 @@
 	include("db/conexao.php")
 ?>
 <?php
-		//listar sedes
+		//lista todas as sedes
 		function listar($conn){
 			$query = "SELECT * from sede";
 			$resultado = mysqli_query($conn, $query);
 			return $resultado;
 		}
 
-		//função joao
+		//retorna a sede especifica de um funcionario
 		function buscaSedeFuncionario($conn, $id){
 			$query = "SELECT nome_sede from sede where sede_id = '{$id}'";
 			$sede = mysqli_query($conn, $query);
 			return mysqli_fetch_assoc($sede);
 		}
+		//retorna o cargo especifico de um funcionario
 		function buscaCargoFuncionario($conn, $id){
 			$query = "SELECT CARGO FROM admissao_dominio WHERE USUARIO_ID = '{$id}'";
 			$cargo = mysqli_query($conn, $query);
 			return mysqli_fetch_assoc($cargo);
+		}
+		//retorna o tipo especifico de um funcionario
+		function buscaTipoFuncionario($conn, $id){
+			$query = "SELECT NOME_TIPO FROM tipo WHERE TIPO_ID = '{$id}'";
+			$tipo = mysqli_query($conn, $query);
+			return mysqli_fetch_assoc($tipo);
+		}
+		//retorna a captação especifica de um funcionario
+		function buscaCaptacaoFuncionario($conn, $id){
+			$query = "SELECT NOME_PARAMETRO FROM parametros_captacao WHERE CAPTACAO_ID = '{$id}'";
+			$captacao = mysqli_query($conn, $query);
+			return mysqli_fetch_assoc($captacao);
 		}
 
 		function buscaUsuario($conn, $email){
