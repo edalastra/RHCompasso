@@ -176,9 +176,15 @@ $funcionario = buscagestao($conn, $id);
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
                             <td><input type='text' class='intable' name="GESTOR" value="<?=$gestor['GESTOR']?>"></td>
-                            <td><input type="text" class='intable' name ="GESTOR_SABE" value="<?=$gestor_sabe['GESTOR_SABE']?>"></td>
+                            <td><select class="intable" name ="GESTOR_SABE" required>
+                                    <option value="<?=$gestor_sabe['GESTOR_SABE']?>" selected="selected"><?=$gestor_sabe['GESTOR_SABE']?></option>
+                                    <option value="SIM">Sim</option>
+                                    <option value="NAO">Não</option></select></td>
                             <td><input type="text" class='intable' name="GESTOR_LOCAL" value="<?=$gestor_local['GESTOR_LOCAL']?>"></td>
-                            <td><input type="text" class='intable' name="GESTOR_LOCAL_sABE" value="<?=$gestorL_sabe['GESTOR_LOCAL_sABE']?>"></td>
+                            <td><select  class='intable' name="GESTOR_LOCAL_sABE">
+                                    <option value="<?=$gestorL_sabe['GESTOR_LOCAL_sABE']?>"><?=$gestorL_sabe['GESTOR_LOCAL_sABE']?></option>
+                                    <option value="SIM">Sim</option>
+                                    <option value="NAO">Não</option></select></td>
                             <td><input type="text" class='intable' name="RECEPTOR_PESSOA" value="<?=$receptor['RECEPTOR_PESSOA']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>

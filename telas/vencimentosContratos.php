@@ -190,10 +190,18 @@ $efetivacao = buscavencimentos($conn, $id);
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
                             <td><input type='date' class='intable' name="ENVIO_SOLICITANTE_PRI" value="<?=$envio_Pri['ENVIO_SOLICITANTE_PRI']?>"></td>
                             <td><input type='date' class='intable' name ="DATA_VENCIMENTO_PRI" value=""></td>
-                            <td><input type='text' class='intable' name="RENOVACAO" value="<?=$renovacao['RENOVACAO']?>"></td>
+                            <td><select class='intable' name="RENOVACAO" >
+                                    <option value="<?=$renovacao['RENOVACAO']?>" selected><?=$renovacao['RENOVACAO']?></option>
+                                    <option value="SIM">Sim</option>
+                                    <option value="NAO">Não</option>
+                                </select></td>
                             <td><input type='date' class='intable' name="ENVIO_SOLICITANTE_SEG" value="<?=$envio_seg['ENVIO_SOLICITANTE_SEG']?>"></td>
                             <td><input type='date' class='intable' name="DATA_VENCIMENTO_SEG" value="<?=$data_venc_seg['DATA_VENCIMENTO_SEG']?>"></td>
-                            <td><input type='text' class='intable' name="EFETIVACAO" value="<?=$efetivacao['EFETIVACAO']?>"></td>
+                            <td><select class='intable' name="EFETIVACAO">
+                                    <option value="<?=$efetivacao['EFETIVACAO']?>"><?=$efetivacao['EFETIVACAO']?></option>
+                                    <option value="SIM">Sim</option>
+                                    <option value="NAO">Não</option>
+                                </select></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
 
