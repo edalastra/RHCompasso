@@ -188,11 +188,11 @@ $finalizado = buscaFuncionarios($conn, $id);
                         <form  method="POST" action="../alteraTelas/altera-recepcao.php">
                             <input type='hidden' name="ID_USUARIO" value ="<?=$funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly type='text' name="STATUS" value="<?=$status['STATUS'];?>"></td>
-                            <td><input class='intable' type='date' name='BOAS_VINDAS_INGR_AGENDADA' value="<?=$boasVindasIntegrAgendada['BOAS_VINDAS_INGR_AGENDADA']?>"></td>
-                            <td><input class='intable' type='date' name='BOAS_VINDAS_INGR_REALIZADA' value="<?=$boasVindasIntegrRealizada['BOAS_VINDAS_INGR_REALIZADA']?>"></td>
-                            <td><input class='intable' type='text' name='BOAS_VINDAS_SALA' value="<?=$boasVindasSala['BOAS_VINDAS_SALA']?>"></td>
-                            <td><input class='intable' type='date' name='BOAS_VINDA_ACOMPANHAMENTO_MENSAL' value="<?=$boasVindasAcomp['BOAS_VINDA_ACOMPANHAMENTO_MENSAL']?>"></td>
-                            <td><input class='intable' type='date' name='LAYOUT_BOAS_VINDAS_MENSAL' value="<?=$layoutBoasVindas['LAYOUT_BOAS_VINDAS_MENSAL']?>"></td>
+                            <td><input class='intable' type='date' name='BOAS_VINDAS_INGR_AGENDADA' required value="<?=$boasVindasIntegrAgendada['BOAS_VINDAS_INGR_AGENDADA']?>"></td>
+                            <td><input class='intable' type='date' name='BOAS_VINDAS_INGR_REALIZADA' required value="<?=$boasVindasIntegrRealizada['BOAS_VINDAS_INGR_REALIZADA']?>"></td>
+                            <td><input class='intable' type='text' name='BOAS_VINDAS_SALA' required value="<?=$boasVindasSala['BOAS_VINDAS_SALA']?>"></td>
+                            <td><input class='intable' type='date' name='BOAS_VINDA_ACOMPANHAMENTO_MENSAL' required value="<?=$boasVindasAcomp['BOAS_VINDA_ACOMPANHAMENTO_MENSAL']?>"></td>
+                            <td><input class='intable' type='date' name='LAYOUT_BOAS_VINDAS_MENSAL' required value="<?=$layoutBoasVindas['LAYOUT_BOAS_VINDAS_MENSAL']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
