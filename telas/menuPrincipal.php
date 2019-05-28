@@ -495,7 +495,7 @@ if (isset($_POST['botaoVolta'])) {
                         <th width='60px'>Sede</th>
                         <th width='60px'>Tipo</th>
                         <th width='100px'>Captação</th>
-                        <th width='100px'>Carga Horária</th>
+                        <th width='150px'>Carga Horária (em horas)</th>
                         <th width='150px'>Horário</th>
                         <th width='200px'>Nome</th>
                         <th width='200px'>Sexo</th>
@@ -562,19 +562,19 @@ if (isset($_POST['botaoVolta'])) {
                               </select></td>
                             <td><select id="add-tipo" name='tipo' class="selectadd intable" required><option value="" selected="selected"></option><option value="1">CLT</option><option value="2">CC</option><option value="3">HO</option><option value="4">TEMP</option><option value="5">APDZ</option></select></td>
                             <td><select id="add-captacao" name='captacao' class="selectadd intable" required><option value="" selected="selected"></option><option value="1">Ex-Funcionario</option><option value="2">Ex-Bolsista</option><option value="3">Ex-Estagiario</option><option value="4">Novo</option></select></td>
-                            <td id='add-carga_horaria'><input class='intable' type="text" name="carga_horaria" required></td>
-                            <td id='add-horario'><input class='intable' type="text" name="horario" required></td>
+                            <td id='add-carga_horaria'><input class='intable' type="number" min="1" max="60" name="carga_horaria" required></td>
+                            <td id='add-horario'><input class='intable' type="tel" pattern="[0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}[\s]-[\s][0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" placeholder="00:00 - 11:11" name="horario" required></td>
                             <td id='add-nome'><input class='intable' type="text" name="nome" required></td>
-                            <td><select name="sexo" class="intable" value="<?=$rows_dados['SEXO']?>">
+                            <td><select name="sexo" class="intable" value="<?=$rows_dados['SEXO']?>" required>
                                 <option value="" selected="selected"></option>
                                 <option>Não informou</option>
                                 <option>Masculino</option>
                                 <option>Feminino</option>
                                 <option>Não definido</option>
                             </select></td>
-                            <td id='add-fone'><input class='intable' type="tel" name="fone_contato" required></td>
+                            <td id='add-fone'><input type="tel" maxlength=“15” pattern="\([0-9]{2}\)[\s][0-9]{1}[\s][0-9]{4}-[0-9]{4}" placeholder="(99) 9 9999-9999" class='intable' name="fone_contato" required></td>
                             <td id='add-cargo'><input class='intable' type="text" name="cargo" required></td>
-                            <td id='add-contole-data'><input class='intable' type="text" name="controle_data_admissao" required></td>
+                            <td id='add-contole-data'><input class='intable' type="date" name="controle_data_admissao" required></td>
                             <td id='add-remuneracao'><input class='intable' type="number" step=".01" name="remuneracao_base" required></td>
                             <td id='add-gratificacao'><input class='intable' type="number" step=".01" name="gratificacao" required></td>
                             <td></td>
