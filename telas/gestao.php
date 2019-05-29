@@ -174,18 +174,18 @@ $funcionario = buscagestao($conn, $id);
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-gestor.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
-                            <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
-                            <td><input type='text' class='intable' name="GESTOR" value="<?=$gestor['GESTOR']?>"></td>
+                            <td><input class='intable' readonly name="STATUS" required value='<?=$status['STATUS']?>'></td>
+                            <td><input type='text' class='intable' name="GESTOR" required value="<?=$gestor['GESTOR']?>"></td>
                             <td><select class="intable" name ="GESTOR_SABE" required>
                                     <option value="<?=$gestor_sabe['GESTOR_SABE']?>" selected="selected"><?=$gestor_sabe['GESTOR_SABE']?></option>
                                     <option value="SIM">Sim</option>
                                     <option value="NAO">Não</option></select></td>
-                            <td><input type="text" class='intable' name="GESTOR_LOCAL" value="<?=$gestor_local['GESTOR_LOCAL']?>"></td>
-                            <td><select  class='intable' name="GESTOR_LOCAL_sABE">
+                            <td><input type="text" class='intable' name="GESTOR_LOCAL" required value="<?=$gestor_local['GESTOR_LOCAL']?>"></td>
+                            <td><select  class='intable' name="GESTOR_LOCAL_sABE" required>
                                     <option value="<?=$gestorL_sabe['GESTOR_LOCAL_sABE']?>"><?=$gestorL_sabe['GESTOR_LOCAL_sABE']?></option>
                                     <option value="SIM">Sim</option>
                                     <option value="NAO">Não</option></select></td>
-                            <td><input type="text" class='intable' name="RECEPTOR_PESSOA" value="<?=$receptor['RECEPTOR_PESSOA']?>"></td>
+                            <td><input type="text" class='intable' name="RECEPTOR_PESSOA" required value="<?=$receptor['RECEPTOR_PESSOA']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>

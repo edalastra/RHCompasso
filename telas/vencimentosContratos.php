@@ -188,16 +188,16 @@ $efetivacao = buscavencimentos($conn, $id);
                         <form method="POST" action="../alteraTelas/altera-vencimento.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
-                            <td><input type='date' class='intable' name="ENVIO_SOLICITANTE_PRI" value="<?=$envio_Pri['ENVIO_SOLICITANTE_PRI']?>"></td>
-                            <td><input type='date' class='intable' name ="DATA_VENCIMENTO_PRI" value=""></td>
-                            <td><select class='intable' name="RENOVACAO" >
+                            <td><input type='date' class='intable' name="ENVIO_SOLICITANTE_PRI" required value="<?=$envio_Pri['ENVIO_SOLICITANTE_PRI']?>"></td>
+                            <td><input type='date' class='intable' name ="DATA_VENCIMENTO_PRI" required value=""></td>
+                            <td><select class='intable' required name="RENOVACAO" >
                                     <option value="<?=$renovacao['RENOVACAO']?>" selected><?=$renovacao['RENOVACAO']?></option>
                                     <option value="SIM">Sim</option>
                                     <option value="NAO">Não</option>
                                 </select></td>
-                            <td><input type='date' class='intable' name="ENVIO_SOLICITANTE_SEG" value="<?=$envio_seg['ENVIO_SOLICITANTE_SEG']?>"></td>
-                            <td><input type='date' class='intable' name="DATA_VENCIMENTO_SEG" value="<?=$data_venc_seg['DATA_VENCIMENTO_SEG']?>"></td>
-                            <td><select class='intable' name="EFETIVACAO">
+                            <td><input type='date' required class='intable' name="ENVIO_SOLICITANTE_SEG" value="<?=$envio_seg['ENVIO_SOLICITANTE_SEG']?>"></td>
+                            <td><input type='date' required class='intable' name="DATA_VENCIMENTO_SEG" value="<?=$data_venc_seg['DATA_VENCIMENTO_SEG']?>"></td>
+                            <td><select class='intable' required name="EFETIVACAO">
                                     <option value="<?=$efetivacao['EFETIVACAO']?>"><?=$efetivacao['EFETIVACAO']?></option>
                                     <option value="SIM">Sim</option>
                                     <option value="NAO">Não</option>

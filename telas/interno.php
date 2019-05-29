@@ -195,14 +195,14 @@ $acessos = buscainterno($conn, $id);
                         <form method="POST" action="../alteraTelas/altera-interno.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
-                            <td><input type='date' class='intable' name="INTRANET_CADASTRO_USUARIO" value="<?=$intranetusu['INTRANET_CADASTRO_USUARIO']?>"></td>
+                            <td><input type='date' class='intable' name="INTRANET_CADASTRO_USUARIO" required value="<?=$intranetusu['INTRANET_CADASTRO_USUARIO']?>"></td>
                             <td><input type="text" class='intable' name ="INTRANET_CADASTRO_SENHA" value="<?=$intranetsen['INTRANET_CADASTRO_SENHA']?>"></td>
-                            <td><input type="date" class='intable' name="KAIROS_CADASTRO_USUARIO" value="<?=$kairosusu['KAIROS_CADASTRO_USUARIO']?>"></td>
+                            <td><input type="date" class='intable' name="KAIROS_CADASTRO_USUARIO" required value="<?=$kairosusu['KAIROS_CADASTRO_USUARIO']?>"></td>
                             <td><input type="text" class='intable' name="KAIROS_CADASTRO_SENHA" value="<?=$kairossen['KAIROS_CADASTRO_SENHA']?>"></td>
-                            <td><input type="date" class='intable' name="EMAIL_GESTOR_APOIO_SEDE" value='<?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>'></td>
-                            <td><input type='date' class='intable' name="EMAIL_INICIO_ATIVIDADES" value="<?=$emailinic['EMAIL_INICIO_ATIVIDADES']?>"></td>
-                            <td><input class='intable' type="date" name="EMAIL_BOAS_VINDAS" value='<?=$emailboas['EMAIL_BOAS_VINDAS']?>'></td>
-                            <td><input type='date' class='intable' name="ACESSOS" value="<?=$acessos['ACESSOS']?>"></td>
+                            <td><input type="date" class='intable' name="EMAIL_GESTOR_APOIO_SEDE" required value='<?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>'></td>
+                            <td><input type='date' class='intable' name="EMAIL_INICIO_ATIVIDADES" required value="<?=$emailinic['EMAIL_INICIO_ATIVIDADES']?>"></td>
+                            <td><input class='intable' type="date" name="EMAIL_BOAS_VINDAS" required value='<?=$emailboas['EMAIL_BOAS_VINDAS']?>'></td>
+                            <td><input type='date' class='intable' name="ACESSOS" required value="<?=$acessos['ACESSOS']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
