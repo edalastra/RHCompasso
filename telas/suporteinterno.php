@@ -198,13 +198,13 @@ $nome_email = buscaFuncionarios($conn, $id);
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-suporte.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
-                            <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
-                            <td><input type='email' class='intable' name="EMAIL_SUP" value="<?=$mail['EMAIL_SUP']?>"></td>
-                            <td><input type="text" class='intable' name ="USUARIO" value="<?=$usuario['USUARIO']?>"></td>
-                            <td><input type="text" class='intable' name="SENHA" value="<?=$senha['SENHA']?>"></td>
-                            <td><input type="text" class='intable' name="EQUIPAMENTO" value="<?=$equipamento['EQUIPAMENTO']?>"></td>
-                            <td><input type="text" class='intable' name="TRANSLADO" value="<?=$translado['TRANSLADO']?>"></td>
-                            <td><input type="text" class='intable' name="GRUPOS_DE_EMAIL" value="<?=$translado['GRUPOS_DE_EMAIL']?>"></td>
+                            <td><input class='intable' readonly name="STATUS" required value='<?=$status['STATUS']?>'></td>
+                            <td><input type='email' class='intable' name="EMAIL_SUP" required value="<?=$mail['EMAIL_SUP']?>"></td>
+                            <td><input type="text" class='intable' name ="USUARIO" required value="<?=$usuario['USUARIO']?>"></td>
+                            <td><input type="text" class='intable' name="SENHA" required value="<?=$senha['SENHA']?>"></td>
+                            <td><input type="text" class='intable' name="EQUIPAMENTO" required value="<?=$equipamento['EQUIPAMENTO']?>"></td>
+                            <td><input type="text" class='intable' name="TRANSLADO" required value="<?=$translado['TRANSLADO']?>"></td>
+                            <td><input type="text" class='intable' name="GRUPOS_DE_EMAIL" required value="<?=$translado['GRUPOS_DE_EMAIL']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                     </form>

@@ -175,10 +175,10 @@ $anexar = buscaexame($conn, $id);
                         <form method="POST" action="../alteraTelas/altera-exame.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
-                            <td><input type='date' class='intable' name="AGENDAMENTO_EXAM_ADM" value="<?=$agend['AGENDAMENTO_EXAM_ADM']?>"></td>
-                            <td><input type="date" class='intable' name ="ENVIO_FUNC_EXAME" value="<?=$envio['ENVIO_FUNC_EXAME']?>"></td>
-                            <td><input type="date" class='intable' name="EMAIL_RECEBIDO_EXAM" value="<?=$email['EMAIL_RECEBIDO_EXAM']?>"></td>
-                            <td><input type="date" class='intable' name="ANEXAR_ASO" value="<?=$anexar['ANEXAR_ASO']?>"></td>
+                            <td><input type='date' class='intable' name="AGENDAMENTO_EXAM_ADM" required value="<?=$agend['AGENDAMENTO_EXAM_ADM']?>"></td>
+                            <td><input type="date" class='intable' name ="ENVIO_FUNC_EXAME" required value="<?=$envio['ENVIO_FUNC_EXAME']?>"></td>
+                            <td><input type="date" class='intable' name="EMAIL_RECEBIDO_EXAM" required value="<?=$email['EMAIL_RECEBIDO_EXAM']?>"></td>
+                            <td><input type="date" class='intable' name="ANEXAR_ASO" required value="<?=$anexar['ANEXAR_ASO']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>

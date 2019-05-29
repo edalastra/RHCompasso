@@ -181,11 +181,11 @@ $inclui = buscaadmissao($conn, $id);
                         <form method="POST" action="../alteraTelas/altera-admissao.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
-                            <td><input type='date' class='intable' name="QUALIFIC_CADASTRAL_CEP" value="<?=$quali['QUALIFIC_CADASTRAL_CEP']?>"></td>
-                            <td><input type="date" class='intable' name ="CAD_ADM_PLATAFORMA_ADM_DIMIN" value="<?=$cad['CAD_ADM_PLATAFORMA_ADM_DIMIN']?>"></td>
-                            <td><input type="date" class='intable' name="DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO" value="<?=$doc['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO']?>"></td>
-                            <td><input type="date" class='intable' name="TERMO_PSI" value="<?=$termo['TERMO_PSI']?>"></td>
-                            <td><input type="date" class='intable' name="INCLUI_ADM_PROV" value="<?=$inclui['INCLUI_ADM_PROV']?>"></td>
+                            <td><input type='date' class='intable' name="QUALIFIC_CADASTRAL_CEP" required value="<?=$quali['QUALIFIC_CADASTRAL_CEP']?>"></td>
+                            <td><input type="date" class='intable' name ="CAD_ADM_PLATAFORMA_ADM_DIMIN" required value="<?=$cad['CAD_ADM_PLATAFORMA_ADM_DIMIN']?>"></td>
+                            <td><input type="date" class='intable' name="DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO" required value="<?=$doc['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO']?>"></td>
+                            <td><input type="date" class='intable' name="TERMO_PSI" required value="<?=$termo['TERMO_PSI']?>"></td>
+                            <td><input type="date" class='intable' name="INCLUI_ADM_PROV" required value="<?=$inclui['INCLUI_ADM_PROV']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>

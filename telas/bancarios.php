@@ -187,11 +187,11 @@ $tipo_conta = buscaBancario($conn, $id);
                         <form method="POST" action="../alteraTelas/altera-bancario.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
-                            <td><input type='date' class='intable' name="ENVIO" value="<?=$envio['ENVIO']?>"></td>
-                            <td><input type="date" class='intable' name ="RECEBIDO" value="<?=$recebido['RECEBIDO']?>"></td>
-                            <td><input type="date" class='intable' name="ANEXAR_COMPR_DOMIN" value="<?=$anexar['ANEXAR_COMPR_DOMIN']?>"></td>
-                            <td><input type="date" class='intable' name="PLANILHA_CONTAS" value="<?=$planilha['PLANILHA_CONTAS']?>"></td>
-                            <td><input type="date" class='intable' name="FORM_COMPR_BANCARIO" value="<?=$form['FORM_COMPR_BANCARIO']?>"></td>
+                            <td><input type='date' class='intable' name="ENVIO" required value="<?=$envio['ENVIO']?>"></td>
+                            <td><input type="date" class='intable' name ="RECEBIDO" required value="<?=$recebido['RECEBIDO']?>"></td>
+                            <td><input type="date" class='intable' name="ANEXAR_COMPR_DOMIN" required value="<?=$anexar['ANEXAR_COMPR_DOMIN']?>"></td>
+                            <td><input type="date" class='intable' name="PLANILHA_CONTAS" required value="<?=$planilha['PLANILHA_CONTAS']?>"></td>
+                            <td><input type="date" class='intable' name="FORM_COMPR_BANCARIO" required value="<?=$form['FORM_COMPR_BANCARIO']?>"></td>
                             <td><input type="text" class='intable' name="AGENCIA" value="<?=$agencia['AGENCIA']?>"></td>
                             <td><input type="text" class='intable' name="NUMERO_CONTA" value="<?=$numero_conta['NUMERO_CONTA']?>"></td>
                             <td><select name="TIPO_CONTA" class="intable" value="<?=$tipo_conta['TIPO_CONTA']?>">
