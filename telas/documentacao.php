@@ -184,10 +184,10 @@ $ctps = buscadocs($conn, $id);
                         <form method="POST" action="../alteraTelas/altera-documentacao.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
-                            <td><input type='date' class='intable' name="FORMULARIOS_ENVIADOS" value="<?=$formEnv['FORMULARIOS_ENVIADOS']?>"></td>
-                            <td><input type="date" class='intable' name ="FORMULARIOS_RECEBIDOS" value="<?=$formRec['FORMULARIOS_RECEBIDOS']?>"></td>
-                            <td><input type="date" class='intable' name="DOCUMENTOS_FISICOS" value="<?=$docfis['DOCUMENTOS_FISICOS']?>"></td>
-                            <td><input type="date" class='intable' name="CTPS_RECEBIDA" value="<?=$ctps['CTPS_RECEBIDA']?>"></td>
+                            <td><input type='date' class='intable' name="FORMULARIOS_ENVIADOS" required value="<?=$formEnv['FORMULARIOS_ENVIADOS']?>"></td>
+                            <td><input type="date" class='intable' name ="FORMULARIOS_RECEBIDOS" required value="<?=$formRec['FORMULARIOS_RECEBIDOS']?>"></td>
+                            <td><input type="date" class='intable' name="DOCUMENTOS_FISICOS" required value="<?=$docfis['DOCUMENTOS_FISICOS']?>"></td>
+                            <td><input type="date" class='intable' name="CTPS_RECEBIDA" required value="<?=$ctps['CTPS_RECEBIDA']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
