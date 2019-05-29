@@ -190,10 +190,18 @@ $efetivacao = buscavencimentos($conn, $id);
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
                             <td><input type='date' class='intable' name="ENVIO_SOLICITANTE_PRI" required value="<?=$envio_Pri['ENVIO_SOLICITANTE_PRI']?>"></td>
                             <td><input type='date' class='intable' name ="DATA_VENCIMENTO_PRI" required value=""></td>
-                            <td><input type='text' class='intable' name="RENOVACAO" required value="<?=$renovacao['RENOVACAO']?>"></td>
-                            <td><input type='date' class='intable' name="ENVIO_SOLICITANTE_SEG" required value="<?=$envio_seg['ENVIO_SOLICITANTE_SEG']?>"></td>
-                            <td><input type='date' class='intable' name="DATA_VENCIMENTO_SEG" required value="<?=$data_venc_seg['DATA_VENCIMENTO_SEG']?>"></td>
-                            <td><input type='text' class='intable' name="EFETIVACAO" required value="<?=$efetivacao['EFETIVACAO']?>"></td>
+                            <td><select class='intable' required name="RENOVACAO" >
+                                    <option value="<?=$renovacao['RENOVACAO']?>" selected><?=$renovacao['RENOVACAO']?></option>
+                                    <option value="SIM">Sim</option>
+                                    <option value="NAO">Não</option>
+                                </select></td>
+                            <td><input type='date' required class='intable' name="ENVIO_SOLICITANTE_SEG" value="<?=$envio_seg['ENVIO_SOLICITANTE_SEG']?>"></td>
+                            <td><input type='date' required class='intable' name="DATA_VENCIMENTO_SEG" value="<?=$data_venc_seg['DATA_VENCIMENTO_SEG']?>"></td>
+                            <td><select class='intable' required name="EFETIVACAO">
+                                    <option value="<?=$efetivacao['EFETIVACAO']?>"><?=$efetivacao['EFETIVACAO']?></option>
+                                    <option value="SIM">Sim</option>
+                                    <option value="NAO">Não</option>
+                                </select></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
 
