@@ -188,12 +188,12 @@ $efetivacao = buscavencimentos($conn, $id);
                         <form method="POST" action="../alteraTelas/altera-vencimento.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
-                            <td><input type='date' class='intable' name="ENVIO_SOLICITANTE_PRI" value="<?=$envio_Pri['ENVIO_SOLICITANTE_PRI']?>"></td>
-                            <td><input type='date' class='intable' name ="DATA_VENCIMENTO_PRI" value=""></td>
-                            <td><input type='text' class='intable' name="RENOVACAO" value="<?=$renovacao['RENOVACAO']?>"></td>
-                            <td><input type='date' class='intable' name="ENVIO_SOLICITANTE_SEG" value="<?=$envio_seg['ENVIO_SOLICITANTE_SEG']?>"></td>
-                            <td><input type='date' class='intable' name="DATA_VENCIMENTO_SEG" value="<?=$data_venc_seg['DATA_VENCIMENTO_SEG']?>"></td>
-                            <td><input type='text' class='intable' name="EFETIVACAO" value="<?=$efetivacao['EFETIVACAO']?>"></td>
+                            <td><input type='date' class='intable' name="ENVIO_SOLICITANTE_PRI" required value="<?=$envio_Pri['ENVIO_SOLICITANTE_PRI']?>"></td>
+                            <td><input type='date' class='intable' name ="DATA_VENCIMENTO_PRI" required value=""></td>
+                            <td><input type='text' class='intable' name="RENOVACAO" required value="<?=$renovacao['RENOVACAO']?>"></td>
+                            <td><input type='date' class='intable' name="ENVIO_SOLICITANTE_SEG" required value="<?=$envio_seg['ENVIO_SOLICITANTE_SEG']?>"></td>
+                            <td><input type='date' class='intable' name="DATA_VENCIMENTO_SEG" required value="<?=$data_venc_seg['DATA_VENCIMENTO_SEG']?>"></td>
+                            <td><input type='text' class='intable' name="EFETIVACAO" required value="<?=$efetivacao['EFETIVACAO']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
 
