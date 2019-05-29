@@ -175,11 +175,11 @@ $funcionario = buscagestao($conn, $id);
                         <form method="POST" action="../alteraTelas/altera-gestor.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
-                            <td><input type='text' class='intable' name="GESTOR" value="<?=$gestor['GESTOR']?>"></td>
-                            <td><input type="text" class='intable' name ="GESTOR_SABE" value="<?=$gestor_sabe['GESTOR_SABE']?>"></td>
-                            <td><input type="text" class='intable' name="GESTOR_LOCAL" value="<?=$gestor_local['GESTOR_LOCAL']?>"></td>
-                            <td><input type="text" class='intable' name="GESTOR_LOCAL_sABE" value="<?=$gestorL_sabe['GESTOR_LOCAL_sABE']?>"></td>
-                            <td><input type="text" class='intable' name="RECEPTOR_PESSOA" value="<?=$receptor['RECEPTOR_PESSOA']?>"></td>
+                            <td><input type='text' class='intable' name="GESTOR" required value="<?=$gestor['GESTOR']?>"></td>
+                            <td><input type="text" class='intable' name ="GESTOR_SABE" required value="<?=$gestor_sabe['GESTOR_SABE']?>"></td>
+                            <td><input type="text" class='intable' name="GESTOR_LOCAL" required value="<?=$gestor_local['GESTOR_LOCAL']?>"></td>
+                            <td><input type="text" class='intable' name="GESTOR_LOCAL_sABE" required value="<?=$gestorL_sabe['GESTOR_LOCAL_sABE']?>"></td>
+                            <td><input type="text" class='intable' name="RECEPTOR_PESSOA" required value="<?=$receptor['RECEPTOR_PESSOA']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
