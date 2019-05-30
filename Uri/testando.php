@@ -24,8 +24,6 @@ if($arquivo = isset($_FILES["anexo"])) {
     FALSE;
 }
 
-print_r($arquivo);
-
 if(!$arquivo) {
     echo "Houve um erro no Upload!";
 } else { 
