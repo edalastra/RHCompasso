@@ -1,4 +1,17 @@
 <?php
-$conexao = mysql_connect("localhost","root","password");
-mysql_select_db("binario");
+	$servidor = "localhost";
+	$usuario = "root";
+	$senha = "";
+	$dbname = "binario";
+	
+	//Criar a conexao
+	$conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
+
+	
+	if(!$conn){
+		die("Falha na conexao: " . mysqli_connect_error());
+	}else{
+		//echo "Conexao realizada com sucesso";
+	}	
+	
 ?>

@@ -1,20 +1,35 @@
 <?php
-require_once('conexao.php');
 
-$file_tmp = $_FILES["arquivo"]["tmp_name"];
-$file_name = $_FILES["arquivo"]["name"];
-$file_size = $_FILES["arquivo"]["size"];
-$file_type = $_FILES["arquivo"]["type"];
+/*$login = $_POST['nome'];
+$senha = $_POST["idade"];
 
-$arquivo = isset($_FILES["arquivo"]) {
-    $_FILES["arquivo"];
+print_r($login);
+print_r($senha);*/
+
+require_once('../anexos/conexao.php');
+
+$file_tmp = $_FILES["anexo"]["tmp_name"];
+$file_name = $_FILES["anexo"]["name"];
+$file_size = $_FILES["anexo"]["size"];
+$file_type = $_FILES["anexo"]["type"];
+
+/*print_r($file_tmp);
+print_r($file_name);
+print_r($file_size);
+print_r($file_type);*/
+
+if($arquivo = isset($_FILES["anexo"])) {
+    $_FILES["anexo"];
 } else {
     FALSE;
 }
 
+print_r($arquivo);
+
 if(!$arquivo) {
     echo "Houve um erro no Upload!";
 } else { 
+    echo "Fazendo upload";
     //copy($file_tmp, "caminho/pasta/$file_name");
     move_uploaded_file($file_tmp,"caminho/pasta/$file_name");
     
@@ -27,6 +42,5 @@ if(!$arquivo) {
     mysql_query("$sql") or die (mysql_error());
 
 }
-
 
 ?>
