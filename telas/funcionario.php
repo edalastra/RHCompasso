@@ -46,7 +46,7 @@ $comunicarprop = buscaProposta($conn, $id);
 $candidato = buscaProposta($conn, $id);
 $comentario = buscaProposta($conn, $id);
 $comunicar = buscaProposta($conn, $id);
-/* $usuarios = mysql_fetch_assoc($resultado); */
+$docreceb = buscavias($conn, $id);
 ?>
 
 
@@ -126,32 +126,33 @@ $comunicar = buscaProposta($conn, $id);
                             <div title ="Proposta de Contratação" class="stepwizard-step col-md-auto">
                                 <a href="funcionario.php" type="button" class="btn btn-success btn-circle" >2</a>
                             </div>
+                     
                             <div title ="Gestão" class="stepwizard-step col-md-auto">
-                                <a href="gestao.php" type="button" class="btn btn-default btn-circle">3</a>
+                                <a href="gestao.php" id="gestao" type="button" disabled class="btn btn-default btn-circle disabled">3</a>
                             </div>
                             <div title="Vencimento Contratos" class="stepwizard-step col-md-auto">
-                                <a href="vencimentosContratos.php" type="button" class="btn btn-default btn-circle">4</a>
+                                <a href="vencimentosContratos.php" disabled id="botao" type="button" class="btn btn-default btn-circle disabled ">4</a>
                             </div>
                             <div title="Documentação" class="stepwizard-step col-md-auto">
-                                <a href="documentacao.php" type="button" class="btn btn-default btn-circle">5</a>
+                                <a href="documentacao.php" type="button" id="botao5" disabled class="btn btn-default btn-circle disabled">5</a>
                             </div>
                             <div title= "Plataforma Admissão Domínio Dados + Fichas de Cadastro" class="stepwizard-step col-md-auto">
-                                <a href="admissao.php" type="button" class="btn btn-default btn-circle" >6</a>
+                                <a href="admissao.php" type="button" id="botao6" disabled class="btn btn-default disabled btn-circle" >6</a>
                             </div>
                             <div title="Exame Admissional" class="stepwizard-step col-md-auto">
-                                <a href="exame.php" type="button" class="btn btn-default btn-circle" >7</a>
+                                <a href="exame.php" type="button" id="botao7" disabled class="btn btn-default disabled btn-circle" >7</a>
                             </div>
                             <div title= "Dados Bancários" class="stepwizard-step col-md-auto">
-                                <a href="bancarios.php" type="button" class="btn btn-default btn-circle" >8</a>
+                                <a href="bancarios.php" type="button" disabled id="botao8" class="btn btn-default disabled btn-circle" >8</a>
                             </div>
                             <div title= "Suporte Interno" class="stepwizard-step col-md-auto">
-                                <a href="suporteinterno.php" type="button" class="btn btn-default btn-circle" >9</a>
+                                <a href="suporteinterno.php" disabled id="botao9" type="button" class="btn btn-default disabled btn-circle" >9</a>
                             </div>
                             <div title = "Interno" class="stepwizard-step col-md-auto">
-                                <a href="interno.php" type="button" class="btn btn-default btn-circle" >10</a>
+                                <a href="interno.php" disabled id="botao10" type="button" class="btn btn-default disabled btn-circle" >10</a>
                             </div>
                             <div title= "Vias Documentos funcionários" class="stepwizard-step col-md-auto">
-                                <a href="viasdocumentos.php" type="button" class="btn btn-default btn-circle" >11</a>
+                                <a href="viasdocumentos.php" id="botao11" disabled type="button" class="btn btn-default disabled btn-circle" >11</a>
                             </div>
                             <div title= "Boas Vindas" class="stepwizard-step col-md-auto">
                                 <a href="recepcao.php" type="button" class="btn btn-default btn-circle" >12</a>
@@ -191,7 +192,7 @@ $comunicar = buscaProposta($conn, $id);
 							<td><?php echo $rows_dados['COMUNICAR_STATUS']; ?></td>
                             <td><?php echo $rows_dados['PROJETO']; ?></td>
                             <?php unset($_GET['id']); ?>
-                            <td><a title="Gestão" href='gestao.php'> Próximo </td>
+                            <td><a title="Gestão" href='#'> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
                     <?php  } ?>
@@ -212,7 +213,6 @@ $comunicar = buscaProposta($conn, $id);
                             <option value="RETORNO PENDENTE">RETORNO PENDENTE</option>
                             <option value="NEGOCIAÇÃO">NEGOCIAÇÃO</option>
                             <option value="RECUSADO">RECUSADO</option></select></td>
-/
                             <td><input type='date' class='intable' required name="PROPOSTA_RECEBIDA" value="<?=$recebida['PROPOSTA_RECEBIDA']?>"></td>
                             <td><input type="date" class='intable' required name ="DE_ACORDO_DIRECAO" value="<?=$deacordo['DE_ACORDO_DIRECAO']?>"></td>
                             <td><input type="date" class='intable' required name="ENQUADRAMENTO" value="<?=$enquadramento['ENQUADRAMENTO']?>"></td>
@@ -220,10 +220,10 @@ $comunicar = buscaProposta($conn, $id);
                             <td><input type="date" class='intable' required name="COMUNICAR_PROPOSTA_ENVIADA" value="<?=$comunicarprop['COMUNICAR_PROPOSTA_ENVIADA']?>"></td>
                             <td><input type="date" class='intable' required name="ACEITA_RECUSA_CANDIDATO" value="<?=$candidato['ACEITE_RECUSA_CANDIDATO']?>"></td>
                             <td><input type="text" class='intable' required name="COMENTARIO" value="<?=$comentario['COMENTARIO']?>"></td>
-                            <td><input type="date" class='intable' required name="COMUNICAR_STATUS" value="<?=$comunicar['COMUNICAR_STATUS']?>"></td>
+                            <td><input type="date" id='campo' class='intable' required name="COMUNICAR_STATUS" value="<?=$comunicar['COMUNICAR_STATUS']?>"></td>
                             <td><input type="text" class='intable' required name="PROJETO" value="<?=$funcionarios['PROJETO']?>"></td>
                             <td></td>
-                            <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
+                            <td><button title="Salvar" type="submit" id="salvar" class="botao-salvar btao btn btn-default" value="submit">Salvar</td>
                         </form>
                     </tr>
                 </tbody>
@@ -329,7 +329,25 @@ $comunicar = buscaProposta($conn, $id);
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
+    <script>
+    window.onload = function verifica() { 
+        if (!document.getElementById("campo").value == "") {
+             $("#gestao").removeClass("disabled").attr("disabled", false);;
+             return};};
 
+             let variavel = <?=$docreceb['DOCUMENTOS_RECEBIDOS_ASSINADOS']?>;
+              if (!variavel == "") {
+                $("#botao").removeClass("disabled").attr("disabled", false);
+                $("#botao5").removeClass("disabled").attr("disabled", false);
+                $("#botao6").removeClass("disabled").attr("disabled", false);
+                $("#botao7").removeClass("disabled").attr("disabled", false);
+                $("#botao8").removeClass("disabled").attr("disabled", false);
+                $("#botao9").removeClass("disabled").attr("disabled", false);
+                $("#botao10").removeClass("disabled").attr("disabled", false);
+                $("#botao11").removeClass("disabled").attr("disabled", false);
+
+              }
+
+    </script>
 </body>
-
 </html>

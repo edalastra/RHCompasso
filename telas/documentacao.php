@@ -124,22 +124,22 @@ $ctps = buscadocs($conn, $id);
                             <a href="documentacao.php" type="button" class="btn btn-success btn-circle">5</a>
                         </div>
                         <div title= "Plataforma Admissão Domínio Dados + Fichas de Cadastro" class="stepwizard-step col-md-auto">
-                            <a href="admissao.php" type="button" class="btn btn-default btn-circle" >6</a>
+                            <a href="admissao.php" id="plataform" type="button" disabled class="btn btn-default btn-circle disabled" >6</a>
                         </div>
                         <div title="Exame Admissional" class="stepwizard-step col-md-auto">
-                            <a href="exame.php" type="button" class="btn btn-default btn-circle" >7</a>
+                            <a href="exame.php" type="button" disabled class="btn btn-default btn-circle disabled" >7</a>
                         </div>
                         <div title= "Dados Bancários" class="stepwizard-step col-md-auto">
-                            <a href="bancarios.php" type="button" class="btn btn-default btn-circle" >8</a>
+                            <a href="bancarios.php" type="button" disabled class="btn btn-default btn-circle disabled" >8</a>
                         </div>
                         <div title= "Suporte Interno" class="stepwizard-step col-md-auto">
-                            <a href="suporteinterno.php" type="button" class="btn btn-default btn-circle" >9</a>
+                            <a href="suporteinterno.php" type="button" disabled class="btn btn-default btn-circle disabled" >9</a>
                         </div>
                         <div title = "Interno" class="stepwizard-step col-md-auto">
-                            <a href="interno.php" type="button" class="btn btn-default btn-circle" >10</a>
+                            <a href="interno.php" type="button" disabled class="btn btn-default btn-circle disabled" >10</a>
                         </div>
                         <div title= "Vias Documentos funcionários" class="stepwizard-step col-md-auto">
-                            <a href="viasdocumentos.php" type="button" class="btn btn-default btn-circle" >11</a>
+                            <a href="viasdocumentos.php" type="button" disabled class="btn btn-default btn-circle disabled" >11</a>
                         </div>
                         <div title= "Boas Vindas" class="stepwizard-step col-md-auto">
                             <a href="recepcao.php" type="button" class="btn btn-default btn-circle" >12</a>
@@ -176,7 +176,7 @@ $ctps = buscadocs($conn, $id);
                         <td><?php echo $rows_dados['FORMULARIOS_RECEBIDOS']; ?></td>
                         <td><?php echo $rows_dados['DOCUMENTOS_FISICOS']; ?></td>
                         <td><?php echo $rows_dados['CTPS_RECEBIDA']; ?></td>
-                        <td><a title="Plataforma Admissão Domínio Dados + Fichas de Cadastro" href='admissao.php'>Proximo</td>
+                        <td><a title="Plataforma Admissão Domínio Dados + Fichas de Cadastro" href='#'>Próximo</td>
                         <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                     </tr>
                     <?php } ?>
@@ -187,7 +187,7 @@ $ctps = buscadocs($conn, $id);
                             <td><input type='date' class='intable' name="FORMULARIOS_ENVIADOS" required value="<?=$formEnv['FORMULARIOS_ENVIADOS']?>"></td>
                             <td><input type="date" class='intable' name ="FORMULARIOS_RECEBIDOS" required value="<?=$formRec['FORMULARIOS_RECEBIDOS']?>"></td>
                             <td><input type="date" class='intable' name="DOCUMENTOS_FISICOS" required value="<?=$docfis['DOCUMENTOS_FISICOS']?>"></td>
-                            <td><input type="date" class='intable' name="CTPS_RECEBIDA" required value="<?=$ctps['CTPS_RECEBIDA']?>"></td>
+                            <td><input type="date" id="campo" class='intable' name="CTPS_RECEBIDA" required value="<?=$ctps['CTPS_RECEBIDA']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
@@ -295,6 +295,12 @@ $ctps = buscadocs($conn, $id);
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
+    <script>
+    window.onload = function verifica() { 
+        if (!document.getElementById("campo").value == "") {
+             $("#plataform").removeClass("disabled").attr("disabled", false);;
+             return}};
+    </script>   
 
 </body>
 

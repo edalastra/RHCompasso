@@ -111,28 +111,28 @@ $funcionario = buscagestao($conn, $id);
                             <a href="gestao.php" type="button" class="btn btn-success btn-circle">3</a>
                         </div>
                         <div title="Vencimento Contratos" class="stepwizard-step col-md-auto">
-                            <a href="vencimentosContratos.php" type="button" class="btn btn-default btn-circle">4</a>
+                            <a href="vencimentosContratos.php" id="venciment" disabled type="button" class="btn btn-default btn-circle disabled">4</a>
                         </div>
                         <div title="Documentação" class="stepwizard-step col-md-auto">
-                            <a href="documentacao.php" type="button" class="btn btn-default btn-circle">5</a>
+                            <a href="documentacao.php" disabled type="button" class="btn btn-default btn-circle disabled">5</a>
                         </div>
                         <div title= "Plataforma Admissão Domínio Dados + Fichas de Cadastro" class="stepwizard-step col-md-auto">
-                            <a href="admissao.php" type="button" class="btn btn-default btn-circle" >6</a>
+                            <a href="admissao.php" disabled type="button" class="btn btn-default btn-circle disabled" >6</a>
                         </div>
                         <div title="Exame Admissional" class="stepwizard-step col-md-auto">
-                            <a href="exame.php" type="button" class="btn btn-default btn-circle" >7</a>
+                            <a href="exame.php" type="button" disabled class="btn btn-default btn-circle disabled" >7</a>
                         </div>
                         <div title= "Dados Bancários" class="stepwizard-step col-md-auto">
-                            <a href="bancarios.php" type="button" class="btn btn-default btn-circle" >8</a>
+                            <a href="bancarios.php" type="button" disabled class="btn btn-default btn-circle disabled" >8</a>
                         </div>
                         <div title= "Suporte Interno" class="stepwizard-step col-md-auto">
-                            <a href="suporteinterno.php" type="button" class="btn btn-default btn-circle" >9</a>
+                            <a href="suporteinterno.php" disabled type="button" class="btn btn-default btn-circle disabled" >9</a>
                         </div>
                         <div title = "Interno" class="stepwizard-step col-md-auto">
-                            <a href="interno.php" type="button" class="btn btn-default btn-circle" >10</a>
+                            <a href="interno.php" disabled type="button" class="btn btn-default btn-circle disabled" >10</a>
                         </div>
                         <div title= "Vias Documentos funcionários" class="stepwizard-step col-md-auto">
-                            <a href="viasdocumentos.php" type="button" class="btn btn-default btn-circle" >11</a>
+                            <a href="viasdocumentos.php" disabled type="button" class="btn btn-default btn-circle disabled" >11</a>
                         </div>
                         <div title= "Boas Vindas" class="stepwizard-step col-md-auto">
                             <a href="recepcao.php" type="button" class="btn btn-default btn-circle" >12</a>
@@ -167,7 +167,7 @@ $funcionario = buscagestao($conn, $id);
 							<td><?php echo $rows_dados['GESTOR_LOCAL_sABE']; ?></td>
 							<td><?php echo $rows_dados['RECEPTOR_PESSOA']; ?></td>
                             <?php unset($_GET['id']); ?>
-                            <td><a title="Vencimentos Contratos" href='vencimentosContratos.php'> Próximo </td>
+                            <td><a title="Vencimentos Contratos" href='#'> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
                     <?php  } ?>
@@ -179,7 +179,7 @@ $funcionario = buscagestao($conn, $id);
                             <td><input type="text" class='intable' name ="GESTOR_SABE" required value="<?=$gestor_sabe['GESTOR_SABE']?>"></td>
                             <td><input type="text" class='intable' name="GESTOR_LOCAL" required value="<?=$gestor_local['GESTOR_LOCAL']?>"></td>
                             <td><input type="text" class='intable' name="GESTOR_LOCAL_sABE" required value="<?=$gestorL_sabe['GESTOR_LOCAL_sABE']?>"></td>
-                            <td><input type="text" class='intable' name="RECEPTOR_PESSOA" required value="<?=$receptor['RECEPTOR_PESSOA']?>"></td>
+                            <td><input type="text" id='campo' class='intable' name="RECEPTOR_PESSOA" required value="<?=$receptor['RECEPTOR_PESSOA']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
@@ -287,6 +287,12 @@ $funcionario = buscagestao($conn, $id);
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
+    <script>
+    window.onload = function verifica() { 
+        if (!document.getElementById("campo").value == "") {
+             $("#venciment").removeClass("disabled").attr("disabled", false);;
+             return}};
+    </script>
 
 </body>
 

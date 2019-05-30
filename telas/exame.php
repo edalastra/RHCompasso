@@ -129,16 +129,16 @@ $anexar = buscaexame($conn, $id);
                                 <a href="exame.php" type="button" class="btn btn-success btn-circle" >7</a>
                             </div>
                             <div title= "Dados Bancários" class="stepwizard-step col-md-auto">
-                                <a href="bancarios.php" type="button" class="btn btn-default btn-circle" >8</a>
+                                <a href="bancarios.php" id="dads" type="button" disabled class="btn btn-default btn-circle disabled" >8</a>
                             </div>
                             <div title= "Suporte Interno" class="stepwizard-step col-md-auto">
-                                <a href="suporteinterno.php" type="button" class="btn btn-default btn-circle" >9</a>
+                                <a href="suporteinterno.php" type="button" disabled class="btn btn-default btn-circle disabled" >9</a>
                             </div>
                             <div title = "Interno" class="stepwizard-step col-md-auto">
-                                <a href="interno.php" type="button" class="btn btn-default btn-circle" >10</a>
+                                <a href="interno.php" type="button" disabled class="btn btn-default btn-circle disabled" >10</a>
                             </div>
                             <div title= "Vias Documentos funcionários" class="stepwizard-step col-md-auto">
-                                <a href="viasdocumentos.php" type="button" class="btn btn-default btn-circle" >11</a>
+                                <a href="viasdocumentos.php" type="button" disabled class="btn btn-default btn-circle disabled" >11</a>
                             </div>
                             <div title= "Boas Vindas" class="stepwizard-step col-md-auto">
                                 <a href="recepcao.php" type="button" class="btn btn-default btn-circle" >12</a>
@@ -167,7 +167,7 @@ $anexar = buscaexame($conn, $id);
                             <td><?php echo $rows_dados['ENVIO_FUNC_EXAME']; ?></td>
                             <td><?php echo $rows_dados['EMAIL_RECEBIDO_EXAM']; ?></td>
                             <td><?php echo $rows_dados['ANEXAR_ASO']; ?></td>
-                            <td><a title= "Dados Bancáriso" href='bancarios.php' class='intable'>Proximo</td>
+                            <td><a title= "Dados Bancáriso" href='#' class='intable'>Próximo</td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
                     <?php } ?>
@@ -178,7 +178,7 @@ $anexar = buscaexame($conn, $id);
                             <td><input type='date' class='intable' name="AGENDAMENTO_EXAM_ADM" required value="<?=$agend['AGENDAMENTO_EXAM_ADM']?>"></td>
                             <td><input type="date" class='intable' name ="ENVIO_FUNC_EXAME" required value="<?=$envio['ENVIO_FUNC_EXAME']?>"></td>
                             <td><input type="date" class='intable' name="EMAIL_RECEBIDO_EXAM" required value="<?=$email['EMAIL_RECEBIDO_EXAM']?>"></td>
-                            <td><input type="date" class='intable' name="ANEXAR_ASO" required value="<?=$anexar['ANEXAR_ASO']?>"></td>
+                            <td><input type="date" class='intable' id="campo" name="ANEXAR_ASO" required value="<?=$anexar['ANEXAR_ASO']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
@@ -286,7 +286,12 @@ $anexar = buscaexame($conn, $id);
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
-
+    <script>
+    window.onload = function verifica() { 
+        if (!document.getElementById("campo").value == "") {
+             $("#dads").removeClass("disabled").attr("disabled", false);;
+             return}};
+    </script>   
 </body>
 
 </html>

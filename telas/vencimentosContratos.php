@@ -120,25 +120,25 @@ $efetivacao = buscavencimentos($conn, $id);
                             <a href="vencimentosContratos.php" type="button" class="btn btn-success btn-circle">4</a>
                         </div>
                         <div title="Documentação" class="stepwizard-step col-md-auto">
-                            <a href="documentacao.php" type="button" class="btn btn-default btn-circle">5</a>
+                            <a href="documentacao.php" id="document" disabled type="button" class="btn btn-default btn-circle disabled">5</a>
                         </div>
                         <div title= "Plataforma Admissão Domínio Dados + Fichas de Cadastro" class="stepwizard-step col-md-auto">
-                            <a href="admissao.php" type="button" class="btn btn-default btn-circle" >6</a>
+                            <a href="admissao.php" type="button" disabled class="btn btn-default btn-circle disabled" >6</a>
                         </div>
                         <div title="Exame Admissional" class="stepwizard-step col-md-auto">
-                            <a href="exame.php" type="button" class="btn btn-default btn-circle" >7</a>
+                            <a href="exame.php" type="button" disabled class="btn btn-default btn-circle disabled" >7</a>
                         </div>
                         <div title= "Dados Bancários" class="stepwizard-step col-md-auto">
-                            <a href="bancarios.php" type="button" class="btn btn-default btn-circle" >8</a>
+                            <a href="bancarios.php" type="button" disabled class="btn btn-default btn-circle disabled" >8</a>
                         </div>
                         <div title= "Suporte Interno" class="stepwizard-step col-md-auto">
-                            <a href="suporteinterno.php" type="button" class="btn btn-default btn-circle" >9</a>
+                            <a href="suporteinterno.php" type="button" disabled class="btn btn-default btn-circle disabled" >9</a>
                         </div>
                         <div title = "Interno" class="stepwizard-step col-md-auto">
-                            <a href="interno.php" type="button" class="btn btn-default btn-circle" >10</a>
+                            <a href="interno.php" type="button" disabled class="btn btn-default btn-circle disabled" >10</a>
                         </div>
                         <div title= "Vias Documentos funcionários" class="stepwizard-step col-md-auto">
-                            <a href="viasdocumentos.php" type="button" class="btn btn-default btn-circle" >11</a>
+                            <a href="viasdocumentos.php" type="button" disabled class="btn btn-default btn-circle disabled" >11</a>
                         </div>
                         <div title= "Boas Vindas" class="stepwizard-step col-md-auto">
                             <a href="recepcao.php" type="button" class="btn btn-default btn-circle" >12</a>
@@ -177,7 +177,7 @@ $efetivacao = buscavencimentos($conn, $id);
                             <td><?php echo $rows_dados['ENVIO_SOLICITANTE_SEG']; ?></td>
                             <td><?php echo $rows_dados['DATA_VENCIMENTO_SEG']; ?></td>
                             <td><?php echo $rows_dados['EFETIVACAO']; ?></td>
-                            <td><a title="Documentação" href='documentacao.php' class='intable'>Proximo</td>
+                            <td><a title="Documentação" href='#' class='intable'>Próximo</td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
 
 
@@ -192,7 +192,7 @@ $efetivacao = buscavencimentos($conn, $id);
                             <td><input type='date' class='intable' name ="DATA_VENCIMENTO_PRI" required value=""></td>
                             <td><input type='text' class='intable' name="RENOVACAO" required value="<?=$renovacao['RENOVACAO']?>"></td>
                             <td><input type='date' class='intable' name="ENVIO_SOLICITANTE_SEG" required value="<?=$envio_seg['ENVIO_SOLICITANTE_SEG']?>"></td>
-                            <td><input type='date' class='intable' name="DATA_VENCIMENTO_SEG" required value="<?=$data_venc_seg['DATA_VENCIMENTO_SEG']?>"></td>
+                            <td><input type='date' id='campo' class='intable' name="DATA_VENCIMENTO_SEG" required value="<?=$data_venc_seg['DATA_VENCIMENTO_SEG']?>"></td>
                             <td><input type='text' class='intable' name="EFETIVACAO" required value="<?=$efetivacao['EFETIVACAO']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
@@ -305,6 +305,12 @@ $efetivacao = buscavencimentos($conn, $id);
     <script src="../js/calculaVencimento.js">
         calculaVencimento();
     </script>
+   <script>
+    window.onload = function verifica() { 
+        if (!document.getElementById("campo").value == "") {
+             $("#document").removeClass("disabled").attr("disabled", false);;
+             return}};
+    </script>    
 
 </body>
 
