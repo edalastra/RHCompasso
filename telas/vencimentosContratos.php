@@ -342,8 +342,5 @@ $emailsoli = buscavias($conn, $id);
               }
               }
     </script>
-    
-
 </body>
-
 </html>

@@ -1,3 +1,4 @@
+
 <?php
 session_start();
     include("../db/conexao.php");
@@ -330,9 +331,6 @@ $emailsoli = buscavias($conn, $id);
               }
               }
               }
-
     </script>
-
 </body>
-
 </html>
