@@ -46,6 +46,11 @@ $senha = buscasuporte($conn, $id);
 $equipamento = buscasuporte($conn, $id);
 $translado = buscasuporte($conn, $id);
 $nome_email = buscaFuncionarios($conn, $id);
+$formRec = buscadocs($conn, $id);
+$anexar = buscaexame($conn, $id);
+$form = buscaBancario($conn, $id);
+$emailges = buscainterno($conn, $id);
+$emailsoli = buscavias($conn, $id);
 /* $usuarios = mysql_fetch_assoc($resultado); */
 
 
@@ -153,10 +158,10 @@ $nome_email = buscaFuncionarios($conn, $id);
                             <a href="suporteinterno.php" type="button" class="btn btn-success btn-circle" >9</a>
                         </div>
                         <div title = "Interno" class="stepwizard-step col-md-auto">
-                            <a href="interno.php" type="button" class="btn btn-default btn-circle" >10</a>
+                            <a href="interno.php" id="intern" type="button" disabled class="btn btn-default btn-circle disabled" >10</a>
                         </div>
                         <div title= "Vias Documentos funcionários" class="stepwizard-step col-md-auto">
-                            <a href="viasdocumentos.php" type="button" class="btn btn-default btn-circle" >11</a>
+                            <a href="viasdocumentos.php" disabled type="button" id="botao11" class="btn btn-default btn-circle disabled" >11</a>
                         </div>
                         <div title= "Boas Vindas" class="stepwizard-step col-md-auto">
                             <a href="recepcao.php" type="button" class="btn btn-default btn-circle" >12</a>
@@ -189,7 +194,7 @@ $nome_email = buscaFuncionarios($conn, $id);
                             <td><?php echo $rows_dados['EQUIPAMENTO']; ?></td>
                             <td><?php echo $rows_dados['TRANSLADO']; ?></td>
                             <td><?php echo $rows_dados['GRUPOS_DE_EMAIL']; ?></td>
-                            <td><a title="Interno" href='interno.php' class='intable'>Proximo</td>
+                            <td><a title="Interno" id="proximo" class="disabled" href="interno.php"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
 
                         </tr>
@@ -203,7 +208,7 @@ $nome_email = buscaFuncionarios($conn, $id);
                             <td><input type="text" class='intable' name ="USUARIO" required value="<?=$usuario['USUARIO']?>"></td>
                             <td><input type="text" class='intable' name="SENHA" required value="<?=$senha['SENHA']?>"></td>
                             <td><input type="text" class='intable' name="EQUIPAMENTO" required value="<?=$equipamento['EQUIPAMENTO']?>"></td>
-                            <td><input type="text" class='intable' name="TRANSLADO" required value="<?=$translado['TRANSLADO']?>"></td>
+                            <td><input type="text" class='intable' id="campo" name="TRANSLADO" required value="<?=$translado['TRANSLADO']?>"></td>
                             <td><input type="text" class='intable' name="GRUPOS_DE_EMAIL" required value="<?=$translado['GRUPOS_DE_EMAIL']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
@@ -311,6 +316,18 @@ $nome_email = buscaFuncionarios($conn, $id);
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
+    <script>
+    window.onload = function verifica() { 
+        if (!document.getElementById("campo").value == "") {
+            $("#intern").removeClass("disabled").attr("disabled", false);
+            $("#proximo").removeClass("disabled");
+            return};};
+            //11
+            let variavel = "<?=$emailsoli['CRACHA_PROTOCOLO']?>";
+            if (!variavel == "") {
+                $("#botao11").removeClass("disabled").attr("disabled", false);
+              } 
+    </script>         
 
 </body>
 

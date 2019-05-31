@@ -35,6 +35,11 @@ $cad= buscaadmissao($conn, $id);
 $doc = buscaadmissao($conn, $id);
 $termo = buscaadmissao($conn, $id);
 $inclui = buscaadmissao($conn, $id);
+$formRec = buscadocs($conn, $id);
+$anexar = buscaexame($conn, $id);
+$form = buscaBancario($conn, $id);
+$emailges = buscainterno($conn, $id);
+$emailsoli = buscavias($conn, $id);
 /* $usuarios = mysql_fetch_assoc($resultado); */
 ?>
 
@@ -129,19 +134,19 @@ $inclui = buscaadmissao($conn, $id);
                             <a href="admissao.php" type="button" class="btn btn-success btn-circle" >6</a>
                         </div>
                         <div title="Exame Admissional" class="stepwizard-step col-md-auto">
-                            <a href="exame.php" type="button" class="btn btn-default btn-circle" >7</a>
+                            <a href="exame.php" id="exam" type="button" disabled class="btn btn-default btn-circle disabled" >7</a>
                         </div>
                         <div title= "Dados Bancários" class="stepwizard-step col-md-auto">
-                            <a href="bancarios.php" type="button" class="btn btn-default btn-circle" >8</a>
+                            <a href="bancarios.php" type="button" id="botao8" disabled class="btn btn-default btn-circle disabled" >8</a>
                         </div>
                         <div title= "Suporte Interno" class="stepwizard-step col-md-auto">
-                            <a href="suporteinterno.php" type="button" class="btn btn-default btn-circle" >9</a>
+                            <a href="suporteinterno.php" type="button" id="botao9" disabled class="btn btn-default btn-circle disabled" >9</a>
                         </div>
                         <div title = "Interno" class="stepwizard-step col-md-auto">
-                            <a href="interno.php" type="button" class="btn btn-default btn-circle" >10</a>
+                            <a href="interno.php" type="button" disabled id="botao10" class="btn btn-default btn-circle disabled" >10</a>
                         </div>
                         <div title= "Vias Documentos funcionários" class="stepwizard-step col-md-auto">
-                            <a href="viasdocumentos.php" type="button" class="btn btn-default btn-circle" >11</a>
+                            <a href="viasdocumentos.php" type="button" id="botao11" disabled class="btn btn-default btn-circle disabled" >11</a>
                         </div>
                         <div title= "Boas Vindas" class="stepwizard-step col-md-auto">
                             <a href="recepcao.php" type="button" class="btn btn-default btn-circle" >12</a>
@@ -172,7 +177,7 @@ $inclui = buscaadmissao($conn, $id);
                             <td><?php echo $rows_dados['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO']; ?></td>
                             <td><?php echo $rows_dados['TERMO_PSI']; ?></td>
                             <td><?php echo $rows_dados['INCLUI_ADM_PROV']; ?></td>
-                            <td><a title="Exame Admissional" href='exame.php' class='intable'>Proximo</td>
+                            <td><a title="Exame Admissional" id="proximo" class="disabled" href="exame.php"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
 
                         </tr>
@@ -185,7 +190,7 @@ $inclui = buscaadmissao($conn, $id);
                             <td><input type="date" class='intable' name ="CAD_ADM_PLATAFORMA_ADM_DIMIN" required value="<?=$cad['CAD_ADM_PLATAFORMA_ADM_DIMIN']?>"></td>
                             <td><input type="date" class='intable' name="DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO" required value="<?=$doc['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO']?>"></td>
                             <td><input type="date" class='intable' name="TERMO_PSI" required value="<?=$termo['TERMO_PSI']?>"></td>
-                            <td><input type="date" class='intable' name="INCLUI_ADM_PROV" required value="<?=$inclui['INCLUI_ADM_PROV']?>"></td>
+                            <td><input type="date" id="campo" class='intable' name="INCLUI_ADM_PROV" required value="<?=$inclui['INCLUI_ADM_PROV']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
@@ -294,6 +299,30 @@ $inclui = buscaadmissao($conn, $id);
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
+    <script>
+    window.onload = function verifica() { 
+        if (!document.getElementById("campo").value == "") {
+            $("#exam").removeClass("disabled").attr("disabled", false);;
+            $("#proximo").removeClass("disabled");
+            return};};
+            //8
+            let variavel = "<?=$form['FORM_COMPR_BANCARIO']?>";
+            if (!variavel == "") {
+                $("#botao8").removeClass("disabled").attr("disabled", false);
+                //9
+                $("#botao9").removeClass("disabled").attr("disabled", false);
+                //10 
+                let variavel = "<?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>";
+                if (!variavel == "") {
+                    $("#botao10").removeClass("disabled").attr("disabled", false);
+                    //11
+                    let variavel = "<?=$emailsoli['CRACHA_PROTOCOLO']?>";
+                    if (!variavel == "") {
+                        $("#botao11").removeClass("disabled").attr("disabled", false);
+              } 
+              } 
+              }
+    </script>   
 
 </body>
 

@@ -35,10 +35,15 @@ $boasVindasIntegrAgendada = buscaRecepcao($conn, $id);
 $boasVindasIntegrRealizada = buscaRecepcao($conn, $id);
 $boasVindasSala = buscaRecepcao($conn, $id);
 $funcionario = buscaRecepcao($conn, $id);
-
 $finalizado = buscaFuncionarios($conn, $id);
-
-
+$formRec = buscadocs($conn, $id);
+$envio_Pri = buscavencimentos($conn, $id);
+$anexar = buscaexame($conn, $id);
+$form = buscaBancario($conn, $id);
+$emailges = buscainterno($conn, $id);
+$emailsoli = buscavias($conn, $id);
+$inclui = buscaadmissao($conn, $id);
+$receptor = buscagestao($conn, $id);
 ?>
 
 
@@ -118,31 +123,31 @@ $finalizado = buscaFuncionarios($conn, $id);
                             <a href="funcionario.php" type="button" class="btn btn-default btn-circle" >2</a>
                         </div>
                         <div title ="Gestão" class="stepwizard-step col-md-auto">
-                            <a href="gestao.php" type="button" class="btn btn-default btn-circle">3</a>
+                            <a href="gestao.php" type="button" id="botao3" disabled class="btn btn-default btn-circle disabled">3</a>
                         </div>
                         <div title="Vencimento Contratos" class="stepwizard-step col-md-auto">
-                            <a href="vencimentosContratos.php" type="button" class="btn btn-default btn-circle">4</a>
+                            <a href="vencimentosContratos.php" type="button" id="botao4" disabled class="btn btn-default btn-circle disabled">4</a>
                         </div>
                         <div title="Documentação" class="stepwizard-step col-md-auto">
-                            <a href="documentacao.php" type="button" class="btn btn-default btn-circle">5</a>
+                            <a href="documentacao.php" type="button" id="botao5" disabled class="btn btn-default btn-circle disabled">5</a>
                         </div>
                         <div title= "Plataforma Admissão Domínio Dados + Fichas de Cadastro" class="stepwizard-step col-md-auto">
-                            <a href="admissao.php" type="button" class="btn btn-default btn-circle" >6</a>
+                            <a href="admissao.php" type="button" id="botao6" disabled class="btn btn-default btn-circle disabled">6</a>
                         </div>
                         <div title="Exame Admissional" class="stepwizard-step col-md-auto">
-                            <a href="exame.php" type="button" class="btn btn-default btn-circle" >7</a>
+                            <a href="exame.php" type="button" id="botao7" disabled class="btn btn-default btn-circle disabled">7</a>
                         </div>
                         <div title= "Dados Bancários" class="stepwizard-step col-md-auto">
-                            <a href="bancarios.php" type="button" class="btn btn-default btn-circle" >8</a>
+                            <a href="bancarios.php" type="button" id="botao8" disabled class="btn btn-default btn-circle disabled">8</a>
                         </div>
                         <div title= "Suporte Interno" class="stepwizard-step col-md-auto">
-                            <a href="suporteinterno.php" type="button" class="btn btn-default btn-circle" >9</a>
+                            <a href="suporteinterno.php" type="button" id="botao9" disabled class="btn btn-default btn-circle disabled">9</a>
                         </div>
                         <div title = "Interno" class="stepwizard-step col-md-auto">
-                            <a href="interno.php" type="button" class="btn btn-default btn-circle" >10</a>
+                            <a href="interno.php" type="button" id="botao10" disabled class="btn btn-default btn-circle disabled">10</a>
                         </div>
                         <div title= "Vias Documentos funcionários" class="stepwizard-step col-md-auto">
-                            <a href="viasdocumentos.php" type="button" class="btn btn-default btn-circle" >11</a>
+                            <a href="viasdocumentos.php" type="button" id="botao11" disabled class="btn btn-default btn-circle disabled">11</a>
                         </div>
                         <div title= "Boas Vindas" class="stepwizard-step col-md-auto">
                             <a href="recepcao.php" type="button" class="btn btn-success btn-circle" >12</a>
@@ -300,6 +305,59 @@ $finalizado = buscaFuncionarios($conn, $id);
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
+    <script>
+    window.onload = function verifica() { 
+        //3
+        let variavel = "<?=$receptor['RECEPTOR_PESSOA']?>";
+        if (!variavel == "") {
+            $("#botao3").removeClass("disabled").attr("disabled", false);
+            $("#botao4").removeClass("disabled").attr("disabled", false);
+            $("#proximo").removeClass("disabled");
+            //4
+              let variavel = "<?=$envio_Pri['ENVIO_SOLICITANTE_PRI']?>";
+              if (!variavel == "") {
+                $("#botao4").removeClass("disabled").attr("disabled", false);
+                $("#botao5").removeClass("disabled").attr("disabled", false);
+                    //5
+                    let variavel = "<?=$formRec['FORMULARIOS_RECEBIDOS']?>";
+                    if (!variavel == "") {
+                    $("#botao5").removeClass("disabled").attr("disabled", false);
+                    $("#botao6").removeClass("disabled").attr("disabled", false);
+                        //6
+                        let variavel = "<?=$inclui['INCLUI_ADM_PROV']?>";
+                        if (!variavel == "") {
+                        $("#botao6").removeClass("disabled").attr("disabled", false);
+                        $("#botao7").removeClass("disabled").attr("disabled", false);
+                            //7
+                            let variavel = "<?=$anexar['ANEXAR_ASO']?>";
+                            if (!variavel == "") {
+                                $("#botao7").removeClass("disabled").attr("disabled", false);
+                                $("#botao8").removeClass("disabled").attr("disabled", false);
+                                //8
+                                let variavel = "<?=$form['FORM_COMPR_BANCARIO']?>";
+                                if (!variavel == "") {
+                                    $("#botao8").removeClass("disabled").attr("disabled", false);
+                                    //9
+                                    $("#botao9").removeClass("disabled").attr("disabled", false);
+                                    //10 
+                                    let variavel = "<?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>";
+                                    if (!variavel == "") {
+                                        $("#botao10").removeClass("disabled").attr("disabled", false);
+                                        $("#botao11").removeClass("disabled").attr("disabled", false);
+                                        //11
+                                        let variavel = "<?=$emailsoli['CRACHA_PROTOCOLO']?>";
+                                        if (!variavel == "") {
+                                            $("#botao11").removeClass("disabled").attr("disabled", false);
+              } 
+              } 
+              }
+              }
+              }
+              }
+              }
+              }
+              }
+    </script>
 
 </body>
 

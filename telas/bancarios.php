@@ -37,6 +37,11 @@ $form = buscaBancario($conn, $id);
 $agencia = buscaBancario($conn, $id);
 $numero_conta = buscaBancario($conn, $id);
 $tipo_conta = buscaBancario($conn, $id);
+$formRec = buscadocs($conn, $id);
+$anexar = buscaexame($conn, $id);
+$form = buscaBancario($conn, $id);
+$emailges = buscainterno($conn, $id);
+$emailsoli = buscavias($conn, $id);
 
 ?>
 
@@ -136,13 +141,13 @@ $tipo_conta = buscaBancario($conn, $id);
                             <a href="bancarios.php" type="button" class="btn btn-success btn-circle" >8</a>
                         </div>
                         <div title= "Suporte Interno" class="stepwizard-step col-md-auto">
-                            <a href="suporteinterno.php" type="button" class="btn btn-default btn-circle" >9</a>
+                            <a href="suporteinterno.php" id="support" type="button" class="btn btn-default btn-circle" >9</a>
                         </div>
                         <div title = "Interno" class="stepwizard-step col-md-auto">
-                            <a href="interno.php" type="button" class="btn btn-default btn-circle" >10</a>
+                            <a href="interno.php" type="button" id="botao10" disabled class="btn btn-default btn-circle disabled" >10</a>
                         </div>
                         <div title= "Vias Documentos funcionários" class="stepwizard-step col-md-auto">
-                            <a href="viasdocumentos.php" type="button" class="btn btn-default btn-circle" >11</a>
+                            <a href="viasdocumentos.php" type="button" id="botao11" disabled class="btn btn-default btn-circle disabled" >11</a>
                         </div>
                         <div title= "Boas Vindas" class="stepwizard-step col-md-auto">
                             <a href="recepcao.php" type="button" class="btn btn-default btn-circle" >12</a>
@@ -179,7 +184,7 @@ $tipo_conta = buscaBancario($conn, $id);
                             <td><?php echo $rows_dados['AGENCIA'];?></td>
                             <td><?php echo $rows_dados['NUMERO_CONTA'];?></td>
                             <td><?php echo $rows_dados['TIPO_CONTA'];?></td>
-                            <td><a title="Suporte Interno" href='suporteinterno.php?id=<?php echo $id3 = $rows_dados['ID_USUARIO'] ?>' class='intable'>Proximo</td>
+                            <td><a title="Suporte Interno" id="proximo" href="suporteinterno.php"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
                     <?php } ?>
@@ -191,7 +196,7 @@ $tipo_conta = buscaBancario($conn, $id);
                             <td><input type="date" class='intable' name ="RECEBIDO" required value="<?=$recebido['RECEBIDO']?>"></td>
                             <td><input type="date" class='intable' name="ANEXAR_COMPR_DOMIN" required value="<?=$anexar['ANEXAR_COMPR_DOMIN']?>"></td>
                             <td><input type="date" class='intable' name="PLANILHA_CONTAS" required value="<?=$planilha['PLANILHA_CONTAS']?>"></td>
-                            <td><input type="date" class='intable' name="FORM_COMPR_BANCARIO" required value="<?=$form['FORM_COMPR_BANCARIO']?>"></td>
+                            <td><input type="date" class='intable' id="campo" name="FORM_COMPR_BANCARIO" required value="<?=$form['FORM_COMPR_BANCARIO']?>"></td>
                             <td><input type="text" class='intable' name="AGENCIA" value="<?=$agencia['AGENCIA']?>"></td>
                             <td><input type="text" class='intable' name="NUMERO_CONTA" value="<?=$numero_conta['NUMERO_CONTA']?>"></td>
                             <td><select name="TIPO_CONTA" class="intable" value="<?=$tipo_conta['TIPO_CONTA']?>">
@@ -307,6 +312,20 @@ $tipo_conta = buscaBancario($conn, $id);
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
+    <script>
+    window.onload = function verifica() { 
+            let variavel = "<?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>";
+            if (!variavel == "") {
+                $("#botao10").removeClass("disabled").attr("disabled", false);
+                $("#proximo").removeClass("disabled");
+                //11
+                let variavel = "<?=$emailsoli['CRACHA_PROTOCOLO']?>";
+                if (!variavel == "") {
+                    $("#botao11").removeClass("disabled").attr("disabled", false);
+              } 
+              } 
+            }
+    </script>      
 
 </body>
 

@@ -141,7 +141,7 @@ $acessos = buscainterno($conn, $id);
                             <a href="interno.php" type="button" class="btn btn-success btn-circle" >10</a>
                         </div>
                         <div title= "Vias Documentos funcionários" class="stepwizard-step col-md-auto">
-                            <a href="viasdocumentos.php" type="button" class="btn btn-default btn-circle" >11</a>
+                            <a href="viasdocumentos.php" id="via" type="button" disabled class="btn btn-default btn-circle disabled" >11</a>
                         </div>
                         <div title= "Boas Vindas" class="stepwizard-step col-md-auto">
                             <a href="recepcao.php" type="button" class="btn btn-default btn-circle" >12</a>
@@ -187,7 +187,7 @@ $acessos = buscainterno($conn, $id);
                         <td><?php echo $rows_dados['EMAIL_INICIO_ATIVIDADES']; ?></td>
                         <td><?php echo $rows_dados['EMAIL_BOAS_VINDAS']; ?></td>
                         <td><?php echo $rows_dados['ACESSOS']; ?></td>
-                        <td><a title="Vias Documentos Funcionários" href='viasdocumentos.php'>Proximo</td>
+                        <td><a title="Vias Documentos Funcionários" id="proximo" class="disabled" href="viasdocumentos.php"> Próximo </td>
                         <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                     </tr>
                     <?php } ?>
@@ -202,7 +202,7 @@ $acessos = buscainterno($conn, $id);
                             <td><input type="date" class='intable' name="EMAIL_GESTOR_APOIO_SEDE" required value='<?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>'></td>
                             <td><input type='date' class='intable' name="EMAIL_INICIO_ATIVIDADES" required value="<?=$emailinic['EMAIL_INICIO_ATIVIDADES']?>"></td>
                             <td><input class='intable' type="date" name="EMAIL_BOAS_VINDAS" required value='<?=$emailboas['EMAIL_BOAS_VINDAS']?>'></td>
-                            <td><input type='date' class='intable' name="ACESSOS" required value="<?=$acessos['ACESSOS']?>"></td>
+                            <td><input type='date' id="campo" class='intable' name="ACESSOS" required value="<?=$acessos['ACESSOS']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
@@ -310,7 +310,13 @@ $acessos = buscainterno($conn, $id);
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
-
+    <script>
+    window.onload = function verifica() { 
+        if (!document.getElementById("campo").value == "") {
+             $("#via").removeClass("disabled").attr("disabled", false);
+             $("#proximo").removeClass("disabled");
+             return}};
+    </script>                  
 </body>
 
 </html>
