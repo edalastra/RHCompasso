@@ -33,6 +33,11 @@ $agend = buscaexame($conn, $id);
 $envio = buscaexame($conn, $id);
 $email = buscaexame($conn, $id);
 $anexar = buscaexame($conn, $id);
+$formRec = buscadocs($conn, $id);
+$anexar = buscaexame($conn, $id);
+$form = buscaBancario($conn, $id);
+$emailges = buscainterno($conn, $id);
+$emailsoli = buscavias($conn, $id);
 
 ?>
 
@@ -132,13 +137,13 @@ $anexar = buscaexame($conn, $id);
                                 <a href="bancarios.php" id="dads" type="button" disabled class="btn btn-default btn-circle disabled" >8</a>
                             </div>
                             <div title= "Suporte Interno" class="stepwizard-step col-md-auto">
-                                <a href="suporteinterno.php" type="button" disabled class="btn btn-default btn-circle disabled" >9</a>
+                                <a href="suporteinterno.php" type="button" id="botao9" disabled class="btn btn-default btn-circle disabled" >9</a>
                             </div>
                             <div title = "Interno" class="stepwizard-step col-md-auto">
-                                <a href="interno.php" type="button" disabled class="btn btn-default btn-circle disabled" >10</a>
+                                <a href="interno.php" type="button" disabled id="botao10" class="btn btn-default btn-circle disabled" >10</a>
                             </div>
                             <div title= "Vias Documentos funcionários" class="stepwizard-step col-md-auto">
-                                <a href="viasdocumentos.php" type="button" disabled class="btn btn-default btn-circle disabled" >11</a>
+                                <a href="viasdocumentos.php" type="button" disabled id="botao11" class="btn btn-default btn-circle disabled" >11</a>
                             </div>
                             <div title= "Boas Vindas" class="stepwizard-step col-md-auto">
                                 <a href="recepcao.php" type="button" class="btn btn-default btn-circle" >12</a>
@@ -289,9 +294,22 @@ $anexar = buscaexame($conn, $id);
     <script>
     window.onload = function verifica() { 
         if (!document.getElementById("campo").value == "") {
-             $("#dads").removeClass("disabled").attr("disabled", false);;
-             return}};
+            $("#dads").removeClass("disabled").attr("disabled", false);;
+            return};};
+            //9
+            $("#botao9").removeClass("disabled").attr("disabled", false);
+            //10 
+            let variavel = <?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>;
+            if (!variavel == "") {
+                $("#botao10").removeClass("disabled").attr("disabled", false);
+                //11
+                let variavel = <?=$emailsoli['CRACHA_PROTOCOLO']?>;
+                if (!variavel == "") {
+                    $("#botao11").removeClass("disabled").attr("disabled", false);
+              } 
+              } 
     </script>   
+   
 </body>
 
 </html>

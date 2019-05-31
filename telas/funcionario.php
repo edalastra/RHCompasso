@@ -46,8 +46,15 @@ $comunicarprop = buscaProposta($conn, $id);
 $candidato = buscaProposta($conn, $id);
 $comentario = buscaProposta($conn, $id);
 $comunicar = buscaProposta($conn, $id);
-$docreceb = buscavias($conn, $id);
+$envio_Pri = buscavencimentos($conn, $id);
+$formRec = buscadocs($conn, $id);
+$inclui = buscaadmissao($conn, $id);
+$anexar = buscaexame($conn, $id);
+$form = buscaBancario($conn, $id);
+$emailges = buscainterno($conn, $id);
+$emailsoli = buscavias($conn, $id);
 ?>
+
 
 
 
@@ -131,7 +138,7 @@ $docreceb = buscavias($conn, $id);
                                 <a href="gestao.php" id="gestao" type="button" disabled class="btn btn-default btn-circle disabled">3</a>
                             </div>
                             <div title="Vencimento Contratos" class="stepwizard-step col-md-auto">
-                                <a href="vencimentosContratos.php" disabled id="botao" type="button" class="btn btn-default btn-circle disabled ">4</a>
+                                <a href="vencimentosContratos.php" id="botao" disabled type="button" class="btn btn-default btn-circle disabled ">4</a>
                             </div>
                             <div title="Documentação" class="stepwizard-step col-md-auto">
                                 <a href="documentacao.php" type="button" id="botao5" disabled class="btn btn-default btn-circle disabled">5</a>
@@ -334,20 +341,43 @@ $docreceb = buscavias($conn, $id);
         if (!document.getElementById("campo").value == "") {
              $("#gestao").removeClass("disabled").attr("disabled", false);;
              return};};
-
-             let variavel = <?=$docreceb['DOCUMENTOS_RECEBIDOS_ASSINADOS']?>;
+            //4
+             let variavel = <?=$envio_Pri['ENVIO_SOLICITANTE_PRI']?>;
               if (!variavel == "") {
                 $("#botao").removeClass("disabled").attr("disabled", false);
-                $("#botao5").removeClass("disabled").attr("disabled", false);
-                $("#botao6").removeClass("disabled").attr("disabled", false);
-                $("#botao7").removeClass("disabled").attr("disabled", false);
-                $("#botao8").removeClass("disabled").attr("disabled", false);
-                $("#botao9").removeClass("disabled").attr("disabled", false);
-                $("#botao10").removeClass("disabled").attr("disabled", false);
-                $("#botao11").removeClass("disabled").attr("disabled", false);
-
+                    //5
+                    let variavel = <?=$formRec['FORMULARIOS_RECEBIDOS']?>;
+                    if (!variavel == "") {
+                    $("#botao5").removeClass("disabled").attr("disabled", false);
+                        //6
+                        let variavel = <?=$inclui['INCLUI_ADM_PROV']?>;
+                        if (!variavel == "") {
+                        $("#botao6").removeClass("disabled").attr("disabled", false);
+                            //7
+                            let variavel = <?=$anexar['ANEXAR_ASO']?>;
+                            if (!variavel == "") {
+                                $("#botao7").removeClass("disabled").attr("disabled", false);
+                                //8
+                                let variavel = <?=$form['FORM_COMPR_BANCARIO']?>;
+                                if (!variavel == "") {
+                                    $("#botao8").removeClass("disabled").attr("disabled", false);
+                                    //9
+                                    $("#botao9").removeClass("disabled").attr("disabled", false);
+                                    //10 
+                                    let variavel = <?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>;
+                                    if (!variavel == "") {
+                                        $("#botao10").removeClass("disabled").attr("disabled", false);
+                                        //11
+                                        let variavel = <?=$emailsoli['CRACHA_PROTOCOLO']?>;
+                                        if (!variavel == "") {
+                                            $("#botao11").removeClass("disabled").attr("disabled", false);
+              } 
+              } 
               }
-
+              }
+              }
+              }
+              }
     </script>
 </body>
 </html>

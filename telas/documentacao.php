@@ -34,6 +34,12 @@ $formEnv = buscadocs($conn, $id);
 $formRec = buscadocs($conn, $id);
 $docfis = buscadocs($conn, $id);
 $ctps = buscadocs($conn, $id);
+$formRec = buscadocs($conn, $id);
+$inclui = buscaadmissao($conn, $id);
+$anexar = buscaexame($conn, $id);
+$form = buscaBancario($conn, $id);
+$emailges = buscainterno($conn, $id);
+$emailsoli = buscavias($conn, $id);
 
 
 /* $usuarios = mysql_fetch_assoc($resultado); */
@@ -127,19 +133,19 @@ $ctps = buscadocs($conn, $id);
                             <a href="admissao.php" id="plataform" type="button" disabled class="btn btn-default btn-circle disabled" >6</a>
                         </div>
                         <div title="Exame Admissional" class="stepwizard-step col-md-auto">
-                            <a href="exame.php" type="button" disabled class="btn btn-default btn-circle disabled" >7</a>
+                            <a href="exame.php" type="button" id="botao7" disabled class="btn btn-default btn-circle disabled" >7</a>
                         </div>
                         <div title= "Dados Bancários" class="stepwizard-step col-md-auto">
-                            <a href="bancarios.php" type="button" disabled class="btn btn-default btn-circle disabled" >8</a>
+                            <a href="bancarios.php" type="button" id="botao8" disabled class="btn btn-default btn-circle disabled" >8</a>
                         </div>
                         <div title= "Suporte Interno" class="stepwizard-step col-md-auto">
-                            <a href="suporteinterno.php" type="button" disabled class="btn btn-default btn-circle disabled" >9</a>
+                            <a href="suporteinterno.php" type="button" id="botao9" disabled class="btn btn-default btn-circle disabled" >9</a>
                         </div>
                         <div title = "Interno" class="stepwizard-step col-md-auto">
-                            <a href="interno.php" type="button" disabled class="btn btn-default btn-circle disabled" >10</a>
+                            <a href="interno.php" type="button" id="botao10" disabled class="btn btn-default btn-circle disabled" >10</a>
                         </div>
                         <div title= "Vias Documentos funcionários" class="stepwizard-step col-md-auto">
-                            <a href="viasdocumentos.php" type="button" disabled class="btn btn-default btn-circle disabled" >11</a>
+                            <a href="viasdocumentos.php" type="button" id="botao11" disabled class="btn btn-default btn-circle disabled" >11</a>
                         </div>
                         <div title= "Boas Vindas" class="stepwizard-step col-md-auto">
                             <a href="recepcao.php" type="button" class="btn btn-default btn-circle" >12</a>
@@ -298,9 +304,31 @@ $ctps = buscadocs($conn, $id);
     <script>
     window.onload = function verifica() { 
         if (!document.getElementById("campo").value == "") {
-             $("#plataform").removeClass("disabled").attr("disabled", false);;
-             return}};
-    </script>   
+            $("#plataform").removeClass("disabled").attr("disabled", false);;
+            return};};
+            //7
+            let variavel = <?=$anexar['ANEXAR_ASO']?>;
+            if (!variavel == "") {
+                $("#botao7").removeClass("disabled").attr("disabled", false);
+                //8
+                let variavel = <?=$form['FORM_COMPR_BANCARIO']?>;
+                if (!variavel == "") {
+                    $("#botao8").removeClass("disabled").attr("disabled", false);
+                    //9
+                    $("#botao9").removeClass("disabled").attr("disabled", false);
+                    //10 
+                    let variavel = <?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>;
+                    if (!variavel == "") {
+                        $("#botao10").removeClass("disabled").attr("disabled", false);
+                        //11
+                        let variavel = <?=$emailsoli['CRACHA_PROTOCOLO']?>;
+                        if (!variavel == "") {
+                            $("#botao11").removeClass("disabled").attr("disabled", false);
+              } 
+              } 
+              }
+              }
+    </script>
 
 </body>
 

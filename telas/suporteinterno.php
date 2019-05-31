@@ -46,6 +46,11 @@ $senha = buscasuporte($conn, $id);
 $equipamento = buscasuporte($conn, $id);
 $translado = buscasuporte($conn, $id);
 $nome_email = buscaFuncionarios($conn, $id);
+$formRec = buscadocs($conn, $id);
+$anexar = buscaexame($conn, $id);
+$form = buscaBancario($conn, $id);
+$emailges = buscainterno($conn, $id);
+$emailsoli = buscavias($conn, $id);
 /* $usuarios = mysql_fetch_assoc($resultado); */
 
 
@@ -156,7 +161,7 @@ $nome_email = buscaFuncionarios($conn, $id);
                             <a href="interno.php" id="intern" type="button" disabled class="btn btn-default btn-circle disabled" >10</a>
                         </div>
                         <div title= "Vias Documentos funcionários" class="stepwizard-step col-md-auto">
-                            <a href="viasdocumentos.php" disabled type="button" class="btn btn-default btn-circle disabled" >11</a>
+                            <a href="viasdocumentos.php" disabled type="button" id="botao11" class="btn btn-default btn-circle disabled" >11</a>
                         </div>
                         <div title= "Boas Vindas" class="stepwizard-step col-md-auto">
                             <a href="recepcao.php" type="button" class="btn btn-default btn-circle" >12</a>
@@ -314,9 +319,14 @@ $nome_email = buscaFuncionarios($conn, $id);
     <script>
     window.onload = function verifica() { 
         if (!document.getElementById("campo").value == "") {
-             $("#intern").removeClass("disabled").attr("disabled", false);;
-             return}};
-    </script>   
+            $("#intern").removeClass("disabled").attr("disabled", false);;
+            return};};
+            //11
+            let variavel = <?=$emailsoli['CRACHA_PROTOCOLO']?>;
+            if (!variavel == "") {
+                $("#botao11").removeClass("disabled").attr("disabled", false);
+              } 
+    </script>         
 
 </body>
 

@@ -37,6 +37,11 @@ $form = buscaBancario($conn, $id);
 $agencia = buscaBancario($conn, $id);
 $numero_conta = buscaBancario($conn, $id);
 $tipo_conta = buscaBancario($conn, $id);
+$formRec = buscadocs($conn, $id);
+$anexar = buscaexame($conn, $id);
+$form = buscaBancario($conn, $id);
+$emailges = buscainterno($conn, $id);
+$emailsoli = buscavias($conn, $id);
 
 ?>
 
@@ -139,10 +144,10 @@ $tipo_conta = buscaBancario($conn, $id);
                             <a href="suporteinterno.php" id="support" type="button" disabled class="btn btn-default btn-circle disabled" >9</a>
                         </div>
                         <div title = "Interno" class="stepwizard-step col-md-auto">
-                            <a href="interno.php" type="button" disabled class="btn btn-default btn-circle disabled" >10</a>
+                            <a href="interno.php" type="button" id="botao10" disabled class="btn btn-default btn-circle disabled" >10</a>
                         </div>
                         <div title= "Vias Documentos funcionários" class="stepwizard-step col-md-auto">
-                            <a href="viasdocumentos.php" type="button" disabled class="btn btn-default btn-circle disabled" >11</a>
+                            <a href="viasdocumentos.php" type="button" id="botao11" disabled class="btn btn-default btn-circle disabled" >11</a>
                         </div>
                         <div title= "Boas Vindas" class="stepwizard-step col-md-auto">
                             <a href="recepcao.php" type="button" class="btn btn-default btn-circle" >12</a>
@@ -310,9 +315,18 @@ $tipo_conta = buscaBancario($conn, $id);
     <script>
     window.onload = function verifica() { 
         if (!document.getElementById("campo").value == "") {
-             $("#support").removeClass("disabled").attr("disabled", false);;
-             return}};
-    </script>   
+            $("#support").removeClass("disabled").attr("disabled", false);;
+            return};};
+            let variavel = <?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>;
+            if (!variavel == "") {
+                $("#botao10").removeClass("disabled").attr("disabled", false);
+                //11
+                let variavel = <?=$emailsoli['CRACHA_PROTOCOLO']?>;
+                if (!variavel == "") {
+                    $("#botao11").removeClass("disabled").attr("disabled", false);
+              } 
+              } 
+    </script>      
 
 </body>
 
