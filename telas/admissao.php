@@ -40,7 +40,7 @@ $anexar = buscaexame($conn, $id);
 $form = buscaBancario($conn, $id);
 $emailges = buscainterno($conn, $id);
 $emailsoli = buscavias($conn, $id);
-/* $usuarios = mysql_fetch_assoc($resultado); */
+$translado = buscasuporte($conn, $id);
 ?>
 
 
@@ -309,9 +309,11 @@ $emailsoli = buscavias($conn, $id);
             let variavel = "<?=$form['FORM_COMPR_BANCARIO']?>";
             if (!variavel == "") {
                 $("#botao8").removeClass("disabled").attr("disabled", false);
-                //9
                 $("#botao9").removeClass("disabled").attr("disabled", false);
-                //10 
+                                    let variavel = "<?=$translado['TRANSLADO']?>";
+                                    if (!variavel == "") {
+                                        $("#botao9").removeClass("disabled").attr("disabled", false);
+                                        $("#botao10").removeClass("disabled").attr("disabled", false);
                 let variavel = "<?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>";
                 if (!variavel == "") {
                     $("#botao10").removeClass("disabled").attr("disabled", false);
@@ -323,6 +325,8 @@ $emailsoli = buscavias($conn, $id);
               } 
               } 
               }
+            }
+        
     </script>   
 
 </body>

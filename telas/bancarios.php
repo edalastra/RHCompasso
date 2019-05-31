@@ -42,7 +42,6 @@ $anexar = buscaexame($conn, $id);
 $form = buscaBancario($conn, $id);
 $emailges = buscainterno($conn, $id);
 $emailsoli = buscavias($conn, $id);
-
 ?>
 
 
@@ -316,9 +315,8 @@ $emailsoli = buscavias($conn, $id);
     window.onload = function verifica() { 
             let variavel = "<?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>";
             if (!variavel == "") {
-                $("#botao10").removeClass("disabled").attr("disabled", false);
+                $("#botao9").removeClass("disabled").attr("disabled", false);
                 $("#proximo").removeClass("disabled");
-                $("#botao11").removeClass("disabled").attr("disabled", false);
                 //11
                 let variavel = "<?=$emailsoli['CRACHA_PROTOCOLO']?>";
                 if (!variavel == "") {
