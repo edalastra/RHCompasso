@@ -306,7 +306,6 @@ $emailsoli = buscavias($conn, $id);
         if (!document.getElementById("campo").value == "") {
             $("#plataform").removeClass("disabled").attr("disabled", false);
             $("#proximo").removeClass("disabled");
-            $("#botao7").removeClass("disabled").attr("disabled", false);
             return};};
             //7
             let variavel = "<?=$anexar['ANEXAR_ASO']?>";

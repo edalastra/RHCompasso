@@ -304,7 +304,6 @@ $emailsoli = buscavias($conn, $id);
         if (!document.getElementById("campo").value == "") {
             $("#exam").removeClass("disabled").attr("disabled", false);;
             $("#proximo").removeClass("disabled");
-            $("#botao8").removeClass("disabled").attr("disabled", false);
             return};};
             //8
             let variavel = "<?=$form['FORM_COMPR_BANCARIO']?>";

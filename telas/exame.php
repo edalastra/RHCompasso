@@ -297,9 +297,6 @@ $emailsoli = buscavias($conn, $id);
             $("#dads").removeClass("disabled").attr("disabled", false);
             $("#proximo").removeClass("disabled");
             return};};
-            //9
-            $("#botao9").removeClass("disabled").attr("disabled", false);
-            
             //10 
             let variavel = "<?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>";
             if (!variavel == "") {

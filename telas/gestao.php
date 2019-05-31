@@ -299,7 +299,6 @@ $emailsoli = buscavias($conn, $id);
         if (!document.getElementById("campo").value == "") {
              $("#venciment").removeClass("disabled").attr("disabled", false);
              $("#proximo").removeClass("disabled");
-             $("#botao5").removeClass("disabled").attr("disabled", false);
              return};};
             let variavel = "<?=$formRec['FORMULARIOS_RECEBIDOS']?>";
             if (!variavel == "") {
