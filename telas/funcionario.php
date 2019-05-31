@@ -341,11 +341,13 @@ $emailsoli = buscavias($conn, $id);
         if(!document.getElementById("campo").value == ""){
              $("#gestao").removeClass("disabled").attr("disabled", false);
              $("#proximo").removeClass("disabled");
+             $("#botao").removeClass("disabled").attr("disabled", false);
             };};
             //4
              let variavel = "<?=$envio_Pri['ENVIO_SOLICITANTE_PRI']?>";
               if (!variavel == "") {
                 $("#botao").removeClass("disabled").attr("disabled", false);
+                $("#botao5").removeClass("disabled").attr("disabled", false);
                     //5
                     let variavel = "<?=$formRec['FORMULARIOS_RECEBIDOS']?>";
                     if (!variavel == "") {

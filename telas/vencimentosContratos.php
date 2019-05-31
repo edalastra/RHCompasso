@@ -313,6 +313,7 @@ $emailsoli = buscavias($conn, $id);
         if (!document.getElementById("campo").value == "") {
             $("#document").removeClass("disabled").attr("disabled", false);
             $("#proximo").removeClass("disabled");
+            $("#botao6").removeClass("disabled").attr("disabled", false);
             return};};
             //6
             let variavel = "<?=$inclui['INCLUI_ADM_PROV']?>";

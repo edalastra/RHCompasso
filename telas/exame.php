@@ -299,6 +299,7 @@ $emailsoli = buscavias($conn, $id);
             return};};
             //9
             $("#botao9").removeClass("disabled").attr("disabled", false);
+            
             //10 
             let variavel = "<?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>";
             if (!variavel == "") {
