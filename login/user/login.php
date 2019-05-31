@@ -1,8 +1,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="../css/login.css">
+  <link rel="stylesheet" type="text/css" href="../../css/login.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="../../css/reset.css">   
+  <link rel="stylesheet" href="../../css/menuPrincipal.css">
   <title> Login do Usuário </title>
 </head>
 <body>
@@ -14,14 +16,15 @@
         <label class="user"> Senha: </label>
         <input class="pw" type="password" name="senha" id="senha">
         <div class="oculto" id="oculto" hidden> Usuário e/ou Senha inválidos! </div>
-        <button class="butao" type="submit" id="entrar"> Entrar </button>
+        <button class="butao botao btn btn-default btn-xs btn-filter campo-filter" type="submit" id="entrar"> Entrar </button>
       </div>
     </form>
   </div>
 </body>
 
 <?php
-require_once('../login/validacoes/login.php');
+// ../ volta uma pasta:
+require_once('../../validacoes/login/login.php');
 ?>
 
 </html>

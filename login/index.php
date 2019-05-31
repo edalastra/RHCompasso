@@ -10,9 +10,9 @@
   if (isset($_GET['erro']))  {
     $user = $_GET['erro'];
   }
-
+/*
   // Conexão do banco:
-  require_once('bd/mySQL.php');
+  require_once('../db/mySQL.php');
 
   // Seleciona o usuario igual no banco:
   $consulta = "Select usuario from usuarios where id = $user";
@@ -55,7 +55,7 @@
   }
 
   // Conta as linhas no banco:
-  require_once('bd/consultaEmeiru.php');
+  require_once('../../db/consultaEmeiru.php');
 
   if ($linhas != 0) {
     // Conecta no branco e procura por email igual, comparação com varíavel precisa de '':
@@ -94,7 +94,7 @@
   } else {
     $inserir = "Insert emeiru (email) VALUES ('$email')";
     $executa_query = mysqli_query($link, $inserir);
-  }
+  }*/
 
   ?>
 

@@ -112,9 +112,10 @@ a.disabled {
     display: block;
   }
   
-  .dropdown:hover .dropbtn {
+ .dropdown:hover .dropbtn {
     background-color: rgb(128, 173, 247);
-  }
+ }
+
 .filter{
     position:absolute;
     top: 0%;
@@ -127,8 +128,16 @@ a.disabled {
     top: 0%;
     right: 10%;
     display: block;
+}
+
+.last{
+    position: fixed;
+    top: 0%;
+    right: 5%;
+    display: block;
 
 }
+
 .nav{
     font-size: 18px;
     font-family: "Raleway",sans-serif;

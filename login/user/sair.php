@@ -3,5 +3,5 @@ session_start();
 unset($_SESSION['usuario'], $_SESSION['senha']);
 session_destroy();
 // Modificado:
-header("Location:../login/user/login.php");
+header("Location: login.php");
 ?>

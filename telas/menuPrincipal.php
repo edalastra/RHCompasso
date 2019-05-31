@@ -190,6 +190,7 @@ if (isset($_POST['botaoVolta'])) {
         <nav>
             <a class='nav inicio' href='menuPrincipal.php'>Início</a>
             <a class='nav filter pos' >Filtragem</a>
+            <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
         </nav>
     </header>
     <main>

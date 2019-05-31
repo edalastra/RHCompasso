@@ -26,7 +26,7 @@ form {
   font-size: 14px;
 }
 
-.centraliza {
+/*.centraliza {  
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -41,17 +41,21 @@ form {
   padding-left: 5%;
   padding-right: 5%;
   padding-bottom: 2%;
-}
+}*/
 
 .t {
   border-style: ridge;
-  padding: 10;
+  padding: 10px;
 }
 
 .oculto {
   font-family: roboto;
   font-size: 12px;
-}s
+}
+
+#oculto {
+  width: 250;
+}
 
 .butao {
   margin-top: 3%;
@@ -61,3 +65,5 @@ form {
   padding-top: 5px;
   padding-bottom: 5px;
 }
+
+
