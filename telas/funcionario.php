@@ -199,7 +199,7 @@ $emailsoli = buscavias($conn, $id);
 							<td><?php echo $rows_dados['COMUNICAR_STATUS']; ?></td>
                             <td><?php echo $rows_dados['PROJETO']; ?></td>
                             <?php unset($_GET['id']); ?>
-                            <td><a title="Gestão" href='#'> Próximo </td>
+                            <td><a title="Gestão" id="proximo" class="disabled" href="gestao.php"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
                     <?php  } ?>
@@ -225,9 +225,9 @@ $emailsoli = buscavias($conn, $id);
                             <td><input type="date" class='intable' required name="ENQUADRAMENTO" value="<?=$enquadramento['ENQUADRAMENTO']?>"></td>
                             <td><input type="date" class='intable' required name="ENVIO_PROPOSTA" value="<?=$envioprop['ENVIO_PROPOSTA']?>"></td>
                             <td><input type="date" class='intable' required name="COMUNICAR_PROPOSTA_ENVIADA" value="<?=$comunicarprop['COMUNICAR_PROPOSTA_ENVIADA']?>"></td>
-                            <td><input type="date" class='intable' required name="ACEITA_RECUSA_CANDIDATO" value="<?=$candidato['ACEITE_RECUSA_CANDIDATO']?>"></td>
+                            <td><input type="date" id='campo' class='intable' required name="ACEITA_RECUSA_CANDIDATO" value="<?=$candidato['ACEITE_RECUSA_CANDIDATO']?>"></td>
                             <td><input type="text" class='intable' required name="COMENTARIO" value="<?=$comentario['COMENTARIO']?>"></td>
-                            <td><input type="date" id='campo' class='intable' required name="COMUNICAR_STATUS" value="<?=$comunicar['COMUNICAR_STATUS']?>"></td>
+                            <td><input type="date" class='intable' required name="COMUNICAR_STATUS" value="<?=$comunicar['COMUNICAR_STATUS']?>"></td>
                             <td><input type="text" class='intable' required name="PROJETO" value="<?=$funcionarios['PROJETO']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" id="salvar" class="botao-salvar btao btn btn-default" value="submit">Salvar</td>
@@ -338,37 +338,38 @@ $emailsoli = buscavias($conn, $id);
     <script src="../js/filter.js"></script>
     <script>
     window.onload = function verifica() { 
-        if (!document.getElementById("campo").value == "") {
-             $("#gestao").removeClass("disabled").attr("disabled", false);;
-             return};};
+        if(!document.getElementById("campo").value == ""){
+             $("#gestao").removeClass("disabled").attr("disabled", false);
+             $("#proximo").removeClass("disabled");
+            };};
             //4
-             let variavel = <?=$envio_Pri['ENVIO_SOLICITANTE_PRI']?>;
+             let variavel = "<?=$envio_Pri['ENVIO_SOLICITANTE_PRI']?>";
               if (!variavel == "") {
                 $("#botao").removeClass("disabled").attr("disabled", false);
                     //5
-                    let variavel = <?=$formRec['FORMULARIOS_RECEBIDOS']?>;
+                    let variavel = "<?=$formRec['FORMULARIOS_RECEBIDOS']?>";
                     if (!variavel == "") {
                     $("#botao5").removeClass("disabled").attr("disabled", false);
                         //6
-                        let variavel = <?=$inclui['INCLUI_ADM_PROV']?>;
+                        let variavel = "<?=$inclui['INCLUI_ADM_PROV']?>";
                         if (!variavel == "") {
                         $("#botao6").removeClass("disabled").attr("disabled", false);
                             //7
-                            let variavel = <?=$anexar['ANEXAR_ASO']?>;
+                            let variavel = "<?=$anexar['ANEXAR_ASO']?>";
                             if (!variavel == "") {
                                 $("#botao7").removeClass("disabled").attr("disabled", false);
                                 //8
-                                let variavel = <?=$form['FORM_COMPR_BANCARIO']?>;
+                                let variavel = "<?=$form['FORM_COMPR_BANCARIO']?>";
                                 if (!variavel == "") {
                                     $("#botao8").removeClass("disabled").attr("disabled", false);
                                     //9
                                     $("#botao9").removeClass("disabled").attr("disabled", false);
                                     //10 
-                                    let variavel = <?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>;
+                                    let variavel = "<?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>";
                                     if (!variavel == "") {
                                         $("#botao10").removeClass("disabled").attr("disabled", false);
                                         //11
-                                        let variavel = <?=$emailsoli['CRACHA_PROTOCOLO']?>;
+                                        let variavel = "<?=$emailsoli['CRACHA_PROTOCOLO']?>";
                                         if (!variavel == "") {
                                             $("#botao11").removeClass("disabled").attr("disabled", false);
               } 

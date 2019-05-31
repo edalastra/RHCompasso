@@ -182,7 +182,7 @@ $emailsoli = buscavias($conn, $id);
                         <td><?php echo $rows_dados['FORMULARIOS_RECEBIDOS']; ?></td>
                         <td><?php echo $rows_dados['DOCUMENTOS_FISICOS']; ?></td>
                         <td><?php echo $rows_dados['CTPS_RECEBIDA']; ?></td>
-                        <td><a title="Plataforma Admissão Domínio Dados + Fichas de Cadastro" href='#'>Próximo</td>
+                        <td><a title="Plataforma Admissão Domínio Dados + Fichas de Cadastro" id="proximo" class="disabled" href="admissao.php"> Próximo </td>
                         <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                     </tr>
                     <?php } ?>
@@ -304,24 +304,25 @@ $emailsoli = buscavias($conn, $id);
     <script>
     window.onload = function verifica() { 
         if (!document.getElementById("campo").value == "") {
-            $("#plataform").removeClass("disabled").attr("disabled", false);;
+            $("#plataform").removeClass("disabled").attr("disabled", false);
+            $("#proximo").removeClass("disabled");
             return};};
             //7
-            let variavel = <?=$anexar['ANEXAR_ASO']?>;
+            let variavel = "<?=$anexar['ANEXAR_ASO']?>";
             if (!variavel == "") {
                 $("#botao7").removeClass("disabled").attr("disabled", false);
                 //8
-                let variavel = <?=$form['FORM_COMPR_BANCARIO']?>;
+                let variavel = "<?=$form['FORM_COMPR_BANCARIO']?>";
                 if (!variavel == "") {
                     $("#botao8").removeClass("disabled").attr("disabled", false);
                     //9
                     $("#botao9").removeClass("disabled").attr("disabled", false);
                     //10 
-                    let variavel = <?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>;
+                    let variavel = "<?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>";
                     if (!variavel == "") {
                         $("#botao10").removeClass("disabled").attr("disabled", false);
                         //11
-                        let variavel = <?=$emailsoli['CRACHA_PROTOCOLO']?>;
+                        let variavel = "<?=$emailsoli['CRACHA_PROTOCOLO']?>";
                         if (!variavel == "") {
                             $("#botao11").removeClass("disabled").attr("disabled", false);
               } 

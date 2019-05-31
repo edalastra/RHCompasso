@@ -194,7 +194,7 @@ $emailsoli = buscavias($conn, $id);
                             <td><?php echo $rows_dados['EQUIPAMENTO']; ?></td>
                             <td><?php echo $rows_dados['TRANSLADO']; ?></td>
                             <td><?php echo $rows_dados['GRUPOS_DE_EMAIL']; ?></td>
-                            <td><a title="Interno" href='#' class='intable'>Próximo</td>
+                            <td><a title="Interno" id="proximo" class="disabled" href="interno.php"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
 
                         </tr>
@@ -319,10 +319,11 @@ $emailsoli = buscavias($conn, $id);
     <script>
     window.onload = function verifica() { 
         if (!document.getElementById("campo").value == "") {
-            $("#intern").removeClass("disabled").attr("disabled", false);;
+            $("#intern").removeClass("disabled").attr("disabled", false);
+            $("#proximo").removeClass("disabled");
             return};};
             //11
-            let variavel = <?=$emailsoli['CRACHA_PROTOCOLO']?>;
+            let variavel = "<?=$emailsoli['CRACHA_PROTOCOLO']?>";
             if (!variavel == "") {
                 $("#botao11").removeClass("disabled").attr("disabled", false);
               } 

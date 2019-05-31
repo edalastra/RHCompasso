@@ -177,7 +177,7 @@ $emailsoli = buscavias($conn, $id);
                             <td><?php echo $rows_dados['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO']; ?></td>
                             <td><?php echo $rows_dados['TERMO_PSI']; ?></td>
                             <td><?php echo $rows_dados['INCLUI_ADM_PROV']; ?></td>
-                            <td><a title="Exame Admissional" href='#' class='intable'>Próximo</td>
+                            <td><a title="Exame Admissional" id="proximo" class="disabled" href="exame.php"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
 
                         </tr>
@@ -303,19 +303,20 @@ $emailsoli = buscavias($conn, $id);
     window.onload = function verifica() { 
         if (!document.getElementById("campo").value == "") {
             $("#exam").removeClass("disabled").attr("disabled", false);;
+            $("#proximo").removeClass("disabled");
             return};};
             //8
-            let variavel = <?=$form['FORM_COMPR_BANCARIO']?>;
+            let variavel = "<?=$form['FORM_COMPR_BANCARIO']?>";
             if (!variavel == "") {
                 $("#botao8").removeClass("disabled").attr("disabled", false);
                 //9
                 $("#botao9").removeClass("disabled").attr("disabled", false);
                 //10 
-                let variavel = <?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>;
+                let variavel = "<?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>";
                 if (!variavel == "") {
                     $("#botao10").removeClass("disabled").attr("disabled", false);
                     //11
-                    let variavel = <?=$emailsoli['CRACHA_PROTOCOLO']?>;
+                    let variavel = "<?=$emailsoli['CRACHA_PROTOCOLO']?>";
                     if (!variavel == "") {
                         $("#botao11").removeClass("disabled").attr("disabled", false);
               } 

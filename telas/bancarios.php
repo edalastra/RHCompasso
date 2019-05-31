@@ -141,7 +141,7 @@ $emailsoli = buscavias($conn, $id);
                             <a href="bancarios.php" type="button" class="btn btn-success btn-circle" >8</a>
                         </div>
                         <div title= "Suporte Interno" class="stepwizard-step col-md-auto">
-                            <a href="suporteinterno.php" id="support" type="button" disabled class="btn btn-default btn-circle disabled" >9</a>
+                            <a href="suporteinterno.php" id="support" type="button" class="btn btn-default btn-circle" >9</a>
                         </div>
                         <div title = "Interno" class="stepwizard-step col-md-auto">
                             <a href="interno.php" type="button" id="botao10" disabled class="btn btn-default btn-circle disabled" >10</a>
@@ -184,7 +184,7 @@ $emailsoli = buscavias($conn, $id);
                             <td><?php echo $rows_dados['AGENCIA'];?></td>
                             <td><?php echo $rows_dados['NUMERO_CONTA'];?></td>
                             <td><?php echo $rows_dados['TIPO_CONTA'];?></td>
-                            <td><a title="Suporte Interno" href='#' class='intable'>Próximo</td>
+                            <td><a title="Suporte Interno" id="proximo" href="suporteinterno.php"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
                     <?php } ?>
@@ -314,18 +314,17 @@ $emailsoli = buscavias($conn, $id);
     <script src="../js/filter.js"></script>
     <script>
     window.onload = function verifica() { 
-        if (!document.getElementById("campo").value == "") {
-            $("#support").removeClass("disabled").attr("disabled", false);;
-            return};};
-            let variavel = <?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>;
+            let variavel = "<?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>";
             if (!variavel == "") {
                 $("#botao10").removeClass("disabled").attr("disabled", false);
+                $("#proximo").removeClass("disabled");
                 //11
-                let variavel = <?=$emailsoli['CRACHA_PROTOCOLO']?>;
+                let variavel = "<?=$emailsoli['CRACHA_PROTOCOLO']?>";
                 if (!variavel == "") {
                     $("#botao11").removeClass("disabled").attr("disabled", false);
               } 
               } 
+            }
     </script>      
 
 </body>

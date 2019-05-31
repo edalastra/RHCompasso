@@ -187,7 +187,7 @@ $acessos = buscainterno($conn, $id);
                         <td><?php echo $rows_dados['EMAIL_INICIO_ATIVIDADES']; ?></td>
                         <td><?php echo $rows_dados['EMAIL_BOAS_VINDAS']; ?></td>
                         <td><?php echo $rows_dados['ACESSOS']; ?></td>
-                        <td><a title="Vias Documentos Funcionários" href='#'>Próximo</td>
+                        <td><a title="Vias Documentos Funcionários" id="proximo" class="disabled" href="viasdocumentos.php"> Próximo </td>
                         <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                     </tr>
                     <?php } ?>
@@ -313,7 +313,8 @@ $acessos = buscainterno($conn, $id);
     <script>
     window.onload = function verifica() { 
         if (!document.getElementById("campo").value == "") {
-             $("#via").removeClass("disabled").attr("disabled", false);;
+             $("#via").removeClass("disabled").attr("disabled", false);
+             $("#proximo").removeClass("disabled");
              return}};
     </script>                  
 </body>
