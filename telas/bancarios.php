@@ -42,6 +42,7 @@ $anexar = buscaexame($conn, $id);
 $form = buscaBancario($conn, $id);
 $emailges = buscainterno($conn, $id);
 $emailsoli = buscavias($conn, $id);
+$translado = buscasuporte($conn, $id);
 ?>
 
 
@@ -313,7 +314,7 @@ $emailsoli = buscavias($conn, $id);
     <script src="../js/filter.js"></script>
     <script>
     window.onload = function verifica() { 
-            let variavel = "<?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>";
+            let variavel = "<?=$translado['TRANSLADO']?>";
             if (!variavel == "") {
                 $("#botao9").removeClass("disabled").attr("disabled", false);
                 $("#proximo").removeClass("disabled");

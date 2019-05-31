@@ -342,7 +342,6 @@ $translado = buscasuporte($conn, $id);
         if(!document.getElementById("campo").value == ""){
              $("#gestao").removeClass("disabled").attr("disabled", false);
              $("#proximo").removeClass("disabled");
-             $("#botao").removeClass("disabled").attr("disabled", false);
             };};
             //4
              let variavel = "<?=$envio_Pri['ENVIO_SOLICITANTE_PRI']?>";
