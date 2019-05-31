@@ -12,7 +12,7 @@ $listar = listar($conn);
     }
 
 $suporte = buscasuporte($conn, $id);
-$testeGrupoEmail = $suporte['GRUPOS_DE_EMAIL'];
+$testeGrupoEmail = $suporte['_DE_EMAIL'];
 $resultado1 = mysqli_query($conn,"SELECT ID_USUARIO, NOME, DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM propostas_contratacoes as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 $conn1 = mysqli_num_rows($resultado1);
 $resultado = mysqli_query($conn, "SELECT  `ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `GRUPOS_DE_EMAIL` FROM `suporte_interno` as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
@@ -204,7 +204,7 @@ $nome_email = buscaFuncionarios($conn, $id);
                             <td><input type="text" class='intable' name="SENHA" required value="<?=$senha['SENHA']?>"></td>
                             <td><input type="text" class='intable' name="EQUIPAMENTO" required value="<?=$equipamento['EQUIPAMENTO']?>"></td>
                             <td><input type="text" class='intable' name="TRANSLADO" required value="<?=$translado['TRANSLADO']?>"></td>
-                            <td><input type="text" class='intable' name="GRUPOS_DE_EMAIL" required value="<?=$translado['GRUPOS_DE_EMAIL']?>"></td>
+                            <td><input type="text" class='intable' name="_DE_EMAIL" required value="<?=$translado['_DE_EMAIL']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                     </form>

@@ -159,21 +159,21 @@ $comunicar = buscaProposta($conn, $id);
                         </div>
                     </div>
                 </div>
-            <table id='first-table'>
+            <table id='first-table' class="duds duds-responsive">
                 <h2 id='titulo-table'></h2>
                 <thead>
                     <tr>
                         <th>Status</th>
                         <th>Proposta Recebida</th>
                         <th>De acordo Direção</th>
-                        <th width = '220px'>Enquadramento(Validação Ex Funcionário)</th>
+                        <th>Enquadramento (Validação Ex Funcionário)</th>
                         <th>Envio da Proposta</th>
                         <th>Comunicar proposta enviada Solicitante</th>
                         <th>Aceite/recusa candidato</th>
-                        <th width = '300px'>Comentário</th>
+                        <th>Comentário</th>
                         <th>Comunicar Status da Proposta ao Solicitante</th>
-                        <th width='200px'>Projeto</th>
-                        <th width='100px'></th>
+                        <th>Projeto</th>
+                        <th></th>
                         <th></th>
                     </tr>
                 </thead>
@@ -212,7 +212,7 @@ $comunicar = buscaProposta($conn, $id);
                             <option value="RETORNO PENDENTE">RETORNO PENDENTE</option>
                             <option value="NEGOCIAÇÃO">NEGOCIAÇÃO</option>
                             <option value="RECUSADO">RECUSADO</option></select></td>
-/
+
                             <td><input type='date' class='intable' required name="PROPOSTA_RECEBIDA" value="<?=$recebida['PROPOSTA_RECEBIDA']?>"></td>
                             <td><input type="date" class='intable' required name ="DE_ACORDO_DIRECAO" value="<?=$deacordo['DE_ACORDO_DIRECAO']?>"></td>
                             <td><input type="date" class='intable' required name="ENQUADRAMENTO" value="<?=$enquadramento['ENQUADRAMENTO']?>"></td>
@@ -288,7 +288,7 @@ $comunicar = buscaProposta($conn, $id);
                 </table>
                 <table class='legendas-sedes'>
                 <tr>
-                    <th class='tb2'>SEDE</th>
+                    <th class='tb2 testandoo'>SEDE</th>
                 </tr>
                 <?php foreach ($listar as $linha):?>
                 <tr><td class='tb2'><?php echo $linha['NOME_SEDE']?></td></tr>

@@ -79,7 +79,7 @@ a.disabled {
     pointer-events: none;
     cursor: default;
  }
- 
+
 .dropbtn{
     position:absolute;
     top: -55px;
@@ -98,20 +98,20 @@ a.disabled {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
   }
-  
+
   .dropdown-content a {
     color: black;
     padding: 10px 13px;
     text-decoration: none;
     display: block;
   }
-  
+
   .dropdown-content a:hover {background-color: #f1f1f1}
-  
+
   .dropdown:hover .dropdown-content {
     display: block;
   }
-  
+
   .dropdown:hover .dropbtn {
     background-color: rgb(128, 173, 247);
   }
@@ -136,14 +136,14 @@ a.disabled {
     font-weight: 500;
     text-decoration: none;
     outline: none;
-    list-style:none; 
-    padding: .9em; 
+    list-style:none;
+    padding: .9em;
     font-family: 'Roboto', sans-serif;
 }
 
 .nav:hover,
 .navegacao-site:focus {
-    color:#fff; 
+    color:#fff;
     background-color: rgb(128, 173, 247);
     text-decoration: none;
     cursor: pointer;
@@ -163,7 +163,7 @@ img {
     background-image: linear-gradient(to left, #fff, white 100% );
     background-size: 75% 100%;
     background-repeat: no-repeat;
-    border-bottom: .2em solid rgb(72, 139, 244);   
+    border-bottom: .2em solid rgb(72, 139, 244);
 }
 .site-header {
     display: block;
@@ -228,7 +228,7 @@ body{
 }
 h3{
     text-align: center;
-    
+
 }
 
 #first-table{
@@ -238,9 +238,9 @@ h3{
 }
 .container{
     border: 2em solid white;
-    
+
 }
-    
+
 .container{overflow:auto; } /* limitando altura do box */
 .container::-webkit-scrollbar { width:10px; background:#e3e0d6; } /* configurando scroll */
 .container::-webkit-scrollbar-track { border-radius: 10px; background: rgba(202, 210, 255, 0.726); }
@@ -252,17 +252,17 @@ h3{
 }
 #table-legendas{
     table-layout: fixed;
-    margin-left: 2%;    
+    margin-left: 2%;
     align-content: center;
     float:left;
 }
 .legendas-sedes{
     float: left;
-    margin-left: 1%;    
+    margin-left: 1%;
 }
 .legendas-tipos{
     float: left;
-    margin-left: 1%;    
+    margin-left: 1%;
 
 }
 .voltar{
@@ -320,5 +320,58 @@ th{
     padding-top: 10px;
     font-size: 15px;
     font-size: 2em;
+
+}
+
+
+
+
+
+
+ @media (min-width: 767px) {
+  .testandoo{
+  float: left;
+  margin-top: 74%;
+}
+  .legendas {
+    height: 40em !important;
+}
+    .duds-responsive {
+    display: block;
+    position: relative;
+    width: 100%;
+  }
+
+  .duds-responsive thead,
+  .duds-responsive tbody,
+  .duds-responsive th,
+  .duds-responsive td,
+  .duds-responsive tr {
+    display: block;
+  }
+  .duds-responsive td,
+  .duds-responsive th {
+    height: 35px;
+  }
+
+  .duds-responsive thead {
+    float: left;
+  }
+
+  .duds-responsive tbody {
+    width: auto;
+    position: relative;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+
+  .duds-responsive tbody tr {
+    display: inline-block;
+  }
+
+  .duds td:last-child {
+     border-right: #999999 solid 1px;
+  }
 
 }
