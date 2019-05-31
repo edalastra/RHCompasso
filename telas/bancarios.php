@@ -318,6 +318,7 @@ $emailsoli = buscavias($conn, $id);
             if (!variavel == "") {
                 $("#botao10").removeClass("disabled").attr("disabled", false);
                 $("#proximo").removeClass("disabled");
+                $("#botao11").removeClass("disabled").attr("disabled", false);
                 //11
                 let variavel = "<?=$emailsoli['CRACHA_PROTOCOLO']?>";
                 if (!variavel == "") {

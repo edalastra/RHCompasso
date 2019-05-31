@@ -303,14 +303,17 @@ $emailsoli = buscavias($conn, $id);
             let variavel = "<?=$formRec['FORMULARIOS_RECEBIDOS']?>";
             if (!variavel == "") {
                 $("#botao5").removeClass("disabled").attr("disabled", false);
+                $("#botao6").removeClass("disabled").attr("disabled", false);
                  //6
                 let variavel = "<?=$inclui['INCLUI_ADM_PROV']?>";
                 if (!variavel == "") {
                     $("#botao6").removeClass("disabled").attr("disabled", false);
+                    $("#botao7").removeClass("disabled").attr("disabled", false);
                     //7
                     let variavel = "<?=$anexar['ANEXAR_ASO']?>";
                     if (!variavel == "") {
                         $("#botao7").removeClass("disabled").attr("disabled", false);
+                        $("#botao8").removeClass("disabled").attr("disabled", false);
                         //8
                         let variavel = "<?=$form['FORM_COMPR_BANCARIO']?>";
                         if (!variavel == "") {
@@ -321,6 +324,7 @@ $emailsoli = buscavias($conn, $id);
                                 let variavel = "<?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>";
                                 if (!variavel == "") {
                                     $("#botao10").removeClass("disabled").attr("disabled", false);
+                                    $("#botao11").removeClass("disabled").attr("disabled", false);
                                     //11
                                     let variavel = "<?=$emailsoli['CRACHA_PROTOCOLO']?>";
                                     if (!variavel == "") {

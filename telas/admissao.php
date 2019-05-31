@@ -315,6 +315,7 @@ $emailsoli = buscavias($conn, $id);
                 let variavel = "<?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>";
                 if (!variavel == "") {
                     $("#botao10").removeClass("disabled").attr("disabled", false);
+                    $("#botao11").removeClass("disabled").attr("disabled", false);
                     //11
                     let variavel = "<?=$emailsoli['CRACHA_PROTOCOLO']?>";
                     if (!variavel == "") {
