@@ -1,15 +1,36 @@
 <html>
+
 <head>
     <title></title>
     <meta charset="utf8">
-    <link href="cami.css" rel="stylesheet" type="text/css">
+    <style>
+        fieldset {
+            border: 1px solid;
+            width: 100px;
+            height: 50px;
+        }
+
+        button {
+            margin-top: 10px;
+        }
+
+        div {
+            margin-top: 25%;
+            margin-left: 30%;
+        }
+
+    </style>
 </head>
+
 <body>
-<form enctype="multipart/form-data" action="testando.php" method="POST">
- <fieldset>  
-  <input type="file" name="anexo">
-  <button type="submit"> Enviar </button>
- </fieldset>
- </form>
+    <div>
+        <form enctype="multipart/form-data" action="testando.php" method="POST">
+            <fieldset>
+                <input type="file" name="anexo">
+                <button type="submit"> Enviar </button>
+            </fieldset>
+        </form>
+    </div>
 </body>
-</html> 
+
+</html>
