@@ -184,9 +184,43 @@ $translado = buscasuporte($conn, $id);
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
                             <td><input type='text' class='intable' name="GESTOR" required value="<?=$gestor['GESTOR']?>"></td>
-                            <td><input type="text" class='intable' name ="GESTOR_SABE" required value="<?=$gestor_sabe['GESTOR_SABE']?>"></td>
+                            <td><select class="intable" name ="GESTOR_SABE" required>
+                              <?php
+                                  if($gestor_sabe['GESTOR_SABE']== NULL){?>
+                                    <option value="<?=$gestor_sabe['GESTOR_SABE']?>"><?=$gestor_sabe['GESTOR_SABE']?></option>
+                                    <option value="Sim">Sim</option>
+                                    <option value="Não">Não</option>
+                              <?php
+                                  }elseif($gestor_sabe['GESTOR_SABE'] == "Sim"){ ?>
+                                    <option value="<?=$gestor_sabe['GESTOR_SABE']?>"><?=$gestor_sabe['GESTOR_SABE']?></option>
+                                    <option value="Não">Não</option>
+                              <?php
+                            }else{?>
+                                    <option value="<?=$gestor_sabe['GESTOR_SABE']?>"><?=$gestor_sabe['GESTOR_SABE']?></option>
+                                    <option value="Sim">Sim</option>
+                              <?php
+                                  }
+                               ?>
+                            </select></td>
                             <td><input type="text" class='intable' name="GESTOR_LOCAL" required value="<?=$gestor_local['GESTOR_LOCAL']?>"></td>
-                            <td><input type="text" class='intable' name="GESTOR_LOCAL_sABE" required value="<?=$gestorL_sabe['GESTOR_LOCAL_sABE']?>"></td>
+                            <td><select class="intable" name ="GESTOR_LOCAL_sABE" required>
+                              <?php
+                                  if($gestorL_sabe['GESTOR_LOCAL_sABE']== NULL){?>
+                                    <option value="<?=$gestorL_sabe['GESTOR_LOCAL_sABE']?>"><?=$gestorL_sabe['GESTOR_LOCAL_sABE']?></option>
+                                    <option value="Sim">Sim</option>
+                                    <option value="Não">Não</option>
+                              <?php
+                                  }elseif($gestorL_sabe['GESTOR_LOCAL_sABE'] == "Sim"){ ?>
+                                    <option value="<?=$gestor_sabe['GESTOR_LOCAL_sABE']?>"><?=$gestor_sabe['GESTOR_LOCAL_sABE']?></option>
+                                    <option value="Não">Não</option>
+                              <?php
+                            }else{?>
+                                    <option value="<?=$gestor_sabe['GESTOR_LOCAL_sABE']?>"><?=$gestor_sabe['GESTOR_LOCAL_sABE']?></option>
+                                    <option value="Sim">Sim</option>
+                              <?php
+                                  }
+                               ?>
+                            </select></td>
                             <td><input type="text" id='campo' class='intable' name="RECEPTOR_PESSOA" required value="<?=$receptor['RECEPTOR_PESSOA']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
@@ -296,7 +330,7 @@ $translado = buscasuporte($conn, $id);
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
     <script>
-    window.onload = function verifica() { 
+    window.onload = function verifica() {
         if (!document.getElementById("campo").value == "") {
              $("#venciment").removeClass("disabled").attr("disabled", false);
              $("#proximo").removeClass("disabled");
@@ -332,8 +366,8 @@ $translado = buscasuporte($conn, $id);
                                     let variavel = "<?=$emailsoli['CRACHA_PROTOCOLO']?>";
                                     if (!variavel == "") {
                                         $("#botao11").removeClass("disabled").attr("disabled", false);
-              } 
-              } 
+              }
+              }
               }
               }
               }
