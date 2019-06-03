@@ -314,7 +314,6 @@ $deacordo = buscaProposta($conn, $id);
         if (!variavel == "") {
         $("#botao3").removeClass("disabled").attr("disabled", false);
 
-
         let variavel = "<?=$receptor['RECEPTOR_PESSOA']?>";
         if (!variavel == "") {
             $("#botao3").removeClass("disabled").attr("disabled", false);

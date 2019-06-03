@@ -158,9 +158,9 @@ $efetivacao = buscavencimentos($conn, $id);
                     <tr>
                         <th>Status</th>
                         <th>Gestor</th>
-                        <th>Gestor sabe?(S= sim N= Não)</th>
+                        <th>Gestor sabe?</th>
                         <th>Gestor local</th>
-                        <th>Gestor local sabe?(S= sim N= Não)</th>
+                        <th>Gestor local sabe?</th>
                         <th>Quem do projeto receberá a pessoa?</th>
                         <th></th>
                         <th></th>

@@ -161,10 +161,10 @@ $translado = buscasuporte($conn, $id);
                         <th>Status</th>
                         <th>Envio Solicitante</th>
                         <th>Data do Vencimento</th>
-                        <th>Renovação (S= sim N= Não)</th>
+                        <th>Renovação</th>
                         <th>Envio Solicitante</th>
                         <th>Data do Vencimento</th>
-                        <th>efetivacao (S= sim N= Não)</th>
+                        <th>Efetivção</th>
                         <th></th>
                         <th></th>
                     </tr>
