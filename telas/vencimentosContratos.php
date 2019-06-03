@@ -191,11 +191,45 @@ $translado = buscasuporte($conn, $id);
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
                             <td><input type='date' class='intable' name="ENVIO_SOLICITANTE_PRI" required value="<?=$envio_Pri['ENVIO_SOLICITANTE_PRI']?>"></td>
-                            <td><input type='date' class='intable' name ="DATA_VENCIMENTO_PRI" required value=""></td>
-                            <td><input type='text' class='intable' name="RENOVACAO" required value="<?=$renovacao['RENOVACAO']?>"></td>
+                            <td><input type='date' class='intable' name ="DATA_VENCIMENTO_PRI" required value="<?=$envio_Pri['DATA_VENCIMENTO_PRI']?>"></td>
+                            <td><select class="intable" name="RENOVACAO" required>
+                              <?php
+                                  if($renovacao['RENOVACAO'] == NULL){?>
+                                    <option value="<?=$renovacao['RENOVACAO']?>"><?=$renovacao['RENOVACAO']?></option>
+                                    <option value="Sim">Sim</option>
+                                    <option value="Não">Não</option>
+                              <?php
+                                  }elseif($renovacao['RENOVACAO'] == "Sim"){ ?>
+                                    <option value="<?=$renovacao['RENOVACAO']?>"><?=$renovacao['RENOVACAO']?></option>
+                                    <option value="Não">Não</option>
+                              <?php
+                            }else{?>
+                                    <option value="<?=$renovacao['RENOVACAO']?>"><?=$renovacao['RENOVACAO']?></option>
+                                    <option value="Sim">Sim</option>
+                              <?php
+                                  }
+                               ?>
+                            </select></td>
                             <td><input type='date' class='intable' name="ENVIO_SOLICITANTE_SEG" required value="<?=$envio_seg['ENVIO_SOLICITANTE_SEG']?>"></td>
                             <td><input type='date' id='campo' class='intable' name="DATA_VENCIMENTO_SEG" required value="<?=$data_venc_seg['DATA_VENCIMENTO_SEG']?>"></td>
-                            <td><input type='text' class='intable' name="EFETIVACAO" required value="<?=$efetivacao['EFETIVACAO']?>"></td>
+                            <td><select class="intable" name="EFETIVACAO" required>
+                              <?php
+                                  if($efetivacao['EFETIVACAO'] == NULL){?>
+                                    <option value="<?=$efetivacao['EFETIVACAO']?>"><?=$efetivacao['EFETIVACAO']?></option>
+                                    <option value="Sim">Sim</option>
+                                    <option value="Não">Não</option>
+                              <?php
+                                  }elseif($efetivacao['EFETIVACAO'] == "Sim"){ ?>
+                                    <option value="<?=$efetivacao['EFETIVACAO']?>"><?=$efetivacao['EFETIVACAO']?></option>
+                                    <option value="Não">Não</option>
+                              <?php
+                            }else{?>
+                                    <option value="<?=$efetivacao['EFETIVACAO']?>"><?=$efetivacao['EFETIVACAO']?></option>
+                                    <option value="Sim">Sim</option>
+                              <?php
+                                  }
+                               ?>
+                            </select></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
 
@@ -309,7 +343,7 @@ $translado = buscasuporte($conn, $id);
     </script>
 
     <script>
-    window.onload = function verifica() { 
+    window.onload = function verifica() {
         if (!document.getElementById("campo").value == "") {
             $("#document").removeClass("disabled").attr("disabled", false);
             $("#proximo").removeClass("disabled");
@@ -347,12 +381,13 @@ $translado = buscasuporte($conn, $id);
                                         $("#botao11").removeClass("disabled").attr("disabled", false);
               } 
               } 
+
               }
               }
               }
               }
               }
-            
+
     </script>
 </body>
 </html>

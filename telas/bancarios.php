@@ -197,8 +197,8 @@ $translado = buscasuporte($conn, $id);
                             <td><input type="date" class='intable' name="ANEXAR_COMPR_DOMIN" required value="<?=$anexar['ANEXAR_COMPR_DOMIN']?>"></td>
                             <td><input type="date" class='intable' name="PLANILHA_CONTAS" required value="<?=$planilha['PLANILHA_CONTAS']?>"></td>
                             <td><input type="date" class='intable' id="campo" name="FORM_COMPR_BANCARIO" required value="<?=$form['FORM_COMPR_BANCARIO']?>"></td>
-                            <td><input type="text" class='intable' name="AGENCIA" value="<?=$agencia['AGENCIA']?>"></td>
-                            <td><input type="text" class='intable' name="NUMERO_CONTA" value="<?=$numero_conta['NUMERO_CONTA']?>"></td>
+                            <td><input type="text" class='intable' name="AGENCIA" value="<?=$agencia['AGENCIA']?>" maxlength="4"></td>
+                            <td><input type="text" class='intable' name="NUMERO_CONTA" value="<?=$numero_conta['NUMERO_CONTA']?>" maxlength="9"></td>
                             <td><select name="TIPO_CONTA" class="intable" value="<?=$tipo_conta['TIPO_CONTA']?>">
                                 <option value="" selected="selected"></option>
                                 <option>Corrente</option>
@@ -313,6 +313,7 @@ $translado = buscasuporte($conn, $id);
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
     <script>
+
     window.onload = function verifica() { 
         if (!document.getElementById("campo").value == "") {
             $("#support").removeClass("disabled").attr("disabled", false);
@@ -325,11 +326,13 @@ $translado = buscasuporte($conn, $id);
                 let variavel = '<?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>';
                 if (!variavel == "") {
                     $("#botao11").removeClass("disabled").attr("disabled", false);
-              } 
-              } 
+              }
+              }
             }
+
         }
     </script>      
+
 
 </body>
 
