@@ -572,7 +572,7 @@ if (isset($_POST['botaoVolta'])) {
                                 <option>Feminino</option>
                                 <option>Não definido</option>
                             </select></td>
-                            <td id='add-fone'><input type="tel" maxlength=“15” pattern="\([0-9]{2}\)[\s][0-9]{1}[\s][0-9]{4}-[0-9]{4}" placeholder="(99) 9 9999-9999" class='intable' name="fone_contato" required></td>
+                            <td id='add-fone'><input class='intable' type="text" name="fone_contato" id="telefone" maxlength="15" required></td>
                             <td id='add-cargo'><input class='intable' type="text" name="cargo" required></td>
                             <td id='add-contole-data'><input class='intable' type="date" name="controle_data_admissao" required></td>
                             <td id='add-remuneracao'><input class='intable' type="number" step=".01" name="remuneracao_base" required></td>
@@ -716,7 +716,30 @@ if (isset($_POST['botaoVolta'])) {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
-
+    <script type="text/javascript">
+    function mascara(o,f){
+    v_obj=o
+    v_fun=f
+    setTimeout("execmascara()",1)
+    }
+    function execmascara(){
+    v_obj.value=v_fun(v_obj.value)
+    }
+    function mtel(v){
+    v=v.replace(/\D/g,"");             //Remove tudo o que não é dígito
+    v=v.replace(/^(\d{2})(\d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+    v=v.replace(/(\d)(\d{4})$/,"$1-$2");    //Coloca hífen entre o quarto e o quinto dígitos
+    return v;
+    }
+    function id( el ){
+	return document.getElementById( el );
+    }
+    window.onload = function(){
+	id('telefone').onkeyup = function(){
+		mascara( this, mtel );
+	}
+    }
+    </script>    
 </body>
 
 </html>
