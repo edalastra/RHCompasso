@@ -184,7 +184,7 @@ $translado = buscasuporte($conn, $id);
                             <td><?php echo $rows_dados['AGENCIA'];?></td>
                             <td><?php echo $rows_dados['NUMERO_CONTA'];?></td>
                             <td><?php echo $rows_dados['TIPO_CONTA'];?></td>
-                            <td><a title="Suporte Interno" id="proximo" href="suporteinterno.php"> Próximo </td>
+                            <td><a title="Suporte Interno" id="proximo" class="disabled" href="suporteinterno.php"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
                     <?php } ?>
