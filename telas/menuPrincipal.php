@@ -563,7 +563,7 @@ if (isset($_POST['botaoVolta'])) {
                             <td><select id="add-tipo" name='tipo' class="selectadd intable" required><option value="" selected="selected"></option><option value="1">CLT</option><option value="2">CC</option><option value="3">HO</option><option value="4">TEMP</option><option value="5">APDZ</option></select></td>
                             <td><select id="add-captacao" name='captacao' class="selectadd intable" required><option value="" selected="selected"></option><option value="1">Ex-Funcionario</option><option value="2">Ex-Bolsista</option><option value="3">Ex-Estagiario</option><option value="4">Novo</option></select></td>
                             <td id='add-carga_horaria'><input class='intable' type="number" min="1" max="60" name="carga_horaria" required></td>
-                            <td id='add-horario'><input class='intable' type="tel" pattern="[0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}[\s]-[\s][0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" placeholder="00:00 - 11:11" name="horario" required></td>
+                            <td id='add-horario'><input class='intable' type="text" name="horario" required maxlength="13" pattern="[0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}[\s]-[\s][0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" onkeypress="valida_horas(this)"></td>
                             <td id='add-nome'><input class='intable' type="text" name="nome" required></td>
                             <td><select name="sexo" class="intable" value="<?=$rows_dados['SEXO']?>" required>
                                 <option value="" selected="selected"></option>
@@ -572,7 +572,7 @@ if (isset($_POST['botaoVolta'])) {
                                 <option>Feminino</option>
                                 <option>Não definido</option>
                             </select></td>
-                            <td id='add-fone'><input type="tel" maxlength=“15” pattern="\([0-9]{2}\)[\s][0-9]{1}[\s][0-9]{4}-[0-9]{4}" placeholder="(99) 9 9999-9999" class='intable' name="fone_contato" required></td>
+                            <td id='add-fone'><input class='intable' type="text" pattern="\([0-9]{2}\)[\s][0-9]{1}[0-9]{4}-[0-9]{4}" name="fone_contato" id="telefone" maxlength="15" required></td>
                             <td id='add-cargo'><input class='intable' type="text" name="cargo" required></td>
                             <td id='add-contole-data'><input class='intable' type="date" name="controle_data_admissao" required></td>
                             <td id='add-remuneracao'><input class='intable' type="number" step=".01" name="remuneracao_base" required></td>
@@ -716,7 +716,46 @@ if (isset($_POST['botaoVolta'])) {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
+    <script type="text/javascript">
+    function mascara(o,f){
+    v_obj=o
+    v_fun=f
+    setTimeout("execmascara()",1)
+    }
+    function execmascara(){
+    v_obj.value=v_fun(v_obj.value)
+    }
+    function mtel(v){
+    v=v.replace(/\D/g,"");             //Remove tudo o que não é dígito
+    v=v.replace(/^(\d{2})(\d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+    v=v.replace(/(\d)(\d{4})$/,"$1-$2");    //Coloca hífen entre o quarto e o quinto dígitos
+    return v;
+    }
+    function id( el ){
+	return document.getElementById( el );
+    }
+    window.onload = function(){
+	id('telefone').onkeyup = function(){
+		mascara( this, mtel );
+	}
+    }
+    </script>
+    <script type="text/javascript">
+    function valida_horas(edit){
+    if(event.keyCode<48 || event.keyCode>57){
+    event.returnValue=false;
+    }
+    if(edit.value.length==2){
+    edit.value+=":";}
 
+    if(edit.value.length==5){
+    edit.value+=" - ";}
+
+    if(edit.value.length==10){
+    edit.value+=":";}
+    }
+
+    </script>    
 </body>
 
 </html>
