@@ -39,6 +39,7 @@ $form = buscaBancario($conn, $id);
 $emailges = buscainterno($conn, $id);
 $emailsoli = buscavias($conn, $id);
 $translado = buscasuporte($conn, $id);
+$efetivacao = buscavencimentos($conn, $id);
 ?>
 <!DOCTYPE html>
 <html lang="pt">
@@ -301,6 +302,9 @@ $translado = buscasuporte($conn, $id);
              $("#venciment").removeClass("disabled").attr("disabled", false);
              $("#proximo").removeClass("disabled");
              return};};
+             let variavel = "<?=$efetivacao['EFETIVACAO']?>";
+              if (!variavel == "") {
+                $("#botao5").removeClass("disabled").attr("disabled", false);
             let variavel = "<?=$formRec['FORMULARIOS_RECEBIDOS']?>";
             if (!variavel == "") {
                 $("#botao5").removeClass("disabled").attr("disabled", false);
@@ -339,6 +343,7 @@ $translado = buscasuporte($conn, $id);
               }
               }
               }
+              }  
     </script>
 </body>
 </html>

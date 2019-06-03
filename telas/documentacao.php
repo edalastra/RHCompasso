@@ -307,6 +307,9 @@ $translado = buscasuporte($conn, $id);
             $("#plataform").removeClass("disabled").attr("disabled", false);
             $("#proximo").removeClass("disabled");
             return};};
+            let variavel = "<?=$inclui['INCLUI_ADM_PROV']?>";
+              if (!variavel == "") {
+                $("#botao7").removeClass("disabled").attr("disabled", false);
             //7
             let variavel = "<?=$anexar['ANEXAR_ASO']?>";
             if (!variavel == "") {
@@ -333,7 +336,8 @@ $translado = buscasuporte($conn, $id);
               } 
               }
               }
-            }
+              }
+              }
         
     </script>
 

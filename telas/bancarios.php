@@ -141,7 +141,7 @@ $translado = buscasuporte($conn, $id);
                             <a href="bancarios.php" type="button" class="btn btn-success btn-circle" >8</a>
                         </div>
                         <div title= "Suporte Interno" class="stepwizard-step col-md-auto">
-                            <a href="suporteinterno.php" id="support" type="button" class="btn btn-default btn-circle" >9</a>
+                            <a href="suporteinterno.php" id="support" disabled type="button" class="btn btn-default btn-circle disabled" >9</a>
                         </div>
                         <div title = "Interno" class="stepwizard-step col-md-auto">
                             <a href="interno.php" type="button" id="botao10" disabled class="btn btn-default btn-circle disabled" >10</a>
@@ -314,17 +314,21 @@ $translado = buscasuporte($conn, $id);
     <script src="../js/filter.js"></script>
     <script>
     window.onload = function verifica() { 
+        if (!document.getElementById("campo").value == "") {
+            $("#support").removeClass("disabled").attr("disabled", false);
+            $("#proximo").removeClass("disabled");
+
             let variavel = "<?=$translado['TRANSLADO']?>";
             if (!variavel == "") {
-                $("#botao9").removeClass("disabled").attr("disabled", false);
-                $("#proximo").removeClass("disabled");
+                $("#botao10").removeClass("disabled").attr("disabled", false);
                 //11
-                let variavel = "<?=$emailsoli['CRACHA_PROTOCOLO']?>";
+                let variavel = '<?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>';
                 if (!variavel == "") {
                     $("#botao11").removeClass("disabled").attr("disabled", false);
               } 
               } 
             }
+        }
     </script>      
 
 </body>

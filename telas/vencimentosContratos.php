@@ -314,6 +314,9 @@ $translado = buscasuporte($conn, $id);
             $("#document").removeClass("disabled").attr("disabled", false);
             $("#proximo").removeClass("disabled");
             return};};
+            let variavel = "<?=$formRec['FORMULARIOS_RECEBIDOS']?>";
+              if (!variavel == "") {
+                $("#botao6").removeClass("disabled").attr("disabled", false);
             //6
             let variavel = "<?=$inclui['INCLUI_ADM_PROV']?>";
             if (!variavel == "") {
@@ -329,20 +332,22 @@ $translado = buscasuporte($conn, $id);
                     if (!variavel == "") {
                         $("#botao8").removeClass("disabled").attr("disabled", false);
                         $("#botao9").removeClass("disabled").attr("disabled", false);
-                                    let variavel = "<?=$translado['TRANSLADO']?>";
-                                    if (!variavel == "") {
-                                        $("#botao9").removeClass("disabled").attr("disabled", false);
-                                        $("#botao10").removeClass("disabled").attr("disabled", false);
-                        let variavel = "<?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>";
-                        if (!variavel == "") {
-                            $("#botao10").removeClass("disabled").attr("disabled", false);
-                            $("#botao11").removeClass("disabled").attr("disabled", false);
-                            //11
-                            let variavel = "<?=$emailsoli['CRACHA_PROTOCOLO']?>";
+                            let variavel = "<?=$translado['TRANSLADO']?>";
                             if (!variavel == "") {
-                                $("#botao11").removeClass("disabled").attr("disabled", false);
+                                $("#botao9").removeClass("disabled").attr("disabled", false);
+                                $("#botao10").removeClass("disabled").attr("disabled", false);
+                                //10
+                                let variavel = "<?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>";
+                                if (!variavel == "") {
+                                    $("#botao10").removeClass("disabled").attr("disabled", false);
+                                    $("#botao11").removeClass("disabled").attr("disabled", false);
+                                    //11
+                                    let variavel = "<?=$emailsoli['CRACHA_PROTOCOLO']?>";
+                                    if (!variavel == "") {
+                                        $("#botao11").removeClass("disabled").attr("disabled", false);
               } 
               } 
+              }
               }
               }
               }
