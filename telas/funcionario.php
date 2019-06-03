@@ -40,6 +40,7 @@ $funcionario = buscaProposta($conn, $id);
 $funcionarios = buscaFuncionarios($conn, $id);
 $recebida = buscaProposta($conn, $id);
 $deacordo = buscaProposta($conn, $id);
+$gestorL_sabe = buscagestao($conn, $id);
 $enquadramento = buscaProposta($conn, $id);
 $envioprop = buscaProposta($conn, $id);
 $comunicarprop = buscaProposta($conn, $id);
@@ -343,6 +344,9 @@ $translado = buscasuporte($conn, $id);
              $("#gestao").removeClass("disabled").attr("disabled", false);
              $("#proximo").removeClass("disabled");
             };};
+            let variavel = "<?=$gestorL_sabe['GESTOR_LOCAL_sABE']?>";
+              if (!variavel == "") {
+                $("#botao").removeClass("disabled").attr("disabled", false);
             //4
              let variavel = "<?=$envio_Pri['ENVIO_SOLICITANTE_PRI']?>";
               if (!variavel == "") {
@@ -382,6 +386,7 @@ $translado = buscasuporte($conn, $id);
                                             $("#botao11").removeClass("disabled").attr("disabled", false);
               } 
               } 
+              }
               }
               }
               }

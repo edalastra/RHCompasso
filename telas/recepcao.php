@@ -45,6 +45,7 @@ $emailsoli = buscavias($conn, $id);
 $inclui = buscaadmissao($conn, $id);
 $receptor = buscagestao($conn, $id);
 $translado = buscasuporte($conn, $id);
+$deacordo = buscaProposta($conn, $id);
 ?>
 
 
@@ -308,12 +309,16 @@ $translado = buscasuporte($conn, $id);
     <script src="../js/filter.js"></script>
     <script>
     window.onload = function verifica() { 
-        //3
+
+        let variavel = "<?=$deacordo['DE_ACORDO_DIRECAO']?>";
+        if (!variavel == "") {
+        $("#botao3").removeClass("disabled").attr("disabled", false);
+
+
         let variavel = "<?=$receptor['RECEPTOR_PESSOA']?>";
         if (!variavel == "") {
             $("#botao3").removeClass("disabled").attr("disabled", false);
             $("#botao4").removeClass("disabled").attr("disabled", false);
-            $("#proximo").removeClass("disabled");
             //4
               let variavel = "<?=$envio_Pri['ENVIO_SOLICITANTE_PRI']?>";
               if (!variavel == "") {
@@ -360,7 +365,8 @@ $translado = buscasuporte($conn, $id);
               }
               }
               }
-            }
+              }
+    }
     </script>
 
 </body>

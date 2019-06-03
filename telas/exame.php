@@ -297,6 +297,9 @@ $emailsoli = buscavias($conn, $id);
             $("#dads").removeClass("disabled").attr("disabled", false);
             $("#proximo").removeClass("disabled");
             return};};
+            let variavel = "<?=$form['FORM_COMPR_BANCARIO']?>";
+              if (!variavel == "") {
+                $("#botao9").removeClass("disabled").attr("disabled", false);
             //10 
             let variavel = "<?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>";
             if (!variavel == "") {
@@ -307,7 +310,8 @@ $emailsoli = buscavias($conn, $id);
                 if (!variavel == "") {
                     $("#botao11").removeClass("disabled").attr("disabled", false);
               } 
-              } 
+              }
+              }
     </script>   
    
 </body>

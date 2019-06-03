@@ -322,11 +322,15 @@ $emailsoli = buscavias($conn, $id);
             $("#intern").removeClass("disabled").attr("disabled", false);
             $("#proximo").removeClass("disabled");
             return};};
+            let variavel = '<?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>';
+            if (!variavel == "") {
+                $("#botao11").removeClass("disabled").attr("disabled", false);
             //11
             let variavel = "<?=$emailsoli['CRACHA_PROTOCOLO']?>";
             if (!variavel == "") {
                 $("#botao11").removeClass("disabled").attr("disabled", false);
               } 
+            }
             
     </script>         
 

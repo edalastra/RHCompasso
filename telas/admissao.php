@@ -305,6 +305,9 @@ $translado = buscasuporte($conn, $id);
             $("#exam").removeClass("disabled").attr("disabled", false);;
             $("#proximo").removeClass("disabled");
             return};};
+            let variavel = "<?=$anexar['ANEXAR_ASO']?>";
+              if (!variavel == "") {
+                $("#botao8").removeClass("disabled").attr("disabled", false);
             //8
             let variavel = "<?=$form['FORM_COMPR_BANCARIO']?>";
             if (!variavel == "") {
@@ -325,7 +328,8 @@ $translado = buscasuporte($conn, $id);
               } 
               } 
               }
-            }
+              }
+              }
         
     </script>   
 
