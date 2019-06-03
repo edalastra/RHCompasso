@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+require_once('../validacoes/login/user.php');
     include("../db/conexao.php");
     include("../update.php");
 
@@ -55,6 +57,7 @@ $funcionario = buscagestao($conn, $id);
             <a class='nav inicio' href='menuPrincipal.php'>Início</a>
             <div class="dropdown">
             <a class="dropbtn nav">Emails <span class='caret'></span></a>
+            <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
             <div class="dropdown-content">
                 <a href='../emails/body-email/admissaoPOA.php?id=<?php echo $id?>'>5. Documentos Admissão POA</a>
                 <a href='../emails/body-email/admissãoRG.php?id=<?php echo $id?>'>5.1 Documentos Admissão RG</a>
