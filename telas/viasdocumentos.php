@@ -151,8 +151,8 @@ $docreceb = buscavias($conn, $id);
                         <th>Status</th>
                         <th colspan = '3'>Crachá + Cordão + Roller</th>
                         <th colspan='2'>E-mail Adm Caderno Compasso </th>
-                        <th>Malote (Caderno) + CTPS (Controle RH)</th>
-                        <th>Recebido após assinatura Escanear Docs e Salvar na Pasta</th>
+                        <th>Malote (Caderno) + <br/>CTPS (Controle RH)</th>
+                        <th>Recebido após assinatura Escanear Docs e<br/> Salvar na Pasta</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -180,7 +180,7 @@ $docreceb = buscavias($conn, $id);
                             <td><?php echo $rows_dados['EMAIL_CADERNO_COMPASSO_RECEBIDO']; ?></td>
                             <td><?php echo $rows_dados['MALOTE_CADERNO_COMPASSO_CTPS']; ?></td>
                             <td><?php echo $rows_dados['DOCUMENTOS_RECEBIDOS_ASSINADOS']; ?></td>
-                            <td><a title="Boas Vindas" href='recepcao.php' class='intable'>Proximo</td>
+                            <td><a title="Boas Vindas" href='recepcao.php' class="btn btn-default">Próximo</td>
                             <td><button ttile="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
                     <?php } ?>

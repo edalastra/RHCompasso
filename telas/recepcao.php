@@ -187,7 +187,7 @@ $deacordo = buscaProposta($conn, $id);
                             <td><?php echo $rows_dados['BOAS_VINDA_ACOMPANHAMENTO_MENSAL']; ?></td>
                             <td><?php echo $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL']; ?></td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
-                            <td><form method="post" action="../alteraTelas/altera-finalizado.php"><input title="Altera STATUS p/ Finalizado" type="submit" value="Finalizar" class=" btn btn-default"></form></td>
+                            <td><form method="post" action="../alteraTelas/altera-finalizado.php"><input title="Altera STATUS p/ Finalizado" type="submit" value="Finalizar" class="btn btn-default"></form></td>
                         </tr>
                     <?php } ?>
 

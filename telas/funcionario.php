@@ -176,7 +176,7 @@ $translado = buscasuporte($conn, $id);
                         <th>Status</th>
                         <th>Proposta Recebida</th>
                         <th>De acordo Direção</th>
-                        <th width = '220px'>Enquadramento(Validação Ex Funcionário)</th>
+                        <th width = '220px'>Enquadramento<br/>(Validação Ex Funcionário)</th>
                         <th>Envio da Proposta</th>
                         <th>Comunicar proposta enviada Solicitante</th>
                         <th>Aceite/recusa candidato</th>
@@ -201,14 +201,13 @@ $translado = buscasuporte($conn, $id);
 							<td><?php echo $rows_dados['COMUNICAR_STATUS']; ?></td>
                             <td><?php echo $rows_dados['PROJETO']; ?></td>
                             <?php unset($_GET['id']); ?>
-                            <td><a title="Gestão" id="proximo" class="disabled" href="gestao.php"> Próximo </td>
+                            <td><a title="Gestão" id="proximo" class="disabled btn btn-default" href="gestao.php"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
                     <?php  } ?>
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="/RHCompasso/alteraTelas/altera-proposta.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
-
                             <td><select class='intable' name="STATUS" ><option value='<?=$status['STATUS']?>' selected= "selected"><?=$status['STATUS']?></option>
                             <option value = "AGUARDAR ACEITE">AGUARDAR ACEITE</option>
                             <option value="FINALIZADO">FINALIZADO</option>

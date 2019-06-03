@@ -155,6 +155,8 @@ $translado = buscasuporte($conn, $id);
                         <th></th>
                         <th colspan = '3'>1°Alerta Vencimento 45 dias</th>
                         <th colspan = '3'>2°Alerta Vencimetno 90 dias</th>
+                        <th></th>
+                        <th></th>
 
                     </tr>
                     <tr>
@@ -179,7 +181,7 @@ $translado = buscasuporte($conn, $id);
                             <td><?php echo $rows_dados['ENVIO_SOLICITANTE_SEG']; ?></td>
                             <td><?php echo $rows_dados['DATA_VENCIMENTO_SEG']; ?></td>
                             <td><?php echo $rows_dados['EFETIVACAO']; ?></td>
-                            <td><a title="Vencimentos Contratos" id="proximo" class="disabled" href="documentacao.php"> Próximo </td>
+                            <td><a title="Vencimentos Contratos" id="proximo" class="disabled btn btn-default" href="documentacao.php"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
 
 

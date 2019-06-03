@@ -168,7 +168,7 @@ $translado = buscasuporte($conn, $id);
                         <th></th>
                         <th>Formulários Enviados</th>
                         <th>Formulários Recebidos</th>
-                        <th>Cópia RG/CPF/PIS/Titulo  Eleitor/Declaração Oracle/Foto 3x4/Comprovante endereço</th>
+                        <th>Cópia RG/CPF/PIS/Titulo Eleitor/<br/>Declaração Oracle/Foto 3x4/<br/>Comprovante endereço</th>
                         <th>CTPS Recebida</th>
                         <th></th>
                         <th></th>
@@ -182,7 +182,7 @@ $translado = buscasuporte($conn, $id);
                         <td><?php echo $rows_dados['FORMULARIOS_RECEBIDOS']; ?></td>
                         <td><?php echo $rows_dados['DOCUMENTOS_FISICOS']; ?></td>
                         <td><?php echo $rows_dados['CTPS_RECEBIDA']; ?></td>
-                        <td><a title="Plataforma Admissão Domínio Dados + Fichas de Cadastro" id="proximo" class="disabled" href="admissao.php"> Próximo </td>
+                        <td><a title="Plataforma Admissão Domínio Dados + Fichas de Cadastro" id="proximo" class="disabled btn btn-default" href="admissao.php"> Próximo </td>
                         <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                     </tr>
                     <?php } ?>

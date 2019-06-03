@@ -160,8 +160,8 @@ $translado = buscasuporte($conn, $id);
                     <tr>
                         <th>Status</th>
                         <th>Qualificação Cadastral e CEP</th>
-                        <th>Cadastrada Admissão Plataforma Domínio</th>
-                        <th>Documentos Recebidos Plataforma Domínio + Validação  CBO</th>
+                        <th>Cadastrada Admissão<br/> Plataforma Domínio</th>
+                        <th>Documentos Recebidos Plataforma<br/> Domínio + Validação  CBO</th>
                         <th>Termo PSI</th>
                         <th>Incluir Admissão na Provisória</th>
                         <th></th>
@@ -177,7 +177,7 @@ $translado = buscasuporte($conn, $id);
                             <td><?php echo $rows_dados['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO']; ?></td>
                             <td><?php echo $rows_dados['TERMO_PSI']; ?></td>
                             <td><?php echo $rows_dados['INCLUI_ADM_PROV']; ?></td>
-                            <td><a title="Exame Admissional" id="proximo" class="disabled" href="exame.php"> Próximo </td>
+                            <td><a title="Exame Admissional" id="proximo" class="disabled btn btn-default" href="exame.php"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
 
                         </tr>

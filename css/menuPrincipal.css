@@ -4,7 +4,7 @@
 
 .menu-inicial {
     margin-top: 6em;
-    background-color: rgb(72,139,244);
+    background-color:rgb(50, 66, 114);
     margin-left: 1.5%;
     width: 97%;
     height: 10%;
@@ -113,7 +113,7 @@ a.disabled {
   }
   
   .dropdown:hover .dropbtn {
-    background-color: rgb(128, 173, 247);
+    background-color: rgb(66, 79, 117);
   }
 .filter{
     position:absolute;
@@ -144,7 +144,7 @@ a.disabled {
 .nav:hover,
 .navegacao-site:focus {
     color:#fff; 
-    background-color: rgb(128, 173, 247);
+    background-color: rgb(66, 79, 117);
     text-decoration: none;
     cursor: pointer;
 }
@@ -158,12 +158,12 @@ img {
 
 
 .site-header {
-    background-color: rgb(72, 139, 244);
+    background-color: rgb(50, 66, 114);
     box-shadow: 0 0 .5em black;
     background-image: linear-gradient(to left, #fff, white 100% );
     background-size: 75% 100%;
     background-repeat: no-repeat;
-    border-bottom: .2em solid rgb(72, 139, 244);   
+    border-bottom: .2em solid rgb(50, 66, 114);;   
 }
 .site-header {
     display: block;
@@ -244,7 +244,7 @@ h3{
 .container{overflow:auto; } /* limitando altura do box */
 .container::-webkit-scrollbar { width:10px; background:#e3e0d6; } /* configurando scroll */
 .container::-webkit-scrollbar-track { border-radius: 10px; background: rgba(202, 210, 255, 0.726); }
-.container::-webkit-scrollbar-thumb { border-radius:10px; background: rgb(72, 139, 244);  }
+.container::-webkit-scrollbar-thumb { border-radius: 10px; background: rgb(50, 66, 114);  }
 
 .legendas{
     text-align: center;
@@ -276,19 +276,20 @@ h3{
 }
 td, th {
     height: 40px;
-	border: 1.2px solid rgb(39, 99, 196);
+	border: 2px solid rgb(192, 192, 192) !important;
     text-align: center;
     white-space: pre-wrap;
     vertical-align: middle;
 
 }
 
-tr:nth-child(even) {background: #FFF}
-tr:nth-child(odd) {background: #EEE}
+tr:nth-child(even) {background: rgba(126, 150, 224, 0.43)}
+tr:nth-child(odd) {background:white;}
 
 th{
     font-weight: bold;
-    background-color: rgb(129, 174, 247);
+    background-color: rgb(50, 66, 114);
+    color: white;
 }
 .intable{
     white-space: nowrap;
