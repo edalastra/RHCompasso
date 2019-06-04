@@ -487,34 +487,34 @@ if (isset($_POST['botaoVolta'])) {
                     </div>
                 </div>
             </div>
-            <table id='first-table'>
+            <table class="table table-bordered" id='first-table'>
                 <h2 id='titulo-table'></h2>
                 <thead>
                     <tr>
-                        <th width='150px'>Status</th>
-                        <th width='60px'>Sede</th>
-                        <th width='60px'>Tipo</th>
-                        <th width='100px'>Captação</th>
-                        <th width='150px'>Carga Horária (em horas)</th>
-                        <th width='150px'>Horário</th>
-                        <th width='200px'>Nome</th>
-                        <th width='200px'>Sexo</th>
-                        <th width='150px'>Fone</th>
-                        <th width='200px'>Cargo</th>
-                        <th width='110px'>Controle Data Admissão</th>
-                        <th width='100px'>Remuneração Base</th>
-                        <th width='100px'>Gratificação</th>
-                        <th width='100px'>Remuneração Total</th>
-                        <th width='200px'>Solicitante</th>
-                        <th width='150px'>Cliente</th>
-                        <th width='150px'>Projeto</th>
-                        <th width='330px'>Email</th>
-                        <th width='110px'>Data Admissão</th>
-                        <th width='110px'>Posição(Data)</th>
-                        <th width='200px'>Posição(Comentários)</th>
-                        <th width='200px'>Administrativo + Flyback - Hotel</th>
-                        <th width='150px'></th>
-                        <th width='100px'></th>
+                        <th scope="col" width='150px'>Status</th>
+                        <th scope="col" width='60px'>Sede</th>
+                        <th scope="col" width='60px'>Tipo</th>
+                        <th scope="col" width='150px'>Captação</th>
+                        <th scope="col" width='150px'>Carga Horária<br/>(em horas)</th>
+                        <th scope="col" width='150px'>Horário</th>
+                        <th scope="col" width='200px'>Nome</th>
+                        <th scope="col" width='200px'>Sexo</th>
+                        <th scope="col" width='150px'>Fone</th>
+                        <th scope="col" width='200px'>Cargo</th>
+                        <th scope="col" width='110px'>Controle Data Admissão</th>
+                        <th scope="col" width='120px'>Remuneração Base</th>
+                        <th scope="col" width='100px'>Gratificação</th>
+                        <th scope="col" width='120px'>Remuneração Total</th>
+                        <th scope="col" width='200px'>Solicitante</th>
+                        <th scope="col" width='150px'>Cliente</th>
+                        <th scope="col" width='150px'>Projeto</th>
+                        <th scope="col" width='330px'>Email</th>
+                        <th scope="col" width='110px'>Data Admissão</th>
+                        <th scope="col" width='100px'>Posição<br/>(Data)</th>
+                        <th scope="col" width='200px'>Posição<br/>(Comentários)</th>
+                        <th scope="col" width='200px'>Administrativo + Flyback <br/> - Hotel</th>
+                        <th scope="col" width='150px'></th>
+                        <th scope="col" width='100px'></th>
                     </tr>
                 </thead>
                     <tbody>
@@ -522,7 +522,7 @@ if (isset($_POST['botaoVolta'])) {
                     if($resultado){
                     while($rows_dados = mysqli_fetch_assoc($resultado)){ ?>
                     <?php $SOMA = $rows_dados['REMUNERACAO_BASE'] + $rows_dados['GRATIFICACAO'];?>
-                        <tr>
+                        <tr style="vertical-align: right !important;">
                             <td><?php echo $rows_dados['STATUS'];?></td>
                             <td><?php echo $rows_dados['NOME_SEDE']; ?></td>
                             <td><?php echo $rows_dados['NOME_TIPO']; ?></td>
@@ -545,9 +545,9 @@ if (isset($_POST['botaoVolta'])) {
                             <td><?php echo $rows_dados['POSICAO_DATA']; ?></td>
                             <td><?php echo $rows_dados['POSICAO_COMENTARIO']; ?></td>
                             <td><?php echo $rows_dados['ADMINISTRATIVO']; ?></td>
-                            <td><a title="Proposta de Contratação" href='funcionario.php?id=<?php echo $rows_dados['USUARIO_ID']; ?>'> Ver Detalhes  </td>
+                            <td><a title="Proposta de Contratação" class="btn btn-default" href='funcionario.php?id=<?php echo $rows_dados['USUARIO_ID']; ?>'> Ver Detalhes  </td>
                             <td><a title="Editar" href="../alteraTelas/altera-form.php?id=<?=$rows_dados['USUARIO_ID']?>" type="button" class="btn btn-default">Editar</span></a></td>
-                        </tr>
+                        </td>
                     <?php
                 }} ?>
 
@@ -587,13 +587,13 @@ if (isset($_POST['botaoVolta'])) {
                             <td id='add-posicao_comentario'><input class='intable' type="text" name="posicao_comentario" required></td>
                             <td id='add-administrativo'><input class='intable' type="text" name="administrativo" required></td>
                             <td id='add-administrativo'></td>
-                            <td><button title= "Salvar" type="submit" value="salva" class="botao-salvar btn btn-default" action="#">Salvar</button></td>
+                            <td><button title= "Salvar" type="submit" value="salva" class="btn btn-default" action="#">Salvar</button></td>
                         </form>
                     </tr>
                 </tbody>
             </table>
             <section>
-                <a title="Exportar telas p/Excel" name = "botao" href="../TabelasExcel/ExcelPaginas.php" class="botao btn btn-default btn-xs btn-filter campo-filter">EXPORTAR P/ EXCEL</a>
+                <a title="Exportar telas p/Excel" name = "botao" href="../TabelasExcel/ExcelPaginas.php" class="btn btn-default">Exportar para Excel</a>
             </section>
 
         </section>
@@ -601,8 +601,8 @@ if (isset($_POST['botaoVolta'])) {
                 <h2 class="titulo">Legendas</h2>
                 <table id='table-legendas'>
                     <tr class='tb2'>
-                        <th class='tb2'>STATUS</th>
-                        <th class='tb2'>TIPO</th>
+                        <th scope="col" class='tb2'>STATUS</th>
+                        <th scope="col" class='tb2'>TIPO</th>
                     </tr>
                     <tr class='tb2'>
                         <td class='tb2'>AGUARDAR ACEITE</td>
@@ -655,7 +655,7 @@ if (isset($_POST['botaoVolta'])) {
                 </table>
                 <table class='legendas-sedes'>
                 <tr>
-                    <th class='tb2'>SEDE</th>
+                    <th scope="col" class='tb2'>SEDE</th>
                 </tr>
                 <?php foreach ($listar as $linha):?>
                 <tr><td class='tb2'><?php echo $linha['NOME_SEDE']?></td></tr>
@@ -663,8 +663,8 @@ if (isset($_POST['botaoVolta'])) {
                 </table>
                 <table class='legendas-tipos'>
                     <tr>
-                        <th class='tb2'>TIPO</th>
-                        <th class='tb2'>COMENTÁRIOS</th>
+                        <th scope="col" class='tb2'>TIPO</th>
+                        <th scope="col" class='tb2'>COMENTÁRIOS</th>
                     </tr>
                     <tr>
                         <td class='tb2'>CLT</td>
@@ -689,7 +689,7 @@ if (isset($_POST['botaoVolta'])) {
                 </table>
                 <table class='legendas-sedes'>
                     <tr>
-                        <th class='tb2'>Captação</th>
+                        <th scope="col" class='tb2'>Captação</th>
                     </tr>
                     <tr>
                         <td class='tb2'>Novo</td>

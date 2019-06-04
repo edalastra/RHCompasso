@@ -11,6 +11,9 @@
     display: table-row;
 }
 
+.center-row{
+    vertical-align: center !important;
+}
 .stepwizard {
     display: table;
     width: 1565px;
@@ -22,7 +25,7 @@
 }
 .stepwizard .btn.disabled, .stepwizard .btn[disabled], .stepwizard fieldset[disabled] .btn {
     opacity:1 !important;
-    color:rgba(97, 141, 211, 0.801);
+    color:rgb(209, 209, 209);
 }
 .stepwizard-row:before {
     top: 2.4em;
@@ -31,8 +34,13 @@
     content:"  ";
     width: 1565px;
     height: 2px;
-    background-color: rgb(69, 131, 231);
+    background-color: rgb(50, 66, 114);
     z-index: 0;
+}
+
+.botao {
+    background-color: #324272;
+    color: white;
 }
 
 .stepwizard-row1:before {
@@ -42,7 +50,7 @@
     content:"  ";
     width: 1565px;
     height: 2px;
-    background-color: rgb(69, 131, 231);
+    background-color: rgb(50, 66, 114);
     z-index: 0;
 }
 
@@ -60,32 +68,33 @@
     font-size: 1em;
     line-height: 1.428571429;
     border-radius: 100%;
+    color: black;
 }
 
 .btn-success {
     color: #fff;
-    background-color: rgb(39, 99, 196);
-    border-color: rgb(39, 99, 196);
+    background-color: rgb(50, 66, 114);
+    border-color: rgb(50, 66, 114);
 }
 .btn-circle:focus,
 btn-circle.focus{
     color: white;
-    background-color: #06457c;
-    border-color: rgb(39, 99, 196);
+    background-color: rgb(50, 66, 114);
+    border-color: rgb(50, 66, 114);
 }
 
 .btn-success:hover {
     color: #fff;
-    background-color: rgb(16, 75, 172);
-    border-color: rgb(39, 99, 196);
+    background-color: rgb(50, 66, 114);
+    border-color: rgb(50, 66, 114);
 }
 .btn-success.active.focus, .btn-success.active:focus, .btn-success.active:hover, .btn-success:active.focus, .btn-success:active:focus, .btn-success:active:hover, .open>.dropdown-toggle.btn-success.focus, .open>.dropdown-toggle.btn-success:focus, .open>.dropdown-toggle.btn-success:hover {
     color: #fff;
-    background-color: #075597;
-    border-color: rgb(39, 99, 196);
+    background-color: rgb(50, 66, 114);
+    border-color: rgb(50, 66, 114);
 }
 .btn-success.active, .btn-success:active, .open>.dropdown-toggle.btn-success {
     color: #fff;
-    background-color: #075597;
-    border-color: rgb(39, 99, 196);
+    background-color: rgb(50, 66, 114);
+    border-color: rgb(50, 66, 114);
 }

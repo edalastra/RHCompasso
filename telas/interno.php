@@ -168,7 +168,7 @@ $acessos = buscainterno($conn, $id);
                         <th>Cadastro Usuário</th>
                         <th>Código/Senha</th>
                         <th>Gestor + Apoio Sede</th>
-                        <th>E-mail Início das Atividades</th>
+                        <th>E-mail Início<br/> das Atividades</th>
                         <th>E-mail Boas Vindas</th>
                         <th></th>
                         <th></th>
@@ -187,7 +187,7 @@ $acessos = buscainterno($conn, $id);
                         <td><?php echo $rows_dados['EMAIL_INICIO_ATIVIDADES']; ?></td>
                         <td><?php echo $rows_dados['EMAIL_BOAS_VINDAS']; ?></td>
                         <td><?php echo $rows_dados['ACESSOS']; ?></td>
-                        <td><a title="Vias Documentos Funcionários" id="proximo" class="disabled" href="viasdocumentos.php"> Próximo </td>
+                        <td><a title="Vias Documentos Funcionários" id="proximo" class="disabled btn btn-default" href="viasdocumentos.php"> Próximo </td>
                         <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                     </tr>
                     <?php } ?>

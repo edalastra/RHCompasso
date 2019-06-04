@@ -172,7 +172,7 @@ $emailsoli = buscavias($conn, $id);
                             <td><?php echo $rows_dados['ENVIO_FUNC_EXAME']; ?></td>
                             <td><?php echo $rows_dados['EMAIL_RECEBIDO_EXAM']; ?></td>
                             <td><?php echo $rows_dados['ANEXAR_ASO']; ?></td>
-                            <td><a title= "Dados Bancáriso" id="proximo" class="disabled" href="bancarios.php"> Próximo </td>
+                            <td><a title= "Dados Bancáriso" id="proximo" class="disabled btn btn-default" href="bancarios.php"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
                     <?php } ?>

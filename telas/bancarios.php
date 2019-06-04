@@ -162,7 +162,7 @@ $translado = buscasuporte($conn, $id);
                         <th width='200px'>Status</th>
                         <th>Envio</th>
                         <th>Recebido</th>
-                        <th>Anexar comprovante na Domínio</th>
+                        <th>Anexar comprovante<br/> no Domínio</th>
                         <th>Planilha de Contas</th>
                         <th>Formulário + Comprovante Bancário</th>
                         <th>Agência (Bancária)</th>
@@ -184,7 +184,7 @@ $translado = buscasuporte($conn, $id);
                             <td><?php echo $rows_dados['AGENCIA'];?></td>
                             <td><?php echo $rows_dados['NUMERO_CONTA'];?></td>
                             <td><?php echo $rows_dados['TIPO_CONTA'];?></td>
-                            <td><a title="Suporte Interno" id="proximo" class="disabled" href="suporteinterno.php"> Próximo </td>
+                            <td><a title="Suporte Interno" id="proximo" class="disabled btn btn-default" href="suporteinterno.php"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
                     <?php } ?>
