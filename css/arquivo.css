@@ -43,6 +43,12 @@
     color: white;
 }
 
+.botaos {
+    right: 460px;
+    top: 514px;
+    position: absolute;
+}
+
 .stepwizard-row1:before {
     top: 2.4em;
     bottom: 0;

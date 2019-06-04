@@ -181,7 +181,6 @@ $translado = buscasuporte($conn, $id);
                 <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                     <tr>
                         <td><?=$status['STATUS']?></td>
-
                         <td id="data"><?php echo $rows_dados['FORMULARIOS_ENVIADOS']; ?></td>
                         <td id="data2"><?php echo $rows_dados['FORMULARIOS_RECEBIDOS']; ?></td>
                         <td id="data3"><?php echo $rows_dados['DOCUMENTOS_FISICOS']; ?></td>

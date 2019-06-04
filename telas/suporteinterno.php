@@ -4,6 +4,7 @@ session_start();
 include("../db/conexao.php");
 include("../update.php");
 include("../emails/defineNomeDoGrupoDeEmail.php");
+include("../phpFunctions/gerarSenha.php");
 
 $listar = listar($conn);
 
@@ -190,13 +191,13 @@ $emailsoli = buscavias($conn, $id);
                             <td><?=$status['STATUS']?></td>
                             <td><?php echo $rows_dados['EMAIL_SUP']; ?></td>
                             <td><?php echo $rows_dados['USUARIO']; ?></td>
-                            <td><?php echo $rows_dados['SENHA']; ?></td>
+                            <td><?php echo $rows_dados['SENHA'];?><input type="button" class="botaos" value="Gerar nova senha" onclick="teste()">
+</td>
                             <td><?php echo $rows_dados['EQUIPAMENTO']; ?></td>
                             <td><?php echo $rows_dados['TRANSLADO']; ?></td>
                             <td><?php echo $rows_dados['GRUPOS_DE_EMAIL']; ?></td>
-                            <td><a title="Interno" id="proximo" class="  btn btn-default" href="interno.php"> Próximo </td>
+                            <td><a title="Interno" id="proximo" class="btn btn-default" href="interno.php"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
-
                         </tr>
                     <?php } ?>
 
@@ -316,6 +317,15 @@ $emailsoli = buscavias($conn, $id);
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
+    <script>
+           function teste(){
+               let senha = "<?php echo generatePassword();?>";
+               let senha4 = "<?php echo generatePassword();?>";
+               let senha3 = "<?php echo generatePassword();?>";
+               let senha2 = "<?php echo generatePassword();?>";
+               alert("<?php echo 'Opções de senhas: \n'.generatePassword().'\n'.generatePassword().'\n'.generatePassword().'\n'.generatePassword();?>");
+           }
+    </script>
 </body>
 
 </html>
