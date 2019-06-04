@@ -181,11 +181,11 @@ $deacordo = buscaProposta($conn, $id);
                     <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                             <tr>
                             <td><?=$status['STATUS']?></td>
-                            <td><?php echo $rows_dados['BOAS_VINDAS_INGR_AGENDADA']; ?></td>
-                            <td><?php echo $rows_dados['BOAS_VINDAS_INGR_REALIZADA']; ?></td>
+                            <td id="data"><?php echo $rows_dados['BOAS_VINDAS_INGR_AGENDADA']; ?></td>
+                            <td id="data2"><?php echo $rows_dados['BOAS_VINDAS_INGR_REALIZADA']; ?></td>
                             <td><?php echo $rows_dados['BOAS_VINDAS_SALA']; ?></td>
-                            <td><?php echo $rows_dados['BOAS_VINDA_ACOMPANHAMENTO_MENSAL']; ?></td>
-                            <td><?php echo $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL']; ?></td>
+                            <td id="data3"><?php echo $rows_dados['BOAS_VINDA_ACOMPANHAMENTO_MENSAL']; ?></td>
+                            <td id="data4"><?php echo $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL']; ?></td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                             <td><form method="post" action="../alteraTelas/altera-finalizado.php"><input title="Altera STATUS p/ Finalizado" type="submit" value="Finalizar" class="btn btn-default"></form></td>
                         </tr>
@@ -195,11 +195,11 @@ $deacordo = buscaProposta($conn, $id);
                         <form  method="POST" action="../alteraTelas/altera-recepcao.php">
                             <input type='hidden' name="ID_USUARIO" value ="<?=$funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly type='text' name="STATUS" value="<?=$status['STATUS'];?>"></td>
-                            <td><input class='intable' type='date' name='BOAS_VINDAS_INGR_AGENDADA' required value="<?=$boasVindasIntegrAgendada['BOAS_VINDAS_INGR_AGENDADA']?>"></td>
-                            <td><input class='intable' type='date' name='BOAS_VINDAS_INGR_REALIZADA' required value="<?=$boasVindasIntegrRealizada['BOAS_VINDAS_INGR_REALIZADA']?>"></td>
-                            <td><input class='intable' type='text' name='BOAS_VINDAS_SALA' required value="<?=$boasVindasSala['BOAS_VINDAS_SALA']?>"></td>
-                            <td><input class='intable' type='date' name='BOAS_VINDA_ACOMPANHAMENTO_MENSAL' required value="<?=$boasVindasAcomp['BOAS_VINDA_ACOMPANHAMENTO_MENSAL']?>"></td>
-                            <td><input class='intable' type='date' name='LAYOUT_BOAS_VINDAS_MENSAL' required value="<?=$layoutBoasVindas['LAYOUT_BOAS_VINDAS_MENSAL']?>"></td>
+                            <td><input class='intable' id="campo" type='date' name='BOAS_VINDAS_INGR_AGENDADA'  value="<?=$boasVindasIntegrAgendada['BOAS_VINDAS_INGR_AGENDADA']?>"></td>
+                            <td><input class='intable' id="campo2" type='date' name='BOAS_VINDAS_INGR_REALIZADA'  value="<?=$boasVindasIntegrRealizada['BOAS_VINDAS_INGR_REALIZADA']?>"></td>
+                            <td><input class='intable' type='text' name='BOAS_VINDAS_SALA'  value="<?=$boasVindasSala['BOAS_VINDAS_SALA']?>"></td>
+                            <td><input class='intable' id="campo3" type='date' name='BOAS_VINDA_ACOMPANHAMENTO_MENSAL'  value="<?=$boasVindasAcomp['BOAS_VINDA_ACOMPANHAMENTO_MENSAL']?>"></td>
+                            <td><input class='intable' id="campo4" type='date' name='LAYOUT_BOAS_VINDAS_MENSAL'  value="<?=$layoutBoasVindas['LAYOUT_BOAS_VINDAS_MENSAL']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
@@ -309,65 +309,24 @@ $deacordo = buscaProposta($conn, $id);
     <script src="../js/filter.js"></script>
     <script>
     window.onload = function verifica() { 
-
-        let variavel = "<?=$deacordo['DE_ACORDO_DIRECAO']?>";
-        if (!variavel == "") {
-        $("#botao3").removeClass("disabled").attr("disabled", false);
-
-        let variavel = "<?=$receptor['RECEPTOR_PESSOA']?>";
-        if (!variavel == "") {
-            $("#botao3").removeClass("disabled").attr("disabled", false);
-            $("#botao4").removeClass("disabled").attr("disabled", false);
-            //4
-              let variavel = "<?=$envio_Pri['ENVIO_SOLICITANTE_PRI']?>";
-              if (!variavel == "") {
-                $("#botao4").removeClass("disabled").attr("disabled", false);
-                $("#botao5").removeClass("disabled").attr("disabled", false);
-                    //5
-                    let variavel = "<?=$formRec['FORMULARIOS_RECEBIDOS']?>";
-                    if (!variavel == "") {
-                    $("#botao5").removeClass("disabled").attr("disabled", false);
-                    $("#botao6").removeClass("disabled").attr("disabled", false);
-                        //6
-                        let variavel = "<?=$inclui['INCLUI_ADM_PROV']?>";
-                        if (!variavel == "") {
-                        $("#botao6").removeClass("disabled").attr("disabled", false);
-                        $("#botao7").removeClass("disabled").attr("disabled", false);
-                            //7
-                            let variavel = "<?=$anexar['ANEXAR_ASO']?>";
-                            if (!variavel == "") {
-                                $("#botao7").removeClass("disabled").attr("disabled", false);
-                                $("#botao8").removeClass("disabled").attr("disabled", false);
-                                //8
-                                let variavel = "<?=$form['FORM_COMPR_BANCARIO']?>";
-                                if (!variavel == "") {
-                                    $("#botao8").removeClass("disabled").attr("disabled", false);
-                                    $("#botao9").removeClass("disabled").attr("disabled", false);
-                                    let variavel = "<?=$translado['TRANSLADO']?>";
-                                    if (!variavel == "") {
-                                        $("#botao9").removeClass("disabled").attr("disabled", false);
-                                        $("#botao10").removeClass("disabled").attr("disabled", false);
-                                    let variavel = "<?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>";
-                                    if (!variavel == "") {
-                                        $("#botao10").removeClass("disabled").attr("disabled", false);
-                                        $("#botao11").removeClass("disabled").attr("disabled", false);
-                                        //11
-                                        let variavel = "<?=$emailsoli['CRACHA_PROTOCOLO']?>";
-                                        if (!variavel == "") {
-                                            $("#botao11").removeClass("disabled").attr("disabled", false);
-              } 
-              } 
-              }
-              }
-              }
-              }
-              }
-              }
-              }
-              }
+    let variavel = "<?=$deacordo['DE_ACORDO_DIRECAO']?>";
+    if (!variavel == "") {
+    $("#botao3, #botao4, #botao5, #botao6, #botao7, #botao8, #botao9, #botao10, #botao11").removeClass("disabled").attr("disabled", false);
+    }
+        if(document.getElementById("campo").value == ""){
+            $("#data").addClass("dataVazia");
+        } 
+        if(document.getElementById("campo2").value == ""){
+            $("#data2").addClass("dataVazia");
+        }
+        if(document.getElementById("campo3").value == ""){
+            $("#data3").addClass("dataVazia");
+        }
+        if(document.getElementById("campo4").value == ""){
+            $("#data4").addClass("dataVazia");
+        }
     }
     </script>
-
 </body>
 
 </html>

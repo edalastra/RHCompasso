@@ -173,13 +173,13 @@ $docreceb = buscavias($conn, $id);
                 <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                             <tr>
                             <td><?=$status['STATUS']?></td>
-                            <td><?php echo $rows_dados['CRACHA_DATA_PEDIDO']; ?></td>
-                            <td><?php echo $rows_dados['CRACHA_CONTROLE']; ?></td>
-                            <td><?php echo $rows_dados['CRACHA_PROTOCOLO']; ?></td>
-                            <td><?php echo $rows_dados['EMAIL_CADERNO_COMPASSO_SOLICITADO']; ?></td>
-                            <td><?php echo $rows_dados['EMAIL_CADERNO_COMPASSO_RECEBIDO']; ?></td>
-                            <td><?php echo $rows_dados['MALOTE_CADERNO_COMPASSO_CTPS']; ?></td>
-                            <td><?php echo $rows_dados['DOCUMENTOS_RECEBIDOS_ASSINADOS']; ?></td>
+                            <td id="data"><?php echo $rows_dados['CRACHA_DATA_PEDIDO']; ?></td>
+                            <td id="data2"><?php echo $rows_dados['CRACHA_CONTROLE']; ?></td>
+                            <td id="data3"><?php echo $rows_dados['CRACHA_PROTOCOLO']; ?></td>
+                            <td id="data4"><?php echo $rows_dados['EMAIL_CADERNO_COMPASSO_SOLICITADO']; ?></td>
+                            <td id="data5"><?php echo $rows_dados['EMAIL_CADERNO_COMPASSO_RECEBIDO']; ?></td>
+                            <td id="data6"><?php echo $rows_dados['MALOTE_CADERNO_COMPASSO_CTPS']; ?></td>
+                            <td id="data7"><?php echo $rows_dados['DOCUMENTOS_RECEBIDOS_ASSINADOS']; ?></td>
                             <td><a title="Boas Vindas" href='recepcao.php' class="btn btn-default">Próximo</td>
                             <td><button ttile="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
@@ -188,14 +188,14 @@ $docreceb = buscavias($conn, $id);
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-vias.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
-                            <td><input class='intable' readonly name="STATUS" required value='<?=$status['STATUS']?>'></td>
-                            <td><input type='date' class='intable' name="CRACHA_DATA_PEDIDO" required value="<?=$emailsoli['CRACHA_DATA_PEDIDO']?>"></td>
-                            <td><input type='date' class='intable' name="CRACHA_CONTROLE" required value="<?=$emailsoli['CRACHA_CONTROLE']?>"></td>
-                            <td><input type='date' class='intable' name="CRACHA_PROTOCOLO" required value="<?=$emailsoli['CRACHA_PROTOCOLO']?>"></td>
-                            <td><input type='date' class='intable' name="EMAIL_CADERNO_COMPASSO_SOLICITADO" required value="<?=$emailsoli['EMAIL_CADERNO_COMPASSO_SOLICITADO']?>"></td>
-                            <td><input type="date" class='intable' name ="EMAIL_CADERNO_COMPASSO_RECEBIDO" required value="<?=$emailreceb['EMAIL_CADERNO_COMPASSO_RECEBIDO']?>"></td>
-                            <td><input type="date" class='intable' name="MALOTE_CADERNO_COMPASSO_CTPS" required value="<?=$malote['MALOTE_CADERNO_COMPASSO_CTPS']?>"></td>
-                            <td><input type="date" class='intable' name="DOCUMENTOS_RECEBIDOS_ASSINADOS" required value="<?=$docreceb['DOCUMENTOS_RECEBIDOS_ASSINADOS']?>"></td>
+                            <td><input class='intable' readonly name="STATUS"  value='<?=$status['STATUS']?>'></td>
+                            <td><input type='date' id="campo" class='intable' name="CRACHA_DATA_PEDIDO" value="<?=$emailsoli['CRACHA_DATA_PEDIDO']?>"></td>
+                            <td><input type='date' id="campo2" class='intable' name="CRACHA_CONTROLE" value="<?=$emailsoli['CRACHA_CONTROLE']?>"></td>
+                            <td><input type='date' id="campo3" class='intable' name="CRACHA_PROTOCOLO" value="<?=$emailsoli['CRACHA_PROTOCOLO']?>"></td>
+                            <td><input type='date' id="campo4" class='intable' name="EMAIL_CADERNO_COMPASSO_SOLICITADO" value="<?=$emailsoli['EMAIL_CADERNO_COMPASSO_SOLICITADO']?>"></td>
+                            <td><input type="date" id="campo5" class='intable' name ="EMAIL_CADERNO_COMPASSO_RECEBIDO" value="<?=$emailreceb['EMAIL_CADERNO_COMPASSO_RECEBIDO']?>"></td>
+                            <td><input type="date" id="campo6" class='intable' name="MALOTE_CADERNO_COMPASSO_CTPS" value="<?=$malote['MALOTE_CADERNO_COMPASSO_CTPS']?>"></td>
+                            <td><input type="date" id="campo7" class='intable' name="DOCUMENTOS_RECEBIDOS_ASSINADOS" value="<?=$docreceb['DOCUMENTOS_RECEBIDOS_ASSINADOS']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                     </form>
@@ -302,6 +302,31 @@ $docreceb = buscavias($conn, $id);
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
+    <script>
+        window.onload = function verifica() { 
+        if(document.getElementById("campo").value == ""){
+            $("#data").addClass("dataVazia");
+        } 
+        if(document.getElementById("campo2").value == ""){
+            $("#data2").addClass("dataVazia");
+        }
+        if(document.getElementById("campo3").value == ""){
+            $("#data3").addClass("dataVazia");
+        }
+        if(document.getElementById("campo4").value == ""){
+            $("#data4").addClass("dataVazia");
+        }
+        if(document.getElementById("campo5").value == ""){
+            $("#data5").addClass("dataVazia");
+        }
+        if(document.getElementById("campo6").value == ""){
+            $("#data6").addClass("dataVazia");
+        }
+        if(document.getElementById("campo7").value == ""){
+            $("#data7").addClass("dataVazia");
+        }
+    }               
+    </script>    
 
 </body>
 

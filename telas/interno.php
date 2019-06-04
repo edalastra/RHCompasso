@@ -141,7 +141,7 @@ $acessos = buscainterno($conn, $id);
                             <a href="interno.php" type="button" class="btn btn-success btn-circle" >10</a>
                         </div>
                         <div title= "Vias Documentos funcionários" class="stepwizard-step col-md-auto">
-                            <a href="viasdocumentos.php" id="via" type="button" disabled class="btn btn-default btn-circle disabled" >11</a>
+                            <a href="viasdocumentos.php" id="via" type="button"   class="btn btn-default btn-circle  " >11</a>
                         </div>
                         <div title= "Boas Vindas" class="stepwizard-step col-md-auto">
                             <a href="recepcao.php" type="button" class="btn btn-default btn-circle" >12</a>
@@ -179,15 +179,15 @@ $acessos = buscainterno($conn, $id);
                 <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                     <tr>
                         <td><?=$status['STATUS']?></td>
-                        <td><?php echo $rows_dados['INTRANET_CADASTRO_USUARIO']; ?></td>
+                        <td id="data"><?php echo $rows_dados['INTRANET_CADASTRO_USUARIO']; ?></td>
                         <td><?php echo $rows_dados['INTRANET_CADASTRO_SENHA']; ?></td>
-                        <td><?php echo $rows_dados['KAIROS_CADASTRO_USUARIO']; ?></td>
+                        <td id="data2"><?php echo $rows_dados['KAIROS_CADASTRO_USUARIO']; ?></td>
                         <td><?php echo $rows_dados['KAIROS_CADASTRO_SENHA']; ?></td>
-                        <td><?php echo $rows_dados['EMAIL_GESTOR_APOIO_SEDE']; ?></td>
-                        <td><?php echo $rows_dados['EMAIL_INICIO_ATIVIDADES']; ?></td>
-                        <td><?php echo $rows_dados['EMAIL_BOAS_VINDAS']; ?></td>
-                        <td><?php echo $rows_dados['ACESSOS']; ?></td>
-                        <td><a title="Vias Documentos Funcionários" id="proximo" class="disabled btn btn-default" href="viasdocumentos.php"> Próximo </td>
+                        <td id="data3"><?php echo $rows_dados['EMAIL_GESTOR_APOIO_SEDE']; ?></td>
+                        <td id="data4"><?php echo $rows_dados['EMAIL_INICIO_ATIVIDADES']; ?></td>
+                        <td id="data5"><?php echo $rows_dados['EMAIL_BOAS_VINDAS']; ?></td>
+                        <td id="data6"><?php echo $rows_dados['ACESSOS']; ?></td>
+                        <td><a title="Vias Documentos Funcionários" id="proximo" class="  btn btn-default" href="viasdocumentos.php"> Próximo </td>
                         <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                     </tr>
                     <?php } ?>
@@ -195,14 +195,14 @@ $acessos = buscainterno($conn, $id);
                         <form method="POST" action="../alteraTelas/altera-interno.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
-                            <td><input type='date' class='intable' name="INTRANET_CADASTRO_USUARIO" required value="<?=$intranetusu['INTRANET_CADASTRO_USUARIO']?>"></td>
+                            <td><input type='date' id="campo" class='intable' name="INTRANET_CADASTRO_USUARIO"  value="<?=$intranetusu['INTRANET_CADASTRO_USUARIO']?>"></td>
                             <td><input type="text" class='intable' name ="INTRANET_CADASTRO_SENHA" value="<?=$intranetsen['INTRANET_CADASTRO_SENHA']?>"></td>
-                            <td><input type="date" class='intable' name="KAIROS_CADASTRO_USUARIO" required value="<?=$kairosusu['KAIROS_CADASTRO_USUARIO']?>"></td>
+                            <td><input type="date" id="campo2" class='intable' name="KAIROS_CADASTRO_USUARIO"  value="<?=$kairosusu['KAIROS_CADASTRO_USUARIO']?>"></td>
                             <td><input type="text" class='intable' name="KAIROS_CADASTRO_SENHA" value="<?=$kairossen['KAIROS_CADASTRO_SENHA']?>"></td>
-                            <td><input type="date" class='intable' name="EMAIL_GESTOR_APOIO_SEDE" required value='<?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>'></td>
-                            <td><input type='date' class='intable' name="EMAIL_INICIO_ATIVIDADES" required value="<?=$emailinic['EMAIL_INICIO_ATIVIDADES']?>"></td>
-                            <td><input class='intable' type="date" name="EMAIL_BOAS_VINDAS" required value='<?=$emailboas['EMAIL_BOAS_VINDAS']?>'></td>
-                            <td><input type='date' id="campo" class='intable' name="ACESSOS" required value="<?=$acessos['ACESSOS']?>"></td>
+                            <td><input type="date" id="campo3" class='intable' name="EMAIL_GESTOR_APOIO_SEDE"  value='<?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>'></td>
+                            <td><input type='date' id="campo4" class='intable' name="EMAIL_INICIO_ATIVIDADES"  value="<?=$emailinic['EMAIL_INICIO_ATIVIDADES']?>"></td>
+                            <td><input class='intable' id="campo5" type="date" name="EMAIL_BOAS_VINDAS"  value='<?=$emailboas['EMAIL_BOAS_VINDAS']?>'></td>
+                            <td><input type='date' id="campo6" class='intable' name="ACESSOS"  value="<?=$acessos['ACESSOS']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
@@ -311,12 +311,27 @@ $acessos = buscainterno($conn, $id);
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
     <script>
-    window.onload = function verifica() { 
-        if (!document.getElementById("campo").value == "") {
-             $("#via").removeClass("disabled").attr("disabled", false);
-             $("#proximo").removeClass("disabled");
-             return}};
-    </script>                  
+        window.onload = function verifica() { 
+        if(document.getElementById("campo").value == ""){
+            $("#data").addClass("dataVazia");
+        } 
+        if(document.getElementById("campo2").value == ""){
+            $("#data2").addClass("dataVazia");
+        }
+        if(document.getElementById("campo3").value == ""){
+            $("#data3").addClass("dataVazia");
+        }
+        if(document.getElementById("campo4").value == ""){
+            $("#data4").addClass("dataVazia");
+        }
+        if(document.getElementById("campo5").value == ""){
+            $("#data5").addClass("dataVazia");
+        }
+        if(document.getElementById("campo6").value == ""){
+            $("#data6").addClass("dataVazia");
+        }
+    }               
+    </script>          
 </body>
 
 </html>

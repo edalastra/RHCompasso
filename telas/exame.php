@@ -134,16 +134,16 @@ $emailsoli = buscavias($conn, $id);
                                 <a href="exame.php" type="button" class="btn btn-success btn-circle" >7</a>
                             </div>
                             <div title= "Dados Bancários" class="stepwizard-step col-md-auto">
-                                <a href="bancarios.php" id="dads" type="button" disabled class="btn btn-default btn-circle disabled" >8</a>
+                                <a href="bancarios.php" id="dads" type="button"   class="btn btn-default btn-circle  " >8</a>
                             </div>
                             <div title= "Suporte Interno" class="stepwizard-step col-md-auto">
-                                <a href="suporteinterno.php" type="button" id="botao9" disabled class="btn btn-default btn-circle disabled" >9</a>
+                                <a href="suporteinterno.php" type="button" id="botao9"   class="btn btn-default btn-circle  " >9</a>
                             </div>
                             <div title = "Interno" class="stepwizard-step col-md-auto">
-                                <a href="interno.php" type="button" disabled id="botao10" class="btn btn-default btn-circle disabled" >10</a>
+                                <a href="interno.php" type="button"   id="botao10" class="btn btn-default btn-circle  " >10</a>
                             </div>
                             <div title= "Vias Documentos funcionários" class="stepwizard-step col-md-auto">
-                                <a href="viasdocumentos.php" type="button" disabled id="botao11" class="btn btn-default btn-circle disabled" >11</a>
+                                <a href="viasdocumentos.php" type="button"   id="botao11" class="btn btn-default btn-circle  " >11</a>
                             </div>
                             <div title= "Boas Vindas" class="stepwizard-step col-md-auto">
                                 <a href="recepcao.php" type="button" class="btn btn-default btn-circle" >12</a>
@@ -168,11 +168,11 @@ $emailsoli = buscavias($conn, $id);
                 <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
                             <td><?=$status['STATUS']?></td>
-                            <td><?php echo $rows_dados['AGENDAMENTO_EXAM_ADM']; ?></td>
-                            <td><?php echo $rows_dados['ENVIO_FUNC_EXAME']; ?></td>
-                            <td><?php echo $rows_dados['EMAIL_RECEBIDO_EXAM']; ?></td>
-                            <td><?php echo $rows_dados['ANEXAR_ASO']; ?></td>
-                            <td><a title= "Dados Bancáriso" id="proximo" class="disabled btn btn-default" href="bancarios.php"> Próximo </td>
+                            <td id="data"><?php echo $rows_dados['AGENDAMENTO_EXAM_ADM']; ?></td>
+                            <td id="data2"><?php echo $rows_dados['ENVIO_FUNC_EXAME']; ?></td>
+                            <td id="data3"><?php echo $rows_dados['EMAIL_RECEBIDO_EXAM']; ?></td>
+                            <td id="data4"><?php echo $rows_dados['ANEXAR_ASO']; ?></td>
+                            <td><a title= "Dados Bancáriso" id="proximo" class="  btn btn-default" href="bancarios.php"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
                     <?php } ?>
@@ -180,10 +180,10 @@ $emailsoli = buscavias($conn, $id);
                         <form method="POST" action="../alteraTelas/altera-exame.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
-                            <td><input type='date' class='intable' name="AGENDAMENTO_EXAM_ADM" required value="<?=$agend['AGENDAMENTO_EXAM_ADM']?>"></td>
-                            <td><input type="date" class='intable' name ="ENVIO_FUNC_EXAME" required value="<?=$envio['ENVIO_FUNC_EXAME']?>"></td>
-                            <td><input type="date" class='intable' name="EMAIL_RECEBIDO_EXAM" required value="<?=$email['EMAIL_RECEBIDO_EXAM']?>"></td>
-                            <td><input type="date" class='intable' id="campo" name="ANEXAR_ASO" required value="<?=$anexar['ANEXAR_ASO']?>"></td>
+                            <td><input type='date' id="campo" class='intable' name="AGENDAMENTO_EXAM_ADM"  value="<?=$agend['AGENDAMENTO_EXAM_ADM']?>"></td>
+                            <td><input type="date" id="campo2" class='intable' name ="ENVIO_FUNC_EXAME"  value="<?=$envio['ENVIO_FUNC_EXAME']?>"></td>
+                            <td><input type="date" id="campo3" class='intable' name="EMAIL_RECEBIDO_EXAM"  value="<?=$email['EMAIL_RECEBIDO_EXAM']?>"></td>
+                            <td><input type="date" id="campo4" class='intable' id="campo" name="ANEXAR_ASO"  value="<?=$anexar['ANEXAR_ASO']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
@@ -292,27 +292,21 @@ $emailsoli = buscavias($conn, $id);
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
     <script>
-    window.onload = function verifica() { 
-        if (!document.getElementById("campo").value == "") {
-            $("#dads").removeClass("disabled").attr("disabled", false);
-            $("#proximo").removeClass("disabled");
-            return};};
-            let variavel = "<?=$form['FORM_COMPR_BANCARIO']?>";
-              if (!variavel == "") {
-                $("#botao9").removeClass("disabled").attr("disabled", false);
-            //10 
-            let variavel = "<?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>";
-            if (!variavel == "") {
-                $("#botao10").removeClass("disabled").attr("disabled", false);
-                $("#botao11").removeClass("disabled").attr("disabled", false);
-                //11
-                let variavel = "<?=$emailsoli['CRACHA_PROTOCOLO']?>";
-                if (!variavel == "") {
-                    $("#botao11").removeClass("disabled").attr("disabled", false);
-              } 
-              }
-              }
-    </script>   
+        window.onload = function verifica() { 
+        if(document.getElementById("campo").value == ""){
+            $("#data").addClass("dataVazia");
+        } 
+        if(document.getElementById("campo2").value == ""){
+            $("#data2").addClass("dataVazia");
+        }
+        if(document.getElementById("campo3").value == ""){
+            $("#data3").addClass("dataVazia");
+        }
+        if(document.getElementById("campo4").value == ""){
+            $("#data4").addClass("dataVazia");
+        }
+    }               
+    </script>
    
 </body>
 

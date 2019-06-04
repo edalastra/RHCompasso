@@ -15,7 +15,7 @@ CREATE TABLE if not EXISTS `sede` (
  PRIMARY KEY (`SEDE_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `sede`(`SEDE_ID`, `NOME_SEDE`) VALUES ('1', 'CWB'), ('2', 'ERE'), ('3', 'PF'), ('4', 'POA'), ('5', 'RG'), ('6', 'SP'), ('7', 'FLN'), ('8', 'CHA');
+INSERT INTO `sede`(`SEDE_ID`, `NOME_SEDE`) VALUES ('1', 'CWB'), ('2', 'ERE'), ('3', 'PF'), ('4', 'POA'), ('5', 'RG'), ('6', 'SP'), ('7', 'FLN'), ('8', 'XAP'), ('9', 'REC');
 
 
 CREATE TABLE if not EXISTS `tipo` (
@@ -59,8 +59,6 @@ CREATE TABLE If not EXISTS`admissao_dominio` (
   FOREIGN KEY (`ID_TIPO`)
   REFERENCES `tipo` (`TIPO_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
 
 
 CREATE TABLE if not exists `propostas_contratacoes` (

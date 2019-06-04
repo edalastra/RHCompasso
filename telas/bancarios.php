@@ -141,13 +141,13 @@ $translado = buscasuporte($conn, $id);
                             <a href="bancarios.php" type="button" class="btn btn-success btn-circle" >8</a>
                         </div>
                         <div title= "Suporte Interno" class="stepwizard-step col-md-auto">
-                            <a href="suporteinterno.php" id="support" disabled type="button" class="btn btn-default btn-circle disabled" >9</a>
+                            <a href="suporteinterno.php" id="support"   type="button" class="btn btn-default btn-circle  " >9</a>
                         </div>
                         <div title = "Interno" class="stepwizard-step col-md-auto">
-                            <a href="interno.php" type="button" id="botao10" disabled class="btn btn-default btn-circle disabled" >10</a>
+                            <a href="interno.php" type="button" id="botao10"   class="btn btn-default btn-circle  " >10</a>
                         </div>
                         <div title= "Vias Documentos funcionários" class="stepwizard-step col-md-auto">
-                            <a href="viasdocumentos.php" type="button" id="botao11" disabled class="btn btn-default btn-circle disabled" >11</a>
+                            <a href="viasdocumentos.php" type="button" id="botao11" class="btn btn-default btn-circle" >11</a>
                         </div>
                         <div title= "Boas Vindas" class="stepwizard-step col-md-auto">
                             <a href="recepcao.php" type="button" class="btn btn-default btn-circle" >12</a>
@@ -176,15 +176,15 @@ $translado = buscasuporte($conn, $id);
                 <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
                             <td><?=$status['STATUS']?></td>
-                            <td><?php echo $rows_dados['ENVIO']; ?></td>
-                            <td><?php echo $rows_dados['RECEBIDO']; ?></td>
-                            <td><?php echo $rows_dados['ANEXAR_COMPR_DOMIN']; ?></td>
-                            <td><?php echo $rows_dados['PLANILHA_CONTAS']; ?></td>
-                            <td><?php echo $rows_dados['FORM_COMPR_BANCARIO']; ?></td>
+                            <td id="data"><?php echo $rows_dados['ENVIO']; ?></td>
+                            <td id="data2"><?php echo $rows_dados['RECEBIDO']; ?></td>
+                            <td id="data3"><?php echo $rows_dados['ANEXAR_COMPR_DOMIN']; ?></td>
+                            <td id="data4"><?php echo $rows_dados['PLANILHA_CONTAS']; ?></td>
+                            <td id="data5"><?php echo $rows_dados['FORM_COMPR_BANCARIO']; ?></td>
                             <td><?php echo $rows_dados['AGENCIA'];?></td>
                             <td><?php echo $rows_dados['NUMERO_CONTA'];?></td>
                             <td><?php echo $rows_dados['TIPO_CONTA'];?></td>
-                            <td><a title="Suporte Interno" id="proximo" class="disabled btn btn-default" href="suporteinterno.php"> Próximo </td>
+                            <td><a title="Suporte Interno" id="proximo" class="  btn btn-default" href="suporteinterno.php"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
                     <?php } ?>
@@ -192,11 +192,11 @@ $translado = buscasuporte($conn, $id);
                         <form method="POST" action="../alteraTelas/altera-bancario.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
-                            <td><input type='date' class='intable' name="ENVIO" required value="<?=$envio['ENVIO']?>"></td>
-                            <td><input type="date" class='intable' name ="RECEBIDO" required value="<?=$recebido['RECEBIDO']?>"></td>
-                            <td><input type="date" class='intable' name="ANEXAR_COMPR_DOMIN" required value="<?=$anexar['ANEXAR_COMPR_DOMIN']?>"></td>
-                            <td><input type="date" class='intable' name="PLANILHA_CONTAS" required value="<?=$planilha['PLANILHA_CONTAS']?>"></td>
-                            <td><input type="date" class='intable' id="campo" name="FORM_COMPR_BANCARIO" required value="<?=$form['FORM_COMPR_BANCARIO']?>"></td>
+                            <td><input type='date' id="campo" class='intable' name="ENVIO"  value="<?=$envio['ENVIO']?>"></td>
+                            <td><input type="date" id="campo2" class='intable' name ="RECEBIDO"  value="<?=$recebido['RECEBIDO']?>"></td>
+                            <td><input type="date" id="campo3" class='intable' name="ANEXAR_COMPR_DOMIN"  value="<?=$anexar['ANEXAR_COMPR_DOMIN']?>"></td>
+                            <td><input type="date" id="campo4" class='intable' name="PLANILHA_CONTAS"  value="<?=$planilha['PLANILHA_CONTAS']?>"></td>
+                            <td><input type="date" id="campo5" class='intable' name="FORM_COMPR_BANCARIO"  value="<?=$form['FORM_COMPR_BANCARIO']?>"></td>
                             <td><input type="text" class='intable' name="AGENCIA" value="<?=$agencia['AGENCIA']?>" maxlength="4"></td>
                             <td><input type="text" class='intable' name="NUMERO_CONTA" value="<?=$numero_conta['NUMERO_CONTA']?>" maxlength="9"></td>
                             <td><select name="TIPO_CONTA" class="intable" value="<?=$tipo_conta['TIPO_CONTA']?>">
@@ -313,27 +313,24 @@ $translado = buscasuporte($conn, $id);
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
     <script>
-
-    window.onload = function verifica() { 
-        if (!document.getElementById("campo").value == "") {
-            $("#support").removeClass("disabled").attr("disabled", false);
-            $("#proximo").removeClass("disabled");
-
-            let variavel = "<?=$translado['TRANSLADO']?>";
-            if (!variavel == "") {
-                $("#botao10").removeClass("disabled").attr("disabled", false);
-                //11
-                let variavel = '<?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>';
-                if (!variavel == "") {
-                    $("#botao11").removeClass("disabled").attr("disabled", false);
-              }
-              }
-            }
-
+        window.onload = function verifica() { 
+        if(document.getElementById("campo").value == ""){
+            $("#data").addClass("dataVazia");
+        } 
+        if(document.getElementById("campo2").value == ""){
+            $("#data2").addClass("dataVazia");
         }
-    </script>      
-
-
+        if(document.getElementById("campo3").value == ""){
+            $("#data3").addClass("dataVazia");
+        }
+        if(document.getElementById("campo4").value == ""){
+            $("#data4").addClass("dataVazia");
+        }
+        if(document.getElementById("campo5").value == ""){
+            $("#data5").addClass("dataVazia");
+        }
+    }               
+    </script>
 </body>
 
 </html>

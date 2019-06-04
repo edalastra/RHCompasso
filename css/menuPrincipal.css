@@ -214,8 +214,12 @@ body{
     transition: .5s;
 }
 
-.botao{
+.dataVazia {
+    border: 3px solid #d60808c9 !important;
+    background-color: #d608082e;
+}
 
+.botao{
     background-color: rgb(72, 139, 244);
     background-size: 100% 120%;
     background-repeat: no-repeat;
