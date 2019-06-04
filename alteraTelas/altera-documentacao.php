@@ -10,18 +10,19 @@ $FORMULARIOS_ENVIADOS = $_POST['FORMULARIOS_ENVIADOS'];
 $FORMULARIOS_RECEBIDOS = $_POST['FORMULARIOS_RECEBIDOS'];
 $DOCUMENTOS_FISICOS = $_POST['DOCUMENTOS_FISICOS'];
 $CTPS_RECEBIDA = $_POST['CTPS_RECEBIDA'];
+$COD_RASTREIO = $_POST['COD_RASTREIO'];
 
 
-if(Documentacao($conn, $ID_USUARIO, $FORMULARIOS_ENVIADOS, $FORMULARIOS_RECEBIDOS, $DOCUMENTOS_FISICOS, $CTPS_RECEBIDA)) { ?>
+if(Documentacao($conn, $ID_USUARIO, $FORMULARIOS_ENVIADOS, $FORMULARIOS_RECEBIDOS, $DOCUMENTOS_FISICOS, $CTPS_RECEBIDA, $COD_RASTREIO)) { ?>
     <?php
-   
+
     //if($STATUS == 'EM ANDAMENTO' && $ENQUADRAMENTO != NULL){
       //  $STATUS = 'EM CONTRATO';
        // status($conn, $ID_USUARIO, $STATUS);
     //}else{
       //  status($conn, $ID_USUARIO, $STATUS);
     //}
-    
+
 ?>
         <head>
     <meta charset="UTF-8">
@@ -48,4 +49,3 @@ if(Documentacao($conn, $ID_USUARIO, $FORMULARIOS_ENVIADOS, $FORMULARIOS_RECEBIDO
 }
 header("Refresh:1; url= ../telas/documentacao.php?id=$ID_USUARIO");
 ?>
-
