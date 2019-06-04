@@ -122,25 +122,25 @@ $translado = buscasuporte($conn, $id);
                             <a href="vencimentosContratos.php" type="button" class="btn btn-success btn-circle">4</a>
                         </div>
                         <div title="Documentação" class="stepwizard-step col-md-auto">
-                            <a href="documentacao.php" id="document" disabled type="button" class="btn btn-default btn-circle disabled">5</a>
+                            <a href="documentacao.php" id="document"   type="button" class="btn btn-default btn-circle  ">5</a>
                         </div>
                         <div title= "Plataforma Admissão Domínio Dados + Fichas de Cadastro" class="stepwizard-step col-md-auto">
-                            <a href="admissao.php" type="button" id="botao6" disabled class="btn btn-default btn-circle disabled" >6</a>
+                            <a href="admissao.php" type="button" id="botao6"   class="btn btn-default btn-circle  " >6</a>
                         </div>
                         <div title="Exame Admissional" class="stepwizard-step col-md-auto">
-                            <a href="exame.php" type="button" disabled id="botao7" class="btn btn-default btn-circle disabled" >7</a>
+                            <a href="exame.php" type="button"   id="botao7" class="btn btn-default btn-circle  " >7</a>
                         </div>
                         <div title= "Dados Bancários" class="stepwizard-step col-md-auto">
-                            <a href="bancarios.php" type="button" disabled id="botao8" class="btn btn-default btn-circle disabled" >8</a>
+                            <a href="bancarios.php" type="button"   id="botao8" class="btn btn-default btn-circle  " >8</a>
                         </div>
                         <div title= "Suporte Interno" class="stepwizard-step col-md-auto">
-                            <a href="suporteinterno.php" type="button" disabled id="botao9" class="btn btn-default btn-circle disabled" >9</a>
+                            <a href="suporteinterno.php" type="button"   id="botao9" class="btn btn-default btn-circle  " >9</a>
                         </div>
                         <div title = "Interno" class="stepwizard-step col-md-auto">
-                            <a href="interno.php" type="button" disabled id="botao10" class="btn btn-default btn-circle disabled" >10</a>
+                            <a href="interno.php" type="button"   id="botao10" class="btn btn-default btn-circle  " >10</a>
                         </div>
                         <div title= "Vias Documentos funcionários" class="stepwizard-step col-md-auto">
-                            <a href="viasdocumentos.php" type="button" id="botao11" disabled class="btn btn-default btn-circle disabled" >11</a>
+                            <a href="viasdocumentos.php" type="button" id="botao11"   class="btn btn-default btn-circle  " >11</a>
                         </div>
                         <div title= "Boas Vindas" class="stepwizard-step col-md-auto">
                             <a href="recepcao.php" type="button" class="btn btn-default btn-circle" >12</a>
@@ -181,7 +181,7 @@ $translado = buscasuporte($conn, $id);
                             <td><?php echo $rows_dados['ENVIO_SOLICITANTE_SEG']; ?></td>
                             <td><?php echo $rows_dados['DATA_VENCIMENTO_SEG']; ?></td>
                             <td><?php echo $rows_dados['EFETIVACAO']; ?></td>
-                            <td><a title="Vencimentos Contratos" id="proximo" class="disabled btn btn-default" href="documentacao.php"> Próximo </td>
+                            <td><a title="Vencimentos Contratos" id="proximo" class="  btn btn-default" href="documentacao.php"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
 
 
@@ -192,9 +192,9 @@ $translado = buscasuporte($conn, $id);
                         <form method="POST" action="../alteraTelas/altera-vencimento.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
-                            <td><input type='date' class='intable' name="ENVIO_SOLICITANTE_PRI" required value="<?=$envio_Pri['ENVIO_SOLICITANTE_PRI']?>"></td>
-                            <td><input type='date' class='intable' name ="DATA_VENCIMENTO_PRI" required value="<?=$envio_Pri['DATA_VENCIMENTO_PRI']?>"></td>
-                            <td><select class="intable" name="RENOVACAO" required>
+                            <td><input type='date' class='intable' name="ENVIO_SOLICITANTE_PRI"  value="<?=$envio_Pri['ENVIO_SOLICITANTE_PRI']?>"></td>
+                            <td><input type='date' class='intable' name ="DATA_VENCIMENTO_PRI"  value="<?=$envio_Pri['DATA_VENCIMENTO_PRI']?>"></td>
+                            <td><select class="intable" name="RENOVACAO" >
                               <?php
                                   if($renovacao['RENOVACAO'] == NULL){?>
                                     <option value="<?=$renovacao['RENOVACAO']?>"><?=$renovacao['RENOVACAO']?></option>
@@ -212,9 +212,9 @@ $translado = buscasuporte($conn, $id);
                                   }
                                ?>
                             </select></td>
-                            <td><input type='date' class='intable' name="ENVIO_SOLICITANTE_SEG" required value="<?=$envio_seg['ENVIO_SOLICITANTE_SEG']?>"></td>
-                            <td><input type='date' id='campo' class='intable' name="DATA_VENCIMENTO_SEG" required value="<?=$data_venc_seg['DATA_VENCIMENTO_SEG']?>"></td>
-                            <td><select class="intable" name="EFETIVACAO" required>
+                            <td><input type='date' class='intable' name="ENVIO_SOLICITANTE_SEG"  value="<?=$envio_seg['ENVIO_SOLICITANTE_SEG']?>"></td>
+                            <td><input type='date' id='campo' class='intable' name="DATA_VENCIMENTO_SEG"  value="<?=$data_venc_seg['DATA_VENCIMENTO_SEG']?>"></td>
+                            <td><select class="intable" name="EFETIVACAO" >
                               <?php
                                   if($efetivacao['EFETIVACAO'] == NULL){?>
                                     <option value="<?=$efetivacao['EFETIVACAO']?>"><?=$efetivacao['EFETIVACAO']?></option>
@@ -342,54 +342,6 @@ $translado = buscasuporte($conn, $id);
     <script src="../js/filter.js"></script>
     <script src="../js/calculaVencimento.js">
         calculaVencimento();
-    </script>
-
-    <script>
-    window.onload = function verifica() {
-        if (!document.getElementById("campo").value == "") {
-            $("#document").removeClass("disabled").attr("disabled", false);
-            $("#proximo").removeClass("disabled");
-            return};};
-            let variavel = "<?=$formRec['FORMULARIOS_RECEBIDOS']?>";
-              if (!variavel == "") {
-                $("#botao6").removeClass("disabled").attr("disabled", false);
-            //6
-            let variavel = "<?=$inclui['INCLUI_ADM_PROV']?>";
-            if (!variavel == "") {
-                $("#botao6").removeClass("disabled").attr("disabled", false);
-                $("#botao7").removeClass("disabled").attr("disabled", false);
-                //7
-                let variavel = "<?=$anexar['ANEXAR_ASO']?>";
-                if (!variavel == "") {
-                    $("#botao7").removeClass("disabled").attr("disabled", false);
-                    $("#botao8").removeClass("disabled").attr("disabled", false);
-                    //8
-                    let variavel = "<?=$form['FORM_COMPR_BANCARIO']?>";
-                    if (!variavel == "") {
-                        $("#botao8").removeClass("disabled").attr("disabled", false);
-                        $("#botao9").removeClass("disabled").attr("disabled", false);
-                            let variavel = "<?=$translado['TRANSLADO']?>";
-                            if (!variavel == "") {
-                                $("#botao9").removeClass("disabled").attr("disabled", false);
-                                $("#botao10").removeClass("disabled").attr("disabled", false);
-                                //10
-                                let variavel = "<?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>";
-                                if (!variavel == "") {
-                                    $("#botao10").removeClass("disabled").attr("disabled", false);
-                                    $("#botao11").removeClass("disabled").attr("disabled", false);
-                                    //11
-                                    let variavel = "<?=$emailsoli['CRACHA_PROTOCOLO']?>";
-                                    if (!variavel == "") {
-                                        $("#botao11").removeClass("disabled").attr("disabled", false);
-              } 
-              } 
-
-              }
-              }
-              }
-              }
-              }
-
     </script>
 </body>
 </html>

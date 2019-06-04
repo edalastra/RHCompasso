@@ -340,58 +340,9 @@ $translado = buscasuporte($conn, $id);
     <script>
     window.onload = function verifica() { 
         if(!document.getElementById("campo").value == ""){
-             $("#gestao").removeClass("disabled").attr("disabled", false);
-             $("#proximo").removeClass("disabled");
-            };};
-            let variavel = "<?=$gestorL_sabe['GESTOR_LOCAL_sABE']?>";
-              if (!variavel == "") {
-                $("#botao").removeClass("disabled").attr("disabled", false);
-            //4
-             let variavel = "<?=$envio_Pri['ENVIO_SOLICITANTE_PRI']?>";
-              if (!variavel == "") {
-                $("#botao").removeClass("disabled").attr("disabled", false);
-                $("#botao5").removeClass("disabled").attr("disabled", false);
-                    //5
-                    let variavel = "<?=$formRec['FORMULARIOS_RECEBIDOS']?>";
-                    if (!variavel == "") {
-                    $("#botao5").removeClass("disabled").attr("disabled", false);
-                    $("#botao6").removeClass("disabled").attr("disabled", false);
-                        //6
-                        let variavel = "<?=$inclui['INCLUI_ADM_PROV']?>";
-                        if (!variavel == "") {
-                        $("#botao6").removeClass("disabled").attr("disabled", false);
-                        $("#botao7").removeClass("disabled").attr("disabled", false);
-                            //7
-                            let variavel = "<?=$anexar['ANEXAR_ASO']?>";
-                            if (!variavel == "") {
-                                $("#botao7").removeClass("disabled").attr("disabled", false);
-                                $("#botao8").removeClass("disabled").attr("disabled", false);
-                                //8
-                                let variavel = "<?=$form['FORM_COMPR_BANCARIO']?>";
-                                if (!variavel == "") {
-                                    $("#botao8").removeClass("disabled").attr("disabled", false);
-                                    $("#botao9").removeClass("disabled").attr("disabled", false);
-                                    let variavel = "<?=$translado['TRANSLADO']?>";
-                                    if (!variavel == "") {
-                                        $("#botao9").removeClass("disabled").attr("disabled", false);
-                                        $("#botao10").removeClass("disabled").attr("disabled", false);
-                                    let variavel = "<?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>";
-                                    if (!variavel == "") {
-                                        $("#botao10").removeClass("disabled").attr("disabled", false);
-                                        $("#botao11").removeClass("disabled").attr("disabled", false);
-                                        //11
-                                        let variavel = "<?=$emailsoli['CRACHA_PROTOCOLO']?>";
-                                        if (!variavel == "") {
-                                            $("#botao11").removeClass("disabled").attr("disabled", false);
-              } 
-              } 
-              }
-              }
-              }
-              }
-              }
-              }
-              }
+            $("#gestao, #proximo, #botao, #botao5, #botao6, #botao7, #botao8, #botao9, #botao10, #botao11").removeClass("disabled").attr("disabled", false);
+        }  
+    } 
     </script>
 </body>
 </html>

@@ -134,19 +134,19 @@ $translado = buscasuporte($conn, $id);
                             <a href="admissao.php" type="button" class="btn btn-success btn-circle" >6</a>
                         </div>
                         <div title="Exame Admissional" class="stepwizard-step col-md-auto">
-                            <a href="exame.php" id="exam" type="button" disabled class="btn btn-default btn-circle disabled" >7</a>
+                            <a href="exame.php" id="exam" type="button" class="btn btn-default btn-circle" >7</a>
                         </div>
                         <div title= "Dados Bancários" class="stepwizard-step col-md-auto">
-                            <a href="bancarios.php" type="button" id="botao8" disabled class="btn btn-default btn-circle disabled" >8</a>
+                            <a href="bancarios.php" type="button" id="botao8" class="btn btn-default btn-circle" >8</a>
                         </div>
                         <div title= "Suporte Interno" class="stepwizard-step col-md-auto">
-                            <a href="suporteinterno.php" type="button" id="botao9" disabled class="btn btn-default btn-circle disabled" >9</a>
+                            <a href="suporteinterno.php" type="button" id="botao9" class="btn btn-default btn-circle" >9</a>
                         </div>
                         <div title = "Interno" class="stepwizard-step col-md-auto">
-                            <a href="interno.php" type="button" disabled id="botao10" class="btn btn-default btn-circle disabled" >10</a>
+                            <a href="interno.php" type="button" id="botao10" class="btn btn-default btn-circle" >10</a>
                         </div>
                         <div title= "Vias Documentos funcionários" class="stepwizard-step col-md-auto">
-                            <a href="viasdocumentos.php" type="button" id="botao11" disabled class="btn btn-default btn-circle disabled" >11</a>
+                            <a href="viasdocumentos.php" type="button" id="botao11" class="btn btn-default btn-circle" >11</a>
                         </div>
                         <div title= "Boas Vindas" class="stepwizard-step col-md-auto">
                             <a href="recepcao.php" type="button" class="btn btn-default btn-circle" >12</a>
@@ -177,7 +177,7 @@ $translado = buscasuporte($conn, $id);
                             <td><?php echo $rows_dados['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO']; ?></td>
                             <td><?php echo $rows_dados['TERMO_PSI']; ?></td>
                             <td><?php echo $rows_dados['INCLUI_ADM_PROV']; ?></td>
-                            <td><a title="Exame Admissional" id="proximo" class="disabled btn btn-default" href="exame.php"> Próximo </td>
+                            <td><a title="Exame Admissional" id="proximo" class="btn btn-default" href="exame.php"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
 
                         </tr>
@@ -186,11 +186,11 @@ $translado = buscasuporte($conn, $id);
                         <form method="POST" action="../alteraTelas/altera-admissao.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
-                            <td><input type='date' class='intable' name="QUALIFIC_CADASTRAL_CEP" required value="<?=$quali['QUALIFIC_CADASTRAL_CEP']?>"></td>
-                            <td><input type="date" class='intable' name ="CAD_ADM_PLATAFORMA_ADM_DIMIN" required value="<?=$cad['CAD_ADM_PLATAFORMA_ADM_DIMIN']?>"></td>
-                            <td><input type="date" class='intable' name="DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO" required value="<?=$doc['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO']?>"></td>
-                            <td><input type="date" class='intable' name="TERMO_PSI" required value="<?=$termo['TERMO_PSI']?>"></td>
-                            <td><input type="date" id="campo" class='intable' name="INCLUI_ADM_PROV" required value="<?=$inclui['INCLUI_ADM_PROV']?>"></td>
+                            <td><input type='date' class='intable' name="QUALIFIC_CADASTRAL_CEP"  value="<?=$quali['QUALIFIC_CADASTRAL_CEP']?>"></td>
+                            <td><input type="date" class='intable' name ="CAD_ADM_PLATAFORMA_ADM_DIMIN"  value="<?=$cad['CAD_ADM_PLATAFORMA_ADM_DIMIN']?>"></td>
+                            <td><input type="date" class='intable' name="DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO"  value="<?=$doc['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO']?>"></td>
+                            <td><input type="date" class='intable' name="TERMO_PSI"  value="<?=$termo['TERMO_PSI']?>"></td>
+                            <td><input type="date" id="campo" class='intable' name="INCLUI_ADM_PROV"  value="<?=$inclui['INCLUI_ADM_PROV']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
@@ -299,39 +299,6 @@ $translado = buscasuporte($conn, $id);
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
-    <script>
-    window.onload = function verifica() { 
-        if (!document.getElementById("campo").value == "") {
-            $("#exam").removeClass("disabled").attr("disabled", false);;
-            $("#proximo").removeClass("disabled");
-            return};};
-            let variavel = "<?=$anexar['ANEXAR_ASO']?>";
-              if (!variavel == "") {
-                $("#botao8").removeClass("disabled").attr("disabled", false);
-            //8
-            let variavel = "<?=$form['FORM_COMPR_BANCARIO']?>";
-            if (!variavel == "") {
-                $("#botao8").removeClass("disabled").attr("disabled", false);
-                $("#botao9").removeClass("disabled").attr("disabled", false);
-                                    let variavel = "<?=$translado['TRANSLADO']?>";
-                                    if (!variavel == "") {
-                                        $("#botao9").removeClass("disabled").attr("disabled", false);
-                                        $("#botao10").removeClass("disabled").attr("disabled", false);
-                let variavel = "<?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>";
-                if (!variavel == "") {
-                    $("#botao10").removeClass("disabled").attr("disabled", false);
-                    $("#botao11").removeClass("disabled").attr("disabled", false);
-                    //11
-                    let variavel = "<?=$emailsoli['CRACHA_PROTOCOLO']?>";
-                    if (!variavel == "") {
-                        $("#botao11").removeClass("disabled").attr("disabled", false);
-              } 
-              } 
-              }
-              }
-              }
-        
-    </script>   
 
 </body>
 
