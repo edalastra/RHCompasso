@@ -40,9 +40,9 @@
 			$resposta = mysqli_num_rows($resposta);
 			return $resposta;
 		}
-		
+
 		function defineUser($conn, $meuNome, $id){
-			//array para comparar depois se o nome da pessoa tem agnome, se tiver, tem que ser ignorado 
+			//array para comparar depois se o nome da pessoa tem agnome, se tiver, tem que ser ignorado
 			$agnomes = ["junior", "jr.", "segundo", "filho", "neto", "sobrinho", "jr", "bisneto", "filha", "juniar", "jra.", "segunda", "neta", "sobrinha", "bisneta"];
 			//remove acento
 			$meuNome = preg_replace(array("/(á|à|ã|â|ä)/","/(Á|À|Ã|Â|Ä)/","/(é|è|ê|ë)/","/(É|È|Ê|Ë)/","/(í|ì|î|ï)/","/(Í|Ì|Î|Ï)/","/(ó|ò|õ|ô|ö)/","/(Ó|Ò|Õ|Ô|Ö)/","/(ú|ù|û|ü)/","/(Ú|Ù|Û|Ü)/","/(ñ)/","/(Ñ)/"),explode(" ","a A e E i I o O u U n N"),$meuNome);
@@ -63,14 +63,14 @@
 				$email = $nome.".". $sobrenome;
 			}
 		  }
-		  
+
 		  $verifica = buscaUsuario($conn, $email);
-		  if($verifica > 0 AND $conta == 2){    
+		  if($verifica > 0 AND $conta == 2){
 			$email = $nome.".".$sobrenome.$id;
 			}
 		  //se tem no banco
 		  $verifica2 = buscaUsuario($conn, $email);
-		  if($verifica2 > 0){    
+		  if($verifica2 > 0){
 			$sobrenome = $meuNome[$conta-2];
 			$email = $nome.".". $sobrenome;
 			}
@@ -132,8 +132,8 @@
 		return mysqli_fetch_assoc($docs);
 	}
 
-	function Documentacao($conn, $ID_USUARIO, $FORMULARIOS_ENVIADOS, $FORMULARIOS_RECEBIDOS, $DOCUMENTOS_FISICOS, $CTPS_RECEBIDA){
-		$query = "UPDATE documentacao set FORMULARIOS_ENVIADOS = '{$FORMULARIOS_ENVIADOS}', FORMULARIOS_RECEBIDOS = '{$FORMULARIOS_RECEBIDOS}', DOCUMENTOS_FISICOS = '{$DOCUMENTOS_FISICOS}', CTPS_RECEBIDA = '{$CTPS_RECEBIDA}' where ID_USUARIO = '{$ID_USUARIO}'";
+	function Documentacao($conn, $ID_USUARIO, $FORMULARIOS_ENVIADOS, $FORMULARIOS_RECEBIDOS, $DOCUMENTOS_FISICOS, $CTPS_RECEBIDA, $COD_RASTREIO){
+		$query = "UPDATE documentacao set FORMULARIOS_ENVIADOS = '{$FORMULARIOS_ENVIADOS}', FORMULARIOS_RECEBIDOS = '{$FORMULARIOS_RECEBIDOS}', DOCUMENTOS_FISICOS = '{$DOCUMENTOS_FISICOS}', CTPS_RECEBIDA = '{$CTPS_RECEBIDA}', COD_RASTREIO = '{$COD_RASTREIO}' where ID_USUARIO = '{$ID_USUARIO}'";
 		return mysqli_query($conn, $query);
 	}
 
