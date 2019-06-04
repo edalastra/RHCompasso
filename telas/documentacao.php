@@ -178,10 +178,10 @@ $translado = buscasuporte($conn, $id);
                 <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                     <tr>
                         <td><?=$status['STATUS']?></td>
-                        <td><?php echo $rows_dados['FORMULARIOS_ENVIADOS']; ?></td>
-                        <td><?php echo $rows_dados['FORMULARIOS_RECEBIDOS']; ?></td>
-                        <td><?php echo $rows_dados['DOCUMENTOS_FISICOS']; ?></td>
-                        <td><?php echo $rows_dados['CTPS_RECEBIDA']; ?></td>
+                        <td id="data"><?php echo $rows_dados['FORMULARIOS_ENVIADOS']; ?></td>
+                        <td id="data2"><?php echo $rows_dados['FORMULARIOS_RECEBIDOS']; ?></td>
+                        <td id="data3"><?php echo $rows_dados['DOCUMENTOS_FISICOS']; ?></td>
+                        <td id="data4"><?php echo $rows_dados['CTPS_RECEBIDA']; ?></td>
                         <td><a title="Plataforma Admissão Domínio Dados + Fichas de Cadastro" id="proximo" class="  btn btn-default" href="admissao.php"> Próximo </td>
                         <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                     </tr>
@@ -190,10 +190,10 @@ $translado = buscasuporte($conn, $id);
                         <form method="POST" action="../alteraTelas/altera-documentacao.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
-                            <td><input type='date' class='intable' name="FORMULARIOS_ENVIADOS"  value="<?=$formEnv['FORMULARIOS_ENVIADOS']?>"></td>
-                            <td><input type="date" class='intable' name ="FORMULARIOS_RECEBIDOS"  value="<?=$formRec['FORMULARIOS_RECEBIDOS']?>"></td>
-                            <td><input type="date" class='intable' name="DOCUMENTOS_FISICOS"  value="<?=$docfis['DOCUMENTOS_FISICOS']?>"></td>
-                            <td><input type="date" id="campo" class='intable' name="CTPS_RECEBIDA"  value="<?=$ctps['CTPS_RECEBIDA']?>"></td>
+                            <td><input type='date' id="campo" class='intable' name="FORMULARIOS_ENVIADOS"  value="<?=$formEnv['FORMULARIOS_ENVIADOS']?>"></td>
+                            <td><input type="date" id="campo2" class='intable' name ="FORMULARIOS_RECEBIDOS"  value="<?=$formRec['FORMULARIOS_RECEBIDOS']?>"></td>
+                            <td><input type="date" id="campo3" class='intable' name="DOCUMENTOS_FISICOS"  value="<?=$docfis['DOCUMENTOS_FISICOS']?>"></td>
+                            <td><input type="date" id="campo4" class='intable' name="CTPS_RECEBIDA"  value="<?=$ctps['CTPS_RECEBIDA']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
@@ -301,6 +301,22 @@ $translado = buscasuporte($conn, $id);
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
+    <script>
+        window.onload = function verifica() { 
+        if(document.getElementById("campo").value == ""){
+            $("#data").addClass("dataVazia");
+        } 
+        if(document.getElementById("campo2").value == ""){
+            $("#data2").addClass("dataVazia");
+        }
+        if(document.getElementById("campo3").value == ""){
+            $("#data3").addClass("dataVazia");
+        }
+        if(document.getElementById("campo4").value == ""){
+            $("#data4").addClass("dataVazia");
+        }
+    }               
+    </script>
 </body>
 
 </html>

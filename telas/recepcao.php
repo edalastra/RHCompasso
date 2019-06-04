@@ -181,11 +181,11 @@ $deacordo = buscaProposta($conn, $id);
                     <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                             <tr>
                             <td><?=$status['STATUS']?></td>
-                            <td><?php echo $rows_dados['BOAS_VINDAS_INGR_AGENDADA']; ?></td>
-                            <td><?php echo $rows_dados['BOAS_VINDAS_INGR_REALIZADA']; ?></td>
+                            <td id="data"><?php echo $rows_dados['BOAS_VINDAS_INGR_AGENDADA']; ?></td>
+                            <td id="data2"><?php echo $rows_dados['BOAS_VINDAS_INGR_REALIZADA']; ?></td>
                             <td><?php echo $rows_dados['BOAS_VINDAS_SALA']; ?></td>
-                            <td><?php echo $rows_dados['BOAS_VINDA_ACOMPANHAMENTO_MENSAL']; ?></td>
-                            <td><?php echo $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL']; ?></td>
+                            <td id="data3"><?php echo $rows_dados['BOAS_VINDA_ACOMPANHAMENTO_MENSAL']; ?></td>
+                            <td id="data4"><?php echo $rows_dados['LAYOUT_BOAS_VINDAS_MENSAL']; ?></td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                             <td><form method="post" action="../alteraTelas/altera-finalizado.php"><input title="Altera STATUS p/ Finalizado" type="submit" value="Finalizar" class="btn btn-default"></form></td>
                         </tr>
@@ -195,11 +195,11 @@ $deacordo = buscaProposta($conn, $id);
                         <form  method="POST" action="../alteraTelas/altera-recepcao.php">
                             <input type='hidden' name="ID_USUARIO" value ="<?=$funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly type='text' name="STATUS" value="<?=$status['STATUS'];?>"></td>
-                            <td><input class='intable' type='date' name='BOAS_VINDAS_INGR_AGENDADA'  value="<?=$boasVindasIntegrAgendada['BOAS_VINDAS_INGR_AGENDADA']?>"></td>
-                            <td><input class='intable' type='date' name='BOAS_VINDAS_INGR_REALIZADA'  value="<?=$boasVindasIntegrRealizada['BOAS_VINDAS_INGR_REALIZADA']?>"></td>
+                            <td><input class='intable' id="campo" type='date' name='BOAS_VINDAS_INGR_AGENDADA'  value="<?=$boasVindasIntegrAgendada['BOAS_VINDAS_INGR_AGENDADA']?>"></td>
+                            <td><input class='intable' id="campo2" type='date' name='BOAS_VINDAS_INGR_REALIZADA'  value="<?=$boasVindasIntegrRealizada['BOAS_VINDAS_INGR_REALIZADA']?>"></td>
                             <td><input class='intable' type='text' name='BOAS_VINDAS_SALA'  value="<?=$boasVindasSala['BOAS_VINDAS_SALA']?>"></td>
-                            <td><input class='intable' type='date' name='BOAS_VINDA_ACOMPANHAMENTO_MENSAL'  value="<?=$boasVindasAcomp['BOAS_VINDA_ACOMPANHAMENTO_MENSAL']?>"></td>
-                            <td><input class='intable' type='date' name='LAYOUT_BOAS_VINDAS_MENSAL'  value="<?=$layoutBoasVindas['LAYOUT_BOAS_VINDAS_MENSAL']?>"></td>
+                            <td><input class='intable' id="campo3" type='date' name='BOAS_VINDA_ACOMPANHAMENTO_MENSAL'  value="<?=$boasVindasAcomp['BOAS_VINDA_ACOMPANHAMENTO_MENSAL']?>"></td>
+                            <td><input class='intable' id="campo4" type='date' name='LAYOUT_BOAS_VINDAS_MENSAL'  value="<?=$layoutBoasVindas['LAYOUT_BOAS_VINDAS_MENSAL']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
@@ -313,9 +313,20 @@ $deacordo = buscaProposta($conn, $id);
     if (!variavel == "") {
     $("#botao3, #botao4, #botao5, #botao6, #botao7, #botao8, #botao9, #botao10, #botao11").removeClass("disabled").attr("disabled", false);
     }
+        if(document.getElementById("campo").value == ""){
+            $("#data").addClass("dataVazia");
+        } 
+        if(document.getElementById("campo2").value == ""){
+            $("#data2").addClass("dataVazia");
+        }
+        if(document.getElementById("campo3").value == ""){
+            $("#data3").addClass("dataVazia");
+        }
+        if(document.getElementById("campo4").value == ""){
+            $("#data4").addClass("dataVazia");
+        }
     }
     </script>
-
 </body>
 
 </html>

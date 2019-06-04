@@ -168,10 +168,10 @@ $emailsoli = buscavias($conn, $id);
                 <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
                             <td><?=$status['STATUS']?></td>
-                            <td><?php echo $rows_dados['AGENDAMENTO_EXAM_ADM']; ?></td>
-                            <td><?php echo $rows_dados['ENVIO_FUNC_EXAME']; ?></td>
-                            <td><?php echo $rows_dados['EMAIL_RECEBIDO_EXAM']; ?></td>
-                            <td><?php echo $rows_dados['ANEXAR_ASO']; ?></td>
+                            <td id="data"><?php echo $rows_dados['AGENDAMENTO_EXAM_ADM']; ?></td>
+                            <td id="data2"><?php echo $rows_dados['ENVIO_FUNC_EXAME']; ?></td>
+                            <td id="data3"><?php echo $rows_dados['EMAIL_RECEBIDO_EXAM']; ?></td>
+                            <td id="data4"><?php echo $rows_dados['ANEXAR_ASO']; ?></td>
                             <td><a title= "Dados Bancáriso" id="proximo" class="  btn btn-default" href="bancarios.php"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
@@ -180,10 +180,10 @@ $emailsoli = buscavias($conn, $id);
                         <form method="POST" action="../alteraTelas/altera-exame.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
-                            <td><input type='date' class='intable' name="AGENDAMENTO_EXAM_ADM"  value="<?=$agend['AGENDAMENTO_EXAM_ADM']?>"></td>
-                            <td><input type="date" class='intable' name ="ENVIO_FUNC_EXAME"  value="<?=$envio['ENVIO_FUNC_EXAME']?>"></td>
-                            <td><input type="date" class='intable' name="EMAIL_RECEBIDO_EXAM"  value="<?=$email['EMAIL_RECEBIDO_EXAM']?>"></td>
-                            <td><input type="date" class='intable' id="campo" name="ANEXAR_ASO"  value="<?=$anexar['ANEXAR_ASO']?>"></td>
+                            <td><input type='date' id="campo" class='intable' name="AGENDAMENTO_EXAM_ADM"  value="<?=$agend['AGENDAMENTO_EXAM_ADM']?>"></td>
+                            <td><input type="date" id="campo2" class='intable' name ="ENVIO_FUNC_EXAME"  value="<?=$envio['ENVIO_FUNC_EXAME']?>"></td>
+                            <td><input type="date" id="campo3" class='intable' name="EMAIL_RECEBIDO_EXAM"  value="<?=$email['EMAIL_RECEBIDO_EXAM']?>"></td>
+                            <td><input type="date" id="campo4" class='intable' id="campo" name="ANEXAR_ASO"  value="<?=$anexar['ANEXAR_ASO']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
@@ -291,6 +291,22 @@ $emailsoli = buscavias($conn, $id);
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
+    <script>
+        window.onload = function verifica() { 
+        if(document.getElementById("campo").value == ""){
+            $("#data").addClass("dataVazia");
+        } 
+        if(document.getElementById("campo2").value == ""){
+            $("#data2").addClass("dataVazia");
+        }
+        if(document.getElementById("campo3").value == ""){
+            $("#data3").addClass("dataVazia");
+        }
+        if(document.getElementById("campo4").value == ""){
+            $("#data4").addClass("dataVazia");
+        }
+    }               
+    </script>
    
 </body>
 

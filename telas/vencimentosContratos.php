@@ -175,11 +175,11 @@ $translado = buscasuporte($conn, $id);
                     <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                             <tr>
                             <td><?=$status['STATUS']?></td>
-                            <td><?php echo $rows_dados['ENVIO_SOLICITANTE_PRI']; ?></td>
-                            <td><?php echo $rows_dados['DATA_VENCIMENTO_PRI']; ?></td>
+                            <td id="data"><?php echo $rows_dados['ENVIO_SOLICITANTE_PRI']; ?></td>
+                            <td id="data2"><?php echo $rows_dados['DATA_VENCIMENTO_PRI']; ?></td>
                             <td><?php echo $rows_dados['RENOVACAO']; ?></td>
-                            <td><?php echo $rows_dados['ENVIO_SOLICITANTE_SEG']; ?></td>
-                            <td><?php echo $rows_dados['DATA_VENCIMENTO_SEG']; ?></td>
+                            <td id="data3"><?php echo $rows_dados['ENVIO_SOLICITANTE_SEG']; ?></td>
+                            <td id="data4"><?php echo $rows_dados['DATA_VENCIMENTO_SEG']; ?></td>
                             <td><?php echo $rows_dados['EFETIVACAO']; ?></td>
                             <td><a title="Vencimentos Contratos" id="proximo" class="  btn btn-default" href="documentacao.php"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
@@ -192,8 +192,8 @@ $translado = buscasuporte($conn, $id);
                         <form method="POST" action="../alteraTelas/altera-vencimento.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
-                            <td><input type='date' class='intable' name="ENVIO_SOLICITANTE_PRI"  value="<?=$envio_Pri['ENVIO_SOLICITANTE_PRI']?>"></td>
-                            <td><input type='date' class='intable' name ="DATA_VENCIMENTO_PRI"  value="<?=$envio_Pri['DATA_VENCIMENTO_PRI']?>"></td>
+                            <td><input type='date' id="campo" class='intable' name="ENVIO_SOLICITANTE_PRI" value="<?=$envio_Pri['ENVIO_SOLICITANTE_PRI']?>"></td>
+                            <td><input type='date' id="campo2" class='intable' name ="DATA_VENCIMENTO_PRI" value="<?=$envio_Pri['DATA_VENCIMENTO_PRI']?>"></td>
                             <td><select class="intable" name="RENOVACAO" >
                               <?php
                                   if($renovacao['RENOVACAO'] == NULL){?>
@@ -212,8 +212,8 @@ $translado = buscasuporte($conn, $id);
                                   }
                                ?>
                             </select></td>
-                            <td><input type='date' class='intable' name="ENVIO_SOLICITANTE_SEG"  value="<?=$envio_seg['ENVIO_SOLICITANTE_SEG']?>"></td>
-                            <td><input type='date' id='campo' class='intable' name="DATA_VENCIMENTO_SEG"  value="<?=$data_venc_seg['DATA_VENCIMENTO_SEG']?>"></td>
+                            <td><input type='date' id="campo3" class='intable' name="ENVIO_SOLICITANTE_SEG" value="<?=$envio_seg['ENVIO_SOLICITANTE_SEG']?>"></td>
+                            <td><input type='date' id='campo4' class='intable' name="DATA_VENCIMENTO_SEG" value="<?=$data_venc_seg['DATA_VENCIMENTO_SEG']?>"></td>
                             <td><select class="intable" name="EFETIVACAO" >
                               <?php
                                   if($efetivacao['EFETIVACAO'] == NULL){?>
@@ -342,6 +342,22 @@ $translado = buscasuporte($conn, $id);
     <script src="../js/filter.js"></script>
     <script src="../js/calculaVencimento.js">
         calculaVencimento();
+    </script>
+    <script>
+        window.onload = function verifica() { 
+        if(document.getElementById("campo").value == ""){
+            $("#data").addClass("dataVazia");
+        } 
+        if(document.getElementById("campo2").value == ""){
+            $("#data2").addClass("dataVazia");
+        }
+        if(document.getElementById("campo3").value == ""){
+            $("#data3").addClass("dataVazia");
+        }
+        if(document.getElementById("campo4").value == ""){
+            $("#data4").addClass("dataVazia");
+        }
+    }               
     </script>
 </body>
 </html>

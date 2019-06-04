@@ -172,11 +172,11 @@ $translado = buscasuporte($conn, $id);
                 <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
                             <td><?=$status['STATUS']?></td>
-                            <td><?php echo $rows_dados['QUALIFIC_CADASTRAL_CEP']; ?></td>
-                            <td><?php echo $rows_dados['CAD_ADM_PLATAFORMA_ADM_DIMIN']; ?></td>
-                            <td><?php echo $rows_dados['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO']; ?></td>
-                            <td><?php echo $rows_dados['TERMO_PSI']; ?></td>
-                            <td><?php echo $rows_dados['INCLUI_ADM_PROV']; ?></td>
+                            <td id="data"><?php echo $rows_dados['QUALIFIC_CADASTRAL_CEP']; ?></td>
+                            <td id="data2"><?php echo $rows_dados['CAD_ADM_PLATAFORMA_ADM_DIMIN']; ?></td>
+                            <td id="data3"><?php echo $rows_dados['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO']; ?></td>
+                            <td id="data4"><?php echo $rows_dados['TERMO_PSI']; ?></td>
+                            <td id="data5"><?php echo $rows_dados['INCLUI_ADM_PROV']; ?></td>
                             <td><a title="Exame Admissional" id="proximo" class="btn btn-default" href="exame.php"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
 
@@ -186,11 +186,11 @@ $translado = buscasuporte($conn, $id);
                         <form method="POST" action="../alteraTelas/altera-admissao.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
-                            <td><input type='date' class='intable' name="QUALIFIC_CADASTRAL_CEP"  value="<?=$quali['QUALIFIC_CADASTRAL_CEP']?>"></td>
-                            <td><input type="date" class='intable' name ="CAD_ADM_PLATAFORMA_ADM_DIMIN"  value="<?=$cad['CAD_ADM_PLATAFORMA_ADM_DIMIN']?>"></td>
-                            <td><input type="date" class='intable' name="DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO"  value="<?=$doc['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO']?>"></td>
-                            <td><input type="date" class='intable' name="TERMO_PSI"  value="<?=$termo['TERMO_PSI']?>"></td>
-                            <td><input type="date" id="campo" class='intable' name="INCLUI_ADM_PROV"  value="<?=$inclui['INCLUI_ADM_PROV']?>"></td>
+                            <td><input type='date' id="campo" class='intable' name="QUALIFIC_CADASTRAL_CEP"  value="<?=$quali['QUALIFIC_CADASTRAL_CEP']?>"></td>
+                            <td><input type="date" id="campo2" class='intable' name ="CAD_ADM_PLATAFORMA_ADM_DIMIN"  value="<?=$cad['CAD_ADM_PLATAFORMA_ADM_DIMIN']?>"></td>
+                            <td><input type="date" id="campo3" class='intable' name="DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO"  value="<?=$doc['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO']?>"></td>
+                            <td><input type="date" id="campo4" class='intable' name="TERMO_PSI"  value="<?=$termo['TERMO_PSI']?>"></td>
+                            <td><input type="date" id="campo5" class='intable' name="INCLUI_ADM_PROV"  value="<?=$inclui['INCLUI_ADM_PROV']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
@@ -299,6 +299,25 @@ $translado = buscasuporte($conn, $id);
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
+    <script>
+        window.onload = function verifica() { 
+        if(document.getElementById("campo").value == ""){
+            $("#data").addClass("dataVazia");
+        } 
+        if(document.getElementById("campo2").value == ""){
+            $("#data2").addClass("dataVazia");
+        }
+        if(document.getElementById("campo3").value == ""){
+            $("#data3").addClass("dataVazia");
+        }
+        if(document.getElementById("campo4").value == ""){
+            $("#data4").addClass("dataVazia");
+        }
+        if(document.getElementById("campo5").value == ""){
+            $("#data5").addClass("dataVazia");
+        }
+    }               
+    </script>
 
 </body>
 

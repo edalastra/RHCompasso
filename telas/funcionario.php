@@ -191,14 +191,14 @@ $translado = buscasuporte($conn, $id);
                 <?php while ($rows_dados = mysqli_fetch_assoc($resultado)) {  ?>
                         <tr>
                             <td><?php echo $rows_dados['STATUS']; ?></td>
-                            <td><?php echo $rows_dados['PROPOSTA_RECEBIDA']; ?></td>
-                            <td><?php echo $rows_dados['DE_ACORDO_DIRECAO']; ?></td>
-                            <td><?php echo $rows_dados['ENQUADRAMENTO']; ?></td>
-							<td><?php echo $rows_dados['ENVIO_PROPOSTA']; ?></td>
-							<td><?php echo $rows_dados['COMUNICAR_PROPOSTA_ENVIADA']; ?></td>
-							<td><?php echo $rows_dados['ACEITE_RECUSA_CANDIDATO']; ?></td>
+                            <td id="data"><?php echo $rows_dados['PROPOSTA_RECEBIDA']; ?></td>
+                            <td id="data2"><?php echo $rows_dados['DE_ACORDO_DIRECAO']; ?></td>
+                            <td id="data3"><?php echo $rows_dados['ENQUADRAMENTO']; ?></td>
+							<td id="data4"><?php echo $rows_dados['ENVIO_PROPOSTA']; ?></td>
+							<td id="data5"><?php echo $rows_dados['COMUNICAR_PROPOSTA_ENVIADA']; ?></td>
+							<td id="data6"><?php echo $rows_dados['ACEITE_RECUSA_CANDIDATO']; ?></td>
                             <td><?php echo $rows_dados['COMENTARIO']; ?></td>
-							<td><?php echo $rows_dados['COMUNICAR_STATUS']; ?></td>
+							<td id="data8"><?php echo $rows_dados['COMUNICAR_STATUS']; ?></td>
                             <td><?php echo $rows_dados['PROJETO']; ?></td>
                             <?php unset($_GET['id']); ?>
                             <td><a title="Gestão" id="proximo" class="disabled btn btn-default" href="gestao.php"> Próximo </td>
@@ -221,15 +221,15 @@ $translado = buscasuporte($conn, $id);
                             <option value="RETORNO PENDENTE">RETORNO PENDENTE</option>
                             <option value="NEGOCIAÇÃO">NEGOCIAÇÃO</option>
                             <option value="RECUSADO">RECUSADO</option></select></td>
-                            <td><input type='date' class='intable' required name="PROPOSTA_RECEBIDA" value="<?=$recebida['PROPOSTA_RECEBIDA']?>"></td>
-                            <td><input type="date" class='intable' required name ="DE_ACORDO_DIRECAO" value="<?=$deacordo['DE_ACORDO_DIRECAO']?>"></td>
-                            <td><input type="date" class='intable' required name="ENQUADRAMENTO" value="<?=$enquadramento['ENQUADRAMENTO']?>"></td>
-                            <td><input type="date" class='intable' required name="ENVIO_PROPOSTA" value="<?=$envioprop['ENVIO_PROPOSTA']?>"></td>
-                            <td><input type="date" class='intable' required name="COMUNICAR_PROPOSTA_ENVIADA" value="<?=$comunicarprop['COMUNICAR_PROPOSTA_ENVIADA']?>"></td>
-                            <td><input type="date" id='campo' class='intable' required name="ACEITA_RECUSA_CANDIDATO" value="<?=$candidato['ACEITE_RECUSA_CANDIDATO']?>"></td>
-                            <td><input type="text" class='intable' required name="COMENTARIO" value="<?=$comentario['COMENTARIO']?>"></td>
-                            <td><input type="date" class='intable' required name="COMUNICAR_STATUS" value="<?=$comunicar['COMUNICAR_STATUS']?>"></td>
-                            <td><input type="text" class='intable' required name="PROJETO" value="<?=$funcionarios['PROJETO']?>"></td>
+                            <td><input type='date' id="campo" class='intable' name="PROPOSTA_RECEBIDA" value="<?=$recebida['PROPOSTA_RECEBIDA']?>"></td>
+                            <td><input type="date" id="campo2" class='intable' name ="DE_ACORDO_DIRECAO" value="<?=$deacordo['DE_ACORDO_DIRECAO']?>"></td>
+                            <td><input type="date" id="campo3" class='intable' name="ENQUADRAMENTO" value="<?=$enquadramento['ENQUADRAMENTO']?>"></td>
+                            <td><input type="date" id="campo4" class='intable' name="ENVIO_PROPOSTA" value="<?=$envioprop['ENVIO_PROPOSTA']?>"></td>
+                            <td><input type="date" id="campo5" class='intable' name="COMUNICAR_PROPOSTA_ENVIADA" value="<?=$comunicarprop['COMUNICAR_PROPOSTA_ENVIADA']?>"></td>
+                            <td><input type="date" id="campo6" class='intable' name="ACEITA_RECUSA_CANDIDATO" value="<?=$candidato['ACEITE_RECUSA_CANDIDATO']?>"></td>
+                            <td><input type="text" id="campo7"class='intable' name="COMENTARIO" value="<?=$comentario['COMENTARIO']?>"></td>
+                            <td><input type="date" id="campo8" class='intable' name="COMUNICAR_STATUS" value="<?=$comunicar['COMUNICAR_STATUS']?>"></td>
+                            <td><input type="text" id="campo9" class='intable' name="PROJETO" value="<?=$funcionarios['PROJETO']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" id="salvar" class="botao-salvar btao btn btn-default" value="submit">Salvar</td>
                         </form>
@@ -339,10 +339,32 @@ $translado = buscasuporte($conn, $id);
     <script src="../js/filter.js"></script>
     <script>
     window.onload = function verifica() { 
-        if(!document.getElementById("campo").value == ""){
+        if(!document.getElementById("campo").value == "" && !document.getElementById("campo2").value == "" && !document.getElementById("campo3").value == "" && !document.getElementById("campo4").value == "" && !document.getElementById("campo5").value == "" && !document.getElementById("campo6").value == "" && !document.getElementById("campo7").value == "" && !document.getElementById("campo8").value == ""){
             $("#gestao, #proximo, #botao, #botao5, #botao6, #botao7, #botao8, #botao9, #botao10, #botao11").removeClass("disabled").attr("disabled", false);
-        }  
+        }
+        if(document.getElementById("campo").value == ""){
+            $("#data").addClass("dataVazia");
+        } 
+        if(document.getElementById("campo2").value == ""){
+            $("#data2").addClass("dataVazia");
+        }
+        if(document.getElementById("campo3").value == ""){
+            $("#data3").addClass("dataVazia");
+        }
+        if(document.getElementById("campo4").value == ""){
+            $("#data4").addClass("dataVazia");
+        }
+        if(document.getElementById("campo5").value == ""){
+            $("#data5").addClass("dataVazia");
+        }
+        if(document.getElementById("campo6").value == ""){
+            $("#data6").addClass("dataVazia");
+        }
+        if(document.getElementById("campo8").value == ""){
+            $("#data8").addClass("dataVazia");
+        }                         
     } 
     </script>
 </body>
-</html>
+</html><!-- 
+&& document.getElementById("campo3").value == "" && document.getElementById("campo4").value == "" && document.getElementById("campo5").value == "" && document.getElementById("campo6").value == "" && document.getElementById("campo7").value == "" && document.getElementById("campo8").value == "" -->
