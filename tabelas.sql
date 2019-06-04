@@ -61,8 +61,6 @@ CREATE TABLE If not EXISTS`admissao_dominio` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-
-
 CREATE TABLE if not exists `propostas_contratacoes` (
   `PROPOSTA_ID` int(10) not null auto_increment,
   `ID_USUARIO` int(11) not null,
