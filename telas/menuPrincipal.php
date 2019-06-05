@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 require_once('../validacoes/login/user.php');
@@ -189,7 +190,7 @@ if (isset($_POST['botaoVolta'])) {
         <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
         <nav>
             <a class='nav inicio' href='menuPrincipal.php'>Início</a>
-            <a class='nav filter pos' >Filtragem</a>
+            <a class='nav filter pos'>Filtragem</a>
             <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
         </nav>
     </header>

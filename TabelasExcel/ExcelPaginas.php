@@ -1,5 +1,8 @@
 
 <?php
+
+require_once('../validacoes/login/user.php');
+
 $connect = mysqli_connect("localhost", "root", "", "bancorh");
 $sql = "SELECT * FROM admissao_dominio as a 
 LEFT JOIN parametros_captacao as p 
@@ -33,6 +36,7 @@ $result = mysqli_query($connect, $sql);
           <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
           <nav>
               <a class='nav inicio' href='../telas/menuPrincipal.php'>Início</a>
+              <a class='nav filter end' href='../login/user/sair.php'>Sair</a>
           </nav>
       </header>
       
