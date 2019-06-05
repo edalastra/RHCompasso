@@ -465,7 +465,7 @@ informar o banco e os dados onde possui sua conta corrente, ok?</span></p>
 </td>
 </tr>
 </tbody></table>
-<p id='title'>Entregar as vias impressas da documentação acima destacada <strong class='sublinhe'><font color='red'> até xxxxxxx às 12h</font></strong>, aos cuidados de Inês Meira na Compasso Passo Fundo - Rua Coronel Chicuta, 575 – Sala 705 – Centro – Passo Fundo/RS.</p>
+<p id='title'>Entregar as vias impressas da documentação acima destacada <strong class='sublinhe'><font color='red'> até xxxxxxx às 12h</font></strong>, aos cuidados de Tiana Huppes – Av. Júlio de Castilhos, 132 Sala 704 – Bairro: Centro Histórico – CEP: 90030-130 - Porto Alegre/RS.</p>
 <p style="font-size:11pt;font-family:Calibri,sans-serif;margin-right:0;margin-left:0;">
 <span style="background-color:yellow;">Caso a documentação e a Carteira de Trabalho não sejam entregues na data acima destacada, será necessário a alteração da data de admissão.</span> </p>
 <p id='title'>	Assim que tivermos a data para seu exame admissional lhe informaremos.</p>
