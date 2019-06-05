@@ -20,15 +20,3 @@ function somaDia(data, somar){
 }
 
 
-envioSolicitantePri.on('input', () =>{
-  let entrada = envioSolicitantePri.val();
-  let data = somaDia(entrada, 45);
-  $('input[name="DATA_VENCIMENTO_PRI"]').val(data);
-  // console.log(envioSolicitante.val());
-});
-
-envioSolicitanteSeg.on('input', () => {
-  let entrada = envioSolicitanteSeg.val();
-  let data = somaDia(entrada, 90);
-  $('input[name="DATA_VENCIMENTO_SEG"]').val(data);
-});
