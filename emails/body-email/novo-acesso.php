@@ -6,7 +6,7 @@ include('../../db/conexao.php');
     $funcionario = buscaFuncionarios($conn, $id);
     $dados = buscainterno($conn, $id);
     $email = buscasuporte($conn, $id);
-
+    $dataAdmissao = DateTime::createFromFormat('Y-m-d', $funcionario['DATA_ADMISSAO'])->format('d/m/Y');
 ?>
 <!DOCTYPE html>
 <html>
@@ -37,7 +37,7 @@ include('../../db/conexao.php');
     <label for="como">Como:</label>
     <input type="text" name="como" class="campos01" value="" placeholder="rh@compasso.com.br"><br>
     <span style="color:red"><b>Preencha caso queira enviar como Alias</b></span><br>
-    </li>    
+    </li>
     <li class="senha">
     <label for="de">Senha:</label>
     <p><input type="password" id="senha" name="senha" class="campos01" value="">
@@ -81,7 +81,7 @@ include('../../db/conexao.php');
                     <td><Strong class='sublinhe'><?=$nome['NOME']?></Strong></td>
                     <td><strong class='sublinhe'><?=$dados['INTRANET_CADASTRO_USUARIO']?></strong></td>
                     <td>Desenvolvimento, Equipe CLT, Interno, Equipe SP<strong>(RH ajusta manual)</strong></td>
-                    <td><strong class='sublinhe'><?=$funcionario['DATA_ADMISSAO']?></strong></td>
+                    <td><strong class='sublinhe'><?= $dataAdmissao ?></strong></td>
                     <td><strong class='sublinhe'><?=$email['EMAIL_SUP']?></strong></td>
                 </tr>
 
@@ -147,7 +147,7 @@ olho.mousedown(function() {
 olho.mouseup(function() {
   senha.attr("type", "password");
 });
-$( "#olho" ).mouseout(function() { 
+$( "#olho" ).mouseout(function() {
   $("#senha").attr("type", "password");
 });</script>
 </html>
