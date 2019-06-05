@@ -8,7 +8,7 @@
     $dataN = $data['FORMULARIOS_ENVIADOS'];
     $dataF = date_create($dataN);
     date_modify( $dataF, '+ 1 day');
-    $NewDate =  date_format($dataF, 'd-m-y');
+    $NewDate =  date_format($dataF, 'd/m/Y');
 
 ?>
 <!DOCTYPE html>
@@ -41,7 +41,7 @@
     <label for="como">Como:</label>
     <input type="text" name="como" class="campos01" value="" placeholder="rh@compasso.com.br"><br>
     <span style="color:red"><b>Preencha caso queira enviar como Alias</b></span><br>
-    </li>    
+    </li>
     <li class="senha">
     <label for="de">Senha:</label>
     <p><input type="password" id="senha" name="senha" class="campos01" value="">
@@ -525,7 +525,7 @@ olho.mousedown(function() {
 olho.mouseup(function() {
   senha.attr("type", "password");
 });
-$( "#olho" ).mouseout(function() { 
+$( "#olho" ).mouseout(function() {
   $("#senha").attr("type", "password");
 });</script>
 </html>

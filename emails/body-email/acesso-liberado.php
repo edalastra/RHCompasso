@@ -6,7 +6,7 @@ $nome = buscaFuncionarios($conn, $id);
 $funcionario = buscaFuncionarios($conn, $id);
 $dados = buscainterno($conn, $id);
 $email = buscasuporte($conn, $id);
-
+$dataAdmissao = DateTime::createFromFormat('Y-m-d', $funcionario['DATA_ADMISSAO'])->format('d/m/Y');
 ?>
 <!DOCTYPE html>
 
@@ -41,7 +41,7 @@ $email = buscasuporte($conn, $id);
     <label for="como">Como:</label>
     <input type="text" name="como" class="campos01" value="" placeholder="rh@compasso.com.br"><br>
     <span style="color:red"><b>Preencha caso queira enviar como Alias</b></span><br>
-    </li>    
+    </li>
     <li class="senha">
     <label for="de">Senha:</label>
     <p><input type="password" id="senha" name="senha" class="campos01" value="">
@@ -69,7 +69,7 @@ $email = buscasuporte($conn, $id);
 <div id="selecionaPagina">
     <main>
         <h1 class='h1-principal'>Boa tarde, <strong class='sublinhe'><?=$funcionario['SOLICITANTE']?></strong></h1>
-		<p>Já estão disponíveis os acessos do novo(a) colaborador(a) <strong class ='sublinhe'><?=$nome['NOME']?></strong> que iniciará as suas atividades, na Compasso, em <strong class='sublinhe'><?= $funcionario['DATA_ADMISSAO']?></strong>
+		<p>Já estão disponíveis os acessos do novo(a) colaborador(a) <strong class ='sublinhe'><?=$nome['NOME']?></strong> que iniciará as suas atividades, na Compasso, em <strong class='sublinhe'><?= $dataAdmissao ?></strong>
         </p>
         <div>
             <h2>KAIROS</h2>
@@ -206,9 +206,9 @@ olho.mousedown(function() {
 olho.mouseup(function() {
   senha.attr("type", "password");
 });
-// para evitar o problema de arrastar a imagem e a senha continuar exposta, 
+// para evitar o problema de arrastar a imagem e a senha continuar exposta,
 //citada pelo nosso amigo nos comentários
-$( "#olho" ).mouseout(function() { 
+$( "#olho" ).mouseout(function() {
   $("#senha").attr("type", "password");
 });</script>
 </html>

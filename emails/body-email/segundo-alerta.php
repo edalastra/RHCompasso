@@ -10,11 +10,11 @@
     $dataN = $data['DATA_ADMISSAO'];
     $dataF = date_create($dataN);
     date_modify( $dataF, '+ 90 day');
-    $NewDate =  date_format($dataF, 'd-m-y');
+    $NewDate =  date_format($dataF, 'd/m/Y');
     $DataG = date_create();
     date_modify($DataG, '+ 2 day');
-    $DataFim = date_format($DataG, 'd-m-y');
-
+    $DataFim = date_format($DataG, 'd/m/Y');
+    $dataAdmissao = DateTime::createFromFormat('Y-m-d', $funcionario['DATA_ADMISSAO'])->format('d/m/Y');
 ?>
 <!DOCTYPE html>
 <html>
@@ -46,7 +46,7 @@
     <label for="como">Como:</label>
     <input type="text" name="como" class="campos01" value="" placeholder="rh@compasso.com.br"><br>
     <span style="color:red"><b>Preencha caso queira enviar como Alias</b></span><br>
-    </li>    
+    </li>
     <li class="senha">
     <label for="de">Senha:</label>
     <p><input type="password" id="senha" name="senha" class="campos01" value="">
@@ -92,7 +92,7 @@
                     <td><strong class='sublinhe'><?=$funcionario['NOME']?></strong></td>
                     <td><strong class='sublinhe'><?=$sede['nome_sede']?></strong></td>
                     <td><strong class='sublinhe'><?=$funcionario['CARGO']?></strong></td>
-                    <td><strong class='sublinhe'><?=$funcionario['DATA_ADMISSAO']?></strong></td>
+                    <td><strong class='sublinhe'><?= $dataAdmissao ?></strong></td>
                     <td><strong class='sublinhe'><?= $NewDate ?></strong></td>
                 </tr>
 
@@ -161,7 +161,7 @@ olho.mousedown(function() {
 olho.mouseup(function() {
   senha.attr("type", "password");
 });
-$( "#olho" ).mouseout(function() { 
+$( "#olho" ).mouseout(function() {
   $("#senha").attr("type", "password");
 });</script>
 </html>
