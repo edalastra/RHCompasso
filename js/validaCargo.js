@@ -4,7 +4,9 @@ function validaCargo(){
 
     if(selecionaCargo.val() == 2 || selecionaCargo.val() == 3){
         campoHoras.attr("disabled",true);
+        campoHoras.attr("required",false);
     }else{
         campoHoras.attr("disabled",false);
+        campoHoras.attr("required",true);
     }
 }
