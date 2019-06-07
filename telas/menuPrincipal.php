@@ -560,9 +560,9 @@ if (isset($_POST['botaoVolta'])) {
                                     <option value="<?= $linha['SEDE_ID']?>"><?php echo $linha['NOME_SEDE']?></option>
                                 <?php endforeach ?>
                               </select></td>
-                            <td><select id="add-tipo" name='tipo' class="selectadd intable" required><option value="" selected="selected"></option><option value="1">CLT</option><option value="2">CC</option><option value="3">HO</option><option value="4">TEMP</option><option value="5">APDZ</option></select></td>
+                            <td><select id="add-tipo" name='tipo' class="selectadd intable" onclick="validaCargo()" required><option value="" selected="selected"></option><option value="1">CLT</option><option value="2">CC</option><option value="3">HO</option><option value="4">TEMP</option><option value="5">APDZ</option></select></td>
                             <td><select id="add-captacao" name='captacao' class="selectadd intable" required><option value="" selected="selected"></option><option value="1">Ex-Funcionario</option><option value="2">Ex-Bolsista</option><option value="3">Ex-Estagiario</option><option value="4">Novo</option></select></td>
-                            <td id='add-carga_horaria'><input class='intable' type="number" min="80" max="220" name="carga_horaria" required></td>
+                            <td id='add-carga_horaria'><input id="campo-carga_horaria" class='intable' type="number" min="80" max="220" name="carga_horaria" required></td>
                             <td id='add-horario'><input class='intable' type="text" name="horario" required maxlength="13" pattern="[0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}[\s]-[\s][0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" onkeypress="valida_horas(this)"></td>
                             <td id='add-nome'><input class='intable' type="text" name="nome" required></td>
                             <td><select name="sexo" class="intable" value="<?=$rows_dados['SEXO']?>" required>
@@ -716,6 +716,7 @@ if (isset($_POST['botaoVolta'])) {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
+    <script src="../js/validaCargo.js"></script>
     <script type="text/javascript">
     function mascara(o,f){
     v_obj=o
