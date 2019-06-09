@@ -1,5 +1,6 @@
 <?php
-session_start();
+//session_start();
+require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../update.php");
 
@@ -84,6 +85,7 @@ $translado = buscasuporte($conn, $id);
                 </div>
             </div>
             </div>
+            <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
         </nav>
 
     </header>
