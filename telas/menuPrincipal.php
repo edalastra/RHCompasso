@@ -34,36 +34,67 @@ if (isset($_POST['botaoVolta'])) {
               $vencimento = $_POST['vencimento'];
               $vencimentos = $_POST['vencimentos'];
               $formularios_enviados = $_POST['formularios_enviados'];
+              $formularios_enviados_check = $_POST['formularios_enviados_check'];
               $formularios_recebidos = $_POST['formularios_recebidos'];
+              $formularios_recebidos_check = $_POST['formularios_recebidos_check'];
               $documentos_fisicos = $_POST['documentos_fisicos'];
+              $documentos_fisicos_check = $_POST['documentos_fisicos_check'];
               $ctps = $_POST['ctps'];
+              $ctps_check = $_POST['ctps_check'];
               $qualific = $_POST['qualific'];
+              $qualific_check = $_POST['qualific_check'];
               $cad_adm = $_POST['cad_adm'];
+              $cad_adm_check = $_POST['cad_adm_check'];
               $doc_rec = $_POST['doc_rec'];
+              $doc_rec_check = $_POST['doc_rec_check'];
               $termo_psi = $_POST['termo_psi'];
+              $termo_psi_check = $_POST['termo_psi_check'];
               $inclui_adm = $_POST['inclui_adm'];
+              $inclui_adm_check = $_POST['inclui_adm_check'];
               $agendamento_exam = $_POST['agendamento_exam'];
+              $agendamento_exam_check = $_POST['agendamento_exam_check'];
               $envio_func = $_POST['envio_func'];
+              $envio_func_check = $_POST['envio_func_check'];
               $email_exame = $_POST['email_exame'];
+              $email_exame_check = $_POST['email_exame_check'];
               $anexar_aso = $_POST['anexar_aso'];
+              $anexar_aso_check = $_POST['anexar_aso_check'];
               $envio = $_POST['envio'];
+              $envio_check = $_POST['envio_check'];
               $recebido = $_POST['recebido'];
+              $recebido_check = $_POST['recebido_check'];
               $anexar_recebido = $_POST['anexar_recebido'];
+              $anexar_recebido_check = $_POST['anexar_recebido_check'];
               $planilha_contas = $_POST['planilha_contas'];
+              $planilha_contas_check = $_POST['planilha_contas_check'];
               $form_compro = $_POST['form_compro'];
+              $form_compro_check = $_POST['form_compro_check'];
               $intra_data = $_POST['intra_data'];
+              $intra_data_check = $_POST['intra_data_check'];
               $kairos_data = $_POST['kairos_data'];
+              $kairos_data_check = $_POST['kairos_data_check'];
               $email_gestor = $_POST['email_gestor'];
+              $email_gestor_check = $_POST['email_gestor_check'];
               $email_inicio = $_POST['email_inicio'];
+              $email_inicio_check = $_POST['email_inicio_check'];
               $email_boas = $_POST['email_boas'];
+              $email_boas_check = $_POST['email_boas_check'];
               $acessos = $_POST['acessos'];
+              $acessos_check = $_POST['acessos_check'];
               $cracha_pedido = $_POST['cracha_pedido'];
+              $cracha_pedido_check = $_POST['cracha_pedido_check'];
               $cracha_controle = $_POST['cracha_controle'];
+              $cracha_controle_check = $_POST['cracha_controle_check'];
               $cracha_protocolo = $_POST['cracha_protocolo'];
+              $cracha_protocolo_check = $_POST['cracha_protocolo_check'];
               $email_caderno = $_POST['email_caderno'];
+              $email_caderno_check = $_POST['email_caderno_check'];
               $email_r = $_POST['email_r'];
+              $email_r_check = $_POST['email_r_check'];
               $malote = $_POST['malote'];
+              $malote_check = $_POST['malote_check'];
               $assinados = $_POST['assinados'];
+              $assinados_check = $_POST['assinados_check'];
 
               if( $status ){ $where[] = " `STATUS` = '{$status}'"; }
               if( $sede ){ $where[] = " `ID_SEDE` = '{$sede}'"; }
@@ -72,43 +103,132 @@ if (isset($_POST['botaoVolta'])) {
               if( $solicitante ){ $where[] = " `SOLICITANTE` = '{$solicitante}'"; }
               if( $cliente ){ $where[] = " `CLIENTE` = '{$cliente}'"; }
               if( $projeto ){ $where[] = " `PROJETO` = '{$projeto}'"; }
-              if( $data_admissao ){ $where[] = " `DATA_ADMISSAO` = '{$data_admissao}'"; }
-              if( $vencimento ){ $where[] = " `DATA_VENCIMENTO_PRI` = '{$vencimento}'"; }
-              if( $vencimentos ){ $where[] = " `DATA_VENCIMENTO_SEG` = '{$vencimentos}'"; }
-              if( $formularios_enviados ){ $where[] = " `formularios_enviados` = '{$formularios_enviados}'"; }
-              if( $formularios_recebidos ){ $where[] = " `formularios_recebidos` = '{$formularios_recebidos}'"; }
-              if( $documentos_fisicos ){ $where[] = " `documentos_fisicos` = '{$documentos_fisicos}'"; }
-              if( $ctps ){ $where[] = " `ctps_recebida` = '{$ctps}'"; }
-              if( $qualific ){ $where[] = " `QUALIFIC_CADASTRAL_CEP` = '{$qualific}'"; }
-              if( $cad_adm ){ $where[] = " `CAD_ADM_PLATAFORMA_ADM_DIMIN` = '{$cad_adm}'"; }
-              if( $doc_rec ){ $where[] = " `DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO` = '{$doc_rec}'"; }
-              if( $termo_psi ){ $where[] = " `TERMO_PSI` = '{$termo_psi}'"; }
-              if( $inclui_adm ){ $where[] = " `INCLUI_ADM_PROV` = '{$inclui_adm}'"; }
-              if( $agendamento_exam ){ $where[] = " `AGENDAMENTO_EXAM_ADM` = '{$agendamento_exam}'"; }
-              if( $envio_func ){ $where[] = " `EMAIL_RECEBIDO_EXAM` = '{$envio_func}'"; }
-              if( $email_exame ){ $where[] = " `ENVIO_FUNC_EXAME` = '{$email_exame}'"; }
-              if( $anexar_aso ){ $where[] = " `ANEXAR_ASO` = '{$anexar_aso}'"; }
-              if( $envio ){ $where[] = " `ENVIO` = '{$envio}'"; }
-              if( $recebido ){ $where[] = " `RECEBIDO` = '{$recebido}'"; }
-              if( $anexar_recebido ){ $where[] = " `ANEXAR_COMPR_DOMIN` = '{$anexar_recebido}'"; }
-              if( $planilha_contas ){ $where[] = " `PLANILHA_CONTAS` = '{$planilha_contas}'"; }
-              if( $form_compro ){ $where[] = " `FORM_COMPR_BANCARIO` = '{$form_compro}'"; }
-              if( $intra_data ){ $where[] = " `INTRANET_CADASTRO_USUARIO` = '{$intra_data}'"; }
-              if( $kairos_data ){ $where[] = " `KAIROS_CADASTRO_USUARIO` = '{$kairos_data}'"; }
-              if( $email_gestor ){ $where[] = " `EMAIL_GESTOR_APOIO_SEDE` = '{$email_gestor}'"; }
-              if( $email_inicio ){ $where[] = " `EMAIL_INICIO_ATIVIDADES` = '{$email_inicio}'"; }
-              if( $email_boas ){ $where[] = " `EMAIL_BOAS_VINDAS` = '{$email_boas}'"; }
-              if( $acessos ){ $where[] = " `ACESSOS` = '{$acessos}'"; }
-              if( $cracha_pedido ){ $where[] = " `CRACHA_DATA_PEDIDO` = '{$cracha_pedido}'"; }
-              if( $cracha_controle ){ $where[] = " `CRACHA_CONTROLE` = '{$cracha_controle}'"; }
-              if( $cracha_protocolo ){ $where[] = " `CRACHA_PROTOCOLO` = '{$cracha_protocolo}'"; }
-              if( $email_caderno ){ $where[] = " `EMAIL_CADERNO_COMPASSO_SOLICITADO` = '{$email_caderno}'"; }
-              if( $email_r ){ $where[] = " `EMAIL_CADERNO_COMPASSO_RECEBIDO` = '{$email_r}'"; }
-              if( $malote ){ $where[] = " `MALOTE_CADERNO_COMPASSO_CTPS` = '{$malote}'"; }
-              if( $assinados ){ $where[] = " `DOCUMENTOS_RECEBIDOS_ASSINADOS` = '{$assinados}'"; }
-
-
-
+              if( $data_admissao){ $where[] = " `DATA_ADMISSAO` = '{$data_admissao}'";}
+              if( $vencimento){ $where[] = " `DATA_VENCIMENTO_PRI` = '{$vencimento}'";}
+              if( $vencimentos){ $where[] = " `DATA_VENCIMENTO_SEG` = '{$vencimentos}'";}
+              if($formularios_enviados_check){
+                $where[] = " `formularios_enviados` IS NULL";
+              }elseif( $formularios_enviados ){ $where[] = " `formularios_enviados` = '{$formularios_enviados}'"; }
+              if($formularios_recebidos_check){
+                $where[] = " `formularios_recebidos` IS NULL";
+              }
+              elseif( $formularios_recebidos ){ $where[] = " `formularios_recebidos` = '{$formularios_recebidos}'"; }
+              if($documentos_fisicos_check){
+                $where[] = " `documentos_fisicos` IS NULL";
+              }
+              elseif( $documentos_fisicos ){ $where[] = " `documentos_fisicos` = '{$documentos_fisicos}'"; }
+              if($ctps_check){
+                $where[] = " `ctps_recebida` IS NULL";
+              }
+              elseif( $ctps ){ $where[] = " `ctps_recebida` = '{$ctps}'"; }
+              if($qualific_check){
+                $where[] = " `QUALIFIC_CADASTRAL_CEP` IS NULL";
+              }
+              elseif( $qualific ){ $where[] = " `QUALIFIC_CADASTRAL_CEP` = '{$qualific}'"; }
+              if($cad_adm_check){
+                $where[] = " `CAD_ADM_PLATAFORMA_ADM_DIMIN` IS NULL";
+              }
+              elseif( $cad_adm ){ $where[] = " `CAD_ADM_PLATAFORMA_ADM_DIMIN` = '{$cad_adm}'"; }
+              if($doc_rec_check){
+                $where[] = " `DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO` IS NULL";
+              }
+              elseif( $doc_rec ){ $where[] = " `DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO` = '{$doc_rec}'"; }
+              if($termo_psi_check){
+                $where[] = " `TERMO_PSI` IS NULL";
+              }
+              elseif( $termo_psi ){ $where[] = " `TERMO_PSI` = '{$termo_psi}'"; }
+              if($inclui_adm_check){
+                $where[] = " `INCLUI_ADM_PROV` IS NULL";
+              }
+              elseif( $inclui_adm ){ $where[] = " `INCLUI_ADM_PROV` = '{$inclui_adm}'"; }
+              if($agendamento_exam_check){
+                $where[] = " `AGENDAMENTO_EXAM_ADM` IS NULL";
+              }
+              elseif( $agendamento_exam ){ $where[] = " `AGENDAMENTO_EXAM_ADM` = '{$agendamento_exam}'"; }
+              if($envio_func_check){
+                $where[] = " `EMAIL_RECEBIDO_EXAM` IS NULL";
+              }
+              elseif( $envio_func ){ $where[] = " `EMAIL_RECEBIDO_EXAM` = '{$envio_func}'"; }
+              if($email_exame_check){
+                $where[] = " `ENVIO_FUNC_EXAME` IS NULL";
+              }
+              elseif( $email_exame ){ $where[] = " `ENVIO_FUNC_EXAME` = '{$email_exame}'"; }
+              if($anexar_aso_check){
+                $where[] = " `ANEXAR_ASO` IS NULL";
+              }
+              elseif( $anexar_aso ){ $where[] = " `ANEXAR_ASO` = '{$anexar_aso}'"; }
+              if($envio_check){
+                $where[] = " `ENVIO` IS NULL";
+              }
+              elseif( $envio ){ $where[] = " `ENVIO` = '{$envio}'"; }
+              if($recebido_check){
+                $where[] = " `RECEBIDO` IS NULL";
+              }
+              elseif( $recebido ){ $where[] = " `RECEBIDO` = '{$recebido}'"; }
+              if($anexar_recebido_check){
+                $where[] = " `ANEXAR_COMPR_DOMIN` IS NULL";
+              }
+              elseif( $anexar_recebido ){ $where[] = " `ANEXAR_COMPR_DOMIN` = '{$anexar_recebido}'"; }
+              if($planilha_contas_check){
+                $where[] = " `PLANILHA_CONTAS` IS NULL";
+              }
+              elseif( $planilha_contas ){ $where[] = " `PLANILHA_CONTAS` = '{$planilha_contas}'"; }
+              if($form_compro_check){
+                $where[] = " `FORM_COMPR_BANCARIO` IS NULL";
+              }
+              elseif( $form_compro ){ $where[] = " `FORM_COMPR_BANCARIO` = '{$form_compro}'"; }
+              if($intra_data_check){
+                $where[] = " `INTRANET_CADASTRO_USUARIO` IS NULL";
+              }
+              elseif( $intra_data ){ $where[] = " `INTRANET_CADASTRO_USUARIO` = '{$intra_data}'"; }
+              if($kairos_data_check){
+                $where[] = " `KAIROS_CADASTRO_USUARIO` IS NULL";
+              }
+              elseif( $kairos_data ){ $where[] = " `KAIROS_CADASTRO_USUARIO` = '{$kairos_data}'"; }
+              if($email_gestor_check){
+                $where[] = " `EMAIL_GESTOR_APOIO_SEDE` IS NULL";
+              }
+              elseif( $email_gestor ){ $where[] = " `EMAIL_GESTOR_APOIO_SEDE` = '{$email_gestor}'"; }
+              if($email_inicio_check){
+                $where[] = " `EMAIL_INICIO_ATIVIDADES` IS NULL";
+              }
+              elseif( $email_inicio ){ $where[] = " `EMAIL_INICIO_ATIVIDADES` = '{$email_inicio}'"; }
+              if($email_boas_check){
+                $where[] = " `EMAIL_BOAS_VINDAS` IS NULL";
+              }
+              elseif( $email_boas ){ $where[] = " `EMAIL_BOAS_VINDAS` = '{$email_boas}'"; }
+              if($acessos_check){
+                $where[] = " `ACESSOS` IS NULL";
+              }
+              elseif( $acessos ){ $where[] = " `ACESSOS` = '{$acessos}'"; }
+              if($cracha_pedido_check){
+                $where[] = " `ACESSOS` IS NULL";
+              }
+              elseif( $cracha_pedido ){ $where[] = " `CRACHA_DATA_PEDIDO` = '{$cracha_pedido}'"; }
+              if($cracha_controle_check){
+                $where[] = " `CRACHA_CONTROLE` IS NULL";
+              }
+              elseif( $cracha_controle ){ $where[] = " `CRACHA_CONTROLE` = '{$cracha_controle}'"; }
+              if($cracha_protocolo_check){
+                $where[] = " `CRACHA_PROTOCOLO` IS NULL";
+              }
+              elseif( $cracha_protocolo ){ $where[] = " `CRACHA_PROTOCOLO` = '{$cracha_protocolo}'"; }
+              if($email_caderno_check){
+                $where[] = " `EMAIL_CADERNO_COMPASSO_SOLICITADO` IS NULL";
+              }
+              elseif( $email_caderno ){ $where[] = " `EMAIL_CADERNO_COMPASSO_SOLICITADO` = '{$email_caderno}'"; }
+              if($email_r_check){
+                $where[] = " `EMAIL_CADERNO_COMPASSO_RECEBIDO` IS NULL";
+              }
+              elseif( $email_r ){ $where[] = " `EMAIL_CADERNO_COMPASSO_RECEBIDO` = '{$email_r}'"; }
+              if($malote_check){
+                $where[] = " `MALOTE_CADERNO_COMPASSO_CTPS` IS NULL";
+              }
+              elseif( $malote ){ $where[] = " `MALOTE_CADERNO_COMPASSO_CTPS` = '{$malote}'"; }
+              if($assinados_check){
+                $where[] = " `DOCUMENTOS_RECEBIDOS_ASSINADOS` IS NULL";
+              }
+              elseif( $assinados ){ $where[] = " `DOCUMENTOS_RECEBIDOS_ASSINADOS` = '{$assinados}'"; }
 
 
               $sql = "SELECT * ,DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO, DATE_FORMAT(POSICAO_DATA, '%d/%m/%Y') as POSICAO_DATA
@@ -272,6 +392,7 @@ if (isset($_POST['botaoVolta'])) {
                             <label for="vencimentos">Data Venc. Efetivação 45dias</label>
                             <input type="date" id='vencimento' name="vencimento" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Data Vencimento" />
+
                         </div>
                         <div>
                             <label for="vencimentos">Data Venc. Efetivação 90 dias</label>
@@ -283,161 +404,192 @@ if (isset($_POST['botaoVolta'])) {
                             <label for="formularios_enviados">Formulários Enviados</label>
                             <input type="date" id='formularios_enviados' name="formularios_enviados" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Formulários Enviados"/>
+                            <input type="checkbox" name="formularios_enviados_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="formularios_recebidos">Formulários Recebidos</label>
                             <input type="date" id='formularios_recebidos' name="formularios_recebidos" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Formulários Recebidos"/>
+                            <input type="checkbox" name="formularios_recebidos_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="documentos_fisicos">Documentos Físicos</label>
                             <input type="date" id='documentos_fisicos' name="documentos_fisicos" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Documentos Físicos"/>
+                            <input type="checkbox" name="documentos_fisicos_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="ctps">CTPS</label>
                             <input type="date" id='r' name="ctps" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="CTPS"/>
+                            <input type="checkbox" name="ctps_check" value="NULL"/>Vazio
                         </div>
                         <h2>Tela 6 - Admissão</h2>
                         <div>
                             <label for="qualific">Qualificação Cadastral e CEP</label>
                             <input type="date" id='qualific' name="qualific" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Qualificação Cadastral e CEP"/>
+                            <input type="checkbox" name="qualific_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="cad_adm">Cadastrada Admissão Plataforma Domínio</label>
                             <input type="date" id='cad_adm' name="cad_adm" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Cadastrada Admissão Plataforma Domínio"/>
+                            <input type="checkbox" name="cad_adm_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="doc_rec">Documentos Recebidos Plataforma Domínio + Validação  CBO</label>
                             <input type="date" id='doc_rec' name="doc_rec" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Documentos Recebidos Plataforma Domínio + Validação  CBO"/>
+                            <input type="checkbox" name="doc_rec_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="termo_psi">Termo PSI</label>
                             <input type="date" id='termo_psi' name="termo_psi" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Termo PSI"/>
+                            <input type="checkbox" name="termo_psi_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="inclui_adm">Incluir Admissão na Provisória</label>
                             <input type="date" id='inclui_adm' name="inclui_adm" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Incluir Admissão na Provisória"/>
+                            <input type="checkbox" name="inclui_adm_check" value="NULL"/>Vazio
                         </div>
                         <h2>Tela 7 - Exame</h2>
                         <div>
                             <label for="agendamento_exam">Agendamento</label>
                             <input type="date" id='agendamento_exam' name="agendamento_exam" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Agendamento"/>
+                            <input type="checkbox" name="agendamento_exam_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="envio_func">Envio para funcionário</label>
                             <input type="date" id='envio_func' name="envio_func" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Envio para funcionário"/>
+                            <input type="checkbox" name="envio_func_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="email_exame">Recebido por e-mail ASO assinado</label>
                             <input type="date" id='email_exame' name="email_exame" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Recebido por e-mail ASO assinado"/>
+                            <input type="checkbox" name="email_exame_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="anexar_aso">Anexar ASO assinado na Domínio	</label>
                             <input type="date" id='anexar_aso' name="anexar_aso" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Anexar ASO assinado na Domínio"/>
+                            <input type="checkbox" name="anexar_aso_check" value="NULL"/>Vazio
                         </div>
                         <h2>Tela 8 - Dados Bancários</h2>
                         <div>
                             <label for="envio">Envio</label>
                             <input type="date" id='envio' name="envio" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Envio"/>
+                            <input type="checkbox" name="envio_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="recebido">Recebido</label>
                             <input type="date" id='recebido' name="recebido" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Recebido"/>
+                            <input type="checkbox" name="recebido_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="anexar_recebido">Anexar comprovante na Domínio</label>
                             <input type="date" id='anexar_recebido' name="anexar_recebido" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Anexar comprovante na Domínio"/>
+                            <input type="checkbox" name="anexar_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="planilha_contas">Planilha de Contas</label>
                             <input type="date" id='planilha_contas' name="planilha_contas" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Planilha de Contas"/>
+                            <input type="checkbox" name="planilha_contas_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="form_compro">Formulário + Comprovante Bancário</label>
                             <input type="date" id='form_compro' name="form_compro" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Formulário + Comprovante Bancário"/>
+                            <input type="checkbox" name="form_compro_check" value="NULL"/>Vazio
                         </div>
                         <h2>Tela 10 - Interno</h2>
                         <div>
                             <label for="intra_data">Intranet - Cadastro Usuário</label>
                             <input type="date" id='intra_data' name="intra_data" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Intranet - Cadastro Usuário"/>
+                            <input type="checkbox" name="intra_data_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="kairos_data">Kairos - Cadastro Usuário</label>
                             <input type="date" id='kairos_data' name="kairos_data" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Kairos - Cadastro Usuário"/>
+                            <input type="checkbox" name="kairos_data_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="email_gestor">E-mail Gestor + Apoio Sede</label>
                             <input type="date" id='email_gestor' name="email_gestor" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="E-mail Gestor + Apoio Sede"/>
+                            <input type="checkbox" name="email_gestor_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="email_inicio">E-mail Início das Atividades</label>
                             <input type="date" id='email_inicio' name="email_inicio" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="E-mail Início das Atividades"/>
+                            <input type="checkbox" name="email_inicio_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="email_boas">E-mail Boas Vindas	</label>
                             <input type="date" id='email_boas' name="email_boas" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="E-mail Boas Vindas	"/>
+                            <input type="checkbox" name="email_boas_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="acessos">Acessos</label>
                             <input type="date" id='acessos' name="acessos" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Acessos"/>
+                            <input type="checkbox" name="acessos_check" value="NULL"/>Vazio
                         </div>
                         <h2>Tela 11 - Vias documentos</h2>
                         <div>
                             <label for="cracha_pedido">Data do pedido do crachá</label>
                             <input type="date" id='cracha_pedido' name="cracha_pedido" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Data do pedido do crachá"/>
+                            <input type="checkbox" name="cracha_pedido_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="cracha_controle">Controle crachá</label>
                             <input type="date" id='cracha_controle' name="cracha_controle" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Controle crachá"/>
+                            <input type="checkbox" name="cracha_controle_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="cracha_protocolo">Protocolo crachá</label>
                             <input type="date" id='cracha_protocolo' name="cracha_protocolo" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Protocolo crachá"/>
+                            <input type="checkbox" name="cracha_protocolo_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="email_caderno">Data E-mail solicitado</label>
                             <input type="date" id='email_caderno' name="email_caderno" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Data E-mail solicitado"/>
+                            <input type="checkbox" name="email_caderno_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="email_r">Data E-mail recebido</label>
                             <input type="date" id='email_r' name="email_r" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Data E-mail recebido"/>
+                            <input type="checkbox" name="email_r_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="malote">Malote (Caderno) + CTPS (Controle RH)</label>
                             <input type="date" id='malote' name="malote" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Malote (Caderno) + CTPS (Controle RH)"/>
+                            <input type="checkbox" name="malote_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="assinados">Recebido após assinatura Escanear Docs e Salvar na Pasta</label>
                             <input type="date" id='assinados' name="assinados" class="form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Recebido após assinatura Escanear Docs e Salvar na Pasta"/>
+                            <input type="checkbox" name="assinados_check" value="NULL"/>Vazio
                         </div>
                         <input type="submit" name="botao" class="botao btn btn-default btn-xs btn-filter campo-filter" value="Filtrar" >
                     </div>
@@ -487,7 +639,7 @@ if (isset($_POST['botaoVolta'])) {
                     </div>
                 </div>
             </div>
-            <table class="table table-bordered" id='first-table'>
+              <table class="table table-bordered" id='first-table'>
                 <h2 id='titulo-table'></h2>
                 <thead>
                     <tr>
@@ -713,6 +865,7 @@ if (isset($_POST['botaoVolta'])) {
         <h2></h2>
     </footer>
     <script src="../js/jquery.js"></script>
+    <script src="../js/jquery.mask.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
@@ -756,7 +909,11 @@ if (isset($_POST['botaoVolta'])) {
     edit.value+=":";}
     }
 
-    </script>    
+    $('#data_admissao').mask('00/00/0000');
+    $('#vencimento').mask('00/00/0000');
+    $('#vencimentos').mask('00/00/0000');
+
+    </script>
 </body>
 
 </html>
