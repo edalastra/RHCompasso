@@ -1,4 +1,5 @@
 <?php
+require_once('../../validacoes/emails/emails.php');
 include('../../db/conexao.php');
 include('../../update.php');
 $id=$_GET['id'];
