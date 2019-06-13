@@ -515,6 +515,7 @@ if (isset($_POST['botaoVolta'])) {
                         <th scope="col" width='200px'>Administrativo + Flyback <br/> - Hotel</th>
                         <th scope="col" width='150px'></th>
                         <th scope="col" width='100px'></th>
+                        <button id="senhaTeste123">Gerar uma senha</button>
                     </tr>
                 </thead>
                     <tbody>
@@ -716,6 +717,7 @@ if (isset($_POST['botaoVolta'])) {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
+    <script src = "../js/geraSenha.js"></script>
     <script src="../js/validaCargo.js"></script>
     <script type="text/javascript">
     function mascara(o,f){
