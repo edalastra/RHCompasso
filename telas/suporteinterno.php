@@ -10,7 +10,7 @@ $listar = listar($conn);
     if (!isset ($id)){
      $id = $_SESSION['id'];
     }
-
+$lerSenha = "<script>document.write(geraSenha())</script>";
 $suporte = buscasuporte($conn, $id);
 $testeGrupoEmail = $suporte['GRUPOS_DE_EMAIL'];
 $resultado1 = mysqli_query($conn,"SELECT ID_USUARIO, NOME, DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM propostas_contratacoes as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
@@ -34,7 +34,7 @@ if($count == 1){
     $cargo = buscaCargoFuncionario($conn, $id, $id);
     $grupDeEmail = grupoEmail($cargo['CARGO'], $sede['nome_sede']);
     $nome = defineUser($conn, $status['NOME'], $id);
-    mysqli_query($conn,"INSERT INTO `suporte_interno`( `ID_SUPORTE_INTERNO`,`ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `GRUPOS_DE_EMAIL`) VALUES (NULL,$id,'$nome@compasso.com.br','$nome',NULL,NULL,NULL,'$grupDeEmail')");
+    mysqli_query($conn,"INSERT INTO `suporte_interno`( `ID_SUPORTE_INTERNO`,`ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `GRUPOS_DE_EMAIL`) VALUES (NULL,$id,'$nome@compasso.com.br','$nome',$l,NULL,NULL,'$grupDeEmail')");
     $resultado = mysqli_query($conn, "SELECT  `ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `GRUPOS_DE_EMAIL` FROM `suporte_interno` as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }
 
@@ -54,7 +54,6 @@ $emailsoli = buscavias($conn, $id);
 /* $usuarios = mysql_fetch_assoc($resultado); */
 
 
-
 ?>
 
 
@@ -70,7 +69,7 @@ $emailsoli = buscavias($conn, $id);
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/arquivo.css">
     <link rel="stylesheet" href="../css/menuPrincipal.css">
-
+    <link rel="stylesheet" href="../css/geraSenha.css">
 
 
 </head>
@@ -196,7 +195,6 @@ $emailsoli = buscavias($conn, $id);
                             <td><?php echo $rows_dados['GRUPOS_DE_EMAIL']; ?></td>
                             <td><a title="Interno" id="proximo" class="  btn btn-default" href="interno.php"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
-
                         </tr>
                     <?php } ?>
 
@@ -215,6 +213,7 @@ $emailsoli = buscavias($conn, $id);
                     </form>
                 </tbody>
             </table>
+            <input type="button" name="botao-ok" value="Gerar uma senha" onclick = "funcao()" id="senhaUsuario">
         </section>
             <section class="legendas estruct">
                 <h2>Legendas</h2>
@@ -316,6 +315,7 @@ $emailsoli = buscavias($conn, $id);
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
+    <script src = "../js/geraSenha.js"></script>
 </body>
 
 </html>
