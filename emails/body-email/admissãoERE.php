@@ -42,7 +42,7 @@ require_once('../../validacoes/emails/emails.php');
     </li>
     <li>
     <label for="como">Como:</label>
-    <input type="text" name="como" class="campos01" value="" placeholder="rh@compasso.com.br"><br>
+    <input type="text" name="como" class="campos01" value=""><br>
     <span style="color:red"><b>Preencha caso queira enviar como Alias</b></span><br>
     </li>
     <li class="senha">
