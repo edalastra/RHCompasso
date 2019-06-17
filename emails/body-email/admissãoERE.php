@@ -42,15 +42,19 @@ require_once('../../validacoes/emails/emails.php');
     </li>
     <li>
     <label for="como">Como:</label>
-    <input type="text" name="como" class="campos01" value=""><br>
-    <span style="color:red"><b>Preencha caso queira enviar como Alias</b></span><br>
+    <select type="text" name="como" class="campos01" value="">
+    <option value="" selected="selected" class="campos01"></option>
+    <option value="contratacoes@compasso.com.br" class="campos01">contratacoes@compasso.com.br</option>
+    <option value="rh@compasso.com.br" class="campos01">rh@compasso.com.br</option>
+    </select><br>
+    <span style="color:red"><b>Selecione caso queira enviar como Alias</b></span><br>
     </li>
     <li class="senha">
     <label for="de">Senha:</label>
     <p><input type="password" id="senha" name="senha" class="campos01" value="">
     <span id="olho"/><img src='../img/olho.png' class="show"></p>
     </li>
-      <li>
+    <li>
     <label for="email">Para:</label>
     <input type="email" name="email" class="campos01" value="<?=$nome['EMAIL']; ?>"><br>
     </li>

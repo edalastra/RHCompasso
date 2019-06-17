@@ -75,6 +75,10 @@ h3{
     .campos01:focus { 
     background-color:#FFD;
     }
+    
+    select.campos01 {
+        width: 312px;
+    }
 
     .campos02:focus { 
     background-color:#FFD;
