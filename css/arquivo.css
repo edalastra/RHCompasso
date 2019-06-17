@@ -98,3 +98,7 @@ btn-circle.focus{
     background-color: rgb(50, 66, 114);
     border-color: rgb(50, 66, 114);
 }
+
+.filtrosContrarios { 
+     margin-left: 49px !important; 
+}

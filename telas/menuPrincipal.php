@@ -407,192 +407,192 @@ if (isset($_POST['botaoVolta'])) {
                         <h2>Tela 5 - Documentação</h2>
                         <div>
                             <label for="formularios_enviados">Formulários Enviados</label>
-                            <input type="date" id='formularios_enviados' name="formularios_enviados" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='formularios_enviados' name="formularios_enviados" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Formulários Enviados"/>
                             <input type="checkbox" name="formularios_enviados_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="formularios_recebidos">Formulários Recebidos</label>
-                            <input type="date" id='formularios_recebidos' name="formularios_recebidos" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='formularios_recebidos' name="formularios_recebidos" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Formulários Recebidos"/>
                             <input type="checkbox" name="formularios_recebidos_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="documentos_fisicos">Documentos Físicos</label>
-                            <input type="date" id='documentos_fisicos' name="documentos_fisicos" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='documentos_fisicos' name="documentos_fisicos" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Documentos Físicos"/>
                             <input type="checkbox" name="documentos_fisicos_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="ctps">CTPS</label>
-                            <input type="date" id='r' name="ctps" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='r' name="ctps" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="CTPS"/>
                             <input type="checkbox" name="ctps_check" value="NULL"/>Vazio
                         </div>
                         <h2>Tela 6 - Admissão</h2>
                         <div>
                             <label for="qualific">Qualificação Cadastral e CEP</label>
-                            <input type="date" id='qualific' name="qualific" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='qualific' name="qualific" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Qualificação Cadastral e CEP"/>
                             <input type="checkbox" name="qualific_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="cad_adm">Cadastrada Admissão Plataforma Domínio</label>
-                            <input type="date" id='cad_adm' name="cad_adm" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='cad_adm' name="cad_adm" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Cadastrada Admissão Plataforma Domínio"/>
                             <input type="checkbox" name="cad_adm_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="doc_rec">Documentos Recebidos Plataforma Domínio + Validação  CBO</label>
-                            <input type="date" id='doc_rec' name="doc_rec" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='doc_rec' name="doc_rec" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Documentos Recebidos Plataforma Domínio + Validação  CBO"/>
                             <input type="checkbox" name="doc_rec_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="termo_psi">Termo PSI</label>
-                            <input type="date" id='termo_psi' name="termo_psi" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='termo_psi' name="termo_psi" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Termo PSI"/>
                             <input type="checkbox" name="termo_psi_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="inclui_adm">Incluir Admissão na Provisória</label>
-                            <input type="date" id='inclui_adm' name="inclui_adm" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='inclui_adm' name="inclui_adm" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Incluir Admissão na Provisória"/>
                             <input type="checkbox" name="inclui_adm_check" value="NULL"/>Vazio
                         </div>
                         <h2>Tela 7 - Exame</h2>
                         <div>
                             <label for="agendamento_exam">Agendamento</label>
-                            <input type="date" id='agendamento_exam' name="agendamento_exam" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='agendamento_exam' name="agendamento_exam" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Agendamento"/>
                             <input type="checkbox" name="agendamento_exam_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="envio_func">Envio para funcionário</label>
-                            <input type="date" id='envio_func' name="envio_func" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='envio_func' name="envio_func" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Envio para funcionário"/>
                             <input type="checkbox" name="envio_func_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="email_exame">Recebido por e-mail ASO assinado</label>
-                            <input type="date" id='email_exame' name="email_exame" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='email_exame' name="email_exame" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Recebido por e-mail ASO assinado"/>
                             <input type="checkbox" name="email_exame_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="anexar_aso">Anexar ASO assinado na Domínio	</label>
-                            <input type="date" id='anexar_aso' name="anexar_aso" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='anexar_aso' name="anexar_aso" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Anexar ASO assinado na Domínio"/>
                             <input type="checkbox" name="anexar_aso_check" value="NULL"/>Vazio
                         </div>
                         <h2>Tela 8 - Dados Bancários</h2>
                         <div>
                             <label for="envio">Envio</label>
-                            <input type="date" id='envio' name="envio" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='envio' name="envio" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Envio"/>
                             <input type="checkbox" name="envio_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="recebido">Recebido</label>
-                            <input type="date" id='recebido' name="recebido" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='recebido' name="recebido" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Recebido"/>
                             <input type="checkbox" name="recebido_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="anexar_recebido">Anexar comprovante na Domínio</label>
-                            <input type="date" id='anexar_recebido' name="anexar_recebido" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='anexar_recebido' name="anexar_recebido" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Anexar comprovante na Domínio"/>
                             <input type="checkbox" name="anexar_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="planilha_contas">Planilha de Contas</label>
-                            <input type="date" id='planilha_contas' name="planilha_contas" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='planilha_contas' name="planilha_contas" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Planilha de Contas"/>
                             <input type="checkbox" name="planilha_contas_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="form_compro">Formulário + Comprovante Bancário</label>
-                            <input type="date" id='form_compro' name="form_compro" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='form_compro' name="form_compro" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Formulário + Comprovante Bancário"/>
                             <input type="checkbox" name="form_compro_check" value="NULL"/>Vazio
                         </div>
                         <h2>Tela 10 - Interno</h2>
                         <div>
                             <label for="intra_data">Intranet - Cadastro Usuário</label>
-                            <input type="date" id='intra_data' name="intra_data" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='intra_data' name="intra_data" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Intranet - Cadastro Usuário"/>
                             <input type="checkbox" name="intra_data_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="kairos_data">Kairos - Cadastro Usuário</label>
-                            <input type="date" id='kairos_data' name="kairos_data" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='kairos_data' name="kairos_data" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Kairos - Cadastro Usuário"/>
                             <input type="checkbox" name="kairos_data_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="email_gestor">E-mail Gestor + Apoio Sede</label>
-                            <input type="date" id='email_gestor' name="email_gestor" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='email_gestor' name="email_gestor" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="E-mail Gestor + Apoio Sede"/>
                             <input type="checkbox" name="email_gestor_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="email_inicio">E-mail Início das Atividades</label>
-                            <input type="date" id='email_inicio' name="email_inicio" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='email_inicio' name="email_inicio" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="E-mail Início das Atividades"/>
                             <input type="checkbox" name="email_inicio_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="email_boas">E-mail Boas Vindas	</label>
-                            <input type="date" id='email_boas' name="email_boas" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='email_boas' name="email_boas" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="E-mail Boas Vindas	"/>
                             <input type="checkbox" name="email_boas_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="acessos">Acessos</label>
-                            <input type="date" id='acessos' name="acessos" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='acessos' name="acessos" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Acessos"/>
                             <input type="checkbox" name="acessos_check" value="NULL"/>Vazio
                         </div>
                         <h2>Tela 11 - Vias documentos</h2>
                         <div>
                             <label for="cracha_pedido">Data do pedido do crachá</label>
-                            <input type="date" id='cracha_pedido' name="cracha_pedido" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='cracha_pedido' name="cracha_pedido" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Data do pedido do crachá"/>
                             <input type="checkbox" name="cracha_pedido_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="cracha_controle">Controle crachá</label>
-                            <input type="date" id='cracha_controle' name="cracha_controle" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='cracha_controle' name="cracha_controle" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Controle crachá"/>
                             <input type="checkbox" name="cracha_controle_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="cracha_protocolo">Protocolo crachá</label>
-                            <input type="date" id='cracha_protocolo' name="cracha_protocolo" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='cracha_protocolo' name="cracha_protocolo" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Protocolo crachá"/>
                             <input type="checkbox" name="cracha_protocolo_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="email_caderno">Data E-mail solicitado</label>
-                            <input type="date" id='email_caderno' name="email_caderno" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='email_caderno' name="email_caderno" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Data E-mail solicitado"/>
                             <input type="checkbox" name="email_caderno_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="email_r">Data E-mail recebido</label>
-                            <input type="date" id='email_r' name="email_r" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='email_r' name="email_r" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Data E-mail recebido"/>
                             <input type="checkbox" name="email_r_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="malote">Malote (Caderno) + CTPS (Controle RH)</label>
-                            <input type="date" id='malote' name="malote" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='malote' name="malote" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Malote (Caderno) + CTPS (Controle RH)"/>
                             <input type="checkbox" name="malote_check" value="NULL"/>Vazio
                         </div>
                         <div>
                             <label for="assinados">Recebido após assinatura Escanear Docs e Salvar na Pasta</label>
-                            <input type="date" id='assinados' name="assinados" class="form-control campo-filter" data-action="filter"
+                            <input type="date" id='assinados' name="assinados" class="filtrosContrarios form-control campo-filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Recebido após assinatura Escanear Docs e Salvar na Pasta"/>
                             <input type="checkbox" name="assinados_check" value="NULL"/>Vazio
                         </div>
