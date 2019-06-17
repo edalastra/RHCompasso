@@ -33,4 +33,21 @@ $(".bto-update").click(function(e){
 
 });
 //-------------------------------------------------------------------------
+$.each($('input[type=checkbox]'), (index, value) => {
+  $(value).on('input', (nomeDisable) => {
+    let flag = nomeDisable.target.checked;
+    let nome = nomeDisable.currentTarget.name;
+    let re = /(\w+)_/ ;
+    let nomeDisabled = nome.match(re)[1];
 
+    // console.log("Nome: " + nome);
+    // console.log("Nome Disable: " + nomeDisabled);
+    // console.log("Estado: "+ flag);
+
+    $("input[name="+nomeDisabled+"]").attr('disabled', flag);
+    $("input[name="+nomeDisabled+"]").val("");
+  });
+
+
+
+});
