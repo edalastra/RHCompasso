@@ -40,8 +40,12 @@ $dataAdmissao = DateTime::createFromFormat('Y-m-d', $funcionario['DATA_ADMISSAO'
     </li>
     <li>
     <label for="como">Como:</label>
-    <input type="text" name="como" class="campos01" value="" placeholder="rh@compasso.com.br"><br>
-    <span style="color:red"><b>Preencha caso queira enviar como Alias</b></span><br>
+    <select type="text" name="como" class="campos01" value="">
+    <option value="" selected="selected" class="campos01"></option>
+    <option value="contratacoes@compasso.com.br" class="campos01">contratacoes@compasso.com.br</option>
+    <option value="rh@compasso.com.br" class="campos01">rh@compasso.com.br</option>
+    </select><br>
+    <span style="color:red"><b>Selecione caso queira enviar como Alias</b></span><br>
     </li>
     <li class="senha">
     <label for="de">Senha:</label>
