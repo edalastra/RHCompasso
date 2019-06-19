@@ -1,6 +1,4 @@
-
 <?php
-//session_start();
 require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../update.php");
@@ -12,7 +10,7 @@ $listar = listar($conn);
      $id = $_SESSION['id'];
     }
 
-$suporte = buscasuporte($conn, $id);
+$suporte = 
 $testeGrupoEmail = $suporte['GRUPOS_DE_EMAIL'];
 $resultado1 = mysqli_query($conn,"SELECT ID_USUARIO, NOME, DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM propostas_contratacoes as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 $conn1 = mysqli_num_rows($resultado1);
@@ -39,26 +37,15 @@ if($count == 1){
     $resultado = mysqli_query($conn, "SELECT  `ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `GRUPOS_DE_EMAIL` FROM `suporte_interno` as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }
 
-
 $funcionario = buscaProposta($conn, $id);
 $mail = buscasuporte($conn, $id);
-$usuario= buscasuporte($conn, $id);
-$senha = buscasuporte($conn, $id);
-$equipamento = buscasuporte($conn, $id);
-$translado = buscasuporte($conn, $id);
 $nome_email = buscaFuncionarios($conn, $id);
 $formRec = buscadocs($conn, $id);
 $anexar = buscaexame($conn, $id);
 $form = buscaBancario($conn, $id);
 $emailges = buscainterno($conn, $id);
 $emailsoli = buscavias($conn, $id);
-/* $usuarios = mysql_fetch_assoc($resultado); */
-
-
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="pt">
@@ -71,11 +58,7 @@ $emailsoli = buscavias($conn, $id);
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/arquivo.css">
     <link rel="stylesheet" href="../css/menuPrincipal.css">
-
-
-
 </head>
-
 <body>
     <header class="site-header">
         <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
@@ -99,12 +82,10 @@ $emailsoli = buscavias($conn, $id);
             </div>
             <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
         </nav>
-
     </header>
     <main>
         <section class='menu-inicial'>
             <h2 id='nome'>Suporte Interno</h2>
-
         </section>
         <section class='container estruct'>
         <div class='menu-inicial1'>
@@ -198,7 +179,6 @@ $emailsoli = buscavias($conn, $id);
                             <td><?php echo $rows_dados['GRUPOS_DE_EMAIL']; ?></td>
                             <td><a title="Interno" id="proximo" class="  btn btn-default" href="interno.php"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
-
                         </tr>
                     <?php } ?>
 
@@ -207,11 +187,11 @@ $emailsoli = buscavias($conn, $id);
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly name="STATUS"  value='<?=$status['STATUS']?>'></td>
                             <td><input type='email' class='intable' name="EMAIL_SUP"  value="<?=$mail['EMAIL_SUP']?>"></td>
-                            <td><input type="text" class='intable' name ="USUARIO"  value="<?=$usuario['USUARIO']?>"></td>
-                            <td><input type="text" class='intable' name="SENHA"  value="<?=$senha['SENHA']?>"></td>
-                            <td><input type="text" class='intable' name="EQUIPAMENTO"  value="<?=$equipamento['EQUIPAMENTO']?>"></td>
-                            <td><input type="text" class='intable' id="campo" name="TRANSLADO"  value="<?=$translado['TRANSLADO']?>"></td>
-                            <td><input type="text" class='intable' name="GRUPOS_DE_EMAIL"  value="<?=$translado['GRUPOS_DE_EMAIL']?>"></td>
+                            <td><input type="text" class='intable' name ="USUARIO"  value="<?=$mail['USUARIO']?>"></td>
+                            <td><input type="text" class='intable' name="SENHA"  value="<?=$mail['SENHA']?>"></td>
+                            <td><input type="text" class='intable' name="EQUIPAMENTO"  value="<?=$mail['EQUIPAMENTO']?>"></td>
+                            <td><input type="text" class='intable' id="campo" name="TRANSLADO"  value="<?=$mail['TRANSLADO']?>"></td>
+                            <td><input type="text" class='intable' name="GRUPOS_DE_EMAIL"  value="<?=$mail['GRUPOS_DE_EMAIL']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                     </form>
@@ -319,5 +299,4 @@ $emailsoli = buscavias($conn, $id);
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
 </body>
-
 </html>
