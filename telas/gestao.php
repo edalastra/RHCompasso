@@ -1,6 +1,4 @@
-
 <?php
-    //session_start();
     require_once('../validacoes/login/user.php');
     include("../db/conexao.php");
     include("../update.php");
@@ -14,8 +12,8 @@
 $resultado1 = mysqli_query($conn,"SELECT ID_USUARIO, NOME,DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM propostas_contratacoes as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 $conn1 = mysqli_num_rows($resultado1);
 
-
 $resultado = mysqli_query($conn, "SELECT `ID_GESTOR`, `ID_USUARIO`, `GESTOR`, `GESTOR_SABE`, `GESTOR_LOCAL`, `GESTOR_LOCAL_sABE`, `RECEPTOR_PESSOA` FROM `gestao` as d LEFT JOIN admissao_dominio as a on d.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
+
 $count = mysqli_num_rows($resultado);
 
 if($count == 1){
@@ -28,11 +26,6 @@ if($count == 1){
 
 $status = buscaFuncionarios($conn, $id);
 $gestor = buscagestao($conn, $id);
-$gestor_sabe = buscagestao($conn, $id);
-$gestor_local = buscagestao($conn, $id);
-$gestorL_sabe = buscagestao($conn, $id);
-$receptor = buscagestao($conn, $id);
-$funcionario = buscagestao($conn, $id);
 $formRec = buscadocs($conn, $id);
 $inclui = buscaadmissao($conn, $id);
 $anexar = buscaexame($conn, $id);
@@ -42,9 +35,9 @@ $emailsoli = buscavias($conn, $id);
 $translado = buscasuporte($conn, $id);
 $efetivacao = buscavencimentos($conn, $id);
 ?>
+
 <!DOCTYPE html>
 <html lang="pt">
-
 <head>
     <meta charset="UTF-8">
     <title>RH Contratações</title>
@@ -53,11 +46,7 @@ $efetivacao = buscavencimentos($conn, $id);
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/arquivo.css">
     <link rel="stylesheet" href="../css/menuPrincipal.css">
-
-
-
 </head>
-
 <body>
     <header class="site-header">
         <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
@@ -79,11 +68,8 @@ $efetivacao = buscavencimentos($conn, $id);
                 <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id?>>'>9. Acessos Liberado</a>
                 </div>
             </div>
-
             <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
-            
         </nav>
-
     </header>
     <main>
         <section class='menu-inicial'>
@@ -186,47 +172,47 @@ $efetivacao = buscavencimentos($conn, $id);
                     <?php  } ?>
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="../alteraTelas/altera-gestor.php">
-                            <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
+                            <input type="hidden" name="ID_USUARIO" value="<?php echo $gestor['ID_USUARIO']?>">
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
                             <td><input type='text' class='intable' name="GESTOR"  value="<?=$gestor['GESTOR']?>"></td>
                             <td><select class="intable" name ="GESTOR_SABE" >
                               <?php
-                                  if($gestor_sabe['GESTOR_SABE']== NULL){?>
-                                    <option value="<?=$gestor_sabe['GESTOR_SABE']?>"><?=$gestor_sabe['GESTOR_SABE']?></option>
+                                  if($gestor['GESTOR_SABE']== NULL){?>
+                                    <option value="<?=$gestor['GESTOR_SABE']?>"><?=$gestor['GESTOR_SABE']?></option>
                                     <option value="Sim">Sim</option>
                                     <option value="Não">Não</option>
                               <?php
-                                  }elseif($gestor_sabe['GESTOR_SABE'] == "Sim"){ ?>
-                                    <option value="<?=$gestor_sabe['GESTOR_SABE']?>"><?=$gestor_sabe['GESTOR_SABE']?></option>
+                                  }elseif($gestor['GESTOR_SABE'] == "Sim"){ ?>
+                                    <option value="<?=$gestor['GESTOR_SABE']?>"><?=$gestor['GESTOR_SABE']?></option>
                                     <option value="Não">Não</option>
                               <?php
                             }else{?>
-                                    <option value="<?=$gestor_sabe['GESTOR_SABE']?>"><?=$gestor_sabe['GESTOR_SABE']?></option>
+                                    <option value="<?=$gestor['GESTOR_SABE']?>"><?=$gestor['GESTOR_SABE']?></option>
                                     <option value="Sim">Sim</option>
                               <?php
                                   }
                                ?>
                             </select></td>
-                            <td><input type="text" class='intable' name="GESTOR_LOCAL"  value="<?=$gestor_local['GESTOR_LOCAL']?>"></td>
+                            <td><input type="text" class='intable' name="GESTOR_LOCAL"  value="<?=$gestor['GESTOR_LOCAL']?>"></td>
                             <td><select class="intable" name ="GESTOR_LOCAL_sABE" >
                               <?php
-                                  if($gestorL_sabe['GESTOR_LOCAL_sABE']== NULL){?>
-                                    <option value="<?=$gestorL_sabe['GESTOR_LOCAL_sABE']?>"><?=$gestorL_sabe['GESTOR_LOCAL_sABE']?></option>
+                                  if($gestor['GESTOR_LOCAL_sABE']== NULL){?>
+                                    <option value="<?=$gestor['GESTOR_LOCAL_sABE']?>"><?=$gestor['GESTOR_LOCAL_sABE']?></option>
                                     <option value="Sim">Sim</option>
                                     <option value="Não">Não</option>
                               <?php
-                                  }elseif($gestorL_sabe['GESTOR_LOCAL_sABE'] == "Sim"){ ?>
-                                    <option value="<?=$gestor_sabe['GESTOR_LOCAL_sABE']?>"><?=$gestor_sabe['GESTOR_LOCAL_sABE']?></option>
+                                  }elseif($gestor['GESTOR_LOCAL_sABE'] == "Sim"){ ?>
+                                    <option value="<?=$gestor['GESTOR_LOCAL_sABE']?>"><?=$gestor['GESTOR_LOCAL_sABE']?></option>
                                     <option value="Não">Não</option>
                               <?php
                             }else{?>
-                                    <option value="<?=$gestor_sabe['GESTOR_LOCAL_sABE']?>"><?=$gestor_sabe['GESTOR_LOCAL_sABE']?></option>
+                                    <option value="<?=$gestor['GESTOR_LOCAL_sABE']?>"><?=$gestor['GESTOR_LOCAL_sABE']?></option>
                                     <option value="Sim">Sim</option>
                               <?php
                                   }
                                ?>
                             </select></td>
-                            <td><input type="text" id='campo' class='intable' name="RECEPTOR_PESSOA"  value="<?=$receptor['RECEPTOR_PESSOA']?>"></td>
+                            <td><input type="text" id='campo' class='intable' name="RECEPTOR_PESSOA"  value="<?=$gestor['RECEPTOR_PESSOA']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
