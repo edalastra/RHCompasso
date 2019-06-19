@@ -1,5 +1,4 @@
 <?php
-//session_start();
 require_once('../validacoes/login/user.php');
     include("../db/conexao.php");
     include("../update.php");
@@ -38,7 +37,6 @@ $docreceb = buscavias($conn, $id);
 ?>
 <!DOCTYPE html>
 <html lang="pt">
-
 <head>
     <meta charset="UTF-8">
     <title>RH Contratações</title>
@@ -47,11 +45,7 @@ $docreceb = buscavias($conn, $id);
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/arquivo.css">
     <link rel="stylesheet" href="../css/menuPrincipal.css">
-
-
-
 </head>
-
 <body>
     <header class="site-header">
         <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
@@ -75,7 +69,6 @@ $docreceb = buscavias($conn, $id);
             </div>
             <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
         </nav>
-
     </header>
     <main>
         <section class='menu-inicial'>
@@ -329,7 +322,5 @@ $docreceb = buscavias($conn, $id);
         }
     }               
     </script>    
-
 </body>
-
 </html>
