@@ -1,11 +1,9 @@
 <?php
-//session_start();
 require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../update.php");
 
 $listar = listar($conn);
-
 
     if (!isset ($id)){
      $id = $_SESSION['id'];
@@ -14,9 +12,9 @@ $listar = listar($conn);
 $resultado1 = mysqli_query($conn, "SELECT ID_USUARIO, NOME, DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM propostas_contratacoes as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 $conn1 = mysqli_num_rows($resultado1);
 
-
 $resultado = mysqli_query($conn, "SELECT `ID_PLATAFORMA_ADM_DOMIN`, `ID_USUARIO`, DATE_FORMAT(QUALIFIC_CADASTRAL_CEP,'%d/%m/%Y') as QUALIFIC_CADASTRAL_CEP, DATE_FORMAT(CAD_ADM_PLATAFORMA_ADM_DIMIN,'%d/%m/%Y') as CAD_ADM_PLATAFORMA_ADM_DIMIN,  DATE_FORMAT(DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO,'%d/%m/%Y') as DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO,
  DATE_FORMAT(TERMO_PSI,'%d/%m/%Y') as TERMO_PSI,DATE_FORMAT(INCLUI_ADM_PROV,'%d/%m/%Y') as INCLUI_ADM_PROV FROM `admissao` as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
+
 $count = mysqli_num_rows($resultado);
 
 if($count == 1){
@@ -31,11 +29,7 @@ if($count == 1){
 
 $status = buscaFuncionarios($conn, $id);
 $funcionario = buscaProposta($conn, $id);
-$quali = buscaadmissao($conn, $id);
 $cad= buscaadmissao($conn, $id);
-$doc = buscaadmissao($conn, $id);
-$termo = buscaadmissao($conn, $id);
-$inclui = buscaadmissao($conn, $id);
 $formRec = buscadocs($conn, $id);
 $anexar = buscaexame($conn, $id);
 $form = buscaBancario($conn, $id);
@@ -44,12 +38,8 @@ $emailsoli = buscavias($conn, $id);
 $translado = buscasuporte($conn, $id);
 ?>
 
-
-
-
 <!DOCTYPE html>
 <html lang="pt">
-
 <head>
     <meta charset="UTF-8">
     <title>RH Contratações</title>
@@ -58,11 +48,7 @@ $translado = buscasuporte($conn, $id);
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/arquivo.css">
     <link rel="stylesheet" href="../css/menuPrincipal.css">
-
-
-
 </head>
-
 <body>
     <header class="site-header">
         <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
@@ -86,7 +72,6 @@ $translado = buscasuporte($conn, $id);
             </div>
             <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
         </nav>
-
     </header>
     <main>
         <section class='menu-inicial'>
@@ -188,16 +173,15 @@ $translado = buscasuporte($conn, $id);
                         <form method="POST" action="../alteraTelas/altera-admissao.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
-                            <td><input type='date' id="campo" class='intable' name="QUALIFIC_CADASTRAL_CEP"  value="<?=$quali['QUALIFIC_CADASTRAL_CEP']?>"></td>
+                            <td><input type='date' id="campo" class='intable' name="QUALIFIC_CADASTRAL_CEP"  value="<?=$cad['QUALIFIC_CADASTRAL_CEP']?>"></td>
                             <td><input type="date" id="campo2" class='intable' name ="CAD_ADM_PLATAFORMA_ADM_DIMIN"  value="<?=$cad['CAD_ADM_PLATAFORMA_ADM_DIMIN']?>"></td>
-                            <td><input type="date" id="campo3" class='intable' name="DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO"  value="<?=$doc['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO']?>"></td>
-                            <td><input type="date" id="campo4" class='intable' name="TERMO_PSI"  value="<?=$termo['TERMO_PSI']?>"></td>
-                            <td><input type="date" id="campo5" class='intable' name="INCLUI_ADM_PROV"  value="<?=$inclui['INCLUI_ADM_PROV']?>"></td>
+                            <td><input type="date" id="campo3" class='intable' name="DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO"  value="<?=$cad['DOC_RECEBIDO_PLATAFORMA_DOMIN_CBO']?>"></td>
+                            <td><input type="date" id="campo4" class='intable' name="TERMO_PSI"  value="<?=$cad['TERMO_PSI']?>"></td>
+                            <td><input type="date" id="campo5" class='intable' name="INCLUI_ADM_PROV"  value="<?=$cad['INCLUI_ADM_PROV']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
                     </tr>
-
                 </tbody>
             </table>
         </section>
@@ -320,7 +304,5 @@ $translado = buscasuporte($conn, $id);
         }
     }               
     </script>
-
 </body>
-
 </html>
