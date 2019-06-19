@@ -33,7 +33,6 @@ $formRec = buscadocs($conn, $id);
 $form = buscaBancario($conn, $id);
 $emailges = buscainterno($conn, $id);
 $emailsoli = buscavias($conn, $id);
-
 ?>
 
 <!DOCTYPE html>

@@ -21,10 +21,9 @@ $conn1 = mysqli_num_rows($resultado1);
 
 if($r==0){ echo 'Refres:0('."'page.php?r=1'".');"'; }
 
-
-//$count =  mysqli_num_rows($conn,"SELECT COUNT(*) FROM propostas_contratacoes WHERE ID_USUARIO = '$id'");
 $resultado = mysqli_query($conn, "SELECT ID_USUARIO, DATE_FORMAT(PROPOSTA_RECEBIDA,'%d/%m/%Y') as PROPOSTA_RECEBIDA , DATE_FORMAT(DE_ACORDO_DIRECAO,'%d/%m/%Y') as DE_ACORDO_DIRECAO, DATE_FORMAT(ENQUADRAMENTO,'%d/%m/%Y') as ENQUADRAMENTO, DATE_FORMAT(ENVIO_PROPOSTA,'%d/%m/%Y') as ENVIO_PROPOSTA,
 DATE_FORMAT(COMUNICAR_PROPOSTA_ENVIADA,'%d/%m/%Y') AS COMUNICAR_PROPOSTA_ENVIADA, DATE_FORMAT(ACEITE_RECUSA_CANDIDATO,'%d/%m/%Y') as ACEITE_RECUSA_CANDIDATO ,COMENTARIO, DATE_FORMAT(COMUNICAR_STATUS,'%d/%m/%Y') AS COMUNICAR_STATUS, STATUS, PROJETO from propostas_contratacoes as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
+
 $count = mysqli_num_rows($resultado);
 
 if($count == 1){
@@ -39,16 +38,7 @@ if($count == 1){
 
 $status = buscaFuncionarios($conn, $id);
 $funcionario = buscaProposta($conn, $id);
-$funcionarios = buscaFuncionarios($conn, $id);
-$recebida = buscaProposta($conn, $id);
-$deacordo = buscaProposta($conn, $id);
 $gestorL_sabe = buscagestao($conn, $id);
-$enquadramento = buscaProposta($conn, $id);
-$envioprop = buscaProposta($conn, $id);
-$comunicarprop = buscaProposta($conn, $id);
-$candidato = buscaProposta($conn, $id);
-$comentario = buscaProposta($conn, $id);
-$comunicar = buscaProposta($conn, $id);
 $envio_Pri = buscavencimentos($conn, $id);
 $formRec = buscadocs($conn, $id);
 $inclui = buscaadmissao($conn, $id);
@@ -59,12 +49,8 @@ $emailsoli = buscavias($conn, $id);
 $translado = buscasuporte($conn, $id);
 ?>
 
-
-
-
 <!DOCTYPE html>
 <html lang="pt">
-
 <head>
     <meta charset="UTF-8">
     <title>RH Contratações</title>
@@ -73,11 +59,7 @@ $translado = buscasuporte($conn, $id);
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/arquivo.css">
     <link rel="stylesheet" href="../css/menuPrincipal.css">
-
-
-
 </head>
-
 <body>
     <header class="site-header">
         <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
@@ -99,11 +81,8 @@ $translado = buscasuporte($conn, $id);
                   <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id?>>'>9. Acessos Liberado</a>
                 </div>
             </div>
-
             <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
-
         </nav>
-
     </header>
     <main>
         <section class='menu-inicial'>
@@ -213,7 +192,7 @@ $translado = buscasuporte($conn, $id);
                     <tr class='funcionario atualiza'>
                         <form method="POST" action="/RHCompasso/alteraTelas/altera-proposta.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
-                            <td><select class='intable' name="STATUS" ><option value='<?=$status['STATUS']?>' selected= "selected"><?=$status['STATUS']?></option>
+                            <td><select class='intable' name="STATUS" ><option value='<?=$funcionario['STATUS']?>' selected= "selected"><?=$funcionario['STATUS']?></option>
                             <option value = "AGUARDAR ACEITE">AGUARDAR ACEITE</option>
                             <option value="FINALIZADO">FINALIZADO</option>
                             <option value = "DESISTENCIA">DESISTENCIA</option>
@@ -226,15 +205,15 @@ $translado = buscasuporte($conn, $id);
                             <option value="RETORNO PENDENTE">RETORNO PENDENTE</option>
                             <option value="NEGOCIAÇÃO">NEGOCIAÇÃO</option>
                             <option value="RECUSADO">RECUSADO</option></select></td>
-                            <td><input type='date' id="campo" class='intable' name="PROPOSTA_RECEBIDA" value="<?=$recebida['PROPOSTA_RECEBIDA']?>"></td>
-                            <td><input type="date" id="campo2" class='intable' name ="DE_ACORDO_DIRECAO" value="<?=$deacordo['DE_ACORDO_DIRECAO']?>"></td>
-                            <td><input type="date" id="campo3" class='intable' name="ENQUADRAMENTO" value="<?=$enquadramento['ENQUADRAMENTO']?>"></td>
-                            <td><input type="date" id="campo4" class='intable' name="ENVIO_PROPOSTA" value="<?=$envioprop['ENVIO_PROPOSTA']?>"></td>
-                            <td><input type="date" id="campo5" class='intable' name="COMUNICAR_PROPOSTA_ENVIADA" value="<?=$comunicarprop['COMUNICAR_PROPOSTA_ENVIADA']?>"></td>
-                            <td><input type="date" id="campo6" class='intable' name="ACEITA_RECUSA_CANDIDATO" value="<?=$candidato['ACEITE_RECUSA_CANDIDATO']?>"></td>
-                            <td><input type="text" id="campo7"class='intable' name="COMENTARIO" value="<?=$comentario['COMENTARIO']?>"></td>
-                            <td><input type="date" id="campo8" class='intable' name="COMUNICAR_STATUS" value="<?=$comunicar['COMUNICAR_STATUS']?>"></td>
-                            <td><input type="text" id="campo9" class='intable' name="PROJETO" value="<?=$funcionarios['PROJETO']?>"></td>
+                            <td><input type='date' id="campo" class='intable' name="PROPOSTA_RECEBIDA" value="<?=$funcionario['PROPOSTA_RECEBIDA']?>"></td>
+                            <td><input type="date" id="campo2" class='intable' name ="DE_ACORDO_DIRECAO" value="<?=$funcionario['DE_ACORDO_DIRECAO']?>"></td>
+                            <td><input type="date" id="campo3" class='intable' name="ENQUADRAMENTO" value="<?=$funcionario['ENQUADRAMENTO']?>"></td>
+                            <td><input type="date" id="campo4" class='intable' name="ENVIO_PROPOSTA" value="<?=$funcionario['ENVIO_PROPOSTA']?>"></td>
+                            <td><input type="date" id="campo5" class='intable' name="COMUNICAR_PROPOSTA_ENVIADA" value="<?=$funcionario['COMUNICAR_PROPOSTA_ENVIADA']?>"></td>
+                            <td><input type="date" id="campo6" class='intable' name="ACEITA_RECUSA_CANDIDATO" value="<?=$funcionario['ACEITE_RECUSA_CANDIDATO']?>"></td>
+                            <td><input type="text" id="campo7"class='intable' name="COMENTARIO" value="<?=$funcionario['COMENTARIO']?>"></td>
+                            <td><input type="date" id="campo8" class='intable' name="COMUNICAR_STATUS" value="<?=$funcionario['COMUNICAR_STATUS']?>"></td>
+                            <td><input type="text" id="campo9" class='intable' name="PROJETO" value="<?=$funcionario['PROJETO']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" id="salvar" class="botao-salvar btao btn btn-default" value="submit">Salvar</td>
                         </form>
@@ -371,5 +350,4 @@ $translado = buscasuporte($conn, $id);
     } 
     </script>
 </body>
-</html><!-- 
-&& document.getElementById("campo3").value == "" && document.getElementById("campo4").value == "" && document.getElementById("campo5").value == "" && document.getElementById("campo6").value == "" && document.getElementById("campo7").value == "" && document.getElementById("campo8").value == "" -->
+</html>
