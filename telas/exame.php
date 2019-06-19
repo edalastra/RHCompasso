@@ -1,5 +1,4 @@
 <?php
-//session_start();
 require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../update.php");
@@ -13,9 +12,9 @@ $listar = listar($conn);
 $resultado1 = mysqli_query($conn,"SELECT ID_USUARIO, NOME,DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM propostas_contratacoes as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 $conn1 = mysqli_num_rows($resultado1);
 
-
 $resultado = mysqli_query($conn, "SELECT `ID_EXAME_ADMISSIONAL`, `ID_USUARIO`, DATE_FORMAT(AGENDAMENTO_EXAM_ADM,'%d/%m/%Y') as AGENDAMENTO_EXAM_ADM,DATE_FORMAT(ENVIO_FUNC_EXAME,'%d/%m/%Y') as ENVIO_FUNC_EXAME, DATE_FORMAT(EMAIL_RECEBIDO_EXAM,'%d/%m/%Y') as EMAIL_RECEBIDO_EXAM, DATE_FORMAT(ANEXAR_ASO,'%d/%m/%Y') as ANEXAR_ASO
 FROM `exame_admissional` as e LEFT JOIN admissao_dominio as a on e.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
+
 $count = mysqli_num_rows($resultado);
 
 if($count == 1){
@@ -27,26 +26,18 @@ if($count == 1){
     $resultado = mysqli_query($conn, "SELECT `ID_EXAME_ADMISSIONAL`, `ID_USUARIO`, DATE_FORMAT(AGENDAMENTO_EXAM_ADM,'%d/%m/%Y') as AGENDAMENTO_EXAM_ADM,DATE_FORMAT(ENVIO_FUNC_EXAME,'%d/%m/%Y') as ENVIO_FUNC_EXAME, DATE_FORMAT(EMAIL_RECEBIDO_EXAM,'%d/%m/%Y') as EMAIL_RECEBIDO_EXAM, DATE_FORMAT(ANEXAR_ASO,'%d/%m/%Y') as ANEXAR_ASO
     FROM `exame_admissional` as e LEFT JOIN admissao_dominio as a on e.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }
-
 $status = buscaFuncionarios($conn, $id);
 $funcionario = buscaProposta($conn, $id);
 $agend = buscaexame($conn, $id);
-$envio = buscaexame($conn, $id);
-$email = buscaexame($conn, $id);
-$anexar = buscaexame($conn, $id);
 $formRec = buscadocs($conn, $id);
-$anexar = buscaexame($conn, $id);
 $form = buscaBancario($conn, $id);
 $emailges = buscainterno($conn, $id);
 $emailsoli = buscavias($conn, $id);
 
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="pt">
-
 <head>
     <meta charset="UTF-8">
     <title>RH Contratações</title>
@@ -55,11 +46,7 @@ $emailsoli = buscavias($conn, $id);
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/arquivo.css">
     <link rel="stylesheet" href="../css/menuPrincipal.css">
-
-
-
 </head>
-
 <body>
     <header class="site-header">
         <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
@@ -83,7 +70,6 @@ $emailsoli = buscavias($conn, $id);
             </div>
             <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
         </nav>
-
     </header>
     <main>
         <section class='menu-inicial'>
@@ -183,9 +169,9 @@ $emailsoli = buscavias($conn, $id);
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
                             <td><input type='date' id="campo" class='intable' name="AGENDAMENTO_EXAM_ADM"  value="<?=$agend['AGENDAMENTO_EXAM_ADM']?>"></td>
-                            <td><input type="date" id="campo2" class='intable' name ="ENVIO_FUNC_EXAME"  value="<?=$envio['ENVIO_FUNC_EXAME']?>"></td>
-                            <td><input type="date" id="campo3" class='intable' name="EMAIL_RECEBIDO_EXAM"  value="<?=$email['EMAIL_RECEBIDO_EXAM']?>"></td>
-                            <td><input type="date" id="campo4" class='intable' id="campo" name="ANEXAR_ASO"  value="<?=$anexar['ANEXAR_ASO']?>"></td>
+                            <td><input type="date" id="campo2" class='intable' name ="ENVIO_FUNC_EXAME"  value="<?=$agend['ENVIO_FUNC_EXAME']?>"></td>
+                            <td><input type="date" id="campo3" class='intable' name="EMAIL_RECEBIDO_EXAM"  value="<?=$agend['EMAIL_RECEBIDO_EXAM']?>"></td>
+                            <td><input type="date" id="campo4" class='intable' id="campo" name="ANEXAR_ASO"  value="<?=$agend['ANEXAR_ASO']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
@@ -309,7 +295,5 @@ $emailsoli = buscavias($conn, $id);
         }
     }               
     </script>
-   
 </body>
-
 </html>
