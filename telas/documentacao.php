@@ -1,5 +1,4 @@
 <?php
-//session_start();
 require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../update.php");
@@ -13,8 +12,6 @@ $listar = listar($conn);
 $resultado1 = mysqli_query($conn,"SELECT ID_USUARIO, NOME, DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM propostas_contratacoes as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 $conn1 = mysqli_num_rows($resultado1);
 
-
-//$count =  mysqli_num_rows($conn,"SELECT COUNT(*) FROM propostas_contratacoes WHERE ID_USUARIO = '$id'");
 $resultado = mysqli_query($conn, "SELECT `DOCUMENTACAO_ID`, `ID_USUARIO`, `COD_RASTREIO`, DATE_FORMAT(FORMULARIOS_ENVIADOS,'%d/%m/%Y') as FORMULARIOS_ENVIADOS, DATE_FORMAT(FORMULARIOS_RECEBIDOS,'%d/%m/%Y') as FORMULARIOS_RECEBIDOS , DATE_FORMAT(DOCUMENTOS_FISICOS,'%d/%m/%Y') as DOCUMENTOS_FISICOS, DATE_FORMAT(CTPS_RECEBIDA,'%d/%m/%Y') as CTPS_RECEBIDA
                                   FROM `documentacao` as d LEFT JOIN admissao_dominio as a on d.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 $count = mysqli_num_rows($resultado);
@@ -28,28 +25,19 @@ if($count == 1){
     $resultado = mysqli_query($conn, "SELECT `DOCUMENTACAO_ID`, `ID_USUARIO`, `COD_RASTREIO`, DATE_FORMAT(FORMULARIOS_ENVIADOS,'%d/%m/%Y') as FORMULARIOS_ENVIADOS, DATE_FORMAT(FORMULARIOS_RECEBIDOS,'%d/%m/%Y') as FORMULARIOS_RECEBIDOS , DATE_FORMAT(DOCUMENTOS_FISICOS,'%d/%m/%Y') as DOCUMENTOS_FISICOS, DATE_FORMAT(CTPS_RECEBIDA,'%d/%m/%Y') as CTPS_RECEBIDA
                                       FROM `documentacao` as d LEFT JOIN admissao_dominio as a on d.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }
-
 $status = buscaFuncionarios($conn, $id);
 $funcionario = buscaProposta($conn, $id);
 $formEnv = buscadocs($conn, $id);
-$formRec = buscadocs($conn, $id);
-$docfis = buscadocs($conn, $id);
-$ctps = buscadocs($conn, $id);
-$codRast = buscadocs($conn, $id);
-$formRec = buscadocs($conn, $id);
 $inclui = buscaadmissao($conn, $id);
 $anexar = buscaexame($conn, $id);
 $form = buscaBancario($conn, $id);
 $emailges = buscainterno($conn, $id);
 $emailsoli = buscavias($conn, $id);
 $translado = buscasuporte($conn, $id);
-
-/* $usuarios = mysql_fetch_assoc($resultado); */
 ?>
 
 <!DOCTYPE html>
 <html lang="pt">
-
 <head>
     <meta charset="UTF-8">
     <title>RH Contratações</title>
@@ -58,11 +46,7 @@ $translado = buscasuporte($conn, $id);
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/arquivo.css">
     <link rel="stylesheet" href="../css/menuPrincipal.css">
-
-
-
 </head>
-
 <body>
     <header class="site-header">
         <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
@@ -86,7 +70,6 @@ $translado = buscasuporte($conn, $id);
             </div>
             <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
         </nav>
-
     </header>
     <main>
         <section class='menu-inicial'>
@@ -198,10 +181,10 @@ $translado = buscasuporte($conn, $id);
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
                             <td><input type='date' id="campo" class='intable' name="FORMULARIOS_ENVIADOS"  value="<?=$formEnv['FORMULARIOS_ENVIADOS']?>"></td>
-                            <td><input type="date" id="campo2" class='intable' name ="FORMULARIOS_RECEBIDOS"  value="<?=$formRec['FORMULARIOS_RECEBIDOS']?>"></td>
-                            <td><input type="date" id="campo3" class='intable' name="DOCUMENTOS_FISICOS"  value="<?=$docfis['DOCUMENTOS_FISICOS']?>"></td>
-                            <td><input type="date" id="campo4" class='intable' name="CTPS_RECEBIDA"  value="<?=$ctps['CTPS_RECEBIDA']?>"></td>
-                            <td><input type="text" class='intable' name="COD_RASTREIO" required value="<?=$codRast['COD_RASTREIO']?>"></td>
+                            <td><input type="date" id="campo2" class='intable' name ="FORMULARIOS_RECEBIDOS"  value="<?=$formEnv['FORMULARIOS_RECEBIDOS']?>"></td>
+                            <td><input type="date" id="campo3" class='intable' name="DOCUMENTOS_FISICOS"  value="<?=$formEnv['DOCUMENTOS_FISICOS']?>"></td>
+                            <td><input type="date" id="campo4" class='intable' name="CTPS_RECEBIDA"  value="<?=$formEnv['CTPS_RECEBIDA']?>"></td>
+                            <td><input type="text" class='intable' name="COD_RASTREIO" required value="<?=$formEnv['COD_RASTREIO']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
@@ -326,5 +309,4 @@ $translado = buscasuporte($conn, $id);
     }
     </script>
 </body>
-
 </html>
