@@ -1,5 +1,4 @@
 <?php
-    //session_start();
     require_once('../validacoes/login/user.php');
     include("../db/conexao.php");
     include("../update.php");
@@ -14,7 +13,6 @@ $resultado1 = mysqli_query($conn,"SELECT ID_USUARIO, NOME,DATE_FORMAT(DATA_ADMIS
 $conn1 = mysqli_num_rows($resultado1);
 $status = buscaFuncionarios($conn, $id);
 
-    //$count =  mysqli_num_rows($conn,"SELECT COUNT(*) FROM propostas_contratacoes WHERE ID_USUARIO = '$id'");
     $resultado = mysqli_query($conn, "SELECT `ID_VENCIMENTO`, `ID_USUARIO`, DATE_FORMAT(ENVIO_SOLICITANTE_PRI,'%d/%m/%Y') as ENVIO_SOLICITANTE_PRI, DATE_FORMAT(DATA_VENCIMENTO_PRI,'%d/%m/%Y') as DATA_VENCIMENTO_PRI, `RENOVACAO`, DATE_FORMAT(ENVIO_SOLICITANTE_SEG,'%d/%m/%Y') as ENVIO_SOLICITANTE_SEG, DATE_FORMAT(DATA_VENCIMENTO_SEG,'%d/%m/%Y') as DATA_VENCIMENTO_SEG, `EFETIVACAO` FROM `vencimentos` as d LEFT JOIN admissao_dominio as a on d.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
     $count = mysqli_num_rows($resultado);
 
@@ -39,13 +37,7 @@ $status = buscaFuncionarios($conn, $id);
         $resultado = mysqli_query($conn, "SELECT `ID_VENCIMENTO`, `ID_USUARIO`, DATE_FORMAT(ENVIO_SOLICITANTE_PRI,'%d/%m/%Y') as ENVIO_SOLICITANTE_PRI, DATE_FORMAT(DATA_VENCIMENTO_PRI,'%d/%m/%Y') as DATA_VENCIMENTO_PRI, `RENOVACAO`, DATE_FORMAT(ENVIO_SOLICITANTE_SEG,'%d/%m/%Y') as ENVIO_SOLICITANTE_SEG, DATE_FORMAT(DATA_VENCIMENTO_SEG,'%d/%m/%Y') as DATA_VENCIMENTO_SEG, `EFETIVACAO` FROM `vencimentos` as d LEFT JOIN admissao_dominio as a on d.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
     }
 
-
 $funcionario = buscavencimentos($conn, $id);
-$envio_Pri = buscavencimentos($conn, $id);
-$renovacao = buscavencimentos($conn, $id);
-$envio_seg = buscavencimentos($conn, $id);
-$data_venc_seg = buscavencimentos($conn, $id);
-$efetivacao = buscavencimentos($conn, $id);
 $formRec = buscadocs($conn, $id);
 $inclui = buscaadmissao($conn, $id);
 $anexar = buscaexame($conn, $id);
@@ -54,9 +46,9 @@ $emailges = buscainterno($conn, $id);
 $emailsoli = buscavias($conn, $id);
 $translado = buscasuporte($conn, $id);
 ?>
+
 <!DOCTYPE html>
 <html lang="pt">
-
 <head>
     <meta charset="UTF-8">
     <title>RH Contratações</title>
@@ -65,11 +57,7 @@ $translado = buscasuporte($conn, $id);
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/arquivo.css">
     <link rel="stylesheet" href="../css/menuPrincipal.css">
-
-
-
 </head>
-
 <body>
     <header class="site-header">
         <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
@@ -207,41 +195,41 @@ $translado = buscasuporte($conn, $id);
                         <form method="POST" action="../alteraTelas/altera-vencimento.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
-                            <td><input type='date' id="campo" class='intable' name="ENVIO_SOLICITANTE_PRI" value="<?=$envio_Pri['ENVIO_SOLICITANTE_PRI']?>"></td>
-                            <td><input type='date' id="campo2" class='intable' name ="DATA_VENCIMENTO_PRI" value="<?=$envio_Pri['DATA_VENCIMENTO_PRI']?>"></td>
+                            <td><input type='date' id="campo" class='intable' name="ENVIO_SOLICITANTE_PRI" value="<?=$funcionario['ENVIO_SOLICITANTE_PRI']?>"></td>
+                            <td><input type='date' id="campo2" class='intable' name ="DATA_VENCIMENTO_PRI" value="<?=$funcionario['DATA_VENCIMENTO_PRI']?>"></td>
                             <td><select class="intable" name="RENOVACAO" >
                               <?php
-                                  if($renovacao['RENOVACAO'] == NULL){?>
-                                    <option value="<?=$renovacao['RENOVACAO']?>"><?=$renovacao['RENOVACAO']?></option>
+                                  if($funcionario['RENOVACAO'] == NULL){?>
+                                    <option value="<?=$funcionario['RENOVACAO']?>"><?=$funcionario['RENOVACAO']?></option>
                                     <option value="Sim">Sim</option>
                                     <option value="Não">Não</option>
                               <?php
-                                  }elseif($renovacao['RENOVACAO'] == "Sim"){ ?>
-                                    <option value="<?=$renovacao['RENOVACAO']?>"><?=$renovacao['RENOVACAO']?></option>
+                                  }elseif($funcionario['RENOVACAO'] == "Sim"){ ?>
+                                    <option value="<?=$funcionario['RENOVACAO']?>"><?=$funcionario['RENOVACAO']?></option>
                                     <option value="Não">Não</option>
                               <?php
                             }else{?>
-                                    <option value="<?=$renovacao['RENOVACAO']?>"><?=$renovacao['RENOVACAO']?></option>
+                                    <option value="<?=$funcionario['RENOVACAO']?>"><?=$funcionario['RENOVACAO']?></option>
                                     <option value="Sim">Sim</option>
                               <?php
                                   }
                                ?>
                             </select></td>
-                            <td><input type='date' id="campo3" class='intable' name="ENVIO_SOLICITANTE_SEG" value="<?=$envio_seg['ENVIO_SOLICITANTE_SEG']?>"></td>
-                            <td><input type='date' id='campo4' class='intable' name="DATA_VENCIMENTO_SEG" value="<?=$data_venc_seg['DATA_VENCIMENTO_SEG']?>"></td>
+                            <td><input type='date' id="campo3" class='intable' name="ENVIO_SOLICITANTE_SEG" value="<?=$funcionario['ENVIO_SOLICITANTE_SEG']?>"></td>
+                            <td><input type='date' id='campo4' class='intable' name="DATA_VENCIMENTO_SEG" value="<?=$funcionario['DATA_VENCIMENTO_SEG']?>"></td>
                             <td><select class="intable" name="EFETIVACAO" >
                               <?php
-                                  if($efetivacao['EFETIVACAO'] == NULL){?>
-                                    <option value="<?=$efetivacao['EFETIVACAO']?>"><?=$efetivacao['EFETIVACAO']?></option>
+                                  if($funcionario['EFETIVACAO'] == NULL){?>
+                                    <option value="<?=$funcionario['EFETIVACAO']?>"><?=$funcionario['EFETIVACAO']?></option>
                                     <option value="Sim">Sim</option>
                                     <option value="Não">Não</option>
                               <?php
-                                  }elseif($efetivacao['EFETIVACAO'] == "Sim"){ ?>
-                                    <option value="<?=$efetivacao['EFETIVACAO']?>"><?=$efetivacao['EFETIVACAO']?></option>
+                                  }elseif($funcionario['EFETIVACAO'] == "Sim"){ ?>
+                                    <option value="<?=$funcionario['EFETIVACAO']?>"><?=$funcionario['EFETIVACAO']?></option>
                                     <option value="Não">Não</option>
                               <?php
                             }else{?>
-                                    <option value="<?=$efetivacao['EFETIVACAO']?>"><?=$efetivacao['EFETIVACAO']?></option>
+                                    <option value="<?=$funcionario['EFETIVACAO']?>"><?=$funcionario['EFETIVACAO']?></option>
                                     <option value="Sim">Sim</option>
                               <?php
                                   }
