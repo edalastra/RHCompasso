@@ -1,31 +1,18 @@
 <?php
-// Tela de login, já tem o SESSION, então comentei pq está dando conflito por ter
-// duas declarações. Quando o login for removido, habilitar novamente abaixo:
-/*session_start();*/
-
 require_once('../validacoes/login/user.php');
-
 include("../db/conexao.php");
 include("../update.php");
 
 $listar = listar($conn);
-//if ($_GET['botaoLimpar']=='Limpar') {
 if (isset($_POST['botaoVolta'])) {
   header('Location: menuprincipal.php');
 }
 
-
-//if ($_GET['botao']=='Filtrar') {
     if (isset($_POST['botaoVolta'])) {
         header('Location: menuprincipal.php');
       }
-
-
-      //if ($_GET['botao']=='Filtrar') {
       if (isset($_POST['botao'])) {
-
               $where = Array();
-
               $status = $_POST['STATUS'];
               $sede = $_POST['sede'];
               $tipo = $_POST['tipo'];
@@ -289,12 +276,9 @@ if (isset($_POST['botaoVolta'])) {
 
       }
 
-//$resultado = mysqli_query($conn, "SELECT * FROM teste");
-// $usuarios = mysql_fetch_assoc($resultado);
 ?>
 <!DOCTYPE html>
 <html lang="pt">
-
 <head>
     <meta charset="UTF-8">
     <title>RH Contratações</title>
@@ -303,9 +287,7 @@ if (isset($_POST['botaoVolta'])) {
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/arquivo.css">
     <link rel="stylesheet" href="../css/menuPrincipal.css">
-
 </head>
-
 <body>
     <header class="site-header">
         <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
@@ -318,7 +300,6 @@ if (isset($_POST['botaoVolta'])) {
     <main>
         <section class='menu-inicial'>
             <h2 id='nome'>Plataforma Admissão</h2>
-
         </section>
         <section class='inputs panel-body display campo-filtro estruct'>
             <h2 id='Filtro'>Filtro</h2>
@@ -913,12 +894,9 @@ if (isset($_POST['botaoVolta'])) {
     if(edit.value.length==10){
     edit.value+=":";}
     }
-
     $('#data_admissao').mask('00/00/0000');
     $('#vencimento').mask('00/00/0000');
     $('#vencimentos').mask('00/00/0000');
-
     </script>
 </body>
-
 </html>

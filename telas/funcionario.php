@@ -1,8 +1,5 @@
 <?php
-    /*session_start();*/
-
 require_once('../validacoes/login/user.php');
-
 include("../db/conexao.php");
 include("../update.php");
 
@@ -17,6 +14,7 @@ if(isset($_GET['id'])){
 $r=0;
 
 $resultado1 = mysqli_query($conn,"SELECT ID_USUARIO, NOME, DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM propostas_contratacoes as p JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
+
 $conn1 = mysqli_num_rows($resultado1);
 
 if($r==0){ echo 'Refres:0('."'page.php?r=1'".');"'; }
