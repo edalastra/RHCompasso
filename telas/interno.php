@@ -1,5 +1,4 @@
 <?php
-//session_start();
 require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../update.php");
@@ -15,6 +14,7 @@ $conn1 = mysqli_num_rows($resultado1);
 
 $resultado = mysqli_query($conn, "SELECT `ID_INTERNO`, `ID_USUARIO`,DATE_FORMAT(INTRANET_CADASTRO_USUARIO,'%d/%m/%Y') as INTRANET_CADASTRO_USUARIO, `INTRANET_CADASTRO_SENHA`,DATE_FORMAT(KAIROS_CADASTRO_USUARIO,'%d/%m/%Y') as KAIROS_CADASTRO_USUARIO, `KAIROS_CADASTRO_SENHA`, DATE_FORMAT(EMAIL_GESTOR_APOIO_SEDE,'%d/%m/%Y') as EMAIL_GESTOR_APOIO_SEDE, DATE_FORMAT(EMAIL_INICIO_ATIVIDADES,'%d/%m/%Y') as EMAIL_INICIO_ATIVIDADES, DATE_FORMAT(EMAIL_BOAS_VINDAS,'%d/%m/%Y') as EMAIL_BOAS_VINDAS, DATE_FORMAT(ACESSOS,'%d/%m/%Y') as ACESSOS
 FROM `interno` AS i LEFT JOIN admissao_dominio AS a ON i.ID_USUARIO = a.USUARIO_ID WHERE ID_USUARIO = '$id'");
+
 $count = mysqli_num_rows($resultado);
 
 if($count == 1){
@@ -29,21 +29,10 @@ if($count == 1){
 
 $status = buscaFuncionarios($conn, $id);
 $funcionario = buscainterno($conn, $id);
-$intranetusu = buscainterno($conn, $id);
-$intranetsen = buscainterno($conn, $id);
-$kairosusu = buscainterno($conn, $id);
-$kairossen = buscainterno($conn, $id);
-$emailges = buscainterno($conn, $id);
-$emailboas = buscainterno($conn, $id);
-$emailinic = buscainterno($conn, $id);
-$acessos = buscainterno($conn, $id);
-/* $usuarios = mysql_fetch_assoc($resultado); */
-
 ?>
 
 <!DOCTYPE html>
 <html lang="pt">
-
 <head>
     <meta charset="UTF-8">
     <title>RH Contratações</title>
@@ -52,9 +41,6 @@ $acessos = buscainterno($conn, $id);
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/arquivo.css">
     <link rel="stylesheet" href="../css/menuPrincipal.css">
-
-
-
 </head>
 
 <body>
@@ -81,7 +67,6 @@ $acessos = buscainterno($conn, $id);
             </div>
             <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
         </nav>
-
     </header>
     <main>
         <section class='menu-inicial'>
@@ -197,14 +182,14 @@ $acessos = buscainterno($conn, $id);
                         <form method="POST" action="../alteraTelas/altera-interno.php">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
-                            <td><input type='date' id="campo" class='intable' name="INTRANET_CADASTRO_USUARIO"  value="<?=$intranetusu['INTRANET_CADASTRO_USUARIO']?>"></td>
-                            <td><input type="text" class='intable' name ="INTRANET_CADASTRO_SENHA" value="<?=$intranetsen['INTRANET_CADASTRO_SENHA']?>"></td>
-                            <td><input type="date" id="campo2" class='intable' name="KAIROS_CADASTRO_USUARIO"  value="<?=$kairosusu['KAIROS_CADASTRO_USUARIO']?>"></td>
-                            <td><input type="text" class='intable' name="KAIROS_CADASTRO_SENHA" value="<?=$kairossen['KAIROS_CADASTRO_SENHA']?>"></td>
-                            <td><input type="date" id="campo3" class='intable' name="EMAIL_GESTOR_APOIO_SEDE"  value='<?=$emailges['EMAIL_GESTOR_APOIO_SEDE']?>'></td>
-                            <td><input type='date' id="campo4" class='intable' name="EMAIL_INICIO_ATIVIDADES"  value="<?=$emailinic['EMAIL_INICIO_ATIVIDADES']?>"></td>
-                            <td><input class='intable' id="campo5" type="date" name="EMAIL_BOAS_VINDAS"  value='<?=$emailboas['EMAIL_BOAS_VINDAS']?>'></td>
-                            <td><input type='date' id="campo6" class='intable' name="ACESSOS"  value="<?=$acessos['ACESSOS']?>"></td>
+                            <td><input type='date' id="campo" class='intable' name="INTRANET_CADASTRO_USUARIO"  value="<?=$funcionario['INTRANET_CADASTRO_USUARIO']?>"></td>
+                            <td><input type="text" class='intable' name ="INTRANET_CADASTRO_SENHA" value="<?=$funcionario['INTRANET_CADASTRO_SENHA']?>"></td>
+                            <td><input type="date" id="campo2" class='intable' name="KAIROS_CADASTRO_USUARIO"  value="<?=$funcionario['KAIROS_CADASTRO_USUARIO']?>"></td>
+                            <td><input type="text" class='intable' name="KAIROS_CADASTRO_SENHA" value="<?=$funcionario['KAIROS_CADASTRO_SENHA']?>"></td>
+                            <td><input type="date" id="campo3" class='intable' name="EMAIL_GESTOR_APOIO_SEDE"  value='<?=$funcionario['EMAIL_GESTOR_APOIO_SEDE']?>'></td>
+                            <td><input type='date' id="campo4" class='intable' name="EMAIL_INICIO_ATIVIDADES"  value="<?=$funcionario['EMAIL_INICIO_ATIVIDADES']?>"></td>
+                            <td><input class='intable' id="campo5" type="date" name="EMAIL_BOAS_VINDAS"  value='<?=$funcionario['EMAIL_BOAS_VINDAS']?>'></td>
+                            <td><input type='date' id="campo6" class='intable' name="ACESSOS"  value="<?=$funcionario['ACESSOS']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
@@ -335,5 +320,4 @@ $acessos = buscainterno($conn, $id);
     }               
     </script>          
 </body>
-
 </html>
