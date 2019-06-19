@@ -1,11 +1,9 @@
 <?php
-//session_start();
 require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../update.php");
 
 $listar = listar($conn);
-
     if (!isset ($id)){
      $id = $_SESSION['id'];
     }
@@ -13,9 +11,9 @@ $listar = listar($conn);
 $resultado1 = mysqli_query($conn,"SELECT ID_USUARIO, NOME,DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM propostas_contratacoes as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 $conn1 = mysqli_num_rows($resultado1);
 
-
 $resultado = mysqli_query($conn, "SELECT `ID_USUARIO`, DATE_FORMAT(BOAS_VINDAS_INGR_AGENDADA,'%d/%m/%Y') as BOAS_VINDAS_INGR_AGENDADA, DATE_FORMAT(BOAS_VINDAS_INGR_REALIZADA,'%d/%m/%Y') as BOAS_VINDAS_INGR_REALIZADA, BOAS_VINDAS_SALA, DATE_FORMAT(BOAS_VINDA_ACOMPANHAMENTO_MENSAL,'%d/%m/%Y') as BOAS_VINDA_ACOMPANHAMENTO_MENSAL,
   DATE_FORMAT(LAYOUT_BOAS_VINDAS_MENSAL,'%d/%m/%Y') as LAYOUT_BOAS_VINDAS_MENSAL FROM `boas_vindas` as e LEFT JOIN admissao_dominio as a on e.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
+
 $count = mysqli_num_rows($resultado);
 
 if($count == 1){
@@ -29,14 +27,7 @@ if($count == 1){
 }
 
 $status = buscaFuncionarios($conn, $id);
-
 $boasVindasAcomp = buscaRecepcao($conn, $id);
-$layoutBoasVindas = buscaRecepcao($conn, $id);
-$boasVindasIntegrAgendada = buscaRecepcao($conn, $id);
-$boasVindasIntegrRealizada = buscaRecepcao($conn, $id);
-$boasVindasSala = buscaRecepcao($conn, $id);
-$funcionario = buscaRecepcao($conn, $id);
-$finalizado = buscaFuncionarios($conn, $id);
 $formRec = buscadocs($conn, $id);
 $envio_Pri = buscavencimentos($conn, $id);
 $anexar = buscaexame($conn, $id);
@@ -49,10 +40,8 @@ $translado = buscasuporte($conn, $id);
 $deacordo = buscaProposta($conn, $id);
 ?>
 
-
 <!DOCTYPE html>
 <html lang="pt">
-
 <head>
     <meta charset="UTF-8">
     <title>RH Contratações</title>
@@ -61,11 +50,7 @@ $deacordo = buscaProposta($conn, $id);
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/arquivo.css">
     <link rel="stylesheet" href="../css/menuPrincipal.css">
-
-
-
 </head>
-
 <body>
     <header class="site-header">
         <img src="http://www.compasso.com.br/wp-content/uploads/2018/04/Logo_Compasso_01-mini.png" alt="Compasso Tecnologia">
@@ -89,7 +74,6 @@ $deacordo = buscaProposta($conn, $id);
             </div>
             <a class='nav filter last' href='../login/user/sair.php'>Sair</a>
         </nav>
-
     </header>
     <main>
         <section class='menu-inicial'>
@@ -195,13 +179,13 @@ $deacordo = buscaProposta($conn, $id);
 
                     <tr class='funcionario atualiza'>
                         <form  method="POST" action="../alteraTelas/altera-recepcao.php">
-                            <input type='hidden' name="ID_USUARIO" value ="<?=$funcionario['ID_USUARIO']?>">
+                            <input type='hidden' name="ID_USUARIO" value ="<?=$boasVindasAcomp['ID_USUARIO']?>">
                             <td><input class='intable' readonly type='text' name="STATUS" value="<?=$status['STATUS'];?>"></td>
-                            <td><input class='intable' id="campo" type='date' name='BOAS_VINDAS_INGR_AGENDADA'  value="<?=$boasVindasIntegrAgendada['BOAS_VINDAS_INGR_AGENDADA']?>"></td>
-                            <td><input class='intable' id="campo2" type='date' name='BOAS_VINDAS_INGR_REALIZADA'  value="<?=$boasVindasIntegrRealizada['BOAS_VINDAS_INGR_REALIZADA']?>"></td>
-                            <td><input class='intable' type='text' name='BOAS_VINDAS_SALA'  value="<?=$boasVindasSala['BOAS_VINDAS_SALA']?>"></td>
+                            <td><input class='intable' id="campo" type='date' name='BOAS_VINDAS_INGR_AGENDADA'  value="<?=$boasVindasAcomp['BOAS_VINDAS_INGR_AGENDADA']?>"></td>
+                            <td><input class='intable' id="campo2" type='date' name='BOAS_VINDAS_INGR_REALIZADA'  value="<?=$boasVindasAcomp['BOAS_VINDAS_INGR_REALIZADA']?>"></td>
+                            <td><input class='intable' type='text' name='BOAS_VINDAS_SALA'  value="<?=$boasVindasAcomp['BOAS_VINDAS_SALA']?>"></td>
                             <td><input class='intable' id="campo3" type='date' name='BOAS_VINDA_ACOMPANHAMENTO_MENSAL'  value="<?=$boasVindasAcomp['BOAS_VINDA_ACOMPANHAMENTO_MENSAL']?>"></td>
-                            <td><input class='intable' id="campo4" type='date' name='LAYOUT_BOAS_VINDAS_MENSAL'  value="<?=$layoutBoasVindas['LAYOUT_BOAS_VINDAS_MENSAL']?>"></td>
+                            <td><input class='intable' id="campo4" type='date' name='LAYOUT_BOAS_VINDAS_MENSAL'  value="<?=$boasVindasAcomp['LAYOUT_BOAS_VINDAS_MENSAL']?>"></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                         </form>
@@ -330,5 +314,4 @@ $deacordo = buscaProposta($conn, $id);
     }
     </script>
 </body>
-
 </html>
