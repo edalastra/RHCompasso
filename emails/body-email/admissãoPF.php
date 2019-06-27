@@ -476,39 +476,7 @@ informar o banco e os dados onde possui sua conta corrente, ok?</span></p>
 <span style="background-color:yellow;">Caso a documentação e a Carteira de Trabalho não sejam entregues na data acima destacada, será necessário a alteração da data de admissão.</span> </p>
 <p id='title'>	Assim que tivermos a data para seu exame admissional lhe informaremos.</p>
 <p id='title'>Por gentileza confirmar o recebimento deste e-mail</p>
-<footer>
-  <table>
-<tr>
-<th>  <img id='img1'src='../img/compasso.jpg' alt='compasso' align='left'> </th>
-<th id='info' align='left'>
-<div class='txt1'id='align_info'>
-<p><a id='cor0'> Equipe Contratações</a> </p>
-<p>  Compasso | Navigating Oracle Technologies </p>
-<p> +55 51 21086689 | Porto Alegre (RS) – Brasil </p>
-<p> <a href=”www.compasso.com.br” id='cores'>www.compasso.com.br</a> | <a href=”viviane.azevedo@compasso.com.br” id='cores'>viviane.azevedo@compasso.com.br</a> </p>
-</div>
-</th>
-</tr>
-<tr>
-<td>
-<div id='align_img'>
-<img id='img2'src='../img/compasso2.jpg' alt='compasso2'>
-</div>
-</td>
-</tr>
-</table>
-<div class='txt2'>
-  <p id='tamanho'>FACILITE A COMUNICAÇÃO ENVIE SEU EMAIL PARA O ALIAS CORRETO </p>
-  <p id='tamanho2'><a id='cor'> @rh:</a> email geral do departamento, referência para o time e rescisões.</p>
-  <p id='tamanho2'><a id='cor'>@contratações:</a> concentra as contratações CLT, Estagiários/Bolsistas desde a proposta até a conclusão do processo de admissão/contrato e rescisões.</p>
-  <p id='tamanho2'><a id='cor'>@benefícios:</a> Vale transporte, vale refeição e vale alimentação, planos de saúde e planos odontológicos.</p>
-  <p id='tamanho2'><a id='cor'>@férias:</a> agendamento e cancelamento de férias.</p>
-  <p id='tamanho2'><a id='cor'>@folha:</a> Assuntos sobre folha de pagamento, comprovante auxílio creche, horas extras, contracheque, dissídio, licenças, ajustes/reajustes/transferências</p>
-  <p id='tamanho2'><a id='cor'>@jornadas:</a> Análise de jornadas, ponto eletrônico, registro de atividades, atestados/ausências/folgas, sobreaviso.</p>
-  <p id='tamanho'><a href='http://www.compasso.com.br/interno/backoffice.jpg'>http://www.compasso.com.br/interno/backoffice.jpg</a></p>
-</div>
 
-</footer>
 </div>
 <input type="hidden" name="body" id="inputBody" value="">
 
