@@ -1,8 +1,4 @@
 <?php
-// Tela de login, já tem o SESSION, então comentei pq está dando conflito por ter
-// duas declarações. Quando o login for removido, habilitar novamente abaixo:
-/*session_start();*/
-
 require_once('../validacoes/login/user.php');
 
 include("../db/conexao.php");

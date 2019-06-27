@@ -1,21 +1,21 @@
 <?php
-require_once('../../validacoes/emails/emails.php');
-    include('../../db/conexao.php');
-    include('../../update.php');
-    $id=$_GET['id'];
-    $nome = buscaFuncionarios($conn, $id);
-    $data = buscaFuncionarios($conn, $id);
-    $funcionario = buscaFuncionarios($conn, $id);
-    $sede = buscaSedeFuncionario($conn, $funcionario["ID_SEDE"]);
+  require_once('../../validacoes/email/email.php');
+  include('../../db/conexao.php');
+  include('../../update.php');
+  $id=$_GET['id'];
+  $nome = buscaFuncionarios($conn, $id);
+  $data = buscaFuncionarios($conn, $id);
+  $funcionario = buscaFuncionarios($conn, $id);
+  $sede = buscaSedeFuncionario($conn, $funcionario["ID_SEDE"]);
 
-    $dataN = $data['DATA_ADMISSAO'];
-    $dataF = date_create($dataN);
-    date_modify( $dataF, '+ 45 day');
-    $NewDate =  date_format($dataF, 'd/m/Y');
-    $DataG = date_create();
-    date_modify($DataG, '+ 2 day');
-    $DataFim = date_format($DataG, 'd/m/Y');
-    $dataAdmissao = DateTime::createFromFormat('Y-m-d', $funcionario['DATA_ADMISSAO'])->format('d/m/Y');
+  $dataN = $data['DATA_ADMISSAO'];
+  $dataF = date_create($dataN);
+  date_modify( $dataF, '+ 45 day');
+  $NewDate =  date_format($dataF, 'd/m/Y');
+  $DataG = date_create();
+  date_modify($DataG, '+ 2 day');
+  $DataFim = date_format($DataG, 'd/m/Y');
+  $dataAdmissao = DateTime::createFromFormat('Y-m-d', $funcionario['DATA_ADMISSAO'])->format('d/m/Y');
 ?>
 <!DOCTYPE html>
 <html>
@@ -40,7 +40,7 @@ require_once('../../validacoes/emails/emails.php');
     <input type="hidden" name="nome" class="campos01" value="<?=$nome['NOME']; ?>">
     <li>
     <label for="de">De:</label>
-    <input type="text" name="de" class="campos01" value=""><br>
+    <input type="text" name="de" class="campos01" value="<?=$InfoUser[0]['mail'][0];?>"><br>
     </li>
     <li>
     <label for="como">Como:</label>

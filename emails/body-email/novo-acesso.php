@@ -1,13 +1,13 @@
 <?php
-require_once('../../validacoes/emails/emails.php');
-include('../../db/conexao.php');
-    include('../../update.php');
-    $id=$_GET['id'];
-    $nome = buscaFuncionarios($conn, $id);
-    $funcionario = buscaFuncionarios($conn, $id);
-    $dados = buscainterno($conn, $id);
-    $email = buscasuporte($conn, $id);
-    $dataAdmissao = DateTime::createFromFormat('Y-m-d', $funcionario['DATA_ADMISSAO'])->format('d/m/Y');
+  require_once('../../validacoes/email/email.php');
+  include('../../db/conexao.php');
+  include('../../update.php');
+  $id=$_GET['id'];
+  $nome = buscaFuncionarios($conn, $id);
+  $funcionario = buscaFuncionarios($conn, $id);
+  $dados = buscainterno($conn, $id);
+  $email = buscasuporte($conn, $id);
+  $dataAdmissao = DateTime::createFromFormat('Y-m-d', $funcionario['DATA_ADMISSAO'])->format('d/m/Y');
 ?>
 <!DOCTYPE html>
 <html>
@@ -32,7 +32,7 @@ include('../../db/conexao.php');
     <input type="hidden" name="nome" class="campos01" value="<?=$nome['NOME']; ?>">
     <li>
     <label for="de">De:</label>
-    <input type="text" name="de" class="campos01" value=""><br>
+    <input type="text" name="de" class="campos01" value="<?=$InfoUser[0]['mail'][0];?>"><br>
     </li>
     <li>
     <label for="como">Como:</label>

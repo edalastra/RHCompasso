@@ -1,16 +1,16 @@
 <?php
-require_once('../../validacoes/emails/emails.php');
-include('../../db/conexao.php');
-include('../../update.php');
-$id = $_GET['id'];
+  require_once('../../validacoes/email/email.php');
+  include('../../db/conexao.php');
+  include('../../update.php');
+  $id = $_GET['id'];
 
-$nome = buscaFuncionarios($conn, $id);
-$data = buscadocs($conn, $id);
+  $nome = buscaFuncionarios($conn, $id);
+  $data = buscadocs($conn, $id);
 
-$dataN = $data['FORMULARIOS_ENVIADOS'];
-$dataF = date_create($dataN);
-date_modify($dataF, '+ 1 day');
-$NewDate =  date_format($dataF, 'd/m/Y');
+  $dataN = $data['FORMULARIOS_ENVIADOS'];
+  $dataF = date_create($dataN);
+  date_modify($dataF, '+ 1 day');
+  $NewDate =  date_format($dataF, 'd/m/Y');
 
 ?>
 <!DOCTYPE html>
@@ -37,7 +37,7 @@ $NewDate =  date_format($dataF, 'd/m/Y');
     <input type="hidden" name="nome" class="campos01" value="<?=$nome['NOME']; ?>">
     <li>
     <label for="de">De:</label>
-    <input type="text" name="de" class="campos01" value=""><br>
+    <input type="text" name="de" class="campos01" value="<?=$InfoUser[0]['mail'][0];?>"><br>
     </li>
     <li>
     <label for="como">Como:</label>
