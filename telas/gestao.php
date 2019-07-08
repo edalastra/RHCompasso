@@ -115,16 +115,16 @@ $efetivacao = buscavencimentos($conn, $id);
                 <div class="stepwizard">
                     <div class="passos stepwizard-row1 setup-panel">
                         <div class="stepwizard-step col-md-auto">
-                            <a title="Menu Principal" href="menuPrincipal.php" type="button" class="btn btn-default btn-circle">1</a>
+                            <a title="Menu Principal" href="menuPrincipal.php" id="botao1" type="button" class="btn btn-default btn-circle">1</a>
                         </div>
                         <div title ="Proposta de Contratação" class="stepwizard-step col-md-auto">
-                            <a href="funcionario.php" type="button" class="btn btn-default btn-circle" >2</a>
+                            <a href="funcionario.php" type="button" id="botao2" class="btn btn-default btn-circle" >2</a>
                         </div>
                         <div title ="Gestão" class="stepwizard-step col-md-auto">
-                            <a href="gestao.php" type="button" class="btn btn-success btn-circle">3</a>
+                            <a href="gestao.php" type="button" id="botao3" class="btn btn-success btn-circle">3</a>
                         </div>
                         <div title="Vencimento Contratos" class="stepwizard-step col-md-auto">
-                            <a href="vencimentosContratos.php" id="venciment"   type="button" class="btn btn-default btn-circle  ">4</a>
+                            <a href="vencimentosContratos.php" id="venciment" id="botao4"   type="button" class="btn btn-default btn-circle  ">4</a>
                         </div>
                         <div title="Documentação" class="stepwizard-step col-md-auto">
                             <a href="documentacao.php"   id="botao5" type="button" class="btn btn-default btn-circle  ">5</a>
@@ -148,7 +148,7 @@ $efetivacao = buscavencimentos($conn, $id);
                             <a href="viasdocumentos.php"   type="button" id="botao11" class="btn btn-default btn-circle  " >11</a>
                         </div>
                         <div title= "Boas Vindas" class="stepwizard-step col-md-auto">
-                            <a href="recepcao.php" type="button" class="btn btn-default btn-circle" >12</a>
+                            <a href="recepcao.php" type="button" id="botao12" class="btn btn-default btn-circle" >12</a>
                         </div>
                     </div>
                 </div>

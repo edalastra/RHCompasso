@@ -128,7 +128,7 @@ $translado = buscasuporte($conn, $id);
                 </tbody>
                 </table>
         </div>
-        <div style="height: 25px;"></div>
+         <div style="height: 25px;"></div>
             <div class="passos">
                     <div class="stepwizard">
                         <div class="passos stepwizard-row1 setup-panel">
@@ -172,6 +172,7 @@ $translado = buscasuporte($conn, $id);
                         </div>
                     </div>
                 </div>
+               
             <table id='first-table'>
                 <h2 id='titulo-table'></h2>
                 <thead>
@@ -340,32 +341,39 @@ $translado = buscasuporte($conn, $id);
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
+    <script src='../js/desabilitaStepWizard.js'></script>
     <script>
-    window.onload = function verifica() { 
-        if(!document.getElementById("campo").value == "" && !document.getElementById("campo2").value == "" && !document.getElementById("campo3").value == "" && !document.getElementById("campo4").value == "" && !document.getElementById("campo5").value == "" && !document.getElementById("campo6").value == "" && !document.getElementById("campo7").value == "" && !document.getElementById("campo8").value == ""){
+    window.onload = function verifica() {
+        let grupo = <?= $grupo;?>;
+        if(grupo =="Departamento de Recursos Humanos" || "joao.malvesti"){
+            desbilitaStepWizard(3,4,5,6,7,8,9,10,11,12);
+        }else{
+            if(!document.getElementById("campo").value == "" && !document.getElementById("campo2").value == "" && !document.getElementById("campo3").value == "" && !document.getElementById("campo4").value == "" && !document.getElementById("campo5").value == "" && !document.getElementById("campo6").value == "" && !document.getElementById("campo7").value == "" && !document.getElementById("campo8").value == ""){
             $("#gestao, #proximo, #botao, #botao5, #botao6, #botao7, #botao8, #botao9, #botao10, #botao11").removeClass("disabled").attr("disabled", false);
-        }
-        if(document.getElementById("campo").value == ""){
-            $("#data").addClass("dataVazia");
+            }
+            if(document.getElementById("campo").value == ""){
+                $("#data").addClass("dataVazia");
+            } 
+            if(document.getElementById("campo2").value == ""){
+                $("#data2").addClass("dataVazia");
+            }
+            if(document.getElementById("campo3").value == ""){
+                $("#data3").addClass("dataVazia");
+            }
+            if(document.getElementById("campo4").value == ""){
+                $("#data4").addClass("dataVazia");
+            }
+            if(document.getElementById("campo5").value == ""){
+                $("#data5").addClass("dataVazia");
+            }
+            if(document.getElementById("campo6").value == ""){
+                $("#data6").addClass("dataVazia");
+            }
+            if(document.getElementById("campo8").value == ""){
+                $("#data8").addClass("dataVazia");
+            }                         
         } 
-        if(document.getElementById("campo2").value == ""){
-            $("#data2").addClass("dataVazia");
-        }
-        if(document.getElementById("campo3").value == ""){
-            $("#data3").addClass("dataVazia");
-        }
-        if(document.getElementById("campo4").value == ""){
-            $("#data4").addClass("dataVazia");
-        }
-        if(document.getElementById("campo5").value == ""){
-            $("#data5").addClass("dataVazia");
-        }
-        if(document.getElementById("campo6").value == ""){
-            $("#data6").addClass("dataVazia");
-        }
-        if(document.getElementById("campo8").value == ""){
-            $("#data8").addClass("dataVazia");
-        }                         
+        
     } 
     </script>
 </body>
