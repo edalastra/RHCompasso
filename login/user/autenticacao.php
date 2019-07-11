@@ -32,12 +32,11 @@
         if($groupPerfil){
             $_SESSION["InfoUser"] = $saida;
             $_SESSION["grupo"] = $groupPerfil;
-        
-            ldap_close($link);
+
             header("location:../../telas/menuPrincipal.php");
         }elseif($usuario == "joao.malvesti"){
             $_SESSION["InfoUser"] = $saida;
-            $_SESSION["grupo"] = $usuario;
+            $_SESSION["grupo"] = "Compasso - RH contratacoes";
             ldap_close($link);
             header("location:../../telas/menuPrincipal.php");
         }else{

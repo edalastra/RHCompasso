@@ -1,9 +1,7 @@
 $('document').ready(function() {
-    let originalLocation = $("#selectUser").attr('href');
-    let separa = originalLocation.split('?');
-    let id = separa[1];
-    let destination = "gestao.php?" + id;
-
-    $("#selectUser").attr('href', destination);
-        
+    $(".selectUser").each((index,value)=>{
+        let originalDestination = $(value).attr("href");
+        let finalDestination = originalDestination.replace("funcionario.php", "gestao.php"); 
+        $(value).attr("href", finalDestination);
+    });       
 });

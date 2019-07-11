@@ -6,12 +6,9 @@ include("../update.php");
 
 $listar = listar($conn);
 
-if(isset($_GET['id'])){
-    $id = $_GET['id'];
-    $_SESSION['id']= $id;
-}else{
-    $id = $_SESSION['id'];
-}
+$id = $_GET['id'];
+$_SESSION['id'] = $id;
+
 $r=0;
 
 $resultado1 = mysqli_query($conn,"SELECT ID_USUARIO, NOME, DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM propostas_contratacoes as p JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
@@ -129,45 +126,45 @@ $translado = buscasuporte($conn, $id);
                 </table>
         </div>
          <div style="height: 25px;"></div>
-            <div class="passos">
+                <div class="passos">
                     <div class="stepwizard">
                         <div class="passos stepwizard-row1 setup-panel">
                             <div class="stepwizard-step col-md-auto">
-                                <a title="Menu Principal" href="menuPrincipal.php" type="button" class="btn btn-default btn-circle">1</a>
+                                <a title="Menu Principal" href="menuPrincipal.php?id=<?=$id?>" type="button" class="btn btn-default btn-circle">1</a>
                             </div>
                             <div title ="Proposta de Contratação" class="stepwizard-step col-md-auto">
-                                <a href="funcionario.php" type="button" class="btn btn-success btn-circle" >2</a>
+                                <a href="funcionario.php?id=<?=$id?>" type="button" class="btn btn-success btn-circle" >2</a>
                             </div>
                      
                             <div title ="Gestão" class="stepwizard-step col-md-auto">
-                                <a href="gestao.php" id="gestao" type="button" disabled class="btn btn-default btn-circle disabled">3</a>
+                                <a href="gestao.php?id=<?=$id?>" id="gestao" type="button" disabled class="btn btn-default btn-circle disabled">3</a>
                             </div>
                             <div title="Vencimento Contratos" class="stepwizard-step col-md-auto">
-                                <a href="vencimentosContratos.php" id="botao" disabled type="button" class="btn btn-default btn-circle disabled ">4</a>
+                                <a href="vencimentosContratos.php?id=<?=$id?>" id="botao" disabled type="button" class="btn btn-default btn-circle disabled ">4</a>
                             </div>
                             <div title="Documentação" class="stepwizard-step col-md-auto">
-                                <a href="documentacao.php" type="button" id="botao5" disabled class="btn btn-default btn-circle disabled">5</a>
+                                <a href="documentacao.php?id=<?=$id?>" type="button" id="botao5" disabled class="btn btn-default btn-circle disabled">5</a>
                             </div>
                             <div title= "Plataforma Admissão Domínio Dados + Fichas de Cadastro" class="stepwizard-step col-md-auto">
-                                <a href="admissao.php" type="button" id="botao6" disabled class="btn btn-default disabled btn-circle" >6</a>
+                                <a href="admissao.php?id=<?=$id?>" type="button" id="botao6" disabled class="btn btn-default disabled btn-circle" >6</a>
                             </div>
                             <div title="Exame Admissional" class="stepwizard-step col-md-auto">
-                                <a href="exame.php" type="button" id="botao7" disabled class="btn btn-default disabled btn-circle" >7</a>
+                                <a href="exame.php?id=<?=$id?>" type="button" id="botao7" disabled class="btn btn-default disabled btn-circle" >7</a>
                             </div>
                             <div title= "Dados Bancários" class="stepwizard-step col-md-auto">
-                                <a href="bancarios.php" type="button" disabled id="botao8" class="btn btn-default disabled btn-circle" >8</a>
+                                <a href="bancarios.php?id=<?=$id?>" type="button" disabled id="botao8" class="btn btn-default disabled btn-circle" >8</a>
                             </div>
                             <div title= "Suporte Interno" class="stepwizard-step col-md-auto">
-                                <a href="suporteinterno.php" disabled id="botao9" type="button" class="btn btn-default disabled btn-circle" >9</a>
+                                <a href="suporteinterno.php?id=<?=$id?>" disabled id="botao9" type="button" class="btn btn-default disabled btn-circle" >9</a>
                             </div>
                             <div title = "Interno" class="stepwizard-step col-md-auto">
-                                <a href="interno.php" disabled id="botao10" type="button" class="btn btn-default disabled btn-circle" >10</a>
+                                <a href="interno.php?id=<?=$id?>" disabled id="botao10" type="button" class="btn btn-default disabled btn-circle" >10</a>
                             </div>
                             <div title= "Vias Documentos funcionários" class="stepwizard-step col-md-auto">
-                                <a href="viasdocumentos.php" id="botao11" disabled type="button" class="btn btn-default disabled btn-circle" >11</a>
+                                <a href="viasdocumentos.php?id=<?=$id?>" id="botao11" disabled type="button" class="btn btn-default disabled btn-circle" >11</a>
                             </div>
                             <div title= "Boas Vindas" class="stepwizard-step col-md-auto">
-                                <a href="recepcao.php" type="button" class="btn btn-default btn-circle" >12</a>
+                                <a href="recepcao.php?id=<?=$id?>" id="botao12" type="button" class="btn btn-default btn-circle" >12</a>
                             </div>
                         </div>
                     </div>
@@ -205,7 +202,7 @@ $translado = buscasuporte($conn, $id);
 							<td id="data8"><?php echo $rows_dados['COMUNICAR_STATUS']; ?></td>
                             <td><?php echo $rows_dados['PROJETO']; ?></td>
                             <?php unset($_GET['id']); ?>
-                            <td><a title="Gestão" id="proximo" class="disabled btn btn-default" href="gestao.php"> Próximo </td>
+                            <td><a title="Gestão" id="proximo" class="disabled btn btn-default" href="gestao.php?id=<?=$id?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
                     <?php  } ?>
@@ -344,9 +341,14 @@ $translado = buscasuporte($conn, $id);
     <script src='../js/desabilitaStepWizard.js'></script>
     <script>
     window.onload = function verifica() {
-        let grupo = <?= $grupo;?>;
-        if(grupo =="Departamento de Recursos Humanos" || "joao.malvesti"){
+        let grupo = "<?= $grupo;?>";
+        console.log(grupo);
+        let isDepartamentoRH = false;
+        if(grupo =="Departamento de Recursos Humanos"){
             desbilitaStepWizard(3,4,5,6,7,8,9,10,11,12);
+            $("#proximo").attr("disabled", true);
+            $("#botao12").prop("disabled", true);
+            $("#botao12").css("pointer-events", "none");
         }else{
             if(!document.getElementById("campo").value == "" && !document.getElementById("campo2").value == "" && !document.getElementById("campo3").value == "" && !document.getElementById("campo4").value == "" && !document.getElementById("campo5").value == "" && !document.getElementById("campo6").value == "" && !document.getElementById("campo7").value == "" && !document.getElementById("campo8").value == ""){
             $("#gestao, #proximo, #botao, #botao5, #botao6, #botao7, #botao8, #botao9, #botao10, #botao11").removeClass("disabled").attr("disabled", false);

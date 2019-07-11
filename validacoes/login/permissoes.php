@@ -5,7 +5,4 @@
     }elseif($_SESSION['grupo'] == "Suporte Interno"){
         echo "<script src='../js/valida/suporteInterno.js'></script>";
     }
-     
-
-
 ?>

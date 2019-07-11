@@ -3,7 +3,8 @@
 function desbilitaStepWizard(){
     let tam = arguments.length;
     for(let i = 0; i < tam; i++){
-        $("#botao"+ arguments[i]).attr("disabled", true);
-        console.log("#botao"+arguments[i]);
+       $("#botao"+ arguments[i]).prop("disabled", true);
+       $("#botao"+ arguments[i]).attr("disabled", true);
+       $("#botao"+ arguments[i]).attr("href", "#");
     }
 }

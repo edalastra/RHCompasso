@@ -1,6 +1,8 @@
 <?php
     include("../db/conexao.php");
     include("../update.php");
+    session_start();
+    $id = $_SESSION['id'];
 ?>
 
 <?php
@@ -49,5 +51,5 @@ if(gestao($conn, $ID_USUARIO, $GESTOR, $GESTOR_SABE, $GESTOR_LOCAL, $GESTOR_LOCA
 ?>
 <?php
 
-header("Refresh:1; url=../telas/gestao.php");
+header("Refresh:1; url=../telas/gestao.php?id=".$id);
 ?>
