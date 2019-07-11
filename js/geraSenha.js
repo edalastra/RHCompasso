@@ -32,40 +32,30 @@ document.getElementById("senhaUsuario").addEventListener("click", function () {
 			];
 			var temp_ascii;
 			var roll_dice = Math.floor(Math.random() * pw_height_default);
-
 			var password = new String();
 			var finish_repeat = false;
-
 			for (let index = 0; index < pw_height_default; index++) {
-
 				if (index === roll_dice) {
 					temp_ascii = ascii_special;
 				} else {
 					temp_ascii = ascii;
 				}
-
 				var i = asciiLength(temp_ascii);
 				var temp = asciiChar(temp_ascii, i);
-
 				if (i == 0) {
 					temp = temp.toUpperCase();
 				}
 				password += temp;
 				finish_repeat = true;
 			}
-
 			if (finish_repeat) {
 				break
 			}
-
-
 		}
 		$('#senhaUsuario').click(function(){
 			$('#jogaSenha').val(password);
 		});
 		return password;
-
-
 	}
-	console.log(generatorPassword());
+	generatorPassword();
 });
