@@ -36,15 +36,13 @@
             header("location:../../telas/menuPrincipal.php");
         }elseif($usuario == "joao.malvesti"){
             $_SESSION["InfoUser"] = $saida;
-            $_SESSION["grupo"] = "Compasso - RH contratacoes";
+            $_SESSION["grupo"] = "Gestores";
             ldap_close($link);
             header("location:../../telas/menuPrincipal.php");
         }else{
             ldap_close($link);
             header("Location:./login.php?erro=fail");
         }
-        
-
     }else{
         ldap_close($link);
         header("Location:./login.php?erro=fail");
@@ -52,7 +50,11 @@
 
     function isValidPerfil($grupo){
         $textGroup = preg_split('/=|\,/', $grupo);
-        $grupo = $textGroup[1];
+        if(preg_match('/Compasso - RH Integração/', $textGroup[1], $group)){
+            $grupo = $group[0];            
+        }else{
+            $grupo = $textGroup[1];
+        }        
         if($grupo == "Diretoria"){
             return $grupo;
         }else if($grupo == "Compasso - RH contratacoes"){
@@ -63,14 +65,10 @@
             return $grupo;
         }else if($grupo == "Suporte Interno"){
             return $grupo;
+        }else if($grupo == "Compasso - RH Integração"){
+            return $grupo;
         }
         return false;
-
     }
-
-    
-    
-    
-    
 
 ?>

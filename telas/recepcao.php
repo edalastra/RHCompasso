@@ -5,10 +5,8 @@ include("../db/conexao.php");
 include("../update.php");
 
 $listar = listar($conn);
-
-    if (!isset ($id)){
-     $id = $_SESSION['id'];
-    }
+$id = $_GET['id'];
+$_SESSION['id'] = $id;
 
 $resultado1 = mysqli_query($conn,"SELECT ID_USUARIO, NOME,DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM propostas_contratacoes as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 $conn1 = mysqli_num_rows($resultado1);
@@ -124,14 +122,14 @@ $deacordo = buscaProposta($conn, $id);
                             <a title="Menu Principal" href="menuPrincipal.php?id=<?=$id?>" type="button" class="btn btn-default btn-circle">1</a>
                         </div>
                         <div title ="Proposta de Contratação" class="stepwizard-step col-md-auto">
-                            <a href="funcionario.php?id=<?=$id?>" type="button" class="btn btn-default btn-circle" >2</a>
+                            <a href="funcionario.php?id=<?=$id?>" id="botao2" type="button" class="btn btn-default btn-circle" >2</a>
                         </div>
                     
                         <div title ="Gestão" class="stepwizard-step col-md-auto">
-                            <a href="gestao.php?id=<?=$id?>" id="gestao" type="button" class="btn btn-default btn-circle">3</a>
+                            <a href="gestao.php?id=<?=$id?>" id="botao3" type="button" class="btn btn-default btn-circle">3</a>
                         </div>
                         <div title="Vencimento Contratos" class="stepwizard-step col-md-auto">
-                            <a href="vencimentosContratos.php?id=<?=$id?>" id="botao" type="button" class="btn btn-default btn-circle ">4</a>
+                            <a href="vencimentosContratos.php?id=<?=$id?>" id="botao4" type="button" class="btn btn-default btn-circle ">4</a>
                         </div>
                         <div title="Documentação" class="stepwizard-step col-md-auto">
                             <a href="documentacao.php?id=<?=$id?>" type="button" id="botao5" class="btn btn-default btn-circle">5</a>
@@ -329,6 +327,17 @@ $deacordo = buscaProposta($conn, $id);
             $("#data4").addClass("dataVazia");
         }
     }
+    </script>
+    <script src='../js/desabilitaStepWizard.js'></script>
+    <script>
+        let grupo = "<?=$grupo?>";
+            window.onload = () => {
+            if(grupo == "Compasso - RH Integração"){
+                desbilitaStepWizard(2,3,4,5,6,7,8,9,10,11);
+            }else if(grupo == "Gestores"){
+                desbilitaStepWizard(2,4,5,6,7,8,9,10,11);
+            }            
+        }
     </script>
 </body>
 
