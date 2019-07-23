@@ -34,11 +34,6 @@
             $_SESSION["grupo"] = $groupPerfil;
 
             header("location:../../telas/menuPrincipal.php");
-        }elseif($usuario == "joao.malvesti"){
-            $_SESSION["InfoUser"] = $saida;
-            $_SESSION["grupo"] = "Gestores";
-            ldap_close($link);
-            header("location:../../telas/menuPrincipal.php");
         }else{
             ldap_close($link);
             header("Location:./login.php?erro=fail");
