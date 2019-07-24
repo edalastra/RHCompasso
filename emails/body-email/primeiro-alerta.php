@@ -30,88 +30,36 @@
     <link rel="stylesheet" href="../css/alert.css">
 </head>
 <body>
-<div id="BoxForm">
-  <form action="../enviaEmails.php" method="post" enctype="multipart/form-data" id="formulario">
-   <ul>
-    <input type="hidden" name="id" value="<?=$id; ?>">
-    <input type="hidden" name="nome" class="campos01" value="<?=$nome['NOME']; ?>">
-    <ul>
-    <input type="hidden" name="id" value="<?=$id; ?>">
-    <input type="hidden" name="nome" class="campos01" value="<?=$nome['NOME']; ?>">
-    <li>
-    <label for="de">De:</label>
-    <input type="text" name="de" class="campos01" value="<?=$InfoUser[0]['mail'][0];?>"><br>
-    </li>
-    <li>
-    <label for="como">Como:</label>
-    <select type="text" name="como" class="campos01" value="">
-    <option value="" selected="selected" class="campos01"></option>
-    <option value="contratacoes@compasso.com.br" class="campos01">contratacoes@compasso.com.br</option>
-    <option value="rh@compasso.com.br" class="campos01">rh@compasso.com.br</option>
-    </select><br>
-    <span style="color:red"><b>Selecione caso queira enviar como Alias</b></span><br>
-    </li>
-    <li class="senha">
-    <label for="de">Senha:</label>
-    <p><input type="password" id="senha" name="senha" class="campos01" value="">
-    <span id="olho"/><img src='../img/olho.png' class="show"></p>
-    </li>
-      <li>
-    <label for="email">Para:</label>
-    <input type="email" name="email" class="campos01" value="<?=$nome['EMAIL']; ?>"><br>
-    </li>
-    <li>
-    <label for="assunto">Assunto:</label>
-    <input type="text" name="assunto" class="campos01" value=""><br>
-    </li>
-
-    <li>
-    <label for="">Anexos:</label>
-    <input type="file" multiple="multiple" class="campos01" name="arquivo[]"/>
-    </li>
-    <li>
-    <button type="submit" id="enviar" class="button3">Enviar</button>
-    </li>
-    </ul>
-    </div>
-    <div contenteditable="true" id="bodyEmail" style="border: solid 0.5px black; padding:1%; margin-top: 20px">
-<div id="selecionaPagina">
-
-    <main>
+  <?php include("../headerEmail/header.php")?>
+  <div contenteditable="true" id="bodyEmail" style="border: solid 0.5px black; padding:1%; margin-top: 20px">
+    <div id="selecionaPagina">
+      <main>
         <p class='h1-principal'>Bom dia, <strong class='sublinhe'><?=$funcionario['SOLICITANTE']?></strong></p>
-		<p>O funcionário(a) abaixo terá sua <strong>1ª fase</strong> do contrato de experiência expirada em <strong class='sublinhe'><?$NewDate?>,</strong> conforme tabela abaixo:
-		</p>
+		    <p>O funcionário(a) abaixo terá sua <strong>1ª fase</strong> do contrato de experiência expirada em <strong class='sublinhe'><?=$NewDate?>,</strong> conforme tabela abaixo:</p>
         <div class='container'>
-            <table border='1'>
-                <tr id='table'>
-                    <th id='res'>Nome Coloaborador(a)</th>
-                    <th id='res'>Empresa/Filial</th>
-                    <th id='res'>Cargo</th>
-                    <th id='res'>Data Admissão</th>
-                    <th id='res'>Vcto.contrato 45dd</th>
-                </tr>
-                <tr id='table01'>
-                    <td><strong class='sublinhe'><?=$funcionario['NOME']?></strong></td>
-                    <td><strong class='sublinhe'><?=$sede['nome_sede']?></strong></td>
-                    <td><strong class='sublinhe'><?=$funcionario['CARGO']?></strong></td>
-                    <td><strong class='sublinhe'><?= $dataAdmissao ?></strong></td>
-                    <td><strong class='sublinhe'><?= $NewDate ?></strong></td>
-                </tr>
-            </table>
-                <p>Por gentileza, caso deseje encerrar o contrato de trabalho, dentro do prazo, informar ao RH impreterivelmente até o dia <strong class='sublinhe'><font color='red'><?= $DataFim ?></font></strong>  para que os documentos de rescisão e pagamento sejam providenciados.</p>
-                <p>Caso não sejamos informados, o contrato será renovado por mais 45 dias - entraremos em contato antes do prazo para validarmos se o colaborador permanece ou se haverá reincidência.</p>
-                <p>Desde já agradecemos a colaboração.</p>
-
+          <table border='1'>
+            <tr id='table'>
+              <th id='res'>Nome Coloaborador(a)</th>
+              <th id='res'>Empresa/Filial</th>
+              <th id='res'>Cargo</th>
+              <th id='res'>Data Admissão</th>
+              <th id='res'>Vcto.contrato 45dd</th>
+            </tr>
+            <tr id='table01'>
+              <td><strong class='sublinhe'><?=$funcionario['NOME']?></strong></td>
+              <td><strong class='sublinhe'><?=$sede['nome_sede']?></strong></td>
+              <td><strong class='sublinhe'><?=$funcionario['CARGO']?></strong></td>
+              <td><strong class='sublinhe'><?= $dataAdmissao ?></strong></td>
+              <td><strong class='sublinhe'><?= $NewDate ?></strong></td>
+            </tr>
+          </table>
+          <p>Por gentileza, caso deseje encerrar o contrato de trabalho, dentro do prazo, informar ao RH impreterivelmente até o dia <strong class='sublinhe'><font color='red'><?= $DataFim ?></font></strong>  para que os documentos de rescisão e pagamento sejam providenciados.</p>
+          <p>Caso não sejamos informados, o contrato será renovado por mais 45 dias - entraremos em contato antes do prazo para validarmos se o colaborador permanece ou se haverá reincidência.</p>
+          <p>Desde já agradecemos a colaboração.</p>
         </div>
-    </main>
-
-</div>
-</div>
-<input type="hidden" name="body" id="inputBody" value="">
-
-
-</form>
-
+      </main>
+    </div>
+  </div>
 </body>
 <script type="text/javascript" src="../js/enviarEmail.js"></script>
 <script type="text/javascript">

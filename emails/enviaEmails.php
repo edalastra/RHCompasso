@@ -37,8 +37,6 @@ function enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body, $d
   $mail->addAddress($email_destinatario, $nome_destinatario);
   $mail->CharSet = CHARSET;
   $mail->Subject = $assunto;
-  $body = preg_replace('/<img id="img1" src=(.*)alt="compasso" align="left">/', '<img id="img1" src="cid:compasso" alt="compasso" align="left">', $body);
-  $body = preg_replace('/<img id="img2" src=(.*)alt="compasso2">/', '<img id="img2" src="cid:compasso2" alt="compasso2">', $body);
   $mail->msgHTML($body);
 
   for ($ct = 0; $ct < count($_FILES['arquivo']['tmp_name']); $ct++) {
@@ -50,10 +48,7 @@ function enviaEmail($email_destinatario, $nome_destinatario, $assunto, $body, $d
             $msg = 'Falha ao mover no' . $uploadfile;
         }
   }
-
-  $mail->AddEmbeddedImage('img/compasso.jpg','compasso');
-  $mail->AddEmbeddedImage('img/compasso2.jpg','compasso2');
-
+  
   if (!$mail->send()) {
     echo  "<script>alert('Email não enviado, verifique seus dados.');</script>";
     echo  "<script>javascript:history.back(-2)</script>";
