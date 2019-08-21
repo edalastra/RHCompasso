@@ -171,8 +171,16 @@
 		return mysqli_fetch_assoc($suporte);
 	}
 
-	function suporte ($conn, $ID_USUARIO, $EMAIL_SUP, $USUARIO, $SENHA, $EQUIPAMENTO, $TRANSLADO, $GRUPOS_DE_EMAIL){
-		$query = "UPDATE suporte_interno set EMAIL_SUP = '{$EMAIL_SUP}', USUARIO='{$USUARIO}', SENHA = '{$SENHA}', EQUIPAMENTO='{$EQUIPAMENTO}',TRANSLADO = '{$TRANSLADO}', GRUPOS_DE_EMAIL = '{$GRUPOS_DE_EMAIL}' where ID_USUARIO = '{$ID_USUARIO}'";
+	function suporte ($conn, $ID_USUARIO, $EMAIL_SUP, $USUARIO, $SENHA, $EQUIPAMENTO, $TRANSLADO, $EQUIPE){
+		// Converte de Array para String:
+		if ($EQUIPE != "") {
+				$STR_EQUIPE = implode(",", $EQUIPE);
+		}else{
+			$STR_EQUIPE = "";
+		}
+
+
+		$query = "UPDATE suporte_interno set EMAIL_SUP = '{$EMAIL_SUP}', USUARIO='{$USUARIO}', SENHA = '{$SENHA}', EQUIPAMENTO='{$EQUIPAMENTO}',TRANSLADO = '{$TRANSLADO}', EQUIPE = '{$STR_EQUIPE}' where ID_USUARIO = '{$ID_USUARIO}'";
 		return mysqli_query($conn, $query);
 	}
 
