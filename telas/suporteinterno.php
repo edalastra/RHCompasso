@@ -13,30 +13,22 @@ $listar = listar($conn);
     }
 
 $suporte = buscasuporte($conn, $id);
-$testeGrupoEmail = $suporte['GRUPOS_DE_EMAIL'];
+
 $resultado1 = mysqli_query($conn,"SELECT ID_USUARIO, NOME, DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM propostas_contratacoes as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 $conn1 = mysqli_num_rows($resultado1);
-$resultado = mysqli_query($conn, "SELECT  `ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `GRUPOS_DE_EMAIL` FROM `suporte_interno` as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
+$resultado = mysqli_query($conn, "SELECT  `ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `EQUIPE` FROM `suporte_interno` as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 $count = mysqli_num_rows($resultado);
 $status = buscaFuncionarios($conn, $id);
 
 if($count == 1){
-  if($testeGrupoEmail == ""){
-    $sede = buscaSedeFuncionario($conn, $status['ID_SEDE']);
-    $cargo = buscaCargoFuncionario($conn, $id);
-    $nome = defineUser($conn, $status['NOME']);
-    $grupDeEmail = grupoEmail($cargo['CARGO'], $sede['nome_sede']);
-    $insercao = mysqli_query($conn, "UPDATE suporte_interno SET `GRUPOS_DE_EMAIL` = '$grupDeEmail', `NOME` = '$nome', `EMAIL_SUP` = '$nome@compasso.com.br' WHERE ID_USUARIO = '$id'");
-
-  }
-  $resultado = mysqli_query($conn, "SELECT `ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `GRUPOS_DE_EMAIL` FROM `suporte_interno` as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
+  $resultado = mysqli_query($conn, "SELECT `ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `EQUIPE` FROM `suporte_interno` as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }else{
     $sede = buscaSedeFuncionario($conn, $status['ID_SEDE']);
     $cargo = buscaCargoFuncionario($conn, $id, $id);
     $grupDeEmail = grupoEmail($cargo['CARGO'], $sede['nome_sede']);
     $nome = defineUser($conn, $status['NOME'], $id);
-    mysqli_query($conn,"INSERT INTO `suporte_interno`( `ID_SUPORTE_INTERNO`,`ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `GRUPOS_DE_EMAIL`) VALUES (NULL,$id,'$nome@compasso.com.br','$nome',NULL,NULL,NULL,'$grupDeEmail')");
-    $resultado = mysqli_query($conn, "SELECT  `ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `GRUPOS_DE_EMAIL` FROM `suporte_interno` as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
+    mysqli_query($conn,"INSERT INTO `suporte_interno`( `ID_SUPORTE_INTERNO`,`ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `EQUIPE`) VALUES (NULL,$id,'$nome@compasso.com.br','$nome',NULL,NULL,NULL,NULL)");
+    $resultado = mysqli_query($conn, "SELECT  `ID_USUARIO`, `EMAIL_SUP`, `USUARIO`, `SENHA`, `EQUIPAMENTO`, `TRANSLADO`, `EQUIPE` FROM `suporte_interno` as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 }
 
 
@@ -46,6 +38,7 @@ $usuario= buscasuporte($conn, $id);
 $senha = buscasuporte($conn, $id);
 $equipamento = buscasuporte($conn, $id);
 $translado = buscasuporte($conn, $id);
+$anexar_equipe = buscasuporte($conn, $id);
 $nome_email = buscaFuncionarios($conn, $id);
 $formRec = buscadocs($conn, $id);
 $anexar = buscaexame($conn, $id);
@@ -71,10 +64,9 @@ $emailsoli = buscavias($conn, $id);
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/arquivo.css">
     <link rel="stylesheet" href="../css/menuPrincipal.css">
-    <link rel="stylesheet" href="../css/geraSenha.css">
-
-
-
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -92,8 +84,8 @@ $emailsoli = buscavias($conn, $id);
                 <a href='../emails/body-email/admissãoCWB.php?id=<?php echo $id?>'>5.4 Documentos de Admissão CWB</a>
                 <a href='../emails/body-email/admissãoSP.php?id=<?php echo $id?>'>5.5 Documentos de Admissão SP</a>
                 <a href='../emails/body-email/admissãoFNL.php?id=<?php echo $id?>'>5.6 Documentos Admissão FNL</a>
-                <a href='../emails/body-email/primeiro-alerta.php?id=<?php echo $id?>'>7. ALERTA - 1ª Experiência expira em 20 dias</a>
-                <a href='../emails/body-email/segundo-alerta.php?id=<?php echo $id?>'>7.1 ALERTA - 2ª Experiência expira em 20 dias</a>
+                <a href='../emails/body-email/primeiro-alerta.php?id=<?php echo $id?>'>7. ALERTA - 1° Experiência expira em 20 dias</a>
+                <a href='../emails/body-email/segundo-alerta.php?id=<?php echo $id?>'>7.1 ALERTA - 2° Experiência expira em 20 dias</a>
                 <a href='../emails/body-email/novo-acesso.php?id=<?php echo $id?>'>8. Novo Acesso</a>
                 <a href='../emails/body-email/acesso-liberado.php?id=<?php echo $id?>>'>9. Acessos Liberado</a>
                 </div>
@@ -136,7 +128,7 @@ $emailsoli = buscavias($conn, $id);
                         <div class="stepwizard-step col-md-auto">
                             <a title="Menu Principal" href="menuPrincipal.php" type="button" class="btn btn-default btn-circle">1</a>
                         </div>
-                        <div title ="Proposta de Contratação" class="stepwizard-step col-md-auto">
+                        <div title ="Proposta de Contratações" class="stepwizard-step col-md-auto">
                             <a href="funcionario.php" type="button" class="btn btn-default btn-circle" >2</a>
                         </div>
                         <div title ="Gestão" class="stepwizard-step col-md-auto">
@@ -145,7 +137,7 @@ $emailsoli = buscavias($conn, $id);
                         <div title="Vencimento Contratos" class="stepwizard-step col-md-auto">
                             <a href="vencimentosContratos.php" type="button" class="btn btn-default btn-circle">4</a>
                         </div>
-                        <div title="Documentação" class="stepwizard-step col-md-auto">
+                        <div title="Documentaçao" class="stepwizard-step col-md-auto">
                             <a href="documentacao.php" type="button" class="btn btn-default btn-circle">5</a>
                         </div>
                         <div title= "Plataforma Admissão Domínio Dados + Fichas de Cadastro" class="stepwizard-step col-md-auto">
@@ -196,7 +188,7 @@ $emailsoli = buscavias($conn, $id);
                             <td><?php echo $rows_dados['SENHA']; ?></td>
                             <td><?php echo $rows_dados['EQUIPAMENTO']; ?></td>
                             <td><?php echo $rows_dados['TRANSLADO']; ?></td>
-                            <td><?php echo $rows_dados['GRUPOS_DE_EMAIL']; ?></td>
+                            <td> <?php echo $rows_dados['EQUIPE']; ?> </td>
                             <td><a title="Interno" id="proximo" class="  btn btn-default" href="interno.php"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
 
@@ -212,7 +204,8 @@ $emailsoli = buscavias($conn, $id);
                             <td><input type="text" class='intable' name="SENHA" id="jogaSenha" value="<?=$senha['SENHA']?>"></td>
                             <td><input type="text" class='intable' name="EQUIPAMENTO"  value="<?=$equipamento['EQUIPAMENTO']?>"></td>
                             <td><input type="text" class='intable' id="campo" name="TRANSLADO"  value="<?=$translado['TRANSLADO']?>"></td>
-                            <td><input type="text" class='intable' name="GRUPOS_DE_EMAIL"  value="<?=$translado['GRUPOS_DE_EMAIL']?>"></td>
+                            <td><select multiple"" onclick="anexaGrupo()" class="intable" id="books" name="EQUIPE[]"
+                            value="<?=$anexar_equipe['EQUIPE']?>"></select></td>
                             <td></td>
                             <td><button title="Salvar" type="submit" class="botao-salvar btao btn btn-default">Salvar</td>
                     </form>
@@ -248,8 +241,8 @@ $emailsoli = buscavias($conn, $id);
                         <td class='tb2'>Em contrato, admissão concluída, pendente os envios de contrato</td>
                     </tr>
                     <tr class='tb2'>
-                        <td class='tb2'>EM VALIDAÇÃO</td>
-                        <td class='tb2'>Dados da proposta estão em validação antes do envio</td>
+                        <td class='tb2'>EM VALIDAÇAO</td>
+                        <td class='tb2'>Dados da proposta estão em validaçao antes do envio</td>
                     </tr>
                     <tr>
                         <td class='tb2'>RETORNO DOCS</td>
@@ -316,10 +309,10 @@ $emailsoli = buscavias($conn, $id);
     <footer>
         <h2></h2>
     </footer>
-    <script src="../js/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
+    <script src="../js/anexa-grupo-emails.js"></script>
     <script src="../js/geraSenha.js"></script>
 </body>
 
