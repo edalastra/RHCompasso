@@ -7,10 +7,9 @@
 
     $listar = listar($conn);
 
-    if (!isset ($id)){
-     $id = $_SESSION['id'];
-    }
-
+    $id = $_GET['id'];
+    $_SESSION['id'] = $id;
+    
 $resultado1 = mysqli_query($conn,"SELECT ID_USUARIO, NOME,DATE_FORMAT(DATA_ADMISSAO,'%d/%m/%Y') as DATA_ADMISSAO,STATUS FROM propostas_contratacoes as p LEFT JOIN admissao_dominio as a on p.ID_USUARIO = a.USUARIO_ID where ID_USUARIO = '$id'");
 $conn1 = mysqli_num_rows($resultado1);
 
@@ -115,40 +114,40 @@ $efetivacao = buscavencimentos($conn, $id);
                 <div class="stepwizard">
                     <div class="passos stepwizard-row1 setup-panel">
                         <div class="stepwizard-step col-md-auto">
-                            <a title="Menu Principal" href="menuPrincipal.php" type="button" class="btn btn-default btn-circle">1</a>
+                            <a title="Menu Principal" href="menuPrincipal.php" id="botao1" type="button" class="btn btn-default btn-circle">1</a>
                         </div>
                         <div title ="Proposta de Contratação" class="stepwizard-step col-md-auto">
-                            <a href="funcionario.php" type="button" class="btn btn-default btn-circle" >2</a>
+                            <a href="funcionario.php?id=<?=$id?>" type="button" id="botao2" class="btn btn-default btn-circle" >2</a>
                         </div>
                         <div title ="Gestão" class="stepwizard-step col-md-auto">
-                            <a href="gestao.php" type="button" class="btn btn-success btn-circle">3</a>
+                            <a href="gestao.php?id=<?=$id?>" type="button" id="botao3" class="btn btn-success btn-circle">3</a>
                         </div>
                         <div title="Vencimento Contratos" class="stepwizard-step col-md-auto">
-                            <a href="vencimentosContratos.php" id="venciment"   type="button" class="btn btn-default btn-circle  ">4</a>
+                            <a href="vencimentosContratos.php?id=<?=$id?>" id="botao4"   type="button" class="btn btn-default btn-circle  ">4</a>
                         </div>
                         <div title="Documentação" class="stepwizard-step col-md-auto">
-                            <a href="documentacao.php"   id="botao5" type="button" class="btn btn-default btn-circle  ">5</a>
+                            <a href="documentacao.php?id=<?=$id?>"  id="botao5" type="button" class="btn btn-default btn-circle  ">5</a>
                         </div>
                         <div title= "Plataforma Admissão Domínio Dados + Fichas de Cadastro" class="stepwizard-step col-md-auto">
-                            <a href="admissao.php"   type="button" id="botao6" class="btn btn-default btn-circle  " >6</a>
+                            <a href="admissao.php?id=<?=$id?>"   type="button" id="botao6" class="btn btn-default btn-circle  " >6</a>
                         </div>
                         <div title="Exame Admissional" class="stepwizard-step col-md-auto">
-                            <a href="exame.php" type="button"   id="botao7" class="btn btn-default btn-circle  " >7</a>
+                            <a href="exame.php?id=<?=$id?>" type="button"   id="botao7" class="btn btn-default btn-circle  " >7</a>
                         </div>
                         <div title= "Dados Bancários" class="stepwizard-step col-md-auto">
-                            <a href="bancarios.php" type="button"   id="botao8" class="btn btn-default btn-circle  " >8</a>
+                            <a href="bancarios.php?id=<?=$id?>" type="button" id="botao8" class="btn btn-default btn-circle  " >8</a>
                         </div>
                         <div title= "Suporte Interno" class="stepwizard-step col-md-auto">
-                            <a href="suporteinterno.php"   type="button" id="botao9" class="btn btn-default btn-circle  " >9</a>
+                            <a href="suporteinterno.php?id=<?=$id?>" type="button" id="botao9" class="btn btn-default btn-circle  " >9</a>
                         </div>
                         <div title = "Interno" class="stepwizard-step col-md-auto">
-                            <a href="interno.php"   type="button" id="botao10" class="btn btn-default btn-circle  " >10</a>
+                            <a href="interno.php?id=<?=$id?>" type="button" id="botao10" class="btn btn-default btn-circle  " >10</a>
                         </div>
                         <div title= "Vias Documentos funcionários" class="stepwizard-step col-md-auto">
-                            <a href="viasdocumentos.php"   type="button" id="botao11" class="btn btn-default btn-circle  " >11</a>
+                            <a href="viasdocumentos.php?id=<?=$id?>" type="button" id="botao11" class="btn btn-default btn-circle  " >11</a>
                         </div>
                         <div title= "Boas Vindas" class="stepwizard-step col-md-auto">
-                            <a href="recepcao.php" type="button" class="btn btn-default btn-circle" >12</a>
+                            <a href="recepcao.php?id=<?=$id?>" type="button" id="botao12" class="btn btn-default btn-circle" >12</a>
                         </div>
                     </div>
                 </div>
@@ -185,7 +184,7 @@ $efetivacao = buscavencimentos($conn, $id);
                         </tr>
                     <?php  } ?>
                     <tr class='funcionario atualiza'>
-                        <form method="POST" action="../alteraTelas/altera-gestor.php">
+                        <form method="POST" action="../alteraTelas/altera-gestor.php?id=<?=$id?>">
                             <input type="hidden" name="ID_USUARIO" value="<?php echo $funcionario['ID_USUARIO']?>">
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
                             <td><input type='text' class='intable' name="GESTOR"  value="<?=$gestor['GESTOR']?>"></td>
@@ -334,5 +333,21 @@ $efetivacao = buscavencimentos($conn, $id);
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
+    <script src='../js/desabilitaStepWizard.js'></script>
+    <script>
+        let grupo = "<?=$grupo?>";
+            window.onload = () => {
+            if(grupo == "Gestores"){
+                desbilitaStepWizard(2,4,5,6,7,8,9,10,11);
+                $("#proximo").prop("disabled", true);
+                $("#proximo").attr("disabled", true);
+                $("#proximo").attr("href", "#");
+            }
+            
+        }
+    </script>
+    <script>
+        
+    </script>
 </body>
 </html>

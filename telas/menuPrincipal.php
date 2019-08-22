@@ -1,6 +1,5 @@
 <?php
 require_once('../validacoes/login/user.php');
-
 include("../db/conexao.php");
 include("../update.php");
 
@@ -698,7 +697,7 @@ if (isset($_POST['botaoVolta'])) {
                             <td><?php echo $rows_dados['POSICAO_DATA']; ?></td>
                             <td><?php echo $rows_dados['POSICAO_COMENTARIO']; ?></td>
                             <td><?php echo $rows_dados['ADMINISTRATIVO']; ?></td>
-                            <td><a title="Proposta de Contratação" class="btn btn-default" href='funcionario.php?id=<?php echo $rows_dados['USUARIO_ID']; ?>'> Ver Detalhes  </td>
+                            <td><a title="Proposta de Contratação" class="btn btn-default selectUser" id="selectUser" href='funcionario.php?id=<?php echo $rows_dados['USUARIO_ID']; ?>'> Ver Detalhes  </td>
                             <td><a title="Editar" href="../alteraTelas/altera-form.php?id=<?=$rows_dados['USUARIO_ID']?>" type="button" class="btn btn-default">Editar</span></a></td>
                         </td>
                     <?php
@@ -871,6 +870,9 @@ if (isset($_POST['botaoVolta'])) {
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
     <script src="../js/validaCargo.js"></script>
+    <?php
+        include('../validacoes/login/permissoes.php');
+    ?>
     <script type="text/javascript">
     function mascara(o,f){
     v_obj=o

@@ -25,20 +25,45 @@
     $saida = ldap_get_entries($link, $res);
                     
     if($saida['count'] > 0){
-        $_SESSION["InfoUser"] = $saida;
-        ldap_close($link);
-        header("location:../../telas/menuPrincipal.php");
+        for($i =0; $i < $saida[0]['memberof']['count']; $i++){
+            $groupPerfil = isValidPerfil($saida[0]['memberof'][$i]);
+        }
+        
+        if($groupPerfil){
+            $_SESSION["InfoUser"] = $saida;
+            $_SESSION["grupo"] = $groupPerfil;
 
+            header("location:../../telas/menuPrincipal.php");
+        }else{
+            ldap_close($link);
+            header("Location:./login.php?erro=fail");
+        }
     }else{
         ldap_close($link);
         header("Location:./login.php?erro=fail");
     }
 
-    
-
-    
-    
-    
-    
+    function isValidPerfil($grupo){
+        $textGroup = preg_split('/=|\,/', $grupo);
+        if(preg_match('/Compasso - RH Integração/', $textGroup[1], $group)){
+            $grupo = $group[0];            
+        }else{
+            $grupo = $textGroup[1];
+        }        
+        if($grupo == "Diretoria"){
+            return $grupo;
+        }else if($grupo == "Compasso - RH contratacoes"){
+            return $grupo;
+        }else if($grupo == "Departamento de Recursos Humanos"){
+            return $grupo;
+        }else if($grupo == "Gestores"){
+            return $grupo;
+        }else if($grupo == "Suporte Interno"){
+            return $grupo;
+        }else if($grupo == "Compasso - RH Integração"){
+            return $grupo;
+        }
+        return false;
+    }
 
 ?>

@@ -116,46 +116,46 @@ $translado = buscasuporte($conn, $id);
         </div>
         <div style="height: 25px;"></div>
         <div class="passos">
-                <div class="stepwizard">
-                    <div class="passos stepwizard-row1 setup-panel">
-                        <div class="stepwizard-step col-md-auto">
-                            <a title="Menu Principal" href="menuPrincipal.php" type="button" class="btn btn-default btn-circle">1</a>
-                        </div>
-                        <div title ="Proposta de Contratação" class="stepwizard-step col-md-auto">
-                            <a href="funcionario.php" type="button" class="btn btn-default btn-circle" >2</a>
-                        </div>
-                        <div title ="Gestão" class="stepwizard-step col-md-auto">
-                            <a href="gestao.php" type="button" class="btn btn-default btn-circle">3</a>
-                        </div>
-                        <div title="Vencimento Contratos" class="stepwizard-step col-md-auto">
-                            <a href="vencimentosContratos.php" type="button" class="btn btn-default btn-circle">4</a>
-                        </div>
-                        <div title="Documentação" class="stepwizard-step col-md-auto">
-                            <a href="documentacao.php" type="button" class="btn btn-default btn-circle">5</a>
-                        </div>
-                        <div title= "Plataforma Admissão Domínio Dados + Fichas de Cadastro" class="stepwizard-step col-md-auto">
-                            <a href="admissao.php" type="button" class="btn btn-default btn-circle" >6</a>
-                        </div>
-                        <div title="Exame Admissional" class="stepwizard-step col-md-auto">
-                            <a href="exame.php" type="button" class="btn btn-default btn-circle" >7</a>
-                        </div>
-                        <div title= "Dados Bancários" class="stepwizard-step col-md-auto">
-                            <a href="bancarios.php" type="button" class="btn btn-success btn-circle" >8</a>
-                        </div>
-                        <div title= "Suporte Interno" class="stepwizard-step col-md-auto">
-                            <a href="suporteinterno.php" id="support"   type="button" class="btn btn-default btn-circle  " >9</a>
-                        </div>
-                        <div title = "Interno" class="stepwizard-step col-md-auto">
-                            <a href="interno.php" type="button" id="botao10"   class="btn btn-default btn-circle  " >10</a>
-                        </div>
-                        <div title= "Vias Documentos funcionários" class="stepwizard-step col-md-auto">
-                            <a href="viasdocumentos.php" type="button" id="botao11" class="btn btn-default btn-circle" >11</a>
-                        </div>
-                        <div title= "Boas Vindas" class="stepwizard-step col-md-auto">
-                            <a href="recepcao.php" type="button" class="btn btn-default btn-circle" >12</a>
-                        </div>
+            <div class="stepwizard">
+                <div class="passos stepwizard-row1 setup-panel">
+                    <div class="stepwizard-step col-md-auto">
+                        <a title="Menu Principal" href="menuPrincipal.php?id=<?=$id?>" type="button" class="btn btn-default btn-circle">1</a>
+                    </div>
+                    <div title ="Proposta de Contratação" class="stepwizard-step col-md-auto">
+                        <a href="funcionario.php?id=<?=$id?>" type="button" class="btn btn-default btn-circle" >2</a>
+                    </div>
+                    <div title ="Gestão" class="stepwizard-step col-md-auto">
+                        <a href="gestao.php?id=<?=$id?>" id="gestao" type="button"  class="btn btn-default btn-circle ">3</a>
+                    </div>
+                    <div title="Vencimento Contratos" class="stepwizard-step col-md-auto">
+                        <a href="vencimentosContratos.php?id=<?=$id?>" id="botao"  type="button" class="btn btn-default btn-circle  ">4</a>
+                    </div>
+                    <div title="Documentação" class="stepwizard-step col-md-auto">
+                        <a href="documentacao.php?id=<?=$id?>" type="button" id="botao5"  class="btn btn-default btn-circle ">5</a>
+                    </div>
+                    <div title= "Plataforma Admissão Domínio Dados + Fichas de Cadastro" class="stepwizard-step col-md-auto">
+                        <a href="admissao.php?id=<?=$id?>" type="button" id="botao6"  class="btn btn-default  btn-circle" >6</a>
+                    </div>
+                    <div title="Exame Admissional" class="stepwizard-step col-md-auto">
+                        <a href="exame.php?id=<?=$id?>" type="button" id="botao7"  class="btn btn-default  btn-circle" >7</a>
+                    </div>
+                    <div title= "Dados Bancários" class="stepwizard-step col-md-auto">
+                        <a href="bancarios.php?id=<?=$id?>" type="button"  id="botao8" class="btn btn-success  btn-circle" >8</a>
+                    </div>
+                    <div title= "Suporte Interno" class="stepwizard-step col-md-auto">
+                        <a href="suporteinterno.php?id=<?=$id?>"  id="botao9" type="button" class="btn btn-default  btn-circle" >9</a>
+                    </div>
+                    <div title = "Interno" class="stepwizard-step col-md-auto">
+                        <a href="interno.php?id=<?=$id?>"  id="botao10" type="button" class="btn btn-default  btn-circle" >10</a>
+                    </div>
+                    <div title= "Vias Documentos funcionários" class="stepwizard-step col-md-auto">
+                        <a href="viasdocumentos.php?id=<?=$id?>" id="botao11"  type="button" class="btn btn-default  btn-circle" >11</a>
+                    </div>
+                    <div title= "Boas Vindas" class="stepwizard-step col-md-auto">
+                        <a href="recepcao.php?id=<?=$id?>" id="botao12" type="button" class="btn btn-default btn-circle" >12</a>
                     </div>
                 </div>
+            </div>
         </div>
             <table id='first-table'>
                 <h2 id='titulo-table'></h2>
@@ -186,7 +186,7 @@ $translado = buscasuporte($conn, $id);
                             <td><?php echo $rows_dados['AGENCIA'];?></td>
                             <td><?php echo $rows_dados['NUMERO_CONTA'];?></td>
                             <td><?php echo $rows_dados['TIPO_CONTA'];?></td>
-                            <td><a title="Suporte Interno" id="proximo" class="  btn btn-default" href="suporteinterno.php"> Próximo </td>
+                            <td><a title="Suporte Interno" id="proximo" class="  btn btn-default" href="suporteinterno.php?id=<?=$id?>"> Próximo </td>
                             <td><button title="Editar" type="button" class="bto-update btn btn-default curInputs">Editar</button></span></button></td>
                         </tr>
                     <?php } ?>
@@ -196,7 +196,7 @@ $translado = buscasuporte($conn, $id);
                             <td><input class='intable' readonly name="STATUS" value='<?=$status['STATUS']?>'></td>
                             <td><input type='date' id="campo" class='intable' name="ENVIO"  value="<?=$envio['ENVIO']?>"></td>
                             <td><input type="date" id="campo2" class='intable' name ="RECEBIDO"  value="<?=$recebido['RECEBIDO']?>"></td>
-                            <td><input type="date" id="campo3" class='intable' name="ANEXAR_COMPR_DOMIN"  value="<?=$anexar['ANEXAR_COMPR_DOMIN']?>"></td>
+                            <td><input type="date" id="campo3" class='intable' name="ANEXAR_COMPR_DOMIN"  value="<?=$recebido['ANEXAR_COMPR_DOMIN']?>"></td>
                             <td><input type="date" id="campo4" class='intable' name="PLANILHA_CONTAS"  value="<?=$planilha['PLANILHA_CONTAS']?>"></td>
                             <td><input type="date" id="campo5" class='intable' name="FORM_COMPR_BANCARIO"  value="<?=$form['FORM_COMPR_BANCARIO']?>"></td>
                             <td><input type="text" class='intable' name="AGENCIA" value="<?=$agencia['AGENCIA']?>" maxlength="4"></td>
