@@ -9,7 +9,7 @@
 </head>
 <body>
   <div class="centraliza">
-    <form class="centro" action="logar.php" method="POST">
+    <form class="centro" action="autenticacao.php" method="POST">
       <div class="t">       
         <label class="user"> Usuário: </label>
         <input type="text" class="usuario" name="usuario" id="usuario" autofocus>

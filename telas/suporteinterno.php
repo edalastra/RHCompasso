@@ -1,6 +1,6 @@
 
 <?php
-//session_start();
+
 require_once('../validacoes/login/user.php');
 include("../db/conexao.php");
 include("../update.php");
@@ -201,7 +201,7 @@ $emailsoli = buscavias($conn, $id);
                             <td><input class='intable' readonly name="STATUS"  value='<?=$status['STATUS']?>'></td>
                             <td><input type='email' class='intable' name="EMAIL_SUP"  value="<?=$mail['EMAIL_SUP']?>"></td>
                             <td><input type="text" class='intable' name ="USUARIO"  value="<?=$usuario['USUARIO']?>"></td>
-                            <td><input type="text" class='intable' name="SENHA"  value="<?=$senha['SENHA']?>"></td>
+                            <td><input type="text" class='intable' name="SENHA" id="jogaSenha" value="<?=$senha['SENHA']?>"></td>
                             <td><input type="text" class='intable' name="EQUIPAMENTO"  value="<?=$equipamento['EQUIPAMENTO']?>"></td>
                             <td><input type="text" class='intable' id="campo" name="TRANSLADO"  value="<?=$translado['TRANSLADO']?>"></td>
                             <td><select multiple"" onclick="anexaGrupo()" class="intable" id="books" name="EQUIPE[]"
@@ -211,6 +211,7 @@ $emailsoli = buscavias($conn, $id);
                     </form>
                 </tbody>
             </table>
+			<input type="button" name="botao-ok" value="Gerar uma senha" onclick = "funcao()" id="senhaUsuario">
         </section>
             <section class="legendas estruct">
                 <h2>Legendas</h2>
@@ -312,7 +313,7 @@ $emailsoli = buscavias($conn, $id);
     <script src="../js/funcionamento.js"></script>
     <script src="../js/filter.js"></script>
     <script src="../js/anexa-grupo-emails.js"></script>
-
+    <script src="../js/geraSenha.js"></script>
 </body>
 
 </html>
