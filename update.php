@@ -1,8 +1,9 @@
 <?php
-	include("db/conexao.php")
-?>
-<?php
-		//lista todas as sedes
+	include("db/conexao.php");
+	require_once('db/serverLDAP.php');
+
+	session_start();
+
 		function listar($conn){
 			$query = "SELECT * from sede";
 			$resultado = mysqli_query($conn, $query);
@@ -16,6 +17,7 @@
 			return mysqli_fetch_assoc($sede);
 		}
 		//retorna o cargo especifico de um funcionario
+		
 		function buscaCargoFuncionario($conn, $id){
 			$query = "SELECT CARGO FROM admissao_dominio WHERE USUARIO_ID = '{$id}'";
 			$cargo = mysqli_query($conn, $query);
@@ -41,7 +43,38 @@
 			return $resposta;
 		}
 
-		function defineUser($conn, $meuNome, $id){
+
+		function buscaUsuarioCompasso($link, $email){
+
+			
+			$usuario = $_SESSION['usuario'];
+			$senha = $_SESSION['senha'];
+
+			// Versao do protocolo       
+			ldap_set_option($link, LDAP_OPT_PROTOCOL_VERSION, 3);
+			// Usara as referencias do servidor AD, neste caso nao
+			ldap_set_option($link, LDAP_OPT_REFERRALS, 0);
+
+			$dominio = "pampa.compasso";
+
+
+			$r = @ldap_bind($link, $usuario . '@' . $dominio, $senha);
+			
+			
+
+			$filtro = "(samaccountname=" . $email . ")";
+			$justthese = array("*");
+			$res = ldap_search($link, "dc=pampa,dc=compasso", $filtro, $justthese);
+			$saida = ldap_get_entries($link, $res);
+			
+			
+			return $saida['count'];
+
+			
+		}
+
+
+		function defineUser($link, $meuNome, $id){
 			//array para comparar depois se o nome da pessoa tem agnome, se tiver, tem que ser ignorado
 			$agnomes = ["junior", "jr.", "segundo", "filho", "neto", "sobrinho", "jr", "bisneto", "filha", "juniar", "jra.", "segunda", "neta", "sobrinha", "bisneta"];
 			//remove acento
@@ -64,15 +97,23 @@
 			}
 		  }
 
-		  $verifica = buscaUsuario($conn, $email);
+		 
+		  $verifica = buscaUsuarioCompasso($link, $email);
 		  if($verifica > 0 AND $conta == 2){
 			$email = $nome.".".$sobrenome.$id;
 			}
 		  //se tem no banco
-		  $verifica2 = buscaUsuario($conn, $email);
+		
+		  $verifica2 = buscaUsuarioCompasso($link, $email);
 		  if($verifica2 > 0){
 			$sobrenome = $meuNome[$conta-2];
 			$email = $nome.".". $sobrenome;
+			}
+
+			$verifica3 = buscaUsuarioCompasso($link, $email);
+			if($verifica3 > 0){
+				$sobrenome = $meuNome[$conta-3];
+				$email = $nome.".". $sobrenome;
 			}
 
 		return $email;
