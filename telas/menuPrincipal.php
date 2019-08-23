@@ -313,6 +313,7 @@ if (isset($_POST['botaoVolta'])) {
     <main>
         <section class='menu-inicial'>
             <h2 id='nome'>Plataforma Admissão</h2>
+           
 
         </section>
         <section class='inputs panel-body display campo-filtro estruct'>
